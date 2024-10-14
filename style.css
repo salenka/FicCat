@@ -1,0 +1,57 @@
+h1 {color:red}
+
+
+/* Esconde seções condicionais */
+
+
+#mais-pessoa {
+display: none;
+}
+
+#pessoa-section {
+display: none;
+}
+
+#detalhes-pessoa {
+display: none;
+}
+
+#entidade-section {
+display: none;
+}
+
+#evento-section {
+display: none;
+}
+
+#autor-section {
+display: none;
+}
+
+#organizador-section {
+display: none;
+}
+
+#compilador-section {
+display: none;
+}
+
+#coordenador-section {
+display: none;
+}
+
+#editor-section {
+display: none;
+}
+
+#qtd-pessoa {
+display: none;
+}
+
+#tradutor-section {
+display: none;
+}
+
+#ilustrador-section {
+display: none;
+}

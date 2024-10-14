@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Ficha</title>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+
+<body>
+    
+    <h1>Biblioteca TESTE</h1>
+    <form action="/generate-pdf" method="post">
+
+        <!-- TÍTULO E SUBTÍTULO -->
+
+        <div id="titulo-section">
+
+            <label for="titulo">Título</label><br>
+            <input type="text" id="titulo" name="título" required><br><br>
+
+            <label for="subtitulo">Subtítulo</label><br>
+            <input type="text" id="subtitulo" name="subtitulo"><br><br>
+        </div>
+
+        <!-- TIPO DE RESPONSÁVEL -->
+
+        <div id="resp-int-section">
+
+            <p>O principal responsável intelectual pela obra é</p><br>
+
+            <input type="radio" id="pessoa" name="resp-int" value="pessoa">
+            <label for="pessoa">uma pessoa</label><br>
+
+            <input type="radio" id="entidade" name="resp-int" value="entidade">
+            <label for="entidade">uma entidade</label><br>
+
+            <input type="radio" id="evento" name="resp-int" value="evento">
+            <label for="evento">um evento</label><br><br>
+        </div>
+
+
+        <!-- PESSOA-->
+
+        <div id="pessoa-section">
+
+            <p>A pessoa é</p>
+
+            <input type="radio" id="autor" name="t-pessoa" value="autor">
+            <label for="autor">autor</label><br>
+
+            <input type="radio" id="organizador" name="t-pessoa" value="organizador">
+            <label for="organizador">organizador</label><br>
+
+            <input type="radio" id="coordenador" name="t-pessoa" value="coordenador">
+            <label for="coordenador">coordenador</label><br>
+
+            <input type="radio" id="compilador" name="t-pessoa" value="compilador">
+            <label for="compilador">compilador</label><br>
+
+            <input type="radio" id="editor" name="t-pessoa" value="editor">
+            <label for="editor">editor</label><br><br>
+        </div>
+
+
+
+        <div id="detalhes-pessoa">
+
+            <div id="autor-section">
+                <label for="nome">Prenomes do autor</label><br>
+                <input type="text" id="nome" name="nome"><br>
+
+                <label for="sobrenome">Sobrenome do autor</label><br>
+                <input type="text" id="sobrenome" name="sobrenome" required><br>
+
+                <p>Existe mais de um autor?</p>
+            </div>
+
+            <div id="organizador-section">
+                <label for="n-organizador">Nome do organizador</label><br>
+                <input type="text" id="n-organizador" name="n-organizador" required><br><br>
+
+                <p>Existe mais de um organizador?</p>
+            </div>
+
+            <div id="coordenador-section">
+                <label for="n-organizador">Nome do coordenador</label><br>
+                <input type="text" id="n-coordenador" name="n-coordenador" required><br>
+
+                <p>Existe mais de um coordenador?</p>
+            </div>
+
+            <div id="compilador-section">
+                <label for="n-compilador">Nome do compilador</label><br>
+                <input type="text" id="n-compilador" name="n-compilador" required><br>
+
+                <p>Existe mais de um compilador?</p>
+            </div>
+
+            <div id="editor-section">
+                <label for="n-editor">Nome do editor</label><br>
+                <input type="text" id="n-editor" name="n-editor" required><br>
+
+                <p>Existe mais de um editor?</p>
+            </div>
+        </div>
+
+
+        <!-- ENTIDADE -->
+
+        <div id="entidade-section">
+            <label for="n-entidade">Entidade</label><br>
+            <input type="text" id="n-entidade" name="n-entidade" required><br><br>
+        </div>
+
+
+        <!-- EVENTO -->
+
+        <div id="evento-section">
+            <label for="n-evento">Nome do Evento (sem a numeração)</label><br>
+            <input type="text" id="n-evento" name="n-evento" required><br><br>
+            <label for="num-evento">Número de ordem do evento (se houver) em algarismos arábicos</label><br>
+            <input type="text" id="num-evento" name="num-evento" required><br><br>
+            <label for="local-evento">Cidade de realização do evento</label><br>
+            <input type="text" id="local-evento" name="local-evento" required><br><br>
+        </div>
+
+
+        <!-- MAIS-PESSOA -->
+
+        <div id="mais-pessoa">
+            <!--<p>Existem mais pessoas com essa mesma função?</p>-->
+            <input type="radio" id="sim" name="mais-pessoa" value="sim">
+            <label for="sim">Sim</label><br>
+
+            <input type="radio" id="nao" name="mais-pessoa" value="nao" checked>
+            <label for="nao">Não</label><br><br />
+        </div>
+
+
+        <!-- QTD-PESSOA-->
+
+        <div id="qtd-pessoa">
+            <p>Quantos são no total?</p>
+            <input type="radio" class="qtd-pessoa-2" name="qtd-pessoa" value="2">
+            <label for="qtd-pessoa-2">2</label><br>
+            <input type="radio" class="qtd-pessoa-3" name="qtd-pessoa" value="3">
+            <label for="qtd-pessoa-3">3</label><br>
+            <input type="radio" class="qtd-pessoa-4" name="qtd-pessoa" value="4">
+            <label for="qtd-pessoa-4">4 ou mais</label><br>
+        </div>
+
+
+        <!-- CONTRIBUIDORES-->
+
+        <div id="contribuidores">
+            <p>Existem outros contribuidores?</p>
+            <input type="checkbox" id="ilustrador" name="t-contribuidor" value="ilustrador">
+            <label for="ilustrador">ilustrador</label><br>
+
+            <input type="checkbox" id="tradutor" name="t-contribuidor" value="tradutor">
+            <label for="tradutor">tradutor</label><br>
+        </div>
+
+        <div id="ilustrador-section">
+            <label for="n-ilustrador">Nome do ilustrador</label><br>
+            <input type="text" id="n-ilustrador" name="n-ilustrador" required><br>
+        </div>
+
+        <div id="tradutor-section">
+            <label for="n-tradutor">Nome do tradutor</label><br>
+            <input type="text" id="n-tradutor" name="n-tradutor" required><br>
+        </div>
+
+
+
+
+        <br />
+        <button type="submit">Gerar PDF</button>
+    </form>
+
+
+    <script src="script.js" charset="utf-8"></script>
+</body>
+</html>
