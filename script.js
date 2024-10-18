@@ -36,45 +36,50 @@ document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
 document.querySelectorAll('input[name="t-pessoa"]').forEach(radio => {
     radio.addEventListener('change', function () {
         document.getElementById('qtd-pessoa').style.display = 'none'; //para o caso de mudança entre tipos de pessoa
-        if (document.getElementById('autor').checked /*&& document.getElementById('pessoa').checked*/) {
+        if (document.getElementById('autor').checked) {
             document.getElementById('autor-section').style.display = 'block';
             document.getElementById('organizador-section').style.display = 'none';
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'none';
             document.getElementById('mais-pessoa').style.display = 'block';
+            uncheckRadio('mais-pessoa');
 
-        } else if (document.getElementById('organizador').checked /*&& document.getElementById('pessoa').checked*/)  {
+        } else if (document.getElementById('organizador').checked)  {
             document.getElementById('autor-section').style.display = 'none';
             document.getElementById('organizador-section').style.display = 'block';//não está mostrando
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'none';
             document.getElementById('mais-pessoa').style.display = 'block';
+            uncheckRadio('mais-pessoa');
             
-        } else if (document.getElementById('coordenador').checked /*&& document.getElementById('pessoa').checked*/) {
+        } else if (document.getElementById('coordenador').checked) {
             document.getElementById('autor-section').style.display = 'none';
             document.getElementById('organizador-section').style.display = 'none';
             document.getElementById('coordenador-section').style.display = 'block';
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'none';
             document.getElementById('mais-pessoa').style.display = 'block';
+            uncheckRadio('mais-pessoa');
             
-        } else if (document.getElementById('compilador').checked /*&& document.getElementById('pessoa').checked*/) {
+        } else if (document.getElementById('compilador').checked) {
             document.getElementById('autor-section').style.display = 'none';
             document.getElementById('organizador-section').style.display = 'none';
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'block';
             document.getElementById('editor-section').style.display = 'none';
             document.getElementById('mais-pessoa').style.display = 'block';
+            uncheckRadio('mais-pessoa');
             
-        } else if (document.getElementById('editor').checked /*&& document.getElementById('pessoa').checked*/) {
+        } else if (document.getElementById('editor').checked) {
             document.getElementById('autor-section').style.display = 'none';
             document.getElementById('organizador-section').style.display = 'none';
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'block';
             document.getElementById('mais-pessoa').style.display = 'block';
+            uncheckRadio('mais-pessoa');
            
          } else {
             document.getElementById('autor-section').style.display = 'none';
@@ -83,6 +88,7 @@ document.querySelectorAll('input[name="t-pessoa"]').forEach(radio => {
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'none';
             document.getElementById('mais-pessoa').style.display = 'none';
+            uncheckRadio('mais-pessoa');
          
         }
     });
@@ -101,4 +107,19 @@ document.querySelectorAll('input[name="mais-pessoa"]').forEach(radio => {
     });
 });
 
+//MAIS-AUTOR
+document.querySelectorAll('input[name="qtd-pessoa"]').forEach(radio => {
+    radio.addEventListener('change'), function () {
+        if (document.getElementById('qtd-pessoa-2').checked) {
+            document.getElementById('segundo-autor').style.display = 'block';
+            document.getElementById('terceiro-autor').style.display = 'none';
+        } else if (document.getElementById('qtd-pessoa-3').checked) {
+            document.getElementById('segundo-autor').style.display = 'block';
+            document.getElementById('terceiro-autor').style.display = 'block';
+        } else {
+            document.getElementById('segundo-autor').style.display = 'none';
+            document.getElementById('terceiro-autor').style.display = 'none';
+        }
+    }
+})
 
