@@ -1,12 +1,6 @@
+import { uncheckRadio } from './functions.js';
 // JavaScript source code
 alert("Funcionando");
-
-/*
-Acho que tem um conflito entre o 
-document.getElementById('mais-pessoa').style.display = 'none'; do resp-int-section e o
-document.getElementById('mais-pessoa').style.display = 'block'; do pessoa-section
-porque esse segundo continuará com uma das opões ticada mesmo que ela não esteja visível na página.
-*/
 
 // resp-int-section
 
@@ -23,36 +17,17 @@ document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
             document.getElementById('evento-section').style.display = 'none';
             uncheckRadio('t-pessoa');
             
-
         } else if (document.getElementById('evento').checked) {
             document.getElementById('pessoa-section').style.display = 'none';
             document.getElementById('entidade-section').style.display = 'none';
             document.getElementById('evento-section').style.display = 'block';
-            //document.querySelectorAll('input[name="t-pessoa"]:checked') = false;
-            //document.getElementById('pessoa-section').dispatchEvent (new Event('change'));
+            uncheckRadio('t-pessoa');
+            
         } 
     });
 });
 
-function uncheckRadio(radioName) {
-    const radioTarget = document.querySelector(`input[name="${radioName}"]:checked`); 
-    
-    // desmarca o radio que estiver marcado
-    if (radioTarget) {
-        radioTarget.checked = false;
-    }
-    // dispara o evento 'change' nas opções com radioName
-    const changeEvent = new Event('change');
-    
-    document.querySelectorAll(`input[name="${radioName}`).forEach(radio => {
-        if (radio) {
-        radio.dispatchEvent(changeEvent);
-       } else {
-            console.error(`Elemento ${radioName} não foi encontrado.`);
-              }
-    
-    })
-}
+
 
 
 
