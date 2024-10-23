@@ -18,4 +18,12 @@ export function uncheckRadio(radioName) {
     })
 }
 
-
+export function updateTipoPessoa() {
+    const pessoaSelecionada = document.querySelector('input[name="t-pessoa"]:checked').value;
+    
+        // Atualiza todos os spans com a classe 'span-tipo-pessoa' com o valor selecionado
+        const spans = document.querySelectorAll('.span-tipo-pessoa');
+        spans.forEach(span => {
+            span.textContent = pessoaSelecionada;
+        });
+}
