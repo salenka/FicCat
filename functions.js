@@ -27,3 +27,4 @@ export function updateTipoPessoa() {
             span.textContent = pessoaSelecionada;
         });
 }
+

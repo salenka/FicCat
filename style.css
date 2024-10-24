@@ -3,67 +3,114 @@ h1 {color:red}
 
 /* Esconde seções condicionais */
 
+ /* PESSOA */
+    #mais-pessoa {
+    display: none;
+    }
+    
+    #pessoa-section {
+    display: none;
+    }
+    
+    #detalhes-pessoa {
+    display: none;
+    }
+    
+    #entidade-section {
+    display: none;
+    }
+    
+    #evento-section {
+    display: none;
+    }
+    
+    #autor-section {
+    display: none;
+    }
+    
+    #organizador-section {
+    display: none;
+    }
+    
+    #compilador-section {
+    display: none;
+    }
+    
+    #coordenador-section {
+    display: none;
+    }
+    
+    #editor-section {
+    display: none;
+    }
+    
+    #qtd-pessoa {
+    display: none;
+    }
+    
+    #tradutor-section {
+    display: none;
+    }
+    
+    #ilustrador-section {
+    display: none;
+    }
+    
+    #segunda-pessoa {
+    display: none;
+    }
+    
+    #terceira-pessoa {
+    display: none;
+    }
+    
+    #quarta-pessoa {
+    display: none;
+    }
 
-#mais-pessoa {
+ /* CONTRIBUIDOR - Ilustrador */
+
+    #mais-ilustrador {
+        display: none;
+        }
+        
+        #qtd-ilustrador {
+        display: none;
+        }
+    
+    #segundo-ilustrador {
+    display: none;
+    }
+        
+    #terceiro-ilustrador {
+    display: none;
+    }
+        
+    #quarto-ilustrador {
+    display: none;
+    }
+
+/* CONTRIBUIDOR - Tradutor */
+
+#mais-tradutor {
+    display: none;
+    }
+    
+    #qtd-tradutor {
+    display: none;
+    }
+
+#segundo-tradutor {
+display: none;
+}
+    
+#terceiro-tradutor {
+display: none;
+}
+    
+#quarto-tradutor {
 display: none;
 }
 
-#pessoa-section {
-display: none;
-}
 
-#detalhes-pessoa {
-display: none;
-}
 
-#entidade-section {
-display: none;
-}
-
-#evento-section {
-display: none;
-}
-
-#autor-section {
-display: none;
-}
-
-#organizador-section {
-display: none;
-}
-
-#compilador-section {
-display: none;
-}
-
-#coordenador-section {
-display: none;
-}
-
-#editor-section {
-display: none;
-}
-
-#qtd-pessoa {
-display: none;
-}
-
-#tradutor-section {
-display: none;
-}
-
-#ilustrador-section {
-display: none;
-}
-
-#segunda-pessoa {
-display: none;
-}
-
-#terceira-pessoa {
-display: none;
-}
-
-#quarta-pessoa {
-display: none;
-}
