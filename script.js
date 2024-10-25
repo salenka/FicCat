@@ -246,3 +246,15 @@ document.getElementById('tradutor').addEventListener('change', function () {
             }
         });
     });
+
+    //MAIS-PUBLICADOR
+    
+    document.querySelectorAll('input[name="mais-publicador"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            if (document.getElementById('sim-publicador').checked) {
+                document.getElementById('segundo-publicador').style.display = 'block';
+            } else {
+                document.getElementById('segundo-publicador').style.display = 'none';
+            }
+        });
+    });
