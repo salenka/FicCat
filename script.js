@@ -258,3 +258,32 @@ document.getElementById('tradutor').addEventListener('change', function () {
             }
         });
     });
+
+    //PAGINAÇÃO
+
+    
+    document.querySelectorAll('input[name="paginacao"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+    
+    
+            if (document.getElementById('radio-pag-unica').checked) {
+                document.getElementById('paginacao-unica').style.display = 'block';
+                document.getElementById('paginacao-variada').style.display = 'none';
+                document.getElementById('paginacao-ausente').style.display = 'none';
+            } else if (document.getElementById('radio-pag-variada').checked) {
+                document.getElementById('paginacao-unica').style.display = 'none';
+                document.getElementById('paginacao-variada').style.display = 'block';
+                document.getElementById('paginacao-ausente').style.display = 'none';
+            } else if (document.getElementById('radio-pag-ausente').checked) {
+                document.getElementById('paginacao-unica').style.display = 'none';
+                document.getElementById('paginacao-variada').style.display = 'none';
+                document.getElementById('paginacao-ausente').style.display = 'block';
+            } else {
+                document.getElementById('paginacao-unica').style.display = 'block';
+                document.getElementById('paginacao-variada').style.display = 'block';
+                document.getElementById('paginacao-ausente').style.display = 'block';
+            }
+        });
+    });
+
+        

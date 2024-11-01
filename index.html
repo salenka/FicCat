@@ -290,28 +290,160 @@
     <input type="text" id="edicao" name="edicao"><br><br>
     <label for="publicador">Publicador</label><br>
     <input type="text" id="publicador" name="publicador"><br><br>
-    <label for="local">Local de publicação</label><br>
+    <label for="local">Local do publicador</label><br>
     <input type="text" id="local" name="local"><br><br>
 </div>
 
         <!-- MAIS-PUBLICAODR -->
 
         <div id="mais-publicador">
-            <!--<p>Existe mais um publicador?</p>-->
+            <p>Existe mais um publicador?</p>
             <input type="radio" id="sim-publicador" name="mais-publicador" value="sim">
-            <label for="sim">Sim</label><br>
+            <label for="sim">Sim</label>
 
             <input type="radio" id="nao-publicador" name="mais-publicador" value="nao">
-            <label for="nao">Não</label><br><br />
+            <label for="nao">Não</label>
         </div>
 
          <!-- OUTRO-PUBLICAODR -->       
     <div id="segundo-publicador">
         <label for="publicador2">Segundo publicador</label><br>
         <input type="text" id="publicador2" name="publicador2"><br><br>
-        <label for="local2">Local de publicação</label><br>
+        <label for="local2">Local do publicador</label><br>
         <input type="text" id="local2" name="local2"><br><br>
     </div>
+
+<!-- ÁREA DE DESCRIÇÃO FÍSICA -->
+
+    <!--Paginação-->
+
+        <div id="paginacao">
+            <p>Sobre a forma como a obra é paginada:</p>
+            <input type="radio" id="radio-pag-unica" name="paginacao" value="pag-unica">
+            <label for="sim">Esta obra possui uma única paginação numerada</label><br>
+
+            <input type="radio" id="radio-pag-variada" name="paginacao" value="pag-variada">
+            <label for="nao">Esta obra possui mais de um tipo de paginação</label><br>
+
+            <input type="radio" id="radio-pag-ausente" name="paginacao" value="pag-ausente">
+            <label for="nao">Esta obra não tem número de páginas impressos</label>
+        </div>
+                <br>
+                <div id="paginacao-unica">
+                    <label for="qtd-pag-unica">Quantidade de páginas</label>
+                    <input type="text" id="qtd-pag-unica" name="qtd-pag-unica" required>
+                </div>
+
+                <div id="paginacao-variada">
+                    <label for="qtd-pag-romana">Quantidade de páginas com numeração romana</label>
+                    <input type="text" id="qtd-pag-romana" name="qtd-pag-romana"><br>
+
+                    <label for="qtd-pag-arabica">Quantidade de páginas com numeração arábica</label>
+                    <input type="text" id="qtd-pag-arabica" name="qtd-pag-arabica"><br>
+
+                    <label for="qtd-pag-sem-num">Quantidade de folhas sem numeração</label>
+                    <input type="text" id="qtd-pag-unica" name="qtd-pag-unica">
+                
+                    
+                        <p>A quantidade de folhas sem numeração é</p>
+                        <input type="radio" id="certa-pag-ausente" name="certeza-pag-ausente" value="certa">
+                        <label for="sim">Certa</label>
+            
+                        <input type="radio" id="presumida-pag-ausente" name="certeza-pag-ausente" value="presumida">
+                        <label for="nao">Presumida</label>
+                    </div>
+
+                    <div id="certeza-pag-sem-num">
+                        <p>O conteúdo gráfico aparece, predominantemente</p>
+                        <input type="radio" id="pagina" name="certeza-pag-ausente" value="certa">
+                        <label for="sim">apenas em um lado das folhas</label>
+            
+                        <input type="radio" id="folha" name="certeza-pag-ausente" value="presumida">
+                        <label for="nao">nos dois lados das folhas</label>
+                    </div>
+        
+                <div id="paginacao-ausente">
+                    <label for="qtd-pag-ausente">Quantidade de folhas</label>
+                    <input type="text" id="qtd-pag-ausente" name="qtd-pag-ausente" required>
+
+                        <p>A quantidade de folhas é</p>
+                        <input type="radio" id="certa-pag-ausente" name="certeza-pag-ausente" value="certa">
+                        <label for="sim">Certa</label>
+            
+                        <input type="radio" id="presumida-pag-ausente" name="certeza-pag-ausente" value="presumida">
+                        <label for="nao">Presumida</label>
+                    </div>
+        
+    <!-- Material gráfico -->
+
+        <div id="imagem">
+            <p>O livro contém imagens?</p>
+            <input type="radio" id="sim-imagem" name="imagem" value="sim">
+            <label for="sim-imagem">Sim</label>
+
+            <input type="radio" id="nao-imagem" name="imagem" value="nao">
+            <label for="nao-imagem">Não</label>
+        </div>
+
+            
+            <div id="tipo-imagem">
+
+                <p>Este livro contém que tipo de imagem?</p>
+
+                <input type="checkbox" id="ilustracoes" name="tipo-imagem" value="ilustracoes">
+                <label for="sim">Ilustrações</label>
+        
+                <input type="checkbox" id="fotos" name="tipo-imagem" value="fotos">
+                <label for="nao">Fotos</label>
+
+                <input type="checkbox" id="mapas" name="tipo-imagem" value="mapas">
+                <label for="nao">Mapas</label>
+            </div>
+
+            <div id="coloracao-il">
+                <p>As ilustrações são, predominantemente</p>
+                <input type="radio" id="il-cores" name="coloracao-il" value="il-cores">
+                <label for="foto-cores">Em cores</label>
+    
+                <input type="radio" id="il-pb" name="coloracao-il" value="il-pb">
+                <label for="il-pb">Monocromáticas/a preto-e-branco</label>
+            </div>
+
+            <div id="coloracao-fotos">
+                <p>As fotos são, predominantemente</p>
+                <input type="radio" id="foto-cores" name="coloracao-fotos" value="foto-cores">
+                <label for="foto-cores">Em cores</label>
+    
+                <input type="radio" id="foto-pb" name="coloracao-fotos" value="foto-pb">
+                <label for="foto-pb">Monocromáticas/a preto-e-branco</label>
+            </div>
+
+            <div id="coloracao-mapas">
+                <p>Os mapas são, predominantemente</p>
+                <input type="radio" id="mapa-cores" name="coloracao-mapas" value="mapa-cores">
+                <label for="mapa-cores">Em cores</label>
+    
+                <input type="radio" id="mapa-pb" name="coloracao-mapas" value="mapa-pb">
+                <label for="mapa-pb">Monocromáticos/a preto-e-branco</label>
+            </div>
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         <br />

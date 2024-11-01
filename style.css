@@ -116,3 +116,47 @@ display: none;
     display: none;
     }
 
+
+#outro-publicador {
+    display: none;
+}
+
+#paginacao-unica {
+    display: none;
+}
+
+#paginacao-variada {
+    display: none;
+}
+
+#pag-sem-num {
+    display: none;
+}
+
+#certeza-pag-sem-num{
+    display: none;
+}
+
+#paginacao-ausente {
+    display: none;
+}
+
+#certeza-pag-ausente {
+    display: none;
+}
+
+#tipo-imagem {
+    display: none;
+}
+
+#coloracao-il {
+    display: none;
+}
+
+#coloracao-fotos {
+    display: none;
+}
+
+#coloracao-mapas {
+    display: none;
+}
