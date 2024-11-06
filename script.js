@@ -287,3 +287,44 @@ document.getElementById('tradutor').addEventListener('change', function () {
     });
 
         
+    //IMAGENS
+    
+    document.querySelectorAll('input[name="imagem"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            if (document.getElementById('sim-imagem').checked) {
+                document.getElementById('tipo-imagem').style.display = 'block';
+            } else {
+                document.getElementById('tipo-imagem').style.display = 'none';
+            }
+        });
+    });
+
+        //Checkbox ILUSTRAÇÕES
+        document.getElementById('ilustracoes').addEventListener('change', function () {
+           
+            if (document.getElementById('ilustracoes').checked) {
+                document.getElementById('coloracao-il').style.display = 'block';
+            } else   {
+                document.getElementById('coloracao-il').style.display = 'none';             
+            } 
+        })
+
+        //Checkbox FOTOS
+        document.getElementById('fotos').addEventListener('change', function () {
+           
+            if (document.getElementById('fotos').checked) {
+                document.getElementById('coloracao-fotos').style.display = 'block';
+            } else   {
+                document.getElementById('coloracao-fotos').style.display = 'none';             
+            } 
+        })
+
+        //Checkbox MAPAS
+        document.getElementById('mapas').addEventListener('change', function () {
+           
+            if (document.getElementById('mapas').checked) {
+                document.getElementById('coloracao-mapas').style.display = 'block';
+            } else   {
+                document.getElementById('coloracao-mapas').style.display = 'none';             
+            } 
+        })        
