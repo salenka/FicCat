@@ -1,5 +1,6 @@
 import { uncheckRadio } from './functions.js';
 import { updateTipoPessoa } from './functions.js';
+import { radioIsChecked } from './functions.js';
 // JavaScript source code
 alert("Funcionando");
 
@@ -279,9 +280,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
                 document.getElementById('paginacao-variada').style.display = 'none';
                 document.getElementById('paginacao-ausente').style.display = 'block';
             } else {
-                document.getElementById('paginacao-unica').style.display = 'block';
-                document.getElementById('paginacao-variada').style.display = 'block';
-                document.getElementById('paginacao-ausente').style.display = 'block';
+                document.getElementById('paginacao-unica').style.display = 'none';
+                document.getElementById('paginacao-variada').style.display = 'none';
+                document.getElementById('paginacao-ausente').style.display = 'none';
             }
         });
     });
@@ -327,4 +328,33 @@ document.getElementById('tradutor').addEventListener('change', function () {
             } else   {
                 document.getElementById('coloracao-mapas').style.display = 'none';             
             } 
-        })        
+        }) 
+        
+    //FORMATO
+
+    document.querySelectorAll('input[name="formato"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+    
+    
+            if (document.getElementById('formato-trad').checked) {
+                document.getElementById('formato-tradicional').style.display = 'block';
+                document.getElementById('formato-nao-tradicional').style.display = 'none';
+                document.getElementById('formato-digital').style.display = 'none';
+            } else if (document.getElementById('formato-nao-trad').checked) {
+                document.getElementById('formato-tradicional').style.display = 'none';
+                document.getElementById('formato-nao-tradicional').style.display = 'block';
+                document.getElementById('formato-digital').style.display = 'none';
+            } else if (document.getElementById('formato-digital').checked) {
+                document.getElementById('formato-tradicional').style.display = 'none';
+                document.getElementById('formato-nao-tradicional').style.display = 'none';
+                document.getElementById('formato-digital').style.display = 'block';
+            } else {
+                document.getElementById('formato-tradicional').style.display = 'none';
+                document.getElementById('formato-nao-tradicional').style.display = 'none';
+                document.getElementById('formato-digital').style.display = 'none';
+            }
+        });
+    
+    radioIsChecked("formato");
+    
+    });

@@ -32,15 +32,16 @@
             <p>O principal responsável intelectual pela obra é</p><br>
 
             <input type="radio" id="pessoa" name="resp-int" value="pessoa">
-            <label for="pessoa">uma pessoa</label><br>
-
+            <label for="pessoa">uma pessoa</label>
+            <br>
             <input type="radio" id="entidade" name="resp-int" value="entidade">
-            <label for="entidade">uma entidade</label><br>
-
+            <label for="entidade">uma entidade</label>
+            <br>
             <input type="radio" id="evento" name="resp-int" value="evento">
-            <label for="evento">um evento</label><br><br>
+            <label for="evento">um evento</label>
         </div>
 
+        <br><br>
 
         <!-- PESSOA-->
 
@@ -427,8 +428,40 @@
                 <label for="mapa-pb">Monocromáticos/a preto-e-branco</label>
             </div>
 
-            
+    <!-- Formato -->
 
+                <div id="formato">
+
+                    <p>Quanto ao formato</p>
+                    <input type="radio" id="formato-trad" name="formato" value="tradicional">
+                    <label for="formato-trad">O livro tem o formato tradicional</label>
+                    <br>
+                    <input type="radio" id="formato-nao-trad" name="formato" value="formato-nao-trad">
+                    <label for="formato-nao-trad">O livro tem um formato não tradicional</label>
+                    <br>
+                    <input type="radio" id="formato-digital" name="formato" value="formato-digital">
+                    <label for="formato-digital">A obra é digital ou prefiro não descrever suas dimensões</label>
+                </div>
+        
+                <br><br>
+
+                    <div id="formato-tradicional">
+                        <label for="trad">Altura em centímetros</label><br>
+                        <input type="text" id="trad" name="trad" required>
+                    </div>
+        
+                    <div id="formato-nao-tradicional">
+                        <label for="nao-trad-alt">Alturaa em centímetros</label><br>
+                        <input type="text" id="nao-trad-alt" name="nao-trad-alt" required>
+                        <label for="nao-trad-larg">Largura em centímetros</label><br>
+                        <input type="text" id="nao-trad-larg" name="nao-trad-larg" required>
+                    </div>
+
+
+
+
+        
+        <br><br>
 
 
 
