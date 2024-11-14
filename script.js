@@ -332,6 +332,30 @@ document.getElementById('tradutor').addEventListener('change', function () {
         
     //FORMATO
 
+    // OPÇOES DIV FORMATO (name:MATERIA)
+    document.querySelectorAll('input[name="materia"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+    
+    
+            if (document.getElementById('fisico').checked) {
+                document.getElementById('formato-fisico').style.display = 'block';
+                document.getElementById('formato-digital').style.display = 'none';
+
+            } else if (document.getElementById('digital').checked) {
+                document.getElementById('formato-fisico').style.display = 'none';
+                document.getElementById('formato-digital').style.display = 'block';
+            } else  {
+                document.getElementById('formato-fisico').style.display = 'none';
+                document.getElementById('formato-digital').style.display = 'none';
+            }
+        });
+    
+    radioIsChecked("materia");
+    
+    });
+
+
+    // OPÇOES DIV FORMATO-FÍSICO (name:FORMATO)
     document.querySelectorAll('input[name="formato"]').forEach(radio => {
         radio.addEventListener('change', function () {
     
@@ -339,22 +363,16 @@ document.getElementById('tradutor').addEventListener('change', function () {
             if (document.getElementById('formato-trad').checked) {
                 document.getElementById('formato-tradicional').style.display = 'block';
                 document.getElementById('formato-nao-tradicional').style.display = 'none';
-                document.getElementById('formato-digital').style.display = 'none';
             } else if (document.getElementById('formato-nao-trad').checked) {
                 document.getElementById('formato-tradicional').style.display = 'none';
                 document.getElementById('formato-nao-tradicional').style.display = 'block';
-                document.getElementById('formato-digital').style.display = 'none';
-            } else if (document.getElementById('formato-digital').checked) {
-                document.getElementById('formato-tradicional').style.display = 'none';
-                document.getElementById('formato-nao-tradicional').style.display = 'none';
-                document.getElementById('formato-digital').style.display = 'block';
             } else {
                 document.getElementById('formato-tradicional').style.display = 'none';
                 document.getElementById('formato-nao-tradicional').style.display = 'none';
-                document.getElementById('formato-digital').style.display = 'none';
             }
         });
     
     radioIsChecked("formato");
     
     });
+

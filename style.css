@@ -165,10 +165,18 @@ display: none;
     display: none;
 }
 
+#formato-fisico {
+    display:none;
+}
+
 #formato-tradicional {
     display: none;
 }
 
 #formato-nao-tradicional {
+    display: none;
+}
+
+#formato-digital {
     display: none;
 }

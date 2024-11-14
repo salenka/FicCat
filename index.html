@@ -430,20 +430,32 @@
 
     <!-- Formato -->
 
-                <div id="formato">
+            <div id="formato">
 
+                <p>Quanto a materialidade</p>
+                <input type="radio" id="fisico" name="materia" value="fisico">
+                <label for="fisico">O livro é físico</label>
+                <br>
+                <input type="radio" id="digital" name="materia" value="digital">
+                <label for="digital">O livro é digital</label>
+                <br>
+            </div>
+
+            <br>
+
+                <div id="formato-fisico">
                     <p>Quanto ao formato</p>
                     <input type="radio" id="formato-trad" name="formato" value="tradicional">
                     <label for="formato-trad">O livro tem o formato tradicional</label>
                     <br>
-                    <input type="radio" id="formato-nao-trad" name="formato" value="formato-nao-trad">
+                    <input type="radio" id="formato-nao-trad" name="formato" value="sem-formato">
                     <label for="formato-nao-trad">O livro tem um formato não tradicional</label>
                     <br>
-                    <input type="radio" id="formato-digital" name="formato" value="formato-digital">
-                    <label for="formato-digital">A obra é digital ou prefiro não descrever suas dimensões</label>
+                    <input type="radio" id="sem-formato" name="formato" value="sem-formato-digital">
+                    <label for="sem-formato">Não sei ou prefiro não informar suas dimensões</label>
                 </div>
         
-                <br><br>
+                <br>
 
                     <div id="formato-tradicional">
                         <label for="trad">Altura em centímetros</label><br>
@@ -458,6 +470,12 @@
                     </div>
 
 
+                <div id="formato-digital">
+                    <label for="extensao">Informe a extensão do arquivo digital</label><br>
+                    <input type="text" id="extensao" name="extensao" required>
+                </div>
+        
+                <br><br>
 
 
         
