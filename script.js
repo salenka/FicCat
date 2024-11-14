@@ -332,7 +332,7 @@ document.getElementById('tradutor').addEventListener('change', function () {
         
     //FORMATO
 
-    // OPÇOES DIV FORMATO (name:MATERIA)
+    // OPÇOES DIV MATERIALIDADE (name:MATERIA)
     document.querySelectorAll('input[name="materia"]').forEach(radio => {
         radio.addEventListener('change', function () {
     
@@ -348,6 +348,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
                 document.getElementById('formato-fisico').style.display = 'none';
                 document.getElementById('formato-digital').style.display = 'none';
             }
+
+        uncheckRadio(formato);
+            
         });
     
     radioIsChecked("materia");

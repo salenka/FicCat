@@ -1,3 +1,6 @@
+
+//desmarca o rádio selecionado de uma div-filha com determinado name
+//use na div-pai
 export function uncheckRadio(inputName) {
     const radioTarget = document.querySelector(`input[name="${inputName}"]:checked`); 
     
