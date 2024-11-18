@@ -6,15 +6,22 @@
     <title>Ficha</title>
 
     <link rel="stylesheet" href="style.css" />
+
+<! -- instalação da lib jsPDF via CDN: -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
 </head>
 
 
 <body>
     
     <h1>Biblioteca TESTE</h1>
-    <form action="/generate-pdf" method="post">
 
-        <!-- TÍTULO E SUBTÍTULO -->
+    <form id="pdfForm">
+   
+            <!-- TÍTULO E SUBTÍTULO -->
 
         <div id="titulo-section">
 
@@ -498,10 +505,24 @@
 
 
         <br />
-        <button type="submit">Gerar PDF</button>
+        <button type="button" onclick="generatePdf()">Gerar PDF</button>
     </form>
 
 
     <script type="module" src="script.js" charset="utf-8"></script>
+
+<!-- Este código quebrou o formulário
+    <script>
+        async function generatePdf() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        
+        doc.text("Hello, world!", 10, 10);
+        doc.save("output.pdf");
+        }
+
+-->
+
+
 </body>
 </html>

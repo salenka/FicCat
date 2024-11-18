@@ -31,9 +31,9 @@ export function updateTipoPessoa() {
         });
 }
 
-export function radioIsChecked(inputName){
+/*export function radioIsChecked(inputName){
 
-    const radios = document.querySelectorAll('input[name="${inputName}"]');
+    const radios = document.querySelectorAll(`input[name="${inputName}"]`);
     let algumSelecionado = false;
 
     radios.forEach((radio) => {
@@ -43,7 +43,9 @@ export function radioIsChecked(inputName){
     });
 
         if (!algumSelecionado) {
-        event.preventDefault(); // Impede o envio do formulário
+
+            const myevent = new Event('event');
+        myevent.preventDefault(); // Impede o envio do formulário
                 
         // Crie um novo elemento de erro
                 const mensagemErro = document.createElement("span");
@@ -55,4 +57,12 @@ export function radioIsChecked(inputName){
                 const divPai = radios[0].closest("div");
                 divPai.appendChild(mensagemErro);
         }
+}*/
+
+export async function generatePdf() {
+const { jsPDF } = window.jspdf;
+const doc = new jsPDF();
+
+doc.text("Hello, world!", 10, 10);
+doc.save("output.pdf");
 }

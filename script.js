@@ -1,8 +1,12 @@
 import { uncheckRadio } from './functions.js';
 import { updateTipoPessoa } from './functions.js';
-import { radioIsChecked } from './functions.js';
+//import { radioIsChecked } from './functions.js';
+
+import {generatePDF} from ';/functions.js';
 // JavaScript source code
 alert("Funcionando");
+
+
 
 // resp-int-section
 
@@ -329,31 +333,40 @@ document.getElementById('tradutor').addEventListener('change', function () {
                 document.getElementById('coloracao-mapas').style.display = 'none';             
             } 
         }) 
+
+
         
     //FORMATO
 
     // OPÇOES DIV MATERIALIDADE (name:MATERIA)
     document.querySelectorAll('input[name="materia"]').forEach(radio => {
         radio.addEventListener('change', function () {
+            alert("entrou no listener da materialidade");
+
+            uncheckRadio('formato');
+            
     
     
             if (document.getElementById('fisico').checked) {
+                alert("Entrou no if da opção físico");
                 document.getElementById('formato-fisico').style.display = 'block';
                 document.getElementById('formato-digital').style.display = 'none';
 
             } else if (document.getElementById('digital').checked) {
+                alert("Entrou no if else da opção digital");
                 document.getElementById('formato-fisico').style.display = 'none';
                 document.getElementById('formato-digital').style.display = 'block';
             } else  {
+                alert("Entrou no else de nenhuma opção selecionada");
                 document.getElementById('formato-fisico').style.display = 'none';
                 document.getElementById('formato-digital').style.display = 'none';
             }
 
-        uncheckRadio(formato);
+       
             
         });
     
-    radioIsChecked("materia");
+    //radioIsChecked("materia"); //não funciona!
     
     });
 
@@ -362,6 +375,7 @@ document.getElementById('tradutor').addEventListener('change', function () {
     document.querySelectorAll('input[name="formato"]').forEach(radio => {
         radio.addEventListener('change', function () {
     
+            
     
             if (document.getElementById('formato-trad').checked) {
                 document.getElementById('formato-tradicional').style.display = 'block';
@@ -375,7 +389,7 @@ document.getElementById('tradutor').addEventListener('change', function () {
             }
         });
     
-    radioIsChecked("formato");
+    //radioIsChecked("formato"); //não funciona!
     
     });
 
