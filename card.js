@@ -7,8 +7,8 @@ document.getElementById("ficcat").addEventListener("submit", function (event) {
     // Capturando os valores dos campos
 
     // AREA DO TITULO
-    const titulo = document.getElementById("titulo").value;
-    const idade = document.getElementById("subtitulo").value;
+    localStorage.setItem('titulo',  = document.getElementById("titulo").value;
+    localStorage.setItem("idade = document.getElementById("subtitulo").value;
 
 
 // RESPONSABILIDADE INTELECTUAL
@@ -123,12 +123,12 @@ document.getElementById("ficcat").addEventListener("submit", function (event) {
 
 
     // Exemplo de formatação do texto
-    const textoFormatado = `
-        Nome: ${nome}
-        
-        Mensagem: ${mensagem}
+    const ficha = `
+        ${sobrenome}, ${nome}.
+        ${titulo}: ${subtítulo}. -- ${edicao}. -- ${local}: ${publicador}, ${ano}.
+       
     `;
 
-    console.log(textoFormatado); // Teste no console
-    gerarPDF(textoFormatado); // Chama a função para criar o PDF
+    console.log(ficha); // Teste no console
+    generatePDF(ficha); // Chama a função para criar o PDF
 });
