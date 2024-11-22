@@ -59,10 +59,3 @@ export function updateTipoPessoa() {
         }
 }*/
 
-export async function generatePdf() {
-const { jsPDF } = window.jspdf;
-const doc = new jsPDF();
-
-doc.text("Hello, world!", 10, 10);
-doc.save("output.pdf");
-}

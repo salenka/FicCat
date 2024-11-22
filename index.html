@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> -->
 
 
 </head>
@@ -18,7 +18,7 @@
     
     <h1>Biblioteca TESTE</h1>
 
-    <form id="ficcat">
+    <!-- <form id="ficcat"> -->
    
             <!-- TÍTULO E SUBTÍTULO -->
 
@@ -298,7 +298,9 @@
     <label for="publicador">Publicador</label><br>
     <input type="text" id="publicador" name="publicador"><br><br>
     <label for="local">Local do publicador</label><br>
-    <input type="text" id="local" name="local"><br><br>
+    <input type="text" id="local" name="local"><br>
+    <label for="ano">Ano</label><br>
+    <input type="text" id="ano" name="ano"><br><br>
 </div>
 
         <!-- MAIS-PUBLICAODR -->
@@ -317,7 +319,9 @@
         <label for="publicador2">Segundo publicador</label><br>
         <input type="text" id="publicador2" name="publicador2"><br><br>
         <label for="local2">Local do publicador</label><br>
-        <input type="text" id="local2" name="local2"><br><br>
+        <input type="text" id="local2" name="local2"><br>
+        <label for="ano2">Ano</label><br>
+        <input type="text" id="ano2" name="Ano2"><br><br>
     </div>
 
 <!-- ÁREA DE DESCRIÇÃO FÍSICA -->
@@ -490,37 +494,12 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         <br />
-        <button type="button" onclick="generatePdf()">Gerar PDF</button>
-    </form>
+        <button type="button" id="btn">Gerar Ficha</button>
+    <!-- </form> -->
 
 
     <script type="module" src="script.js" charset="utf-8"></script>
-
-<!-- Este código quebrou o formulário
-    <script>
-        async function generatePdf() {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-        
-        doc.text("Hello, world!", 10, 10);
-        doc.save("output.pdf");
-        }
-
--->
 
 
 </body>

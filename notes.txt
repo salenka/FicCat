@@ -1,1 +1,53 @@
             alert("Evento disparado para:", this.id);
+
+            // Abra uma nova aba
+ const novaAba = window.open("", "_blank");
+
+ // Configure o conteúdo da nova aba
+ novaAba.document.write(`
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Ficha Bibliográfica</title>
+         <style>
+             body {
+                 font-family: Arial, sans-serif;
+                 line-height: 1.6;
+                 margin: 20px;
+             }
+         </style>
+     </head>
+     <body>
+         <h1>Ficha Bibliográfica</h1>
+         <p>${ficha}</p>
+     </body>
+     </html>
+ `);
+ 
+ // Fecha o fluxo de escrita e exibe o conteúdo
+ novaAba.document.close();
+
+
+
+
+
+ --------------------------------------
+
+
+
+ 
+    // tipo de responsável selecionado
+    function radioSelected(inputName) {
+    localStorage.setItem('selected', document.querySelector(`input[name="${inputName}"]:checked`));
+    
+    if(radioSelected) {
+        valueSelected = radioSelected.value; 
+    } else {
+        alert('Seleção de radio ${inputName} não encontrado')
+    }
+}
+
+
+-------------------------------------------
