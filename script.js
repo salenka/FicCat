@@ -413,15 +413,42 @@ document.getElementById('tradutor').addEventListener('change', function () {
     })
 
 
-// Gerar a ficha catalográfica
-document.getElementById("btn_gf").addEventListener("click", function () {
-    // Recuperar os dados do localStorage
-    const titulo = localStorage.getItem("titulo") || "Título não informado";
-    const subtitulo = localStorage.getItem("subtitulo") || "Subtítulo não informado";
+// PROCESSO DE GERAÇÃO DA FICHA
+//OBTENÇÃO DAS VARIÁVEIS A SEREM USADAS
 
-    // Gerar ficha catalográfica
+document.getElementById("btn_gf").addEventListener("click", function () {
+
+const titulo = localStorage.getItem("titulo") || "" ;  
+    
+let subtitulo = "";
+if (document.getElementById("subtitulo").value != "") {
+        const sub = localStorage.getItem("subtitulo");
+        subtitulo = ': ' + sub;
+}
+
+let edicao = "";
+if (document.getElementById("edicao").value != "") {
+    const ed = localStorage.getItem("edicao");
+    edicao = '. -- ' + ed + ' ed.';
+}
+
+    //Contribuidores
+let ilustrador = "";
+if (document.getElementById("ilustrador").checked) {
+    const nIlustrador = localStorage.getItem("n-ilustrador");
+    ilustrador = ' ; ilustrado por ' + nIlustrador;
+}
+
+let tradutor = "";
+if (document.getElementById("tradutor").checked) {
+    const nTradutor = localStorage.getItem("n-tradutor");
+    tradutor = ' ; traduzido por ' + nTradutor;
+}
+
+
+    // CONFIGURAÇÃO DA FICHA CATALOGRÁFICA
     const ficha = `
-        ${titulo}: ${subtitulo}
+        ${titulo}${subtitulo}${edicao}/${ilustrador}${tradutor} 
     `;
    // Exibir a ficha no HTML
    document.getElementById("ficha_aqui").textContent = ficha;
