@@ -1,6 +1,7 @@
 import { uncheckRadio } from './functions.js';
 import { updateTipoPessoa } from './functions.js';
 //import { radioIsChecked } from './functions.js';
+import { saveData } from './functions.js';
 
 //import {generatePDF} from ';/functions.js';
 // JavaScript source code
@@ -400,4 +401,38 @@ document.getElementById('tradutor').addEventListener('change', function () {
         });
     })
 
+
+  // CARD ----------------------------------------------------------
+ 
+ // Adiciona o evento 'input' para todos os campos do formulário
+ document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('#ficcat input[type="text"]').forEach(campo => {
+       campo.addEventListener("input", saveData);
+       });
+   
+    })
+
+
+// Gerar a ficha catalográfica
+document.getElementById("btn_gf").addEventListener("click", function () {
+    // Recuperar os dados do localStorage
+    const titulo = localStorage.getItem("titulo") || "Título não informado";
+    const subtitulo = localStorage.getItem("subtitulo") || "Subtítulo não informado";
+
+    // Gerar ficha catalográfica
+    const ficha = `
+        ${titulo}: ${subtitulo}
+    `;
+   // Exibir a ficha no HTML
+   document.getElementById("ficha_aqui").textContent = ficha;
+   document.getElementById("fichaCatalografica").style.display = "block";
+});
+
+
+
+
+
+
+
     
+

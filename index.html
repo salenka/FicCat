@@ -25,7 +25,7 @@
         <div id="titulo-section">
 
             <label for="titulo">Título</label><br>
-            <input type="text" id="titulo" name="título" required><br><br>
+            <input type="text" id="titulo" name="titulo" required><br><br>
 
             <label for="subtitulo">Subtítulo</label><br>
             <input type="text" id="subtitulo" name="subtitulo"><br><br>
@@ -491,9 +491,15 @@
         
      
         <br />
-        <button type="button" id="btn">Gerar Ficha</button>
+        <button type="button" id="btn">Testa conexão</button>
+        <button type="button" id="btn_gf">Gera ficha</button>
+        
     </form>
 
+    <div id="fichaCatalografica" style="display: none;">
+        <h3>Ficha Catalográfica:</h3>
+        <p id="ficha_aqui"></p>
+    </div>
 
     <script type="module" src="script.js" charset="utf-8"></script>
 

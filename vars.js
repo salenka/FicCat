@@ -5,6 +5,10 @@
 
 //document.getElementById("ficcat").addEventListener("submit", function (event) {
     //event.preventDefault(); // Impede o envio do formulário
+
+
+
+
     
     // Capturando os valores dos campos
 
@@ -118,3 +122,37 @@
  //   `;
 
  //}) submit no início de CARD.JS
+
+
+
+
+
+
+
+
+ //do script (depois que parou de funcionar)
+
+  // CARD ----------------------------------------------------------
+ 
+ // Adiciona o evento 'input' para todos os campos do formulário
+ document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('#ficcat input[type="text"]').forEach(campo => {
+       campo.addEventListener("input", saveData);
+       });
+   
+    })
+
+
+// do functions
+
+// CARD -----------------------------------------------------------------
+
+// Função para salvar automaticamente os dados no localStorage
+function saveData(event) {
+    const campo = event.target; // Campo que disparou o evento
+    const valor = campo.value; // Valor do campo
+    const nome = campo.name; // Nome do campo (usado como chave no localStorage)
+
+    // Salva no localStorage
+    localStorage.setItem(nome, valor); 
+}

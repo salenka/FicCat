@@ -1,4 +1,6 @@
 
+// FORM -----------------------------------------------------------------
+
 //desmarca o rádio selecionado de uma div-filha com determinado name
 //use na div-pai
 export function uncheckRadio(inputName) {
@@ -58,4 +60,16 @@ export function updateTipoPessoa() {
                 divPai.appendChild(mensagemErro);
         }
 }*/
+
+// CARD -----------------------------------------------------------------
+
+// Função para salvar automaticamente os dados no localStorage
+export function saveData(event) {
+    const campo = event.target; // Campo que disparou o evento
+    const valor = campo.value; // Valor do campo
+    const nome = campo.name; // Nome do campo (usado como chave no localStorage)
+
+    // Salva no localStorage
+    localStorage.setItem(nome, valor); 
+}
 
