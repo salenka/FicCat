@@ -1,4 +1,4 @@
-//___________________________________________________________________________
+/*
 
 
 //CARD.JS
@@ -156,3 +156,5 @@ function saveData(event) {
     // Salva no localStorage
     localStorage.setItem(nome, valor); 
 }
+
+*/

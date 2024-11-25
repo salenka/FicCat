@@ -439,16 +439,54 @@ if (document.getElementById("ilustrador").checked) {
     ilustrador = ' ; ilustrado por ' + nIlustrador;
 }
 
+
+const maisIlustrador = document.querySelector('input[name="mais-ilustrador"]:checked')?.value;
+const qtdIlustrador = document.querySelector('input[name="qtd-ilustrador"]:checked')?.value;
+let ilustrador2 = "";
+let ilustrador3 = "";
+
+if (maisIlustrador === "sim") {
+    if (qtdIlustrador === "2") {
+        ilustrador2 = localStorage.getItem("ilustrador-2");
+        ilustrador2 = ' e ' + ilustrador2;
+    } else if (qtdIlustrador === "3") {
+        ilustrador2 = localStorage.getItem("ilustrador-2");
+        ilustrador3 = localStorage.getItem("ilustrador-3");
+        ilustrador2 = ', ' + ilustrador2;
+        ilustrador3 = ' e ' + ilustrador3;
+    } else {
+        ilustrador2 = " ... [et al.]";
+    }
+}
+ 
 let tradutor = "";
 if (document.getElementById("tradutor").checked) {
     const nTradutor = localStorage.getItem("n-tradutor");
     tradutor = ' ; traduzido por ' + nTradutor;
 }
 
+const maisTradutor = document.querySelector('input[name="mais-tradutor"]:checked')?.value;
+const qtdTradutor = document.querySelector('input[name="qtd-tradutor"]:checked')?.value;
+let tradutor2 = "";
+let tradutor3 = "";
+
+if (maisTradutor === "sim") {
+    if (qtdTradutor === "2") {
+        tradutor2 = localStorage.getItem("tradutor-2");
+        tradutor2 = ' e ' + tradutor2;
+    } else if (qtdTradutor === "3") {
+        tradutor2 = localStorage.getItem("tradutor-2");
+        tradutor3 = localStorage.getItem("tradutor-3");
+        tradutor2 = ', ' + tradutor2;
+        tradutor3 = ' e ' + tradutor3;
+    } else {
+        tradutor2 = " ... [et al.]";
+    }
+}
 
     // CONFIGURAÇÃO DA FICHA CATALOGRÁFICA
     const ficha = `
-        ${titulo}${subtitulo}${edicao}/${ilustrador}${tradutor} 
+        ${titulo}${subtitulo}${edicao}/${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3} 
     `;
    // Exibir a ficha no HTML
    document.getElementById("ficha_aqui").textContent = ficha;
