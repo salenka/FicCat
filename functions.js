@@ -24,7 +24,7 @@ export function uncheckRadio(inputName) {
 }
 
 export function updateTipoPessoa() {
-    const pessoaSelecionada = document.querySelector('input[name="t-pessoa"]:checked').value;
+    const pessoaSelecionada = document.querySelector('input[name="t-pessoa"]:checked')?.value;
     
         // Atualiza todos os spans com a classe 'span-tipo-pessoa' com o valor selecionado
         const spans = document.querySelectorAll('.span-tipo-pessoa');

@@ -14,10 +14,11 @@ alert("Funcionando");
 document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        uncheckRadio('t-pessoa');
-        uncheckRadio('qtd-pessoa');
+
 
         if (document.getElementById('pessoa').checked) {
+            uncheckRadio('t-pessoa');
+            uncheckRadio('qtd-pessoa');
             document.getElementById('pessoa-section').style.display = 'block';
             document.getElementById('entidade-section').style.display = 'none';
             document.getElementById('evento-section').style.display = 'none';
@@ -418,7 +419,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
 
 document.getElementById("btn_gf").addEventListener("click", function () {
 
-const titulo = localStorage.getItem("titulo") || "" ;  
+// ÁREA DE TÍTULO
+
+    const titulo = localStorage.getItem("titulo");  
     
 let subtitulo = "";
 if (document.getElementById("subtitulo").value != "") {
@@ -432,7 +435,70 @@ if (document.getElementById("edicao").value != "") {
     edicao = '. -- ' + ed + ' ed.';
 }
 
-    //Contribuidores
+//RESPONSABILIDADE INTELECTUAL
+
+// Tipo de responsável
+
+let entidade = "";
+let evento = "";
+
+const respInt = document.querySelector('input[name="resp-int"]:checked')?.value;
+
+if (respInt === "pessoa") {
+    console.log("autor");
+    
+} else if (respInt === "entidade") {
+   entidade = localStorage.getItem("n-entidade");
+   console.log("entidade");
+
+} else if (respInt === "evento") {
+    console.log("evento");
+    evento = localStorage.getItem("n-evento");
+    const num = localStorage.getItem("num-evento");
+    const ano = localStorage.getItem("ano-evento");
+    const local = localStorage.getItem("local-evento");
+    evento = evento + " (" + num + ". : " + ano + " : " + local + ")";  
+}
+
+
+// Tipo de pessoa
+
+let nome = "";
+let sobrenome = "";
+let autor = "";
+let autorEntrada = "";
+let organizador = "";
+let coordenador = "";
+let compilador = "";
+let editor = "";
+
+const tipoPessoa = document.querySelector('input[name="t-pessoa"]:checked')?.value;
+if (tipoPessoa === "autor") {
+    nome = localStorage.getItem("nome"); 
+    sobrenome = localStorage.getItem("sobrenome");
+    autorEntrada = sobrenome + ", " + nome;
+    autor = nome + " " + sobrenome;
+
+} else if (tipoPessoa === "organizador") {
+    org = localStorage.getItem("n-organizador");
+    organizador = 'organizado por ' + org;
+
+} else if (tipoPessoa === "coordenador") {
+    coord = localStorage.getItem("n-coordenador");
+    coordenador = 'coordenado por ' + coord;
+
+} else if (tipoPessoa === "compilador") {
+    comp = localStorage.getItem("n-compilador");
+    compilador = 'compilado por ' + comp;
+
+} else if (tipoPessoa === "editor") {
+    ed = localStorage.getItem("n-editor");
+    editor = 'editado por ' + ed;
+}
+
+
+
+//Contribuidores
 let ilustrador = "";
 if (document.getElementById("ilustrador").checked) {
     const nIlustrador = localStorage.getItem("n-ilustrador");
@@ -485,9 +551,17 @@ if (maisTradutor === "sim") {
 }
 
     // CONFIGURAÇÃO DA FICHA CATALOGRÁFICA
+
+   
     const ficha = `
-        ${titulo}${subtitulo}${edicao}/${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3} 
+        ${autorEntrada}${entidade}${evento}
+        ${titulo}${subtitulo}${edicao}/${autor}${entidade||""}${evento}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3} 
     `;
+
+
+
+
+
    // Exibir a ficha no HTML
    document.getElementById("ficha_aqui").textContent = ficha;
    document.getElementById("fichaCatalografica").style.display = "block";

@@ -1,5 +1,8 @@
 h1 {color:red}
 
+#ficha_aqui {
+    white-space: pre-wrap; /* Preserva quebras de linha e espaços */
+}
 
 /* Esconde seções condicionais */
 
