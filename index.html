@@ -329,69 +329,58 @@
 
     <!--Paginação-->
 
-
-    <!-- MUDAR PARA CHECKBOXES: "há páginas prefaciais com paginação romana", "há paginas com imagens não numeradas" se não... tem ids com nomes iguais: certa-pag-ausente -->
-
         <div id="paginacao">
+            <br>
             <p>Sobre a forma como a obra é paginada:</p>
-            <input type="radio" id="radio-pag-unica" name="paginacao" value="pag-unica">
-            <label for="sim">Esta obra possui uma única paginação numerada</label><br>
+            <input type="radio" id="pag-com-num" name="paginacao" value="pag-com-num">
+            <label for="pag-com-num">As páginas possuem numeração impressa</label><br>
 
-            <input type="radio" id="radio-pag-variada" name="paginacao" value="pag-variada">
-            <label for="nao">Esta obra possui mais de um tipo de paginação</label><br>
-
-            <input type="radio" id="radio-pag-ausente" name="paginacao" value="pag-ausente">
-            <label for="nao">Esta obra não tem número de páginas impressos</label>
+            <input type="radio" id="pag-sem-num" name="paginacao" value="pag-sem-num">
+            <label for="pag-sem-num">As páginas não são numeradas</label><br>
         </div>
-                <br>
-                <div id="paginacao-unica">
-                    <label for="qtd-pag-unica">Quantidade de páginas</label>
-                    <input type="text" id="qtd-pag-unica" name="qtd-pag-unica" required>
+                
+                <div id="paginacao-numerada">
+                    <br>
+                    <label for="qtd-pag-num">Número da última página impressa</label>
+                    <input type="text" id="qtd-pag-num" name="qtd-pag-num" required>
+              
+                    <label for="pag-romana">O livro possui páginas prefaciais em algarismos romanos</label>
+                    <input type="checkbox" id="pag-romana" name="outra-pag">
+
+                    <label for="pag-lamina">O livro possui páginas não numeradas contendo imagens (lâminas)</label>
+                    <input type="checkbox" id="pag-lamina" name="outra-pag">
                 </div>
 
-                <div id="paginacao-variada">
-                    <label for="qtd-pag-romana">Quantidade de páginas com numeração romana</label>
-                    <input type="text" id="qtd-pag-romana" name="qtd-pag-romana"><br>
-
-                    <label for="qtd-pag-arabica">Quantidade de páginas com numeração arábica</label>
-                    <input type="text" id="qtd-pag-arabica" name="qtd-pag-arabica"><br>
-
-                    <label for="qtd-pag-sem-num">Quantidade de folhas sem numeração</label>
-                    <input type="text" id="qtd-pag-unica" name="qtd-pag-unica">
-                
-                    
-                        <p>A quantidade de folhas sem numeração é</p>
-                        <input type="radio" id="certa-pag-ausente" name="certeza-pag-ausente" value="certa">
-                        <label for="sim">Certa</label>
-            
-                        <input type="radio" id="presumida-pag-ausente" name="certeza-pag-ausente" value="presumida">
-                        <label for="nao">Presumida</label>
+                    <div id="paginacao-romana">
+                        <br>
+                        <label for="qtd-pag-romana">Quantidade de páginas com numeração romana</label>
+                        <input type="text" id="qtd-pag-romana" name="qtd-pag-romana">
                     </div>
 
-                    <div id="certeza-pag-sem-num">
-                        <p>O conteúdo gráfico aparece, predominantemente</p>
-                        <input type="radio" id="pagina" name="certeza-pag-ausente" value="certa">
-                        <label for="sim">apenas em um lado das folhas</label>
-            
-                        <input type="radio" id="folha" name="certeza-pag-ausente" value="presumida">
-                        <label for="nao">nos dois lados das folhas</label>
+                    <div id="paginacao-lamina">
+                        <br>
+                        <label for="qtd-pag-lamina">Quantidade de folhas sem numeração</label>
+                        <input type="text" id="qtd-pag-lamina" name="outra-pag">
                     </div>
+
         
-                <div id="paginacao-ausente">
-                    <label for="qtd-pag-ausente">Quantidade de folhas</label>
-                    <input type="text" id="qtd-pag-ausente" name="qtd-pag-ausente" required>
+                <div id="paginacao-nao-numerada">
+                    <br>
+                    <label for="qtd-pag-nao-num">Quantidade de folhas não numeradas</label>
+                    <input type="text" id="qtd-pag-nao-num" name="qtd-pag-nao-num" required>
 
                         <p>A quantidade de folhas é</p>
-                        <input type="radio" id="certa-pag-ausente" name="certeza-pag-ausente" value="certa">
-                        <label for="sim">Certa</label>
-            
-                        <input type="radio" id="presumida-pag-ausente" name="certeza-pag-ausente" value="presumida">
-                        <label for="nao">Presumida</label>
+                        <label for="certa">Certa</label>
+                        <input type="radio" id="certa" name="certeza-pag" value="certa">
+                       
+                        <label for="presumida">Presumida</label>
+                        <input type="radio" id="presumida" name="certeza-pag" value="presumida">
                     </div>
         
     <!-- Material gráfico -->
 
         <div id="imagem">
+            <br>
             <p>O livro contém imagens?</p>
             <input type="radio" id="sim-imagem" name="imagem" value="sim">
             <label for="sim-imagem">Sim</label>
@@ -445,7 +434,7 @@
     <!-- Formato -->
 
             <div id="materialidade">
-
+                <br>
                 <p>Quanto a materialidade</p>
                 <input type="radio" id="fisico" name="materia" value="fisico">
                 <label for="fisico">O livro é físico</label>

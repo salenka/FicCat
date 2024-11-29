@@ -164,29 +164,22 @@ display: none;
     display: none;
 }
 
-#paginacao-unica {
+#paginacao-numerada {
     display: none;
 }
 
-#paginacao-variada {
+#paginacao-romana {
     display: none;
 }
 
-#pag-sem-num {
+#paginacao-lamina {
     display: none;
 }
 
-#certeza-pag-sem-num{
+#paginacao-nao-numerada {
     display: none;
 }
 
-#paginacao-ausente {
-    display: none;
-}
-
-#certeza-pag-ausente {
-    display: none;
-}
 
 #tipo-imagem {
     display: none;
@@ -223,3 +216,4 @@ display: none;
 #formato-digital {
     display: none;
 }
+

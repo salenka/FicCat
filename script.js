@@ -565,7 +565,18 @@ if (maisTradutor === "sim") {
     }
 }
 
-    // CONFIGURAÇÃO DA FICHA CATALOGRÁFICA
+    
+
+
+
+
+
+
+
+
+
+
+// CONFIGURAÇÃO DA FICHA CATALOGRÁFICA
 
    
     const ficha = `
