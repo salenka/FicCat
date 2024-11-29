@@ -463,8 +463,6 @@ if (respInt === "pessoa") {
 
 // Tipo de pessoa
 
-let nome = "";
-let sobrenome = "";
 let autor = "";
 let autorEntrada = "";
 let organizador = "";
@@ -474,29 +472,46 @@ let editor = "";
 
 const tipoPessoa = document.querySelector('input[name="t-pessoa"]:checked')?.value;
 if (tipoPessoa === "autor") {
-    nome = localStorage.getItem("nome"); 
-    sobrenome = localStorage.getItem("sobrenome");
+    const nome = localStorage.getItem("nome"); 
+    const sobrenome = localStorage.getItem("sobrenome");
     autorEntrada = sobrenome + ", " + nome;
     autor = nome + " " + sobrenome;
 
 } else if (tipoPessoa === "organizador") {
-    org = localStorage.getItem("n-organizador");
+    const org = localStorage.getItem("n-organizador");
     organizador = 'organizado por ' + org;
 
 } else if (tipoPessoa === "coordenador") {
-    coord = localStorage.getItem("n-coordenador");
+    const coord = localStorage.getItem("n-coordenador");
     coordenador = 'coordenado por ' + coord;
 
 } else if (tipoPessoa === "compilador") {
-    comp = localStorage.getItem("n-compilador");
+    const comp = localStorage.getItem("n-compilador");
     compilador = 'compilado por ' + comp;
 
 } else if (tipoPessoa === "editor") {
-    ed = localStorage.getItem("n-editor");
+    const ed = localStorage.getItem("n-editor");
     editor = 'editado por ' + ed;
 }
 
+const maisPessoa = document.querySelector('input[name="mais-pessoa"]:checked')?.value;
+const qtdPessoa = document.querySelector('input[name="qtd-pessoa"]:checked')?.value;
+let pessoa2 = "";
+let pessoa3 = "";
 
+if (maisPessoa === "sim") {
+    if (qtdPessoa === "2") {
+        const p2 = localStorage.getItem("pessoa-2");
+        pessoa2 = ' e ' + p2;
+    } else if (qtdPessoa === "3") {
+        const p2 = localStorage.getItem("pessoa-2");
+        const p3 = localStorage.getItem("pessoa-3");
+        pessoa2 = ', ' + p2;
+        pessoa3 = ' e ' + p3;
+    } else {
+        pessoa2 = " ... [et al.]";
+    }
+}
 
 //Contribuidores
 let ilustrador = "";
@@ -555,7 +570,7 @@ if (maisTradutor === "sim") {
    
     const ficha = `
         ${autorEntrada}${entidade}${evento}
-        ${titulo}${subtitulo}${edicao}/${autor}${entidade||""}${evento}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3} 
+        ${titulo}${subtitulo}${edicao}/${autor}${organizador}${coordenador}${compilador}${editor}${pessoa2}${pessoa3}${entidade}${evento}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3} 
     `;
 
 
