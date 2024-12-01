@@ -73,3 +73,26 @@ export function saveData(event) {
     localStorage.setItem(nome, valor); 
 }
 
+export function geraFicha() {
+    
+	alert("botão Gera Ficha acionado");
+
+    const script = document.createElement("script");
+    script.src = "./card.js"; // Caminho do script
+    script.type = "text/javascript"; // Tipo do script (opcional)
+    //script.async = true; // Carregar de forma assíncrona (opcional)
+
+    // Evento de sucesso no carregamento
+    script.onload = () => {
+        console.log("Script carregado com sucesso!");
+        // Aqui você pode usar funções do script carregado
+    };
+
+    // Evento de erro no carregamento
+    script.onerror = () => {
+        console.error("Erro ao carregar o script.");
+    };
+
+    // Adiciona o elemento <script> ao <head> ou <body>
+    document.head.appendChild(script);
+}
