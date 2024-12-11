@@ -1,10 +1,7 @@
-import { uncheckRadio } from './functions.js';
-import { updateTipoPessoa } from './functions.js';
-//import { radioIsChecked } from './functions.js';
-import { saveData } from './functions.js';
-import { titulo, subtitulo, edicao, entidade, evento, autorEntrada, autor, organizador, coordenador, compilador, editor, pessoa2, pessoa3, ilustrador, ilustrador2, ilustrador3, tradutor, tradutor2, tradutor3 } from './card.js';
-//import {generatePDF} from ';/functions.js';
-// JavaScript source code
+import { uncheckRadio, updateTipoPessoa, saveData  } from './functions.js';
+import { geraFicha } from './functions.js';
+
+
 alert("Funcionando");
 
 
@@ -396,15 +393,18 @@ document.getElementById('tradutor').addEventListener('change', function () {
     })
 
 
-     // Adiciona o evento 'input' para todos os campos do formulário
- document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('#ficcat input[type="text"]').forEach(campo => {
-       campo.addEventListener("input", saveData);
-       });
-   
-    })
 
 
+     // SALVA DADOS - adicionando o evento 'input' para todos os campos do formulário
+     document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('#ficcat input[type="text"]').forEach(campo => {
+           campo.addEventListener("input", saveData);
+           });
+       
+        })
+
+
+// BOTÃO DE TESTE DE CONEXÃO (REMOVER)
     document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("btn").addEventListener("click", function () {
             alert("botão acionado");
@@ -423,18 +423,6 @@ document.getElementById("btn_gf").addEventListener("click", function () {
 geraFicha();
     
 })
-// CONFIGURAÇÃO DA FICHA CATALOGRÁFICA
-
-   
-    const ficha = `
-        ${autorEntrada}${entidade}${evento}
-        ${titulo}${subtitulo}${edicao}/${autor}${organizador}${coordenador}${compilador}${editor}${pessoa2}${pessoa3}${entidade}${evento}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3} 
-    `;
-
-   // Exibir a ficha no HTML
-   document.getElementById("ficha_aqui").textContent = ficha;
-   document.getElementById("fichaCatalografica").style.display = "block";
-
 
 
 

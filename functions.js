@@ -1,4 +1,4 @@
-
+import * as card from './card.js';
 // FORM -----------------------------------------------------------------
 
 //desmarca o rádio selecionado de uma div-filha com determinado name
@@ -33,36 +33,6 @@ export function updateTipoPessoa() {
         });
 }
 
-/*export function radioIsChecked(inputName){
-
-    const radios = document.querySelectorAll(`input[name="${inputName}"]`);
-    let algumSelecionado = false;
-
-    radios.forEach((radio) => {
-      if (radio.checked) {
-        algumSelecionado = true;
-      }
-    });
-
-        if (!algumSelecionado) {
-
-            const myevent = new Event('event');
-        myevent.preventDefault(); // Impede o envio do formulário
-                
-        // Crie um novo elemento de erro
-                const mensagemErro = document.createElement("span");
-                mensagemErro.id = "mensagemErro";
-                mensagemErro.style.color = "red";
-                mensagemErro.textContent = "Por favor, selecione ao menos uma opção.";
-
-                // Insira a mensagem de erro na div de opções
-                const divPai = radios[0].closest("div");
-                divPai.appendChild(mensagemErro);
-        }
-}*/
-
-// CARD -----------------------------------------------------------------
-
 // Função para salvar automaticamente os dados no localStorage
 export function saveData(event) {
     const campo = event.target; // Campo que disparou o evento
@@ -73,26 +43,49 @@ export function saveData(event) {
     localStorage.setItem(nome, valor); 
 }
 
+// CARD -----------------------------------------------------------------
+
 export function geraFicha() {
     
 	alert("botão Gera Ficha acionado");
 
-    const script = document.createElement("script");
-    script.src = "./card.js"; // Caminho do script
-    script.type = "text/javascript"; // Tipo do script (opcional)
-    //script.async = true; // Carregar de forma assíncrona (opcional)
 
-    // Evento de sucesso no carregamento
-    script.onload = () => {
-        console.log("Script carregado com sucesso!");
-        // Aqui você pode usar funções do script carregado
-    };
+    //variáveis aqui -------------------------------------
 
-    // Evento de erro no carregamento
-    script.onerror = () => {
-        console.error("Erro ao carregar o script.");
-    };
+    const titulo = card.getTitulo();
+    const subtitulo = card.getSubtitulo();
+    const edicao = card.getEdicao();
+    const entidade = card.getRespInt();
+    const evento = card.getRespInt().evento;
+    const autor = card.getPessoa().autor;
+    const autorEntrada = card.getPessoa().autorEntrada;
+    const organizador = card.getPessoa().organizador;
+    const coordenador = card.getPessoa().coordenador;
+    const compilador = card.getPessoa().compilador;
+    const editor = card.getPessoa().editor;
+    const pessoa2 = card.getMaisPessoa().pessoa2;
+    const pessoa3 = card.getMaisPessoa().pessoa3; 
+    const ilustrador = card.getContribuidor().ilustrador;
+    const ilustrador2 = card.getContribuidor().ilustrador2;
+    const ilustrador3 = card.getContribuidor().ilustrador3;
+    const tradutor = card.getContribuidor().tradutor;
+    const tradutor2 = card.getContribuidor().tradutor2;
+    const tradutor3 = card.getContribuidor().tradutor3;
 
-    // Adiciona o elemento <script> ao <head> ou <body>
-    document.head.appendChild(script);
+
+
+
+    //----------------------------------------------------
+
+    const ficha = `
+    ${autorEntrada}${entidade}${evento}
+    ${titulo}${subtitulo}${edicao}/${autor}${organizador}${coordenador}${compilador}${editor}${pessoa2}${pessoa3}${entidade}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3} 
+    `;
+    
+    // Exibir a ficha no HTML
+    document.getElementById("ficha_aqui").textContent = ficha;
+    document.getElementById("fichaCatalografica").style.display = "block";
+
+    
+
 }

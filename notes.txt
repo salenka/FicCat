@@ -29,15 +29,9 @@
  // Fecha o fluxo de escrita e exibe o conteúdo
  novaAba.document.close();
 
-
-
-
-
  --------------------------------------
 
 
-
- 
     // tipo de responsável selecionado
     function radioSelected(inputName) {
     localStorage.setItem('selected', document.querySelector(`input[name="${inputName}"]:checked`));
@@ -49,5 +43,97 @@
     }
 }
 
-
 -------------------------------------------
+
+//FUNÇÕES DESCARTADAS
+
+
+/*export function radioIsChecked(inputName){
+
+    const radios = document.querySelectorAll(`input[name="${inputName}"]`);
+    let algumSelecionado = false;
+
+    radios.forEach((radio) => {
+      if (radio.checked) {
+        algumSelecionado = true;
+      }
+    });
+
+        if (!algumSelecionado) {
+
+            const myevent = new Event('event');
+        myevent.preventDefault(); // Impede o envio do formulário
+                
+        // Crie um novo elemento de erro
+                const mensagemErro = document.createElement("span");
+                mensagemErro.id = "mensagemErro";
+                mensagemErro.style.color = "red";
+                mensagemErro.textContent = "Por favor, selecione ao menos uma opção.";
+
+                // Insira a mensagem de erro na div de opções
+                const divPai = radios[0].closest("div");
+                divPai.appendChild(mensagemErro);
+        }
+}*/
+
+
+/*
+
+No functions.js:
+
+// Função para salvar automaticamente os dados no localStorage
+export function saveData(event) {
+    const campo = event.target; // Campo que disparou o evento
+    const valor = campo.value; // Valor do campo
+    const nome = campo.name; // Nome do campo (usado como chave no localStorage)
+
+    // Salva no localStorage
+    localStorage.setItem(nome, valor); 
+}
+
+no script.js
+     // SALVA DADOS - adicionando o evento 'input' para todos os campos do formulário
+ document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('#ficcat input[type="text"]').forEach(campo => {
+       campo.addEventListener("input", saveData);
+       });
+   
+    })
+
+*/
+
+
+export function geraFicha(callback) {
+    
+	alert("botão Gera Ficha acionado");
+
+
+    const script = document.createElement("script");
+    script.src = "./card.mjs"; // Caminho do script
+    script.type = "text/javascript"; // Tipo do script (opcional)
+    script.async = true; // Carregar de forma assíncrona (opcional)
+
+    // Evento de sucesso no carregamento
+    script.onload = () => {
+        console.log("Script carregado com sucesso!");
+        // Aqui você pode usar funções do script carregado
+    };
+
+    // Evento de erro no carregamento
+    script.onerror = () => {
+        console.error("Erro ao carregar o script.");
+    };
+
+    callback();
+
+    // Adiciona o elemento <script> ao <head> ou <body>
+    document.head.appendChild(script);
+
+    
+
+}
+
+
+
+
+--------------------------------------------
