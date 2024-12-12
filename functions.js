@@ -39,6 +39,8 @@ export function saveData(event) {
     const valor = campo.value; // Valor do campo
     const nome = campo.name; // Nome do campo (usado como chave no localStorage)
 
+    console.log("salvando" +nome +": " +valor);
+
     // Salva no localStorage
     localStorage.setItem(nome, valor); 
 }
@@ -55,7 +57,7 @@ export function geraFicha() {
     const titulo = card.getTitulo();
     const subtitulo = card.getSubtitulo();
     const edicao = card.getEdicao();
-    const entidade = card.getRespInt();
+    const entidade = card.getRespInt().entidade;
     const evento = card.getRespInt().evento;
     const autor = card.getPessoa().autor;
     const autorEntrada = card.getPessoa().autorEntrada;

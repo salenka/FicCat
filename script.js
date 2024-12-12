@@ -399,6 +399,7 @@ document.getElementById('tradutor').addEventListener('change', function () {
      document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll('#ficcat input[type="text"]').forEach(campo => {
            campo.addEventListener("input", saveData);
+
            });
        
         })
