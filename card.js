@@ -1,31 +1,28 @@
 
-
-
 // ÁREA DE TÍTULO
 
-export function getTitulo() {
-    return localStorage.getItem("titulo")
+
+export function getAreaTitulo() {
+    let titulo = document.getElementById("titulo").value;
+
+    let subtitulo = localStorage.getItem("subtitulo");
+    subtitulo = subtitulo ? ': ' + subtitulo : "";
+    
+    let areaTitulo = `${titulo}${subtitulo}`;
+
+    return {areaTitulo}
 }
 
+// ÁREA DE EDIÇÃO
 
-
-export function getSubtitulo() {
-        let subtitulo = localStorage.getItem("subtitulo");
-        subtitulo = subtitulo? ': ' + subtitulo : "";
-        return subtitulo
-}
-
-
-
-export function getEdicao() {
+export function getAreaEdicao() {   
     let edicao = localStorage.getItem("edicao");
-    edicao = edicao? '. -- ' + edicao + ' ed.' : "";
-    return edicao
+    let areaEdicao = edicao ? '. -- ' + edicao + ' ed.' : "";
+    
+    return {areaEdicao}
 }
 
-
-
-//RESPONSABILIDADE INTELECTUAL
+//ÁREA DE RESPONSABILIDADE INTELECTUAL
 
 // Tipo de responsável
 
@@ -174,3 +171,34 @@ export function getContribuidor() {
 }
 
 
+
+
+
+
+
+
+// Área de publicação
+
+function getPublicacao() {
+
+    let publicador = localStorage.getItem("publicador");
+    publicador = publicador? ': ' + publicador : ': [s.n.]';
+    
+
+    let local = localStorage.getItem("local");
+    local = local? '. - ' + local : ". - [S.l.]";
+    
+
+    let ano = localStorage.getItem("ano");
+    ano = ano? ', ' + ano : ', [s.d.]'; 
+   
+
+    return {publicador, local, ano}
+
+}
+
+const publicador = getPublicacao().publicador;
+const local = getPublicacao().local;
+const ano = getPublicacao().ano;
+
+export const areaPublicacao = `${local}${publicador}${ano}`; 

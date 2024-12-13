@@ -1,4 +1,4 @@
-import * as card from './card.js';
+import * as card from './card.js' ;
 // FORM -----------------------------------------------------------------
 
 //desmarca o rádio selecionado de uma div-filha com determinado name
@@ -54,9 +54,7 @@ export function geraFicha() {
 
     //variáveis aqui -------------------------------------
 
-    const titulo = card.getTitulo();
-    const subtitulo = card.getSubtitulo();
-    const edicao = card.getEdicao();
+    /*
     const entidade = card.getRespInt().entidade;
     const evento = card.getRespInt().evento;
     const autor = card.getPessoa().autor;
@@ -73,21 +71,36 @@ export function geraFicha() {
     const tradutor = card.getContribuidor().tradutor;
     const tradutor2 = card.getContribuidor().tradutor2;
     const tradutor3 = card.getContribuidor().tradutor3;
+    */
+    
+    //const areaTitulo = AreaTITULO;
+    //const areaPublicacao = card.areaPublicacao;
 
 
 
 
     //----------------------------------------------------
 
+
+    
+    //const entradaPrincipal = `${autorEntrada}${entidade}${evento}`;
+    
+    //const areaResponsabilidade = ` / ${entidade}${autor}${organizador}${coordenador}${compilador}${editor}${pessoa2}${pessoa3}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3}`;
+    
+    const areaTitulo  = card.getAreaTitulo().areaTitulo;
+    const areaEdicao = card.getAreaEdicao().areaEdicao;
+      
+
+    
     const ficha = `
-    ${autorEntrada}${entidade}${evento}
-    ${titulo}${subtitulo}${edicao}/${autor}${organizador}${coordenador}${compilador}${editor}${pessoa2}${pessoa3}${entidade}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3} 
+    
+    ${areaTitulo}${areaEdicao}
+    
     `;
     
     // Exibir a ficha no HTML
     document.getElementById("ficha_aqui").textContent = ficha;
     document.getElementById("fichaCatalografica").style.display = "block";
 
-    
 
 }
