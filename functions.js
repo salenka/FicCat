@@ -49,52 +49,21 @@ export function saveData(event) {
 
 export function geraFicha() {
     
-	alert("botão Gera Ficha acionado");
-
-
-    //variáveis aqui -------------------------------------
-
-    /*
-    const entidade = card.getRespInt().entidade;
-    const evento = card.getRespInt().evento;
-    const autor = card.getPessoa().autor;
-    const autorEntrada = card.getPessoa().autorEntrada;
-    const organizador = card.getPessoa().organizador;
-    const coordenador = card.getPessoa().coordenador;
-    const compilador = card.getPessoa().compilador;
-    const editor = card.getPessoa().editor;
-    const pessoa2 = card.getMaisPessoa().pessoa2;
-    const pessoa3 = card.getMaisPessoa().pessoa3; 
-    const ilustrador = card.getContribuidor().ilustrador;
-    const ilustrador2 = card.getContribuidor().ilustrador2;
-    const ilustrador3 = card.getContribuidor().ilustrador3;
-    const tradutor = card.getContribuidor().tradutor;
-    const tradutor2 = card.getContribuidor().tradutor2;
-    const tradutor3 = card.getContribuidor().tradutor3;
-    */
-    
-    //const areaTitulo = AreaTITULO;
-    //const areaPublicacao = card.areaPublicacao;
-
-
-
-
-    //----------------------------------------------------
-
+	console.log("botão Gera Ficha acionado");
 
     
-    //const entradaPrincipal = `${autorEntrada}${entidade}${evento}`;
-    
-    //const areaResponsabilidade = ` / ${entidade}${autor}${organizador}${coordenador}${compilador}${editor}${pessoa2}${pessoa3}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3}`;
     
     const areaTitulo  = card.getAreaTitulo().areaTitulo;
     const areaEdicao = card.getAreaEdicao().areaEdicao;
-      
+    const areaResponsabilidade = card.getRespInt().areaResponsabilidade;
+    const entradaPrincipal = card.getRespInt().entradaPrincipal;
 
+    //o problema é sempre o primeiro respInt() que é chamado
+    
     
     const ficha = `
-    
-    ${areaTitulo}${areaEdicao}
+    ${entradaPrincipal}
+    ${areaTitulo}${areaEdicao}${areaResponsabilidade}
     
     `;
     

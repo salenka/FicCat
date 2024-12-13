@@ -49,13 +49,8 @@ export function getRespInt() {
         evento = (evento != "")? evento + " (" + num + ". : " + ano + " : " + local + ") " : "" ;
     }
 
-    return {entidade, evento}
-}
-
-
 
 // Tipo de pessoa
-export function getPessoa() {
     let autor = "";
     let autorEntrada = "";
     let organizador = "";
@@ -86,12 +81,9 @@ export function getPessoa() {
     const ed = localStorage.getItem("n-editor") || "";
     editor = 'editado por ' + ed;
 }
-    return {autor, autorEntrada, organizador, coordenador, compilador, editor}
-}
 
 
-
-export function getMaisPessoa() {
+//Mais pessoas com a mesma função
     const maisPessoa = document.querySelector('input[name="mais-pessoa"]:checked')?.value;
     const qtdPessoa = document.querySelector('input[name="qtd-pessoa"]:checked')?.value;
     let pessoa2 = "";
@@ -109,15 +101,9 @@ export function getMaisPessoa() {
         } else {
             pessoa2 = " ... [et al.]";
         }
-        return {pessoa2, pessoa3}
-    }
-    return { pessoa2, pessoa3 }
-}
 
 
-
-//Contribuidores
-export function getContribuidor() {
+//Contribuidores - Ilustrador
     let ilustrador = "";
     if (document.getElementById("ilustrador").checked) {
         const nIlustrador = localStorage.getItem("n-ilustrador");
@@ -142,7 +128,8 @@ export function getContribuidor() {
             ilustrador2 = " ... [et al.]";
         }
     }
-    
+
+//Contribuidores - Tradutor  
     let tradutor = "";
     if (document.getElementById("tradutor").checked) {
         const nTradutor = localStorage.getItem("n-tradutor");
@@ -167,17 +154,17 @@ export function getContribuidor() {
             tradutor2 = " ... [et al.]";
         }
     }
-    return {ilustrador, ilustrador2, ilustrador3, tradutor, tradutor2, tradutor3}
+
+//Saída da função getRespInt
+
+    let entradaPrincipal = `${autorEntrada}${entidade}${evento}`;    
+    let areaResponsabilidade = ` / ${entidade}${autor}${organizador}${coordenador}${compilador}${editor}${pessoa2}${pessoa3}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3}`;
+        
+        return {entradaPrincipal, areaResponsabilidade};
 }
 
 
-
-
-
-
-
-
-// Área de publicação
+// ÁREA DE PUBLICAÇÃO
 
 function getPublicacao() {
 
@@ -201,4 +188,6 @@ const publicador = getPublicacao().publicador;
 const local = getPublicacao().local;
 const ano = getPublicacao().ano;
 
-export const areaPublicacao = `${local}${publicador}${ano}`; 
+//export const areaPublicacao = `${local}${publicador}${ano}`; 
+
+}
