@@ -2,7 +2,7 @@
 // ÁREA DE TÍTULO
 
 
-export function getAreaTitulo() {
+export function getTitulo() {
     let titulo = document.getElementById("titulo").value;
 
     let subtitulo = localStorage.getItem("subtitulo");
@@ -15,7 +15,7 @@ export function getAreaTitulo() {
 
 // ÁREA DE EDIÇÃO
 
-export function getAreaEdicao() {   
+export function getEdicao() {   
     let edicao = localStorage.getItem("edicao");
     let areaEdicao = edicao ? '. -- ' + edicao + ' ed.' : "";
     
@@ -38,15 +38,15 @@ export function getRespInt() {
     } else if (respInt === "entidade") {
         console.log("radio entidade selecionado");
         entidade = localStorage.getItem("n-entidade") || "";
-    
 
     } else if (respInt === "evento") {
         console.log("radio evento selecionado");
-        evento = localStorage.getItem("n-evento") || "" ;
+        evento = localStorage.getItem("n-evento");
         const num = localStorage.getItem("num-evento") || "" ;
         const ano = localStorage.getItem("ano-evento") || "" ;
         const local = localStorage.getItem("local-evento") || "" ;
-        evento = (evento != "")? evento + " (" + num + ". : " + ano + " : " + local + ") " : "" ;
+        evento = evento? evento + " (" + num + ". : " + ano + " : " + local + ")" : "" ;
+        
     }
 
 
@@ -82,7 +82,6 @@ export function getRespInt() {
     editor = 'editado por ' + ed;
 }
 
-
 //Mais pessoas com a mesma função
     const maisPessoa = document.querySelector('input[name="mais-pessoa"]:checked')?.value;
     const qtdPessoa = document.querySelector('input[name="qtd-pessoa"]:checked')?.value;
@@ -101,7 +100,7 @@ export function getRespInt() {
         } else {
             pessoa2 = " ... [et al.]";
         }
-
+    }
 
 //Contribuidores - Ilustrador
     let ilustrador = "";
@@ -157,37 +156,28 @@ export function getRespInt() {
 
 //Saída da função getRespInt
 
-    let entradaPrincipal = `${autorEntrada}${entidade}${evento}`;    
-    let areaResponsabilidade = ` / ${entidade}${autor}${organizador}${coordenador}${compilador}${editor}${pessoa2}${pessoa3}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3}`;
+    const entradaPrincipal = `${autorEntrada}${entidade}${evento}`;    
+    const areaResponsabilidade = ` / ${entidade}${autor}${organizador}${coordenador}${compilador}${editor}${pessoa2}${pessoa3}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3}`;
         
-        return {entradaPrincipal, areaResponsabilidade};
+    return {entradaPrincipal, areaResponsabilidade}
 }
 
 
 // ÁREA DE PUBLICAÇÃO
 
-function getPublicacao() {
+export function getPublicacao() {
 
     let publicador = localStorage.getItem("publicador");
     publicador = publicador? ': ' + publicador : ': [s.n.]';
     
-
     let local = localStorage.getItem("local");
     local = local? '. - ' + local : ". - [S.l.]";
-    
 
     let ano = localStorage.getItem("ano");
-    ano = ano? ', ' + ano : ', [s.d.]'; 
+    ano = ano? ', ' + ano + '.' : ', [s.d.].'; 
+
+    const areaPublicacao = `${local}${publicador}${ano}`;
    
-
-    return {publicador, local, ano}
-
-}
-
-const publicador = getPublicacao().publicador;
-const local = getPublicacao().local;
-const ano = getPublicacao().ano;
-
-//export const areaPublicacao = `${local}${publicador}${ano}`; 
-
-}
+    return {areaPublicacao}
+    
+} 

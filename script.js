@@ -11,8 +11,6 @@ alert("Funcionando");
 document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-
-
         if (document.getElementById('pessoa').checked) {
             uncheckRadio('t-pessoa');
             uncheckRadio('qtd-pessoa');
@@ -30,8 +28,7 @@ document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
             document.getElementById('pessoa-section').style.display = 'none';
             document.getElementById('entidade-section').style.display = 'none';
             document.getElementById('evento-section').style.display = 'block';
-
-            
+           
         } 
     });
 });
@@ -53,7 +50,6 @@ document.querySelectorAll('input[name="t-pessoa"]').forEach(radio => {
             document.getElementById('editor-section').style.display = 'none';
             document.getElementById('mais-pessoa').style.display = 'block';
 
-
         } else if (document.getElementById('organizador').checked)  {
             document.getElementById('autor-section').style.display = 'none';
             document.getElementById('organizador-section').style.display = 'block';//não está mostrando
@@ -61,8 +57,7 @@ document.querySelectorAll('input[name="t-pessoa"]').forEach(radio => {
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'none';
             document.getElementById('mais-pessoa').style.display = 'block';
- 
-                
+                 
         } else if (document.getElementById('coordenador').checked) {
             document.getElementById('autor-section').style.display = 'none';
             document.getElementById('organizador-section').style.display = 'none';
@@ -70,8 +65,7 @@ document.querySelectorAll('input[name="t-pessoa"]').forEach(radio => {
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'none';
             document.getElementById('mais-pessoa').style.display = 'block';
-  
-            
+              
         } else if (document.getElementById('compilador').checked) {
             document.getElementById('autor-section').style.display = 'none';
             document.getElementById('organizador-section').style.display = 'none';
@@ -79,8 +73,7 @@ document.querySelectorAll('input[name="t-pessoa"]').forEach(radio => {
             document.getElementById('compilador-section').style.display = 'block';
             document.getElementById('editor-section').style.display = 'none';
             document.getElementById('mais-pessoa').style.display = 'block';
-     
-            
+                 
         } else if (document.getElementById('editor').checked) {
             document.getElementById('autor-section').style.display = 'none';
             document.getElementById('organizador-section').style.display = 'none';
@@ -88,8 +81,7 @@ document.querySelectorAll('input[name="t-pessoa"]').forEach(radio => {
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'block';
             document.getElementById('mais-pessoa').style.display = 'block';
-      
-           
+                
          } else {
             document.getElementById('autor-section').style.display = 'none';
             document.getElementById('organizador-section').style.display = 'none';
@@ -97,7 +89,7 @@ document.querySelectorAll('input[name="t-pessoa"]').forEach(radio => {
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'none';
             document.getElementById('mais-pessoa').style.display = 'none';
-         
+
         }
     });
 
@@ -106,7 +98,6 @@ document.querySelectorAll('input[name="t-pessoa"]').forEach(radio => {
     });
 
 });
-
 
 //MAIS-PESSOA
 
@@ -120,12 +111,10 @@ document.querySelectorAll('input[name="mais-pessoa"]').forEach(radio => {
     });
 });
 
-
 //OUTRA-PESSOA
 
 document.querySelectorAll('input[name="qtd-pessoa"]').forEach(radio => {
     radio.addEventListener('change', function () {
-
 
         if (document.getElementById('qtd-pessoa-2').checked) {
             document.getElementById('segunda-pessoa').style.display = 'block';
@@ -143,6 +132,7 @@ document.querySelectorAll('input[name="qtd-pessoa"]').forEach(radio => {
             document.getElementById('segunda-pessoa').style.display = 'none';
             document.getElementById('terceira-pessoa').style.display = 'none';
             document.getElementById('quarta-pessoa').style.display = 'none';
+            
         }
     });
 });
@@ -264,11 +254,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
     });
 
     //PAGINAÇÃO
-
     
     document.querySelectorAll('input[name="paginacao"]').forEach(radio => {
         radio.addEventListener('change', function () {
-    
     
             if (document.getElementById('radio-pag-unica').checked) {
                 document.getElementById('paginacao-unica').style.display = 'block';
@@ -290,7 +278,6 @@ document.getElementById('tradutor').addEventListener('change', function () {
         });
     });
 
-        
     //IMAGENS
     
     document.querySelectorAll('input[name="imagem"]').forEach(radio => {
@@ -332,8 +319,6 @@ document.getElementById('tradutor').addEventListener('change', function () {
                 document.getElementById('coloracao-mapas').style.display = 'none';             
             } 
         }) 
-
-
         
     //FORMATO
 
@@ -342,9 +327,7 @@ document.getElementById('tradutor').addEventListener('change', function () {
         radio.addEventListener('change', function () {
             alert("entrou no listener da materialidade");
 
-            uncheckRadio('formato');
-            
-    
+            uncheckRadio('formato');   
     
             if (document.getElementById('fisico').checked) {
                 alert("Entrou no if da opção físico");
@@ -359,23 +342,15 @@ document.getElementById('tradutor').addEventListener('change', function () {
                 alert("Entrou no else de nenhuma opção selecionada");
                 document.getElementById('formato-fisico').style.display = 'none';
                 document.getElementById('formato-digital').style.display = 'none';
-            }
-
-       
-            
-        })
-    
-    //radioIsChecked("materia"); //não funciona!
-    
+            }      
+        })   
     })
 
 
     // OPÇOES DIV FORMATO-FÍSICO (name:FORMATO)
     document.querySelectorAll('input[name="formato"]').forEach(radio => {
         radio.addEventListener('change', function () {
-    
             
-    
             if (document.getElementById('formato-trad').checked) {
                 document.getElementById('formato-tradicional').style.display = 'block';
                 document.getElementById('formato-nao-tradicional').style.display = 'none';
@@ -386,22 +361,14 @@ document.getElementById('tradutor').addEventListener('change', function () {
                 document.getElementById('formato-tradicional').style.display = 'none';
                 document.getElementById('formato-nao-tradicional').style.display = 'none';
             }
-        });
-    
-    //radioIsChecked("formato"); //não funciona!
-    
+        }); 
     })
-
-
-
 
      // SALVA DADOS - adicionando o evento 'input' para todos os campos do formulário
      document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll('#ficcat input[type="text"]').forEach(campo => {
            campo.addEventListener("input", saveData);
-
-           });
-       
+           });   
         })
 
 
@@ -412,24 +379,13 @@ document.getElementById('tradutor').addEventListener('change', function () {
         });
     })
 
+
       // CARD ----------------------------------------------------------
- 
 
-
-// PROCESSO DE GERAÇÃO DA FICHA
-//OBTENÇÃO DAS VARIÁVEIS A SEREM USADAS
+      // Botão Gera Ficha
 
 document.getElementById("btn_gf").addEventListener("click", function () {
 
 geraFicha();
     
 })
-
-
-
-
-
-
-
-    
-

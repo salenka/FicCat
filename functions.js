@@ -49,25 +49,25 @@ export function saveData(event) {
 
 export function geraFicha() {
     
-	console.log("botão Gera Ficha acionado");
+	console.log("botão Gera Ficha acionado");  
 
-    
-    
-    const areaTitulo  = card.getAreaTitulo().areaTitulo;
-    const areaEdicao = card.getAreaEdicao().areaEdicao;
-    const areaResponsabilidade = card.getRespInt().areaResponsabilidade;
+    //chamada de funções de cada área em Card.js
+    const areaTitulo  = card.getTitulo().areaTitulo;
+    const areaEdicao = card.getEdicao().areaEdicao;
     const entradaPrincipal = card.getRespInt().entradaPrincipal;
+    const areaResponsabilidade = card.getRespInt().areaResponsabilidade;
+    const areaPublicacao = card.getPublicacao().areaPublicacao;
+    
+    
+    //Configuração da ficha catalográfica
 
-    //o problema é sempre o primeiro respInt() que é chamado
-    
-    
     const ficha = `
     ${entradaPrincipal}
-    ${areaTitulo}${areaEdicao}${areaResponsabilidade}
+    ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
     
     `;
     
-    // Exibir a ficha no HTML
+    // Exibição da ficha no HTML
     document.getElementById("ficha_aqui").textContent = ficha;
     document.getElementById("fichaCatalografica").style.display = "block";
 
