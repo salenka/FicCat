@@ -168,16 +168,33 @@ export function getRespInt() {
 export function getPublicacao() {
 
     let publicador = localStorage.getItem("publicador");
-    publicador = publicador? ': ' + publicador : ': [s.n.]';
+    publicador = publicador? ' : ' + publicador : ': [s.n.]';
     
-    let local = localStorage.getItem("local");
-    local = local? '. - ' + local : ". - [S.l.]";
+    let loc = localStorage.getItem("local");
+    const local = loc? '. - ' + loc : ". - [S.l.]";
 
     let ano = localStorage.getItem("ano");
     ano = ano? ', ' + ano + '.' : ', [s.d.].'; 
-
-    const areaPublicacao = `${local}${publicador}${ano}`;
-   
-    return {areaPublicacao}
     
-} 
+    //Mais publicador
+    
+    const maisPublicador = document.querySelector('input[name="mais-publicador"]:checked')?.value;
+        
+    let publicador2 = document.getElementById("publicador-2").value;
+    publicador2 = publicador2? ' : ' + publicador2 : "";
+
+    let loc2 = document.getElementById("local-2").value;
+    let local2 = loc2? ' ; ' + loc2 : "";
+
+    if (maisPublicador === "sim") {
+        if (loc2 === loc) {
+            local2 = "";
+        } 
+    }
+
+    const areaPublicacao = `${local}${publicador}${local2}${publicador2}${ano}`;
+
+    return {areaPublicacao}
+
+}
+
