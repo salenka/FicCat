@@ -333,40 +333,40 @@
             <label for="pag-com-num">As páginas possuem numeração impressa</label><br>
 
             <input type="radio" id="pag-sem-num" name="paginacao" value="pag-sem-num">
-            <label for="pag-sem-num">As páginas não são numeradas</label><br>
+            <label for="pag-sem-num">As páginas não são numeradas</label>
         </div>
                 
                 <div id="paginacao-numerada">
                     <br>
                     <label for="qtd-pag-num">Número da última página impressa</label>
                     <input type="text" id="qtd-pag-num" name="qtd-pag-num" required>
-              
-                    <label for="pag-romana">O livro possui páginas prefaciais em algarismos romanos</label>
+                    <br>
                     <input type="checkbox" id="pag-romana" name="outra-pag">
-
-                    <label for="pag-lamina">O livro possui páginas não numeradas contendo imagens (lâminas)</label>
+                    <label for="pag-romana">O livro possui páginas prefaciais em algarismos romanos</label>
+                    <br>
                     <input type="checkbox" id="pag-lamina" name="outra-pag">
+                    <label for="pag-lamina">O livro possui folhas não numeradas contendo imagens (lâminas)</label>
                 </div>
 
                     <div id="paginacao-romana">
                         <br>
                         <label for="qtd-pag-romana">Quantidade de páginas com numeração romana</label>
-                        <input type="text" id="qtd-pag-romana" name="qtd-pag-romana">
+                        <input type="text" id="qtd-pag-romana" name="qtd-outra-pag">
                     </div>
 
                     <div id="paginacao-lamina">
                         <br>
-                        <label for="qtd-pag-lamina">Quantidade de folhas sem numeração</label>
-                        <input type="text" id="qtd-pag-lamina" name="outra-pag">
+                        <label for="qtd-pag-lamina">Quantidade de folhas ilustradas sem numeração</label>
+                        <input type="text" id="qtd-pag-lamina" name="qtd-outra-pag">
                     </div>
 
         
                 <div id="paginacao-nao-numerada">
                     <br>
-                    <label for="qtd-pag-nao-num">Quantidade de folhas não numeradas</label>
+                    <label for="qtd-pag-nao-num">Quantidade de páginas não numeradas</label>
                     <input type="text" id="qtd-pag-nao-num" name="qtd-pag-nao-num" required>
 
-                        <p>A quantidade de folhas é</p>
+                        <p>A quantidade de páginas é</p>
                         <label for="certa">Certa</label>
                         <input type="radio" id="certa" name="certeza-pag" value="certa">
                        

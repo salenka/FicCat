@@ -1,4 +1,4 @@
-import { uncheckRadio, updateTipoPessoa, saveData  } from './functions.js';
+import { uncheckOption, updateTipoPessoa, saveData  } from './functions.js';
 import { geraFicha } from './functions.js';
 
 
@@ -12,8 +12,8 @@ document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
         if (document.getElementById('pessoa').checked) {
-            uncheckRadio('t-pessoa');
-            uncheckRadio('qtd-pessoa');
+            uncheckOption('t-pessoa');
+            uncheckOption('qtd-pessoa');
             document.getElementById('pessoa-section').style.display = 'block';
             document.getElementById('entidade-section').style.display = 'none';
             document.getElementById('evento-section').style.display = 'none';
@@ -39,8 +39,8 @@ document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
 document.querySelectorAll('input[name="t-pessoa"]').forEach(radio => {
     radio.addEventListener('change', function () {
            
-        uncheckRadio('qtd-pessoa');
-        uncheckRadio('mais-pessoa');
+        uncheckOption('qtd-pessoa');
+        uncheckOption('mais-pessoa');
 
         if (document.getElementById('autor').checked) {
             document.getElementById('autor-section').style.display = 'block';
@@ -253,30 +253,59 @@ document.getElementById('tradutor').addEventListener('change', function () {
         });
     });
 
-    //PAGINAÇÃO
+    // PAGINAÇÃO
+
+    // Paginação numerada ou não numerada
     
     document.querySelectorAll('input[name="paginacao"]').forEach(radio => {
         radio.addEventListener('change', function () {
+
+            uncheckOption('outra-pag');
+            uncheckOption('certeza-pag');
     
-            if (document.getElementById('radio-pag-unica').checked) {
-                document.getElementById('paginacao-unica').style.display = 'block';
-                document.getElementById('paginacao-variada').style.display = 'none';
-                document.getElementById('paginacao-ausente').style.display = 'none';
-            } else if (document.getElementById('radio-pag-variada').checked) {
-                document.getElementById('paginacao-unica').style.display = 'none';
-                document.getElementById('paginacao-variada').style.display = 'block';
-                document.getElementById('paginacao-ausente').style.display = 'none';
-            } else if (document.getElementById('radio-pag-ausente').checked) {
-                document.getElementById('paginacao-unica').style.display = 'none';
-                document.getElementById('paginacao-variada').style.display = 'none';
-                document.getElementById('paginacao-ausente').style.display = 'block';
+            if (document.getElementById('pag-com-num').checked) {
+                document.getElementById('paginacao-numerada').style.display = 'block';
+                document.getElementById('paginacao-nao-numerada').style.display = 'none';
+                
+            } else if (document.getElementById('pag-sem-num').checked) {
+                document.getElementById('paginacao-numerada').style.display = 'none';
+                document.getElementById('paginacao-nao-numerada').style.display = 'block';
+
             } else {
-                document.getElementById('paginacao-unica').style.display = 'none';
-                document.getElementById('paginacao-variada').style.display = 'none';
-                document.getElementById('paginacao-ausente').style.display = 'none';
-            }
+                document.getElementById('paginacao-numerada').style.display = 'none';
+                document.getElementById('paginacao-nao-numerada').style.display = 'none';
+            } 
         });
     });
+
+    // Outras paginações numeradas: romana e de lâminas
+
+    document.querySelectorAll('input[name="outra-pag"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+
+        if (document.getElementById("pag-romana").checked) {
+            document.getElementById('paginacao-romana').style.display = 'block';
+        } else {
+            document.getElementById('paginacao-romana').style.display = 'none';
+        }
+
+        if (document.getElementById("pag-lamina").checked) {
+            document.getElementById('paginacao-lamina').style.display = 'block';
+        } else {
+            document.getElementById('paginacao-lamina').style.display = 'none';
+        }
+        })
+    })
+
+
+
+
+
+
+
+
+
+
 
     //IMAGENS
     
@@ -327,7 +356,7 @@ document.getElementById('tradutor').addEventListener('change', function () {
         radio.addEventListener('change', function () {
             alert("entrou no listener da materialidade");
 
-            uncheckRadio('formato');   
+            uncheckOption('formato');   
     
             if (document.getElementById('fisico').checked) {
                 alert("Entrou no if da opção físico");

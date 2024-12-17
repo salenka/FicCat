@@ -198,3 +198,36 @@ export function getPublicacao() {
 
 }
 
+// ÁREA DE DESCRIÇÃO FÍSICA
+
+    //Paginação
+
+export function getDescricaoFisica() {
+
+        //const paginacao = document.querySelector('input[name="paginacao"]:checked')?.value;
+        //const pagRomana_cbox = document.getElementById("pag-romana").checked;
+        //const pagLamina_cbox = document.getElementById("pag-lamina").checked;
+        const radioCerteza = document.querySelector('input[name="certeza-pag"]:checked')?.value;
+
+        let pagNum = document.getElementById("qtd-pag-num")?.value
+        pagNum = pagNum + " p.";
+
+        let pagRomana = document.getElementById("qtd-pag-romana")?.value;
+        pagRomana = pagRomana + ", ";        
+
+        let pagLamina = document.getElementById("qtd-pag-lamina")?.value;
+        pagLamina = ", [" + pagLamina + "] f. de lâminas";
+
+        let pagNaoNum = document.getElementById("qtd-pag-nao-num")?.value;
+            if (radioCerteza === "certa") {
+                pagNaoNum = pagNaoNum + " p.";
+            } else if (radioCerteza === "presumida") {
+                pagNaoNum = "[" + pagNaoNum + "] f.";
+            } else {
+                pagNaoNum = "";
+            }
+        
+        const paginacao = `${pagRomana}${pagNum}${pagLamina}${pagNaoNum}`;
+        return {paginacao}
+
+}

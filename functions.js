@@ -1,27 +1,29 @@
 import * as card from './card.js' ;
 // FORM -----------------------------------------------------------------
 
-//desmarca o rádio selecionado de uma div-filha com determinado name
-//use na div-pai
-export function uncheckRadio(inputName) {
-    const radioTarget = document.querySelector(`input[name="${inputName}"]:checked`); 
+//desmarca a opção selecionada de uma div-filha com determinado name
+//use na div-mãe
+
+export function uncheckOption(inputName) {
+    const target = document.querySelector(`input[name="${inputName}"]:checked`); 
     
-    // desmarca o radio que estiver marcado
-    if (radioTarget) {
-        radioTarget.checked = false;
+    // desmarca a seleção (rádio ou checkbox) que estiver marcada
+    if (target) {
+        target.checked = false;
     }
     // dispara o evento 'change' nas opções com inputName
     const changeEvent = new Event('change');
     
-    document.querySelectorAll(`input[name="${inputName}`).forEach(radio => {
-        if (radio) {
-        radio.dispatchEvent(changeEvent);
+    document.querySelectorAll(`input[name="${inputName}`).forEach(option => {
+        if (option) {
+        option.dispatchEvent(changeEvent);
        } else {
             console.error(`Elemento ${inputName} não foi encontrado.`);
-              }
-    
+              }    
     })
 }
+
+
 
 export function updateTipoPessoa() {
     const pessoaSelecionada = document.querySelector('input[name="t-pessoa"]:checked')?.value;
@@ -57,13 +59,14 @@ export function geraFicha() {
     const entradaPrincipal = card.getRespInt().entradaPrincipal;
     const areaResponsabilidade = card.getRespInt().areaResponsabilidade;
     const areaPublicacao = card.getPublicacao().areaPublicacao;
-    
+    const paginacao = card.getDescricaoFisica().paginacao;
     
     //Configuração da ficha catalográfica
 
     const ficha = `
     ${entradaPrincipal}
     ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
+    ${paginacao}
     
     `;
     
