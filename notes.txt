@@ -137,3 +137,15 @@ export function geraFicha(callback) {
 
 
 --------------------------------------------
+
+//apaga input do usuário quando ele muda de opção
+//use na div-mãe
+
+export function eraseChildText(motherDivId) {
+    const divMae = document.getElementById(motherDivId); 
+    const inputsText = divMae.querySelectorAll('input[type="text"]');
+
+    inputsText.forEach(inputText => {
+        inputText.value = '';
+    })
+}

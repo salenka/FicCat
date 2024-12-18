@@ -23,7 +23,17 @@ export function uncheckOption(inputName) {
     })
 }
 
+//apaga input do usuário quando ele muda de opção
+//use na div-mãe
 
+export function eraseChildText(motherDivId) {
+    const divMae = document.getElementById(motherDivId); 
+    const inputsText = divMae.querySelectorAll('input[type="text"]');
+
+    inputsText.forEach(inputText => {
+        inputText.value = '';
+    })
+}
 
 export function updateTipoPessoa() {
     const pessoaSelecionada = document.querySelector('input[name="t-pessoa"]:checked')?.value;
@@ -47,6 +57,13 @@ export function saveData(event) {
     localStorage.setItem(nome, valor); 
 }
 
+
+
+
+
+
+
+
 // CARD -----------------------------------------------------------------
 
 export function geraFicha() {
@@ -60,13 +77,14 @@ export function geraFicha() {
     const areaResponsabilidade = card.getRespInt().areaResponsabilidade;
     const areaPublicacao = card.getPublicacao().areaPublicacao;
     const paginacao = card.getDescricaoFisica().paginacao;
+    const imagens = card.getDescricaoFisica().imagens;
     
     //Configuração da ficha catalográfica
 
     const ficha = `
     ${entradaPrincipal}
     ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
-    ${paginacao}
+    ${paginacao} : ${imagens}
     
     `;
     

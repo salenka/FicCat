@@ -19,6 +19,26 @@
     <header class="profile-header"><b>Biblioteca TESTE</b></header>
 
     <form id="ficcat">
+
+
+        <div id="materialidade">
+            <br>
+            <p>Quanto a materialidade</p>
+            <input type="radio" id="fisico" name="materia" value="fisico">
+            <label for="fisico">O livro é físico</label>
+            <br>
+            <input type="radio" id="digital" name="materia" value="digital">
+            <label for="digital">O livro é digital</label>
+            <br>
+
+            <div id="formato-digital">
+                <label for="extensao">Informe a extensão do arquivo digital</label><br>
+                <input type="text" id="extensao" name="extensao" required>
+            </div>
+        </div>
+
+        <br>
+
    
             <!-- TÍTULO E SUBTÍTULO -->
 
@@ -334,7 +354,7 @@
 
             <input type="radio" id="pag-sem-num" name="paginacao" value="pag-sem-num">
             <label for="pag-sem-num">As páginas não são numeradas</label>
-        </div>
+        
                 
                 <div id="paginacao-numerada">
                     <br>
@@ -345,8 +365,8 @@
                     <label for="pag-romana">O livro possui páginas prefaciais em algarismos romanos</label>
                     <br>
                     <input type="checkbox" id="pag-lamina" name="outra-pag">
-                    <label for="pag-lamina">O livro possui folhas não numeradas contendo imagens (lâminas)</label>
-                </div>
+                    <label for="pag-lamina">O livro possui páginas não numeradas contendo imagens (lâminas)</label>
+                
 
                     <div id="paginacao-romana">
                         <br>
@@ -356,10 +376,23 @@
 
                     <div id="paginacao-lamina">
                         <br>
-                        <label for="qtd-pag-lamina">Quantidade de folhas ilustradas sem numeração</label>
-                        <input type="text" id="qtd-pag-lamina" name="qtd-outra-pag">
-                    </div>
+                        <input type="radio" id="pagina" name="pag-ou-folha" value="pagina">
+                        <label for="pagina">Há imagens nos dois lados da folha</label><br>
+            
+                        <input type="radio" id="folha" name="pag-ou-folha" value="folha">
+                        <label for="folha">Há imagens apenas em um lado da folha</label>
 
+                            <div id="pagina-lamina">
+                                <label for="qtd-pag-lamina">Quantidade de páginas ilustradas sem numeração</label>
+                                <input type="text" id="qtd-pag-lamina" name="qtd-outra-pag">
+                            </div>
+
+                            <div id="folha-lamina">
+                                <label for="qtd-folha-lamina">Quantidade de folhas ilustradas sem numeração</label>
+                                <input type="text" id="qtd-folha-lamina" name="qtd-outra-pag">
+                            </div>
+                    </div>
+                </div>
         
                 <div id="paginacao-nao-numerada">
                     <br>
@@ -373,7 +406,7 @@
                         <label for="presumida">Presumida</label>
                         <input type="radio" id="presumida" name="certeza-pag" value="presumida">
                     </div>
-        
+        </div>
     <!-- Material gráfico -->
 
         <div id="imagem">
@@ -399,7 +432,7 @@
                 <br>
                 <input type="checkbox" id="mapas" name="tipo-imagem" value="mapas">
                 <label for="nao">Mapas</label>
-            </div>
+            
 
             <div id="coloracao-il">
                 <p>As ilustrações são, predominantemente</p>
@@ -408,6 +441,11 @@
     
                 <input type="radio" id="il-pb" name="coloracao-il" value="il-pb">
                 <label for="il-pb">Monocromáticas/a preto-e-branco</label>
+
+                <input type="radio" id="il" name="coloracao-il" value="il">
+                <label for="il">Não existe uma coloração predominante ou essa informação não é relevante</label>
+
+
             </div>
 
             <div id="coloracao-fotos">
@@ -416,7 +454,10 @@
                 <label for="foto-cores">Em cores</label>
     
                 <input type="radio" id="foto-pb" name="coloracao-fotos" value="foto-pb">
-                <label for="foto-pb">Monocromáticas/a preto-e-branco</label>
+                <label for="foto-pb">Preto-e-branco</label>
+
+                <input type="radio" id="fotos" name="coloracao-fotos" value="fotos">
+                <label for="Fotos">Não existe uma coloração predominante ou essa informação não é relevante</label>
             </div>
 
             <div id="coloracao-mapas">
@@ -425,25 +466,17 @@
                 <label for="mapa-cores">Em cores</label>
     
                 <input type="radio" id="mapa-pb" name="coloracao-mapas" value="mapa-pb">
-                <label for="mapa-pb">Monocromáticos/a preto-e-branco</label>
+                <label for="mapa-pb">Preto-e-branco</label>
+
+                <input type="radio" id="mapas" name="coloracao-mapas" value="mapas">
+                <label for="mapas">Não existe uma coloração predominante ou essa informação não é relevante</label>
             </div>
+        </div>
 
     <!-- Formato -->
 
-            <div id="materialidade">
-                <br>
-                <p>Quanto a materialidade</p>
-                <input type="radio" id="fisico" name="materia" value="fisico">
-                <label for="fisico">O livro é físico</label>
-                <br>
-                <input type="radio" id="digital" name="materia" value="digital">
-                <label for="digital">O livro é digital</label>
-                <br>
-            </div>
-
-            <br>
-
                 <div id="formato-fisico">
+                    <br>
                     <p>Quanto ao formato</p>
                     <input type="radio" id="formato-trad" name="formato" value="tradicional">
                     <label for="formato-trad">O livro tem o formato tradicional</label>
@@ -453,7 +486,7 @@
                     <br>
                     <input type="radio" id="sem-formato" name="formato" value="sem-formato-digital">
                     <label for="sem-formato">Não sei ou prefiro não informar suas dimensões</label>
-                </div>
+                
         
                 <br>
 
@@ -468,17 +501,9 @@
                         <label for="nao-trad-larg">Largura em centímetros</label><br>
                         <input type="text" id="nao-trad-larg" name="nao-trad-larg" required>
                     </div>
-
-
-                <div id="formato-digital">
-                    <label for="extensao">Informe a extensão do arquivo digital</label><br>
-                    <input type="text" id="extensao" name="extensao" required>
+                
                 </div>
-        
-                <br><br>
-
-
-        
+       
      
         <br />
         <button type="button" id="btn">Testa conexão</button>

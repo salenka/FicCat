@@ -1,4 +1,4 @@
-import { uncheckOption, updateTipoPessoa, saveData  } from './functions.js';
+import { uncheckOption, updateTipoPessoa, saveData, eraseChildText  } from './functions.js';
 import { geraFicha } from './functions.js';
 
 
@@ -260,6 +260,7 @@ document.getElementById('tradutor').addEventListener('change', function () {
     document.querySelectorAll('input[name="paginacao"]').forEach(radio => {
         radio.addEventListener('change', function () {
 
+            eraseChildText('paginacao');
             uncheckOption('outra-pag');
             uncheckOption('certeza-pag');
     
@@ -297,20 +298,28 @@ document.getElementById('tradutor').addEventListener('change', function () {
         })
     })
 
+        // Laminas - paginas ou folhas
 
+        document.querySelectorAll('input[name="pag-ou-folha"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                if (document.getElementById("pagina").checked) {
+                    document.getElementById('pagina-lamina').style.display = 'block';
+                    document.getElementById('folha-lamina').style.display = 'none';
+                } else if (document.getElementById("folha").checked) {
+                    document.getElementById('folha-lamina').style.display = 'block';
+                    document.getElementById('pagina-lamina').style.display = 'none';
+                }
+            })
 
+        })
 
-
-
-
-
-
-
-
-    //IMAGENS
+    // Material gráfico
     
     document.querySelectorAll('input[name="imagem"]').forEach(radio => {
         radio.addEventListener('change', function () {
+
+            uncheckOption('tipo-imagem');   
+
             if (document.getElementById('sim-imagem').checked) {
                 document.getElementById('tipo-imagem').style.display = 'block';
             } else {
@@ -354,17 +363,15 @@ document.getElementById('tradutor').addEventListener('change', function () {
     // OPÇOES DIV MATERIALIDADE (name:MATERIA)
     document.querySelectorAll('input[name="materia"]').forEach(radio => {
         radio.addEventListener('change', function () {
-            alert("entrou no listener da materialidade");
-
             uncheckOption('formato');   
+            eraseChildText('materialidade')
+            
     
             if (document.getElementById('fisico').checked) {
-                alert("Entrou no if da opção físico");
                 document.getElementById('formato-fisico').style.display = 'block';
                 document.getElementById('formato-digital').style.display = 'none';
 
             } else if (document.getElementById('digital').checked) {
-                alert("Entrou no if else da opção digital");
                 document.getElementById('formato-fisico').style.display = 'none';
                 document.getElementById('formato-digital').style.display = 'block';
             } else  {
@@ -379,6 +386,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
     // OPÇOES DIV FORMATO-FÍSICO (name:FORMATO)
     document.querySelectorAll('input[name="formato"]').forEach(radio => {
         radio.addEventListener('change', function () {
+
+            eraseChildText('formato-fisico')
+            
             
             if (document.getElementById('formato-trad').checked) {
                 document.getElementById('formato-tradicional').style.display = 'block';
@@ -392,6 +402,11 @@ document.getElementById('tradutor').addEventListener('change', function () {
             }
         }); 
     })
+
+
+
+
+
 
      // SALVA DADOS - adicionando o evento 'input' para todos os campos do formulário
      document.addEventListener("DOMContentLoaded", function () {

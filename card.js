@@ -204,30 +204,113 @@ export function getPublicacao() {
 
 export function getDescricaoFisica() {
 
-        //const paginacao = document.querySelector('input[name="paginacao"]:checked')?.value;
-        //const pagRomana_cbox = document.getElementById("pag-romana").checked;
-        //const pagLamina_cbox = document.getElementById("pag-lamina").checked;
+        const paginacao_radio = document.querySelector('input[name="paginacao"]:checked')?.value;
+        const pagRomana_cbox = document.getElementById("pag-romana").checked;
+        const paginaOuFolha_radio = document.querySelector('input[name="pag-ou-folha"]:checked')?.value;
+        const pagLamina_cbox = document.getElementById("pag-lamina").checked;
         const radioCerteza = document.querySelector('input[name="certeza-pag"]:checked')?.value;
 
-        let pagNum = document.getElementById("qtd-pag-num")?.value
-        pagNum = pagNum + " p.";
+        let pagNum = "";
+        let pagNaoNum = "";
+        let pagRomana = "";
+        let lamina = "";
 
-        let pagRomana = document.getElementById("qtd-pag-romana")?.value;
-        pagRomana = pagRomana + ", ";        
-
-        let pagLamina = document.getElementById("qtd-pag-lamina")?.value;
-        pagLamina = ", [" + pagLamina + "] f. de lâminas";
-
-        let pagNaoNum = document.getElementById("qtd-pag-nao-num")?.value;
+        if (paginacao_radio === "pag-com-num") {
+            pagNum = document.getElementById("qtd-pag-num")?.value;
+            pagNum = pagNum + " p.";
+        } else if (paginacao_radio === "pag-sem-num") {
+            pagNaoNum = document.getElementById("qtd-pag-nao-num")?.value;
             if (radioCerteza === "certa") {
                 pagNaoNum = pagNaoNum + " p.";
             } else if (radioCerteza === "presumida") {
-                pagNaoNum = "[" + pagNaoNum + "] f.";
+                pagNaoNum = "[" + pagNaoNum + "] p.";
             } else {
                 pagNaoNum = "";
             }
+        }
+
+        if (pagRomana_cbox) {
+            pagRomana = document.getElementById("qtd-pag-romana")?.value;
+            pagRomana = pagRomana + ", ";  
+        }
+
+        if (pagLamina_cbox) {
+
+            if (paginaOuFolha_radio === "pagina") {
+            lamina = document.getElementById("qtd-pag-lamina")?.value;
+            lamina = ", [" + lamina + "] p. de lâminas";
+            } else if (paginaOuFolha_radio === "folha") {
+                lamina = document.getElementById("qtd-folha-lamina")?.value;
+                lamina = ", [" + lamina + "] f. de lâminas"; 
+            }
         
-        const paginacao = `${pagRomana}${pagNum}${pagLamina}${pagNaoNum}`;
-        return {paginacao}
+        }
+
+              
+        const paginacao = `${pagRomana}${pagNum}${lamina}${pagNaoNum}`;
+
+
+    //Material gráfico (Imagens)
+
+    //const imagem = document.querySelector('input[name="imagem"]:checked')?.value;
+    //const tipoImagem = document.querySelector('input[name="tipo-imagem"]:checked')?.value;
+    const coloracaoIl = document.querySelector('input[name="coloracao-il"]:checked')?.value;
+    const coloracaoFotos = document.querySelector('input[name="coloracao-fotos"]:checked')?.value;
+    const coloracaoMapas = document.querySelector('input[name="coloracao-mapas"]:checked')?.value;
+
+    let ilustracoes = "";
+    let fotos = "";
+    let mapas = "";
+
+    if (coloracaoIl === "il-cores") {
+        ilustracoes = " : il. color."
+    } else if (coloracaoIl === "il-pb") {
+        ilustracoes = " : il. p&b"
+    } else if (coloracaoIl === "il") {
+        ilustracoes = " : il."
+    } else {
+        ilustracoes = "";
+    }
+
+    if (coloracaoFotos === "foto-cores") {
+        fotos = "fotos color."
+    } else if (coloracaoFotos === "foto-pb") {
+        fotos = "fotos p&b"
+    } else if (coloracaoFotos === "fotos") {
+        fotos = "fotos"
+    } else {
+        fotos = "";
+    }
+
+    if (coloracaoMapas === "mapa-cores") {
+        mapas = "mapas color."
+    } else if (coloracaoMapas === "mapa-pb") {
+        mapas = "mapas p&b"
+    } else if (coloracaoMapas === "mapas") {
+        mapas = "mapas"
+    } else {
+        mapas = "";
+    }
+
+const listaImagens = [ilustracoes, fotos, mapas];
+
+//filtra lista de imagens para remover as que não estão presentes:
+const imagensPresentes = listaImagens.filter(imagem => imagem);
+
+// Cria uma string formatada para o resultado final:
+let imagens = "";
+    
+if (imagensPresentes.length != 0) {
+    imagens = " : " + imagensPresentes[0];
+}
+
+if (imagensPresentes.length > 1) {
+    // Adiciona as próximas imagens intermediárias precedidas com ", ":
+    for (let i = 1; i < imagensPresentes.length; i++) {
+        imagens += ", " + imagensPresentes[i];
+}
+
+    return {paginacao, imagens}
+}
 
 }

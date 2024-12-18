@@ -176,6 +176,14 @@ display: none;
     display: none;
 }
 
+#pagina-lamina {
+    display: none;
+}
+
+#folha-lamina {
+    display: none;
+}
+
 #paginacao-nao-numerada {
     display: none;
 }
