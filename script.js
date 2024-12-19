@@ -411,6 +411,8 @@ document.getElementById('tradutor').addEventListener('change', function () {
 
 
 
+
+
      // SALVA DADOS - adicionando o evento 'input' para todos os campos do formulário
      document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll('#ficcat input[type="text"]').forEach(campo => {

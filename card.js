@@ -313,9 +313,8 @@ if (imagensPresentes.length > 1) {
 
 // Dimensões
 
-
-
-
+materia = document.querySelector('input[name="materia"]:checked')?.value;
+formatoFisico = document.querySelector('input[name="formato"]:checked')?.value;
 
 
 
