@@ -84,7 +84,7 @@ export function geraFicha() {
     const ficha = `
     ${entradaPrincipal}
     ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
-    ${paginacao} : ${imagens}
+    ${paginacao}${imagens}
     
     `;
     

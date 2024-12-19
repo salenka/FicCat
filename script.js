@@ -334,7 +334,8 @@ document.getElementById('tradutor').addEventListener('change', function () {
             if (document.getElementById('ilustracoes').checked) {
                 document.getElementById('coloracao-il').style.display = 'block';
             } else   {
-                document.getElementById('coloracao-il').style.display = 'none';             
+                document.getElementById('coloracao-il').style.display = 'none';
+                uncheckOption('coloracao-il');            
             } 
         })
 
@@ -344,7 +345,8 @@ document.getElementById('tradutor').addEventListener('change', function () {
             if (document.getElementById('fotos').checked) {
                 document.getElementById('coloracao-fotos').style.display = 'block';
             } else   {
-                document.getElementById('coloracao-fotos').style.display = 'none';             
+                document.getElementById('coloracao-fotos').style.display = 'none';
+                uncheckOption('coloracao-fotos');            
             } 
         })
 
@@ -354,7 +356,8 @@ document.getElementById('tradutor').addEventListener('change', function () {
             if (document.getElementById('mapas').checked) {
                 document.getElementById('coloracao-mapas').style.display = 'block';
             } else   {
-                document.getElementById('coloracao-mapas').style.display = 'none';             
+                document.getElementById('coloracao-mapas').style.display = 'none';
+                uncheckOption('coloracao-mapas');           
             } 
         }) 
         

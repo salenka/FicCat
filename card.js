@@ -252,7 +252,7 @@ export function getDescricaoFisica() {
 
     //Material gráfico (Imagens)
 
-    //const imagem = document.querySelector('input[name="imagem"]:checked')?.value;
+    const imagem = document.querySelector('input[name="imagem"]:checked')?.value;
     //const tipoImagem = document.querySelector('input[name="tipo-imagem"]:checked')?.value;
     const coloracaoIl = document.querySelector('input[name="coloracao-il"]:checked')?.value;
     const coloracaoFotos = document.querySelector('input[name="coloracao-fotos"]:checked')?.value;
@@ -263,11 +263,11 @@ export function getDescricaoFisica() {
     let mapas = "";
 
     if (coloracaoIl === "il-cores") {
-        ilustracoes = " : il. color."
+        ilustracoes = "il. color."
     } else if (coloracaoIl === "il-pb") {
-        ilustracoes = " : il. p&b"
+        ilustracoes = "il. p&b"
     } else if (coloracaoIl === "il") {
-        ilustracoes = " : il."
+        ilustracoes = "il."
     } else {
         ilustracoes = "";
     }
@@ -299,18 +299,44 @@ const imagensPresentes = listaImagens.filter(imagem => imagem);
 
 // Cria uma string formatada para o resultado final:
 let imagens = "";
-    
-if (imagensPresentes.length != 0) {
+
+if (imagem === "sim") {
     imagens = " : " + imagensPresentes[0];
 }
-
+    
 if (imagensPresentes.length > 1) {
     // Adiciona as próximas imagens intermediárias precedidas com ", ":
     for (let i = 1; i < imagensPresentes.length; i++) {
         imagens += ", " + imagensPresentes[i];
 }
 
+
+// Dimensões
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// saída da função getDescricaoFisica
+    }
     return {paginacao, imagens}
 }
 
-}
