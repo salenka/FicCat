@@ -1,4 +1,4 @@
-import { uncheckOption, updateTipoPessoa, saveData, eraseChildText  } from './functions.js';
+import { uncheckOption, updateTipoPessoa, eraseChildText, saveData  } from './functions.js';
 import { geraFicha } from './functions.js';
 
 
@@ -253,73 +253,28 @@ document.getElementById('tradutor').addEventListener('change', function () {
         });
     });
 
-    // PAGINAÇÃO
-
-    // Paginação numerada ou não numerada
+    //PAGINAÇÃO
     
     document.querySelectorAll('input[name="paginacao"]').forEach(radio => {
         radio.addEventListener('change', function () {
-
-            eraseChildText('paginacao');
-            uncheckOption('outra-pag');
-            uncheckOption('certeza-pag');
     
             if (document.getElementById('pag-com-num').checked) {
                 document.getElementById('paginacao-numerada').style.display = 'block';
                 document.getElementById('paginacao-nao-numerada').style.display = 'none';
-                
             } else if (document.getElementById('pag-sem-num').checked) {
                 document.getElementById('paginacao-numerada').style.display = 'none';
                 document.getElementById('paginacao-nao-numerada').style.display = 'block';
-
             } else {
                 document.getElementById('paginacao-numerada').style.display = 'none';
                 document.getElementById('paginacao-nao-numerada').style.display = 'none';
-            } 
+            }
         });
     });
 
-    // Outras paginações numeradas: romana e de lâminas
-
-    document.querySelectorAll('input[name="outra-pag"]').forEach(checkbox => {
-        checkbox.addEventListener('change', function () {
-
-        if (document.getElementById("pag-romana").checked) {
-            document.getElementById('paginacao-romana').style.display = 'block';
-        } else {
-            document.getElementById('paginacao-romana').style.display = 'none';
-        }
-
-        if (document.getElementById("pag-lamina").checked) {
-            document.getElementById('paginacao-lamina').style.display = 'block';
-        } else {
-            document.getElementById('paginacao-lamina').style.display = 'none';
-        }
-        })
-    })
-
-        // Laminas - paginas ou folhas
-
-        document.querySelectorAll('input[name="pag-ou-folha"]').forEach(checkbox => {
-            checkbox.addEventListener('change', function () {
-                if (document.getElementById("pagina").checked) {
-                    document.getElementById('pagina-lamina').style.display = 'block';
-                    document.getElementById('folha-lamina').style.display = 'none';
-                } else if (document.getElementById("folha").checked) {
-                    document.getElementById('folha-lamina').style.display = 'block';
-                    document.getElementById('pagina-lamina').style.display = 'none';
-                }
-            })
-
-        })
-
-    // Material gráfico
+    //IMAGENS
     
     document.querySelectorAll('input[name="imagem"]').forEach(radio => {
         radio.addEventListener('change', function () {
-
-            uncheckOption('tipo-imagem');   
-
             if (document.getElementById('sim-imagem').checked) {
                 document.getElementById('tipo-imagem').style.display = 'block';
             } else {
@@ -334,8 +289,7 @@ document.getElementById('tradutor').addEventListener('change', function () {
             if (document.getElementById('ilustracoes').checked) {
                 document.getElementById('coloracao-il').style.display = 'block';
             } else   {
-                document.getElementById('coloracao-il').style.display = 'none';
-                uncheckOption('coloracao-il');            
+                document.getElementById('coloracao-il').style.display = 'none';             
             } 
         })
 
@@ -345,8 +299,7 @@ document.getElementById('tradutor').addEventListener('change', function () {
             if (document.getElementById('fotos').checked) {
                 document.getElementById('coloracao-fotos').style.display = 'block';
             } else   {
-                document.getElementById('coloracao-fotos').style.display = 'none';
-                uncheckOption('coloracao-fotos');            
+                document.getElementById('coloracao-fotos').style.display = 'none';             
             } 
         })
 
@@ -356,8 +309,7 @@ document.getElementById('tradutor').addEventListener('change', function () {
             if (document.getElementById('mapas').checked) {
                 document.getElementById('coloracao-mapas').style.display = 'block';
             } else   {
-                document.getElementById('coloracao-mapas').style.display = 'none';
-                uncheckOption('coloracao-mapas');           
+                document.getElementById('coloracao-mapas').style.display = 'none';             
             } 
         }) 
         
@@ -366,9 +318,8 @@ document.getElementById('tradutor').addEventListener('change', function () {
     // OPÇOES DIV MATERIALIDADE (name:MATERIA)
     document.querySelectorAll('input[name="materia"]').forEach(radio => {
         radio.addEventListener('change', function () {
-            uncheckOption('formato');   
-            eraseChildText('materialidade')
             
+            uncheckOption('formato');   
     
             if (document.getElementById('fisico').checked) {
                 document.getElementById('formato-fisico').style.display = 'block';
@@ -378,7 +329,6 @@ document.getElementById('tradutor').addEventListener('change', function () {
                 document.getElementById('formato-fisico').style.display = 'none';
                 document.getElementById('formato-digital').style.display = 'block';
             } else  {
-                alert("Entrou no else de nenhuma opção selecionada");
                 document.getElementById('formato-fisico').style.display = 'none';
                 document.getElementById('formato-digital').style.display = 'none';
             }      
@@ -390,14 +340,13 @@ document.getElementById('tradutor').addEventListener('change', function () {
     document.querySelectorAll('input[name="formato"]').forEach(radio => {
         radio.addEventListener('change', function () {
 
-            eraseChildText('formato-fisico')
-            
+            eraseChildText('formato-fisico');
             
             if (document.getElementById('formato-trad').checked) {
                 document.getElementById('formato-tradicional').style.display = 'block';
                 document.getElementById('formato-nao-tradicional').style.display = 'none';
             } else if (document.getElementById('formato-nao-trad').checked) {
-                document.getElementById('formato-tradicional').style.display = 'none';
+                document.getElementById('formato-tradicional').style.display = 'block';
                 document.getElementById('formato-nao-tradicional').style.display = 'block';
             } else {
                 document.getElementById('formato-tradicional').style.display = 'none';
@@ -405,13 +354,6 @@ document.getElementById('tradutor').addEventListener('change', function () {
             }
         }); 
     })
-
-
-
-
-
-
-
 
      // SALVA DADOS - adicionando o evento 'input' para todos os campos do formulário
      document.addEventListener("DOMContentLoaded", function () {

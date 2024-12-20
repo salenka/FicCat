@@ -309,19 +309,31 @@ if (imagensPresentes.length > 1) {
     for (let i = 1; i < imagensPresentes.length; i++) {
         imagens += ", " + imagensPresentes[i];
 }
-
+}
 
 // Dimensões
 
-materia = document.querySelector('input[name="materia"]:checked')?.value;
-formatoFisico = document.querySelector('input[name="formato"]:checked')?.value;
+//materia = document.querySelector('input[name="materia"]:checked')?.value; //físico ou digital
+const formatoFisico = document.querySelector('input[name="formato"]:checked')?.value; //tradicional ou nao
+
+let altura = "";
+let largura = "";
+
+if (formatoFisico === "tradicional") {
+    let alt = document.getElementById("altura").value;
+    altura = `; ${alt} cm`;
+} else if (formatoFisico === "nao-tradicional" ) {
+    let alt = document.getElementById("altura").value;
+    altura = `; ${alt} `;
+    let larg = document.getElementById("largura").value;
+    largura = `x ${larg} cm`;
+}
+
+const dimensoes = `${altura}${largura}`;
 
 
 
-
-
-
-
+return {paginacao, imagens, dimensoes}
 
 
 
@@ -336,6 +348,6 @@ formatoFisico = document.querySelector('input[name="formato"]:checked')?.value;
 
 // saída da função getDescricaoFisica
     }
-    return {paginacao, imagens}
-}
+    
+
 

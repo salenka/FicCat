@@ -14,7 +14,7 @@ export function uncheckOption(inputName) {
     // dispara o evento 'change' nas opções com inputName
     const changeEvent = new Event('change');
     
-    document.querySelectorAll(`input[name="${inputName}`).forEach(option => {
+    document.querySelectorAll(`input[name="${inputName}"]`).forEach(option => {
         if (option) {
         option.dispatchEvent(changeEvent);
        } else {
@@ -23,11 +23,11 @@ export function uncheckOption(inputName) {
     })
 }
 
-//apaga input do usuário quando ele muda de opção
+//apaga input textual do usuário quando ele muda de opção
 //use na div-mãe
 
 export function eraseChildText(motherDivId) {
-    const divMae = document.getElementById(motherDivId); 
+    const divMae = document.getElementById(`${motherDivId}`); 
     const inputsText = divMae.querySelectorAll('input[type="text"]');
 
     inputsText.forEach(inputText => {
@@ -78,13 +78,14 @@ export function geraFicha() {
     const areaPublicacao = card.getPublicacao().areaPublicacao;
     const paginacao = card.getDescricaoFisica().paginacao;
     const imagens = card.getDescricaoFisica().imagens;
+    const dimensoes = card.getDescricaoFisica().dimensoes;
     
     //Configuração da ficha catalográfica
 
     const ficha = `
     ${entradaPrincipal}
     ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
-    ${paginacao}${imagens}
+    ${paginacao}${imagens}${dimensoes}
     
     `;
     
