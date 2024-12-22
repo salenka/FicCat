@@ -254,7 +254,8 @@ document.getElementById('tradutor').addEventListener('change', function () {
     });
 
     //PAGINAÇÃO
-    
+
+    // Paginacao numerada ou não 
     document.querySelectorAll('input[name="paginacao"]').forEach(radio => {
         radio.addEventListener('change', function () {
     
@@ -271,7 +272,47 @@ document.getElementById('tradutor').addEventListener('change', function () {
         });
     });
 
-    //IMAGENS
+
+    // Paginação romana ou laminas 
+    document.querySelectorAll('input[name="outra-pag"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+
+            // Checkbox paginacao romana
+    
+            if (document.getElementById('pag-romana').checked) {
+                document.getElementById('paginacao-romana').style.display = 'block';     
+            } else {
+                document.getElementById('paginacao-romana').style.display = 'none';
+            }
+
+            // Checkbox laminas
+            if (document.getElementById('pag-lamina').checked) {
+                document.getElementById('paginacao-lamina').style.display = 'block';
+                document.getElementById('imagem').style.display = 'none';
+                document.getElementById('tipo-imagem').style.display = 'block'; 
+            } else {
+                document.getElementById('paginacao-lamina').style.display = 'none';
+            }
+        });
+    });
+
+    document.querySelectorAll('input[name="pag-ou-folha"]').forEach(radio => { 
+        radio.addEventListener('change', function () {
+            if (document.getElementById('pagina').checked) {
+                document.getElementById('pagina-lamina').style.display = 'block';
+                document.getElementById('folha-lamina').style.display = 'none';
+                } else if (document.getElementById('folha').checked) {
+                    document.getElementById('pagina-lamina').style.display = 'none';
+                    document.getElementById('folha-lamina').style.display = 'block';
+                } else {
+                    document.getElementById('pagina-lamina').style.display = 'none';
+                    document.getElementById('folha-lamina').style.display = 'none';
+                }
+                });
+            });
+                
+    
+    //IMAGENS  
     
     document.querySelectorAll('input[name="imagem"]').forEach(radio => {
         radio.addEventListener('change', function () {
@@ -318,14 +359,17 @@ document.getElementById('tradutor').addEventListener('change', function () {
     // OPÇOES DIV MATERIALIDADE (name:MATERIA)
     document.querySelectorAll('input[name="materia"]').forEach(radio => {
         radio.addEventListener('change', function () {
-            
-            uncheckOption('formato');   
     
             if (document.getElementById('fisico').checked) {
+                eraseChildText('materialidade');
+                
                 document.getElementById('formato-fisico').style.display = 'block';
                 document.getElementById('formato-digital').style.display = 'none';
+                document.getElementById('material-adicional').style.display = 'block';
 
             } else if (document.getElementById('digital').checked) {
+                uncheckOption('formato');   
+                eraseChildText('material-adicional');
                 document.getElementById('formato-fisico').style.display = 'none';
                 document.getElementById('formato-digital').style.display = 'block';
             } else  {
@@ -354,6 +398,24 @@ document.getElementById('tradutor').addEventListener('change', function () {
             }
         }); 
     })
+
+    // MATERIAL Adicional
+
+        document.querySelectorAll('input[name="material-adicional-SN"]').forEach (radio => {
+            radio.addEventListener('change', function () {
+                if (document.getElementById('sim-material-adicional').checked) {
+                    document.getElementById('material-adicional-section').style.display = 'block';
+                } else {
+                    document.getElementById('material-adicional-section').style.display = 'none';
+                }
+            });
+        });
+       
+
+
+
+
+
 
      // SALVA DADOS - adicionando o evento 'input' para todos os campos do formulário
      document.addEventListener("DOMContentLoaded", function () {

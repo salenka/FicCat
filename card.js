@@ -17,7 +17,7 @@ export function getTitulo() {
 
 export function getEdicao() {   
     let edicao = localStorage.getItem("edicao");
-    let areaEdicao = edicao ? '. -- ' + edicao + ' ed.' : "";
+    let areaEdicao = edicao ? '. -- ' + edicao + ' ed' : "";
     
     return {areaEdicao}
 }
@@ -156,8 +156,14 @@ export function getRespInt() {
 
 //Saída da função getRespInt
 
-    const entradaPrincipal = `${autorEntrada}${entidade}${evento}`;    
-    const areaResponsabilidade = ` / ${entidade}${autor}${organizador}${coordenador}${compilador}${editor}${pessoa2}${pessoa3}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3}`;
+    const entradaPrincipal = `${autorEntrada}${entidade}${evento}`;  
+    let areaResponsabilidade = "";
+    
+    if (respInt === "pessoa" || "entidade") {
+        const areaResponsabilidade = " / ";
+    } 
+
+    areaResponsabilidade += `${entidade}${autor}${organizador}${coordenador}${compilador}${editor}${pessoa2}${pessoa3}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3}`;
         
     return {entradaPrincipal, areaResponsabilidade}
 }
@@ -292,9 +298,10 @@ export function getDescricaoFisica() {
         mapas = "";
     }
 
-const listaImagens = [ilustracoes, fotos, mapas];
+// Cria uma lista com as imagens possíveis:
+    const listaImagens = [ilustracoes, fotos, mapas];
 
-//filtra lista de imagens para remover as que não estão presentes:
+// Filtra lista de imagens para remover as que não estão presentes no livro:
 const imagensPresentes = listaImagens.filter(imagem => imagem);
 
 // Cria uma string formatada para o resultado final:
@@ -316,34 +323,39 @@ if (imagensPresentes.length > 1) {
 //materia = document.querySelector('input[name="materia"]:checked')?.value; //físico ou digital
 const formatoFisico = document.querySelector('input[name="formato"]:checked')?.value; //tradicional ou nao
 
+let ext = document.getElementById("extensao").value;
+const extensao = ext? `; ${ext}` : "";
+
+let alt = document.getElementById("altura").value;
+let larg = document.getElementById("largura").value;
 let altura = "";
 let largura = "";
 
 if (formatoFisico === "tradicional") {
-    let alt = document.getElementById("altura").value;
-    altura = `; ${alt} cm`;
+    altura = alt? `; ${alt} cm`: "";
 } else if (formatoFisico === "nao-tradicional" ) {
-    let alt = document.getElementById("altura").value;
-    altura = `; ${alt} `;
-    let larg = document.getElementById("largura").value;
-    largura = `x ${larg} cm`;
+    altura = alt? `; ${alt} cm`: "";
+    largura = larg? ` x ${larg} cm` : "";
 }
 
-const dimensoes = `${altura}${largura}`;
+const dimensoes = `${altura}${largura}${extensao}`;
+
+
+// Material adicional
+
+let matAdic = document.getElementById("tipo-material-adicional").value;
+let qtdMatAdic = document.getElementById("qtd-material-adicional").value;
+
+const materialAdicional = matAdic? `; + ${qtdMatAdic} ${matAdic}` : "";
 
 
 
-return {paginacao, imagens, dimensoes}
 
 
 
+//------------------------------
 
-
-
-
-
-
-
+return {paginacao, imagens, dimensoes, materialAdicional}
 
 
 // saída da função getDescricaoFisica

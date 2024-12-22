@@ -371,7 +371,7 @@
                     <div id="paginacao-romana">
                         <br>
                         <label for="qtd-pag-romana">Quantidade de páginas com numeração romana</label>
-                        <input type="text" id="qtd-pag-romana" name="qtd-outra-pag">
+                        <input type="text" id="qtd-pag-romana" name="qtd-pag-romana">
                     </div>
 
                     <div id="paginacao-lamina">
@@ -384,12 +384,12 @@
 
                             <div id="pagina-lamina">
                                 <label for="qtd-pag-lamina">Quantidade de páginas ilustradas sem numeração</label>
-                                <input type="text" id="qtd-pag-lamina" name="qtd-outra-pag">
+                                <input type="text" id="qtd-pag-lamina" name="qtd-pag-lamina">
                             </div>
 
                             <div id="folha-lamina">
                                 <label for="qtd-folha-lamina">Quantidade de folhas ilustradas sem numeração</label>
-                                <input type="text" id="qtd-folha-lamina" name="qtd-outra-pag">
+                                <input type="text" id="qtd-folha-lamina" name="qtd-folha-lamina">
                             </div>
                     </div>
                 </div>
@@ -500,10 +500,32 @@
                         <label for="largura">Largura em centímetros</label><br>
                         <input type="text" id="largura" name="largura" required>
                     </div>
+
                 
                 </div>
        
-     
+    <div id="material-adicional">
+            <br>
+            <p>O livro é acompanhado de material adicional?</p>
+            <input type="radio" id="sim-material-adicional" name="material-adicional-SN" value="sim">
+            <label for="sim-material-adicional">Sim</label>
+
+            <input type="radio" id="nao-material-adicional" name="material-adicional-SN" value="nao">
+            <label for="nao-material-adicional">Não</label>
+                    
+        <div id="material-adicional-section">
+<br>
+            <p>Informe o tipo e a quantidade de material adicional (se for mais que uma unidade):</p>
+<br>
+            <label for="tipo-material-adicional">Tipo de material (por exemplo: DVD, Folheto, Brinquedo, etc)</label><br>
+            <input type="text" id="tipo-material-adicional" name="tipo-material-adicional">
+<br>
+            <label for="qtd-material-adicional">Quantidade do material</label><br>
+            <input type="text" id="qtd-material-adicional" name="qtd-material-adicional">
+        </div>
+    </div>
+
+
         <br />
         <button type="button" id="btn">Testa conexão</button>
         <button type="button" id="btn_gf">Gera ficha</button>

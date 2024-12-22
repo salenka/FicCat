@@ -79,15 +79,16 @@ export function geraFicha() {
     const paginacao = card.getDescricaoFisica().paginacao;
     const imagens = card.getDescricaoFisica().imagens;
     const dimensoes = card.getDescricaoFisica().dimensoes;
+    const materialAdicional = card.getDescricaoFisica().materialAdicional;
     
     //Configuração da ficha catalográfica
 
     const ficha = `
     ${entradaPrincipal}
     ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
-    ${paginacao}${imagens}${dimensoes}
+    ${paginacao}${imagens}${dimensoes}${materialAdicional}
     
-    `;
+    `
     
     // Exibição da ficha no HTML
     document.getElementById("ficha_aqui").textContent = ficha;
