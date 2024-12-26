@@ -181,7 +181,7 @@ export function getRespInt() {
 export function getPublicacao() {
 
     let publicador = document.getElementById("publicador").value;
-    publicador = publicador? ' : ' + publicador : ': [s.n.]';
+    publicador = publicador? ' : ' + publicador : ' : [s.n.]';
     
     let loc = document.getElementById("local").value;
     const local = loc? '. - ' + loc : ". - [S.l.]";
@@ -407,3 +407,29 @@ let subserieVolume = document.getElementById("subserie-volume").value;
 
     return { areaSerie };
 }
+
+export function getISBN() {
+    // Elementos antessessores sem ponto final
+        
+    const isbnSN = document.querySelector('input[name="isbn-sn"]:checked')?.value;
+    let areaNotaISBN = "";
+    
+    
+    let isbn1 = document.getElementById("isbn-1").value;
+        isbn1 = isbn1? `ISBN ${isbn1}` : "";
+    let qualificador1 = document.getElementById("qualificador-1").value;
+        qualificador1 = qualificador1? ` (${qualificador1})` : "";
+
+    isbn1 = `${isbn1}${qualificador1}`;
+
+    let isbn2 = document.getElementById("isbn-2").value;
+        isbn2 = isbn2? `. -- ISBN ${isbn2}` : "";
+    let qualificador2 = document.getElementById("qualificador-2").value;
+        qualificador2 = qualificador2? ` (${qualificador2})` : "";
+
+     isbn2 = `${isbn2}${qualificador2}`;
+
+     let ISBN = isbn1 + isbn2;
+        
+        return { ISBN  };
+    }
