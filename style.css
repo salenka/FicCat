@@ -239,3 +239,26 @@ display: none;
 #subserie {
     display: none;
 }
+
+#isbn {
+    display: none;
+}
+
+#isbn-2-sn {
+    display: none;
+}
+#isbn-outro {
+    display: none;
+}
+
+#nota {
+    display: none;
+}
+
+#nota-2-sn {
+    display: none;
+}
+
+#nota-outro {
+    display: none;
+}

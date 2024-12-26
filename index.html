@@ -55,7 +55,7 @@
 
         <div id="resp-int-section">
 
-            <p>O principal responsável intelectual pela obra é</p><br>
+            <p>O principal responsável intelectual pela obra é</p>
 
             <input type="radio" id="pessoa" name="resp-int" value="pessoa">
             <label for="pessoa">uma pessoa</label>
@@ -320,14 +320,15 @@
     <label for="publicador">Publicador</label><br>
     <input type="text" id="publicador" name="publicador"><br><br>
     <label for="local">Local do publicador</label><br>
-    <input type="text" id="local" name="local"><br>
+    <input type="text" id="local" name="local"><br><br>
     <label for="ano">Ano</label><br>
-    <input type="text" id="ano" name="ano"><br><br>
+    <input type="text" id="ano" name="ano"><br>
 </div>
 
         <!-- MAIS-PUBLICAODR -->
 
         <div id="publicador-mais">
+            <br>
             <p>Existe mais um publicador?</p>
             <input type="radio" id="publicador-sim" name="publicador-mais" value="sim">
             <label for="sim">Sim</label>
@@ -568,6 +569,82 @@
         <label for="subserie-volume">Número do volume</label><br>
         <input type="text" id="subserie-volume" name="subserie-volume"><br>
     </div>
+
+        <!-- ÁREA DE NOTAS -->
+
+         <!-- Existe ISBN? -->
+
+         <div id="isbn-sn">
+   <p>O livro possui ISBN?</p>
+   <input type="radio" id="isbn-sim" name="isbn-sn" value="sim">
+   <label for="sim">Sim</label>
+
+   <input type="radio" id="isbn-nao" name="isbn-sn" value="nao">
+   <label for="nao">Não</label>
+</div>
+
+<div id="isbn">
+    <br>
+<label for="isbn-1">ISBN</label><br>
+<input type="text" id="isbn-1" name="isbn-1"><br><br>
+</div>
+
+    <!-- Existe outro ISBN -->
+        <div id="isbn-2-sn">
+        <p>Existe outro ISBN?</p>
+        <input type="radio" id="isbn-2-sim" name="isbn-2-sn" value="sim">
+        <label for="sim">Sim</label>
+
+        <input type="radio" id="isbn-2-nao" name="isbn-2-sn" value="nao">
+        <label for="nao">Não</label>
+    </div>
+
+        <!-- Outro ISBN -->       
+<div id="isbn-outro">
+    <br>
+    <label for="qualificador-1">Qualificador do primeiro ISBN</label><br>
+    <input type="text" id="qualificador-1" name="qualificador-1"><br>
+    <br>
+    <label for="isbn-2">Segundo ISBN</label><br>
+    <input type="text" id="isbn-2" name="isbn-2"><br><br>
+    <label for="qualificador-2">Qualificador do segundo ISBN</label><br>
+    <input type="text" id="qualificador-2" name="qualificador-2"><br>
+</div>
+
+// Nota
+
+<div id="nota-sn">
+    <p>É preciso acrescentar uma nota?</p>
+    <input type="radio" id="nota-sim" name="nota-sn" value="sim">
+    <label for="sim">Sim</label>
+ 
+    <input type="radio" id="nota-nao" name="nota-sn" value="nao">
+    <label for="nao">Não</label>
+ </div>
+
+ 
+ <div id="nota">
+     <br>
+ <label for="nota-1">Redija uma nota sucinta</label><br>
+ <input type="text" id="nota-1" name="nota-1"><br><br>
+ </div>
+ 
+     <!-- Existe outro ISBN -->
+         <div id="nota-2-sn">
+         <p>É preciso acrescentar outra nota?</p>
+         <input type="radio" id="nota-2-sim" name="nota-2-sn" value="sim">
+         <label for="sim">Sim</label>
+ 
+         <input type="radio" id="nota-2-nao" name="nota-2-sn" value="nao">
+         <label for="nao">Não</label>
+     </div>
+ 
+         <!-- Outra nota -->       
+ <div id="nota-outro">
+    <br>
+    <label for="nota-2">Redija uma nota sucinta</label><br>
+    <input type="text" id="nota-2" name="nota-2"><br><br>
+ </div>
 
 
         <br />

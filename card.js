@@ -409,10 +409,9 @@ let subserieVolume = document.getElementById("subserie-volume").value;
 }
 
 export function getISBN() {
-    // Elementos antessessores sem ponto final
-        
-    const isbnSN = document.querySelector('input[name="isbn-sn"]:checked')?.value;
-    let areaNotaISBN = "";
+         
+   // const isbnSN = document.querySelector('input[name="isbn-sn"]:checked')?.value;
+    //let areaNotaISBN = "";
     
     
     let isbn1 = document.getElementById("isbn-1").value;
@@ -433,3 +432,20 @@ export function getISBN() {
         
         return { ISBN  };
     }
+
+    export function getNota() {
+
+        const isbnSN = document.querySelector('input[name="isbn-sn"]:checked')?.value;
+        let areaNotaISBN = "";
+        
+        
+        let nota1 = document.getElementById("nota-1").value;
+            nota1 = nota1? nota1 : "";
+
+    
+        let nota2 = document.getElementById("nota-2").value;
+            nota2 = nota2? nota2 : "";
+
+            
+            return { nota1, nota2  };
+        }

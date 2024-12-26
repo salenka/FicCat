@@ -81,6 +81,9 @@ export function geraFicha() {
     const dimensoes = card.getDescricaoFisica().dimensoes;
     const materialAdicional = card.getDescricaoFisica().materialAdicional;
     const areaSerie = card.getSerie().areaSerie;
+    const isbn = card.getISBN().ISBN;
+    const nota1 = card.getNota().nota1;
+    const nota2 = card.getNota().nota2;
     
     //Configuração da ficha catalográfica
 
@@ -88,6 +91,10 @@ export function geraFicha() {
     ${entradaPrincipal}
     ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
     ${paginacao}${imagens}${dimensoes}${materialAdicional}${areaSerie}
+
+    ${nota1}
+    ${nota2}
+    ${isbn}
     
     `
     

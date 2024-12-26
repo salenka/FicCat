@@ -439,7 +439,62 @@ document.getElementById('tradutor').addEventListener('change', function () {
         });
     });
 
+    //ÁREA DE NOTAS
 
+    // ISBN - sim ou não
+    
+    document.querySelectorAll('input[name="isbn-sn"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            if (document.getElementById('isbn-sim').checked) {
+                document.getElementById('isbn').style.display = 'block';
+                document.getElementById('isbn-2-sn').style.display = 'block';
+            } else {
+                document.getElementById('isbn').style.display = 'none';
+                document.getElementById('isbn-2-sn').style.display = 'none';
+            }
+        });
+    });
+
+    // ISBN-2 - sim ou não
+
+    document.querySelectorAll('input[name="isbn-2-sn"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            if (document.getElementById('isbn-2-sim').checked) {
+                document.getElementById('isbn-outro').style.display = 'block';
+            } else {
+                document.getElementById('isbn-outro').style.display = 'none';
+            }
+        });
+    });
+
+
+
+        // Nota - sim ou não
+    
+        document.querySelectorAll('input[name="nota-sn"]').forEach(radio => {
+            radio.addEventListener('change', function () {
+                if (document.getElementById('nota-sim').checked) {
+                    document.getElementById('nota').style.display = 'block';
+                    document.getElementById('nota-2-sn').style.display = 'block';
+                } else {
+                    document.getElementById('nota').style.display = 'none';
+                    document.getElementById('nota-2-sn').style.display = 'none';
+                }
+            });
+        });
+    
+        // Segunda nota - sim ou não
+    
+        document.querySelectorAll('input[name="nota-2-sn"]').forEach(radio => {
+            radio.addEventListener('change', function () {
+                if (document.getElementById('nota-2-sim').checked) {
+                    document.getElementById('nota-outro').style.display = 'block';
+                } else {
+                    document.getElementById('nota-outro').style.display = 'none';
+                }
+            });
+        });
+    
 
 
 
