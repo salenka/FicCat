@@ -36,7 +36,7 @@ export function eraseChildText(motherDivId) {
 }
 
 export function updateTipoPessoa() {
-    const pessoaSelecionada = document.querySelector('input[name="t-pessoa"]:checked')?.value;
+    const pessoaSelecionada = document.querySelector('input[name="pessoa-tipo"]:checked')?.value;
     
         // Atualiza todos os spans com a classe 'span-tipo-pessoa' com o valor selecionado
         const spans = document.querySelectorAll('.span-tipo-pessoa');
@@ -80,13 +80,14 @@ export function geraFicha() {
     const imagens = card.getDescricaoFisica().imagens;
     const dimensoes = card.getDescricaoFisica().dimensoes;
     const materialAdicional = card.getDescricaoFisica().materialAdicional;
+    const areaSerie = card.getSerie().areaSerie;
     
     //Configuração da ficha catalográfica
 
     const ficha = `
     ${entradaPrincipal}
     ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
-    ${paginacao}${imagens}${dimensoes}${materialAdicional}
+    ${paginacao}${imagens}${dimensoes}${materialAdicional}${areaSerie}
     
     `
     

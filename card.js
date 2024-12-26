@@ -5,7 +5,7 @@
 export function getTitulo() {
     let titulo = document.getElementById("titulo").value;
 
-    let subtitulo = localStorage.getItem("subtitulo");
+    let subtitulo = document.getElementById("subtitulo").value;
     subtitulo = subtitulo ? ': ' + subtitulo : "";
     
     let areaTitulo = `${titulo}${subtitulo}`;
@@ -16,7 +16,7 @@ export function getTitulo() {
 // ÁREA DE EDIÇÃO
 
 export function getEdicao() {   
-    let edicao = localStorage.getItem("edicao");
+    let edicao = document.getElementById("edicao").value;
     let areaEdicao = edicao ? '. -- ' + edicao + ' ed' : "";
     
     return {areaEdicao}
@@ -37,14 +37,14 @@ export function getRespInt() {
         
     } else if (respInt === "entidade") {
         console.log("radio entidade selecionado");
-        entidade = localStorage.getItem("n-entidade") || "";
+        entidade = document.getElementById("entidade-nome").value || "";
 
     } else if (respInt === "evento") {
         console.log("radio evento selecionado");
-        evento = localStorage.getItem("n-evento");
-        const num = localStorage.getItem("num-evento") || "" ;
-        const ano = localStorage.getItem("ano-evento") || "" ;
-        const local = localStorage.getItem("local-evento") || "" ;
+        evento = document.getElementById("evento-nome").value;
+        const num = document.getElementById("evento-numero").value || "" ;
+        const ano = document.getElementById("evento-ano").value || "" ;
+        const local = document.getElementById("evento-local").value || "" ;
         evento = evento? evento + " (" + num + ". : " + ano + " : " + local + ")" : "" ;
         
     }
@@ -58,46 +58,47 @@ export function getRespInt() {
     let compilador = "";
     let editor = "";
 
-    const tipoPessoa = document.querySelector('input[name="t-pessoa"]:checked')?.value;
+    const tipoPessoa = document.querySelector('input[name="pessoa-tipo"]:checked')?.value;
     if (tipoPessoa === "autor") {
-        const nome = localStorage.getItem("nome") || "" ; 
-        const sobrenome = localStorage.getItem("sobrenome") || "" ;
+        const nome = document.getElementById("nome").value || "" ; 
+        const sobrenome = document.getElementById("sobrenome").value || "" ;
         autorEntrada = sobrenome + ", " + nome;
         autor = nome + " " + sobrenome;
 
     } else if (tipoPessoa === "organizador") {
-        const org = localStorage.getItem("n-organizador") || "" ;
+        const org = document.getElementById("organizador-nome").value || "" ;
         organizador = 'organizado por ' + org;
 
     } else if (tipoPessoa === "coordenador") {
-        const coord = localStorage.getItem("n-coordenador") || "";
+        const coord = document.getElementById("coordenador-nome").value || "";
         coordenador = 'coordenado por ' + coord;
 
     } else if (tipoPessoa === "compilador") {
-        const comp = localStorage.getItem("n-compilador") || "" ;
+        const comp = document.getElementById("compilador-nome").value || "" ;
         compilador = 'compilado por ' + comp;
 
     } else if (tipoPessoa === "editor") {
-    const ed = localStorage.getItem("n-editor") || "";
+    const ed = document.getElementById("editor-nome").value || "";
     editor = 'editado por ' + ed;
 }
 
 //Mais pessoas com a mesma função
-    const maisPessoa = document.querySelector('input[name="mais-pessoa"]:checked')?.value;
-    const qtdPessoa = document.querySelector('input[name="qtd-pessoa"]:checked')?.value;
+    const maisPessoa = document.querySelector('input[name="pessoa-mais"]:checked')?.value;
+    const qtdPessoa = document.querySelector('input[name="pessoa-qtd"]:checked')?.value;
     let pessoa2 = "";
     let pessoa3 = "";
+    let pessoa4 = "";
 
     if (maisPessoa === "sim") {
         if (qtdPessoa === "2") {
-            const p2 = localStorage.getItem("pessoa-2");
+            const p2 = document.getElementById("pessoa-2").value;
             pessoa2 = ' e ' + p2;
         } else if (qtdPessoa === "3") {
-            const p2 = localStorage.getItem("pessoa-2");
-            const p3 = localStorage.getItem("pessoa-3");
+            const p2 = document.getElementById("pessoa-2").value;
+            const p3 = document.getElementById("pessoa-3").value;
             pessoa2 = ', ' + p2;
             pessoa3 = ' e ' + p3;
-        } else {
+        } else if (qtdPessoa === "4") {
             pessoa2 = " ... [et al.]";
         }
     }
@@ -105,22 +106,22 @@ export function getRespInt() {
 //Contribuidores - Ilustrador
     let ilustrador = "";
     if (document.getElementById("ilustrador").checked) {
-        const nIlustrador = localStorage.getItem("n-ilustrador");
+        const nIlustrador = document.getElementById("ilustrador-nome").value;
         ilustrador = ' ; ilustrado por ' + nIlustrador;
     }
 
-    const maisIlustrador = document.querySelector('input[name="mais-ilustrador"]:checked')?.value;
-    const qtdIlustrador = document.querySelector('input[name="qtd-ilustrador"]:checked')?.value;
+    const maisIlustrador = document.querySelector('input[name="ilustrador-mais"]:checked')?.value;
+    const qtdIlustrador = document.querySelector('input[name="ilustrador-qtd"]:checked')?.value;
     let ilustrador2 = "";
     let ilustrador3 = "";
 
     if (maisIlustrador === "sim") {
         if (qtdIlustrador === "2") {
-            ilustrador2 = localStorage.getItem("ilustrador-2");
+            ilustrador2 = document.getElementById("ilustrador-2").value;
             ilustrador2 = ' e ' + ilustrador2;
         } else if (qtdIlustrador === "3") {
-            ilustrador2 = localStorage.getItem("ilustrador-2");
-            ilustrador3 = localStorage.getItem("ilustrador-3");
+            ilustrador2 = document.getElementById("ilustrador-2").value;
+            ilustrador3 = document.getElementById("ilustrador-3").value;
             ilustrador2 = ', ' + ilustrador2;
             ilustrador3 = ' e ' + ilustrador3;
         } else {
@@ -131,22 +132,22 @@ export function getRespInt() {
 //Contribuidores - Tradutor  
     let tradutor = "";
     if (document.getElementById("tradutor").checked) {
-        const nTradutor = localStorage.getItem("n-tradutor");
+        const nTradutor = document.getElementById("tradutor-nome").value;
         tradutor = ' ; traduzido por ' + nTradutor;
     }
 
-    const maisTradutor = document.querySelector('input[name="mais-tradutor"]:checked')?.value;
-    const qtdTradutor = document.querySelector('input[name="qtd-tradutor"]:checked')?.value;
+    const maisTradutor = document.querySelector('input[name="tradutor-mais"]:checked')?.value;
+    const qtdTradutor = document.querySelector('input[name="tradutor-qtd"]:checked')?.value;
     let tradutor2 = "";
     let tradutor3 = "";
 
     if (maisTradutor === "sim") {
         if (qtdTradutor === "2") {
-            tradutor2 = localStorage.getItem("tradutor-2");
+            tradutor2 = document.getElementById("tradutor-2").value;
             tradutor2 = ' e ' + tradutor2;
         } else if (qtdTradutor === "3") {
-            tradutor2 = localStorage.getItem("tradutor-2");
-            tradutor3 = localStorage.getItem("tradutor-3");
+            tradutor2 = document.getElementById("tradutor-2").value;
+            tradutor3 = document.getElementById("tradutor-3").value;
             tradutor2 = ', ' + tradutor2;
             tradutor3 = ' e ' + tradutor3;
         } else {
@@ -157,10 +158,16 @@ export function getRespInt() {
 //Saída da função getRespInt
 
     const entradaPrincipal = `${autorEntrada}${entidade}${evento}`;  
-    let areaResponsabilidade = "";
     
-    if (respInt === "pessoa" || "entidade") {
-        const areaResponsabilidade = " / ";
+    let areaResponsabilidade = "";
+
+    // Verifica se a edição está presente para adicionar o ponto após "ed" além de "/"
+    const edicaoPresente = document.getElementById("edicao").value;
+    if (edicaoPresente && respInt === "pessoa" || respInt === "entidade") {
+        areaResponsabilidade = ". / ";
+    
+    } else if (!edicaoPresente && respInt === "pessoa" || respInt === "entidade") {
+        areaResponsabilidade = " / ";
     } 
 
     areaResponsabilidade += `${entidade}${autor}${organizador}${coordenador}${compilador}${editor}${pessoa2}${pessoa3}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3}`;
@@ -173,18 +180,18 @@ export function getRespInt() {
 
 export function getPublicacao() {
 
-    let publicador = localStorage.getItem("publicador");
+    let publicador = document.getElementById("publicador").value;
     publicador = publicador? ' : ' + publicador : ': [s.n.]';
     
-    let loc = localStorage.getItem("local");
+    let loc = document.getElementById("local").value;
     const local = loc? '. - ' + loc : ". - [S.l.]";
 
-    let ano = localStorage.getItem("ano");
+    let ano = document.getElementById("ano").value;
     ano = ano? ', ' + ano + '.' : ', [s.d.].'; 
     
     //Mais publicador
     
-    const maisPublicador = document.querySelector('input[name="mais-publicador"]:checked')?.value;
+    const maisPublicador = document.querySelector('input[name="publicador-mais"]:checked')?.value;
         
     let publicador2 = document.getElementById("publicador-2").value;
     publicador2 = publicador2? ' : ' + publicador2 : "";
@@ -214,18 +221,18 @@ export function getDescricaoFisica() {
         const pagRomana_cbox = document.getElementById("pag-romana").checked;
         const paginaOuFolha_radio = document.querySelector('input[name="pag-ou-folha"]:checked')?.value;
         const pagLamina_cbox = document.getElementById("pag-lamina").checked;
-        const radioCerteza = document.querySelector('input[name="certeza-pag"]:checked')?.value;
+        const radioCerteza = document.querySelector('input[name="pag-certeza"]:checked')?.value;
 
         let pagNum = "";
         let pagNaoNum = "";
         let pagRomana = "";
         let lamina = "";
 
-        if (paginacao_radio === "pag-com-num") {
-            pagNum = document.getElementById("qtd-pag-num")?.value;
+        if (paginacao_radio === "pag-num") {
+            pagNum = document.getElementById("pag-num-qtd")?.value;
             pagNum = pagNum + " p.";
         } else if (paginacao_radio === "pag-sem-num") {
-            pagNaoNum = document.getElementById("qtd-pag-nao-num")?.value;
+            pagNaoNum = document.getElementById("pag-nao-num-qtd")?.value;
             if (radioCerteza === "certa") {
                 pagNaoNum = pagNaoNum + " p.";
             } else if (radioCerteza === "presumida") {
@@ -236,17 +243,17 @@ export function getDescricaoFisica() {
         }
 
         if (pagRomana_cbox) {
-            pagRomana = document.getElementById("qtd-pag-romana")?.value;
+            pagRomana = document.getElementById("pag-romana-qtd")?.value;
             pagRomana = pagRomana + ", ";  
         }
 
         if (pagLamina_cbox) {
 
             if (paginaOuFolha_radio === "pagina") {
-            lamina = document.getElementById("qtd-pag-lamina")?.value;
+            lamina = document.getElementById("pag-lamina-qtd")?.value;
             lamina = ", [" + lamina + "] p. de lâminas";
             } else if (paginaOuFolha_radio === "folha") {
-                lamina = document.getElementById("qtd-folha-lamina")?.value;
+                lamina = document.getElementById("folha-lamina-qtd")?.value;
                 lamina = ", [" + lamina + "] f. de lâminas"; 
             }
         
@@ -259,10 +266,10 @@ export function getDescricaoFisica() {
     //Material gráfico (Imagens)
 
     const imagem = document.querySelector('input[name="imagem"]:checked')?.value;
-    //const tipoImagem = document.querySelector('input[name="tipo-imagem"]:checked')?.value;
-    const coloracaoIl = document.querySelector('input[name="coloracao-il"]:checked')?.value;
-    const coloracaoFotos = document.querySelector('input[name="coloracao-fotos"]:checked')?.value;
-    const coloracaoMapas = document.querySelector('input[name="coloracao-mapas"]:checked')?.value;
+    //const tipoImagem = document.querySelector('input[name="imagem-tipo"]:checked')?.value;
+    const coloracaoIl = document.querySelector('input[name="il-coloracao"]:checked')?.value;
+    const coloracaoFotos = document.querySelector('input[name="fotos-coloracao"]:checked')?.value;
+    const coloracaoMapas = document.querySelector('input[name="mapas-coloracao"]:checked')?.value;
 
     let ilustracoes = "";
     let fotos = "";
@@ -320,21 +327,25 @@ if (imagensPresentes.length > 1) {
 
 // Dimensões
 
-//materia = document.querySelector('input[name="materia"]:checked')?.value; //físico ou digital
-const formatoFisico = document.querySelector('input[name="formato"]:checked')?.value; //tradicional ou nao
+//formato digital
 
 let ext = document.getElementById("extensao").value;
-const extensao = ext? `; ${ext}` : "";
+const extensao = ext? ` ; ${ext}` : "";
 
+//formato físico
+
+const formatoFisico = document.querySelector('input[name="formato"]:checked')?.value; //tradicional ou nao
+
+let altura = "";
 let alt = document.getElementById("altura").value;
 let larg = document.getElementById("largura").value;
-let altura = "";
+
 let largura = "";
 
 if (formatoFisico === "tradicional") {
-    altura = alt? `; ${alt} cm`: "";
+        altura = alt? ` ; ${alt} cm`: "";
 } else if (formatoFisico === "nao-tradicional" ) {
-    altura = alt? `; ${alt} cm`: "";
+    altura = alt? ` ; ${alt} cm`: "";
     largura = larg? ` x ${larg} cm` : "";
 }
 
@@ -343,23 +354,56 @@ const dimensoes = `${altura}${largura}${extensao}`;
 
 // Material adicional
 
-let matAdic = document.getElementById("tipo-material-adicional").value;
-let qtdMatAdic = document.getElementById("qtd-material-adicional").value;
+let matAdic = document.getElementById("material-adicional-tipo").value;
+let qtdMatAdic = document.getElementById("material-adicional-qtd").value;
 
-const materialAdicional = matAdic? `; + ${qtdMatAdic} ${matAdic}` : "";
+const materialAdicional = matAdic? ` + ${qtdMatAdic} ${matAdic}` : "";
 
-
-
-
-
-
-//------------------------------
+// Saída da área de descrição física------------------
 
 return {paginacao, imagens, dimensoes, materialAdicional}
 
-
-// saída da função getDescricaoFisica
     }
     
+// ÁREA DE SÉRIE
 
 
+
+export function getSerie() {
+// Elementos antessessores sem ponto final
+const pagRomana = document.getElementById("pag-romana").checked ;
+const imagem = document.getElementById("imagem-sim").checked ;
+const digital = document.getElementById("digital").checked ;
+const formatoTrad = document.getElementById("formato-trad").checked ;
+const formatoNaoTrad = document.getElementById("formato-nao-trad").checked;
+
+const elementosAntecessoresSemPontoFinal = pagRomana || imagem || digital || formatoTrad || formatoNaoTrad ;
+
+
+const serieSN = document.querySelector('input[name="serie-sn"]:checked')?.value;
+let areaSerie = "";
+
+
+let serieNome = document.getElementById("serie-nome").value;
+let serieVolume = document.getElementById("serie-volume").value;
+    serieVolume = serieVolume? " ; " + serieVolume : "";
+
+
+let subserieNome = document.getElementById("subserie-nome").value;
+let subserieVolume = document.getElementById("subserie-volume").value;
+    subserieVolume = subserieVolume? " ; " + subserieVolume : "";
+
+    // Construção da área da série
+    if (serieSN === "sim") {
+        areaSerie = `. -- (${serieNome}${serieVolume}`;
+        if (subserieNome) {
+            areaSerie += ` : ${subserieNome}${subserieVolume})`;
+        } else {
+            areaSerie += `)`;
+        }
+    } else if (elementosAntecessoresSemPontoFinal) {
+        areaSerie = ".";
+    }
+
+    return { areaSerie };
+}

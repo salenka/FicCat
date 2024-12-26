@@ -12,8 +12,8 @@ document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
         if (document.getElementById('pessoa').checked) {
-            uncheckOption('t-pessoa');
-            uncheckOption('qtd-pessoa');
+            uncheckOption('pessoa-tipo');
+            uncheckOption('pessoa-qtd');
             document.getElementById('pessoa-section').style.display = 'block';
             document.getElementById('entidade-section').style.display = 'none';
             document.getElementById('evento-section').style.display = 'none';
@@ -36,11 +36,11 @@ document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
 
 // pessoa-section
 
-document.querySelectorAll('input[name="t-pessoa"]').forEach(radio => {
+document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
     radio.addEventListener('change', function () {
            
-        uncheckOption('qtd-pessoa');
-        uncheckOption('mais-pessoa');
+        uncheckOption('pessoa-qtd');
+        uncheckOption('pessoa-mais');
 
         if (document.getElementById('autor').checked) {
             document.getElementById('autor-section').style.display = 'block';
@@ -48,7 +48,7 @@ document.querySelectorAll('input[name="t-pessoa"]').forEach(radio => {
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'none';
-            document.getElementById('mais-pessoa').style.display = 'block';
+            document.getElementById('pessoa-mais').style.display = 'block';
 
         } else if (document.getElementById('organizador').checked)  {
             document.getElementById('autor-section').style.display = 'none';
@@ -56,7 +56,7 @@ document.querySelectorAll('input[name="t-pessoa"]').forEach(radio => {
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'none';
-            document.getElementById('mais-pessoa').style.display = 'block';
+            document.getElementById('pessoa-mais').style.display = 'block';
                  
         } else if (document.getElementById('coordenador').checked) {
             document.getElementById('autor-section').style.display = 'none';
@@ -64,7 +64,7 @@ document.querySelectorAll('input[name="t-pessoa"]').forEach(radio => {
             document.getElementById('coordenador-section').style.display = 'block';
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'none';
-            document.getElementById('mais-pessoa').style.display = 'block';
+            document.getElementById('pessoa-mais').style.display = 'block';
               
         } else if (document.getElementById('compilador').checked) {
             document.getElementById('autor-section').style.display = 'none';
@@ -72,7 +72,7 @@ document.querySelectorAll('input[name="t-pessoa"]').forEach(radio => {
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'block';
             document.getElementById('editor-section').style.display = 'none';
-            document.getElementById('mais-pessoa').style.display = 'block';
+            document.getElementById('pessoa-mais').style.display = 'block';
                  
         } else if (document.getElementById('editor').checked) {
             document.getElementById('autor-section').style.display = 'none';
@@ -80,7 +80,7 @@ document.querySelectorAll('input[name="t-pessoa"]').forEach(radio => {
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'block';
-            document.getElementById('mais-pessoa').style.display = 'block';
+            document.getElementById('pessoa-mais').style.display = 'block';
                 
          } else {
             document.getElementById('autor-section').style.display = 'none';
@@ -88,50 +88,50 @@ document.querySelectorAll('input[name="t-pessoa"]').forEach(radio => {
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'none';
-            document.getElementById('mais-pessoa').style.display = 'none';
+            document.getElementById('pessoa-mais').style.display = 'none';
 
         }
     });
 
-    document.querySelectorAll('input[name="t-pessoa"]').forEach(radio => {
+    document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
         radio.addEventListener('change', updateTipoPessoa);
     });
 
 });
 
-//MAIS-PESSOA
+//pessoa-mais
 
-document.querySelectorAll('input[name="mais-pessoa"]').forEach(radio => {
+document.querySelectorAll('input[name="pessoa-mais"]').forEach(radio => {
     radio.addEventListener('change', function () {
         if (document.getElementById('sim').checked) {
-            document.getElementById('qtd-pessoa').style.display = 'block';
+            document.getElementById('pessoa-qtd').style.display = 'block';
         } else {
-            document.getElementById('qtd-pessoa').style.display = 'none';
+            document.getElementById('pessoa-qtd').style.display = 'none';
         }
     });
 });
 
 //OUTRA-PESSOA
 
-document.querySelectorAll('input[name="qtd-pessoa"]').forEach(radio => {
+document.querySelectorAll('input[name="pessoa-qtd"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        if (document.getElementById('qtd-pessoa-2').checked) {
-            document.getElementById('segunda-pessoa').style.display = 'block';
-            document.getElementById('terceira-pessoa').style.display = 'none';
-            document.getElementById('quarta-pessoa').style.display = 'none';
-        } else if (document.getElementById('qtd-pessoa-3').checked) {
-            document.getElementById('segunda-pessoa').style.display = 'block';
-            document.getElementById('terceira-pessoa').style.display = 'block';
-            document.getElementById('quarta-pessoa').style.display = 'none';
-        } else if (document.getElementById('qtd-pessoa-4').checked) {
-            document.getElementById('segunda-pessoa').style.display = 'none';
-            document.getElementById('terceira-pessoa').style.display = 'none';
-            document.getElementById('quarta-pessoa').style.display = 'block';
+        if (document.getElementById('pessoa-qtd-2').checked) {
+            document.getElementById('pessoa-segunda').style.display = 'block';
+            document.getElementById('pessoa-terceira').style.display = 'none';
+            document.getElementById('pessoa-quarta').style.display = 'none';
+        } else if (document.getElementById('pessoa-qtd-3').checked) {
+            document.getElementById('pessoa-segunda').style.display = 'block';
+            document.getElementById('pessoa-terceira').style.display = 'block';
+            document.getElementById('pessoa-quarta').style.display = 'none';
+        } else if (document.getElementById('pessoa-qtd-4').checked) {
+            document.getElementById('pessoa-segunda').style.display = 'none';
+            document.getElementById('pessoa-terceira').style.display = 'none';
+            document.getElementById('pessoa-quarta').style.display = 'block';
         } else {
-            document.getElementById('segunda-pessoa').style.display = 'none';
-            document.getElementById('terceira-pessoa').style.display = 'none';
-            document.getElementById('quarta-pessoa').style.display = 'none';
+            document.getElementById('pessoa-segunda').style.display = 'none';
+            document.getElementById('pessoa-terceira').style.display = 'none';
+            document.getElementById('pessoa-quarta').style.display = 'none';
             
         }
     });
@@ -143,48 +143,48 @@ document.getElementById('ilustrador').addEventListener('change', function () {
            
         if (document.getElementById('ilustrador').checked) {
             document.getElementById('ilustrador-section').style.display = 'block';
-            document.getElementById('mais-ilustrador').style.display = 'block';
+            document.getElementById('ilustrador-mais').style.display = 'block';
 
         } else   {
             document.getElementById('ilustrador-section').style.display = 'none';
-            document.getElementById('mais-ilustrador').style.display = 'none';               
+            document.getElementById('ilustrador-mais').style.display = 'none';               
         } 
     })
 
-    //MAIS-Ilustrador
+    //ilustrador-mais
     
-    document.querySelectorAll('input[name="mais-ilustrador"]').forEach(radio => {
+    document.querySelectorAll('input[name="ilustrador-mais"]').forEach(radio => {
         radio.addEventListener('change', function () {
-            if (document.getElementById('sim-ilustrador').checked) {
-                document.getElementById('qtd-ilustrador').style.display = 'block';
+            if (document.getElementById('ilustrador-sim').checked) {
+                document.getElementById('ilustrador-qtd').style.display = 'block';
             } else {
-                document.getElementById('qtd-ilustrador').style.display = 'none';
+                document.getElementById('ilustrador-qtd').style.display = 'none';
             }
         });
     });
     
     //OUTRO-Ilustrador
 
-    document.querySelectorAll('input[name="qtd-ilustrador"]').forEach(radio => {
+    document.querySelectorAll('input[name="ilustrador-qtd"]').forEach(radio => {
         radio.addEventListener('change', function () {
     
     
-            if (document.getElementById('qtd-ilustrador-2').checked) {
-                document.getElementById('segundo-ilustrador').style.display = 'block';
-                document.getElementById('terceiro-ilustrador').style.display = 'none';
-                document.getElementById('quarto-ilustrador').style.display = 'none';
-            } else if (document.getElementById('qtd-ilustrador-3').checked) {
-                document.getElementById('segundo-ilustrador').style.display = 'block';
-                document.getElementById('terceiro-ilustrador').style.display = 'block';
-                document.getElementById('quarto-ilustrador').style.display = 'none';
-            } else if (document.getElementById('qtd-ilustrador-4').checked) {
-                document.getElementById('segundo-ilustrador').style.display = 'none';
-                document.getElementById('terceiro-ilustrador').style.display = 'none';
-                document.getElementById('quarto-ilustrador').style.display = 'block';
+            if (document.getElementById('ilustrador-qtd-2').checked) {
+                document.getElementById('ilustrador-segundo').style.display = 'block';
+                document.getElementById('ilustrador-terceiro').style.display = 'none';
+                document.getElementById('ilustrador-quarto').style.display = 'none';
+            } else if (document.getElementById('ilustrador-qtd-3').checked) {
+                document.getElementById('ilustrador-segundo').style.display = 'block';
+                document.getElementById('ilustrador-terceiro').style.display = 'block';
+                document.getElementById('ilustrador-quarto').style.display = 'none';
+            } else if (document.getElementById('ilustrador-qtd-4').checked) {
+                document.getElementById('ilustrador-segundo').style.display = 'none';
+                document.getElementById('ilustrador-terceiro').style.display = 'none';
+                document.getElementById('ilustrador-quarto').style.display = 'block';
             } else {
-                document.getElementById('segundo-ilustrador').style.display = 'none';
-                document.getElementById('terceiro-ilustrador').style.display = 'none';
-                document.getElementById('quarto-ilustrador').style.display = 'none';
+                document.getElementById('ilustrador-segundo').style.display = 'none';
+                document.getElementById('ilustrador-terceiro').style.display = 'none';
+                document.getElementById('ilustrador-quarto').style.display = 'none';
             }
         });
     });
@@ -195,60 +195,60 @@ document.getElementById('tradutor').addEventListener('change', function () {
            
     if (document.getElementById('tradutor').checked) {
         document.getElementById('tradutor-section').style.display = 'block';
-        document.getElementById('mais-tradutor').style.display = 'block';
+        document.getElementById('tradutor-mais').style.display = 'block';
 
     } else   {
         document.getElementById('tradutor-section').style.display = 'none';
-        document.getElementById('mais-tradutor').style.display = 'none';              
+        document.getElementById('tradutor-mais').style.display = 'none';              
     } 
 })
 
-    //MAIS-tradutor
+    //tradutor-mais
     
-    document.querySelectorAll('input[name="mais-tradutor"]').forEach(radio => {
+    document.querySelectorAll('input[name="tradutor-mais"]').forEach(radio => {
         radio.addEventListener('change', function () {
-            if (document.getElementById('sim-tradutor').checked) {
-                document.getElementById('qtd-tradutor').style.display = 'block';
+            if (document.getElementById('tradutor-sim').checked) {
+                document.getElementById('tradutor-qtd').style.display = 'block';
             } else {
-                document.getElementById('qtd-tradutor').style.display = 'none';
+                document.getElementById('tradutor-qtd').style.display = 'none';
             }
         });
     });
 
     //OUTRO-Tradutor
 
-    document.querySelectorAll('input[name="qtd-tradutor"]').forEach(radio => {
+    document.querySelectorAll('input[name="tradutor-qtd"]').forEach(radio => {
         radio.addEventListener('change', function () {
     
     
-            if (document.getElementById('qtd-tradutor-2').checked) {
-                document.getElementById('segundo-tradutor').style.display = 'block';
-                document.getElementById('terceiro-tradutor').style.display = 'none';
-                document.getElementById('quarto-tradutor').style.display = 'none';
-            } else if (document.getElementById('qtd-tradutor-3').checked) {
-                document.getElementById('segundo-tradutor').style.display = 'block';
-                document.getElementById('terceiro-tradutor').style.display = 'block';
-                document.getElementById('quarto-tradutor').style.display = 'none';
-            } else if (document.getElementById('qtd-tradutor-4').checked) {
-                document.getElementById('segundo-tradutor').style.display = 'none';
-                document.getElementById('terceiro-tradutor').style.display = 'none';
-                document.getElementById('quarto-tradutor').style.display = 'block';
+            if (document.getElementById('tradutor-qtd-2').checked) {
+                document.getElementById('tradutor-segundo').style.display = 'block';
+                document.getElementById('tradutor-terceiro').style.display = 'none';
+                document.getElementById('tradutor-quarto').style.display = 'none';
+            } else if (document.getElementById('tradutor-qtd-3').checked) {
+                document.getElementById('tradutor-segundo').style.display = 'block';
+                document.getElementById('tradutor-terceiro').style.display = 'block';
+                document.getElementById('tradutor-quarto').style.display = 'none';
+            } else if (document.getElementById('tradutor-qtd-4').checked) {
+                document.getElementById('tradutor-segundo').style.display = 'none';
+                document.getElementById('tradutor-terceiro').style.display = 'none';
+                document.getElementById('tradutor-quarto').style.display = 'block';
             } else {
-                document.getElementById('segundo-tradutor').style.display = 'none';
-                document.getElementById('terceiro-tradutor').style.display = 'none';
-                document.getElementById('quarto-tradutor').style.display = 'none';
+                document.getElementById('tradutor-segundo').style.display = 'none';
+                document.getElementById('tradutor-terceiro').style.display = 'none';
+                document.getElementById('tradutor-quarto').style.display = 'none';
             }
         });
     });
 
-    //MAIS-PUBLICADOR
+    //publicador-mais
     
-    document.querySelectorAll('input[name="mais-publicador"]').forEach(radio => {
+    document.querySelectorAll('input[name="publicador-mais"]').forEach(radio => {
         radio.addEventListener('change', function () {
-            if (document.getElementById('sim-publicador').checked) {
-                document.getElementById('segundo-publicador').style.display = 'block';
+            if (document.getElementById('publicador-sim').checked) {
+                document.getElementById('publicador-segundo').style.display = 'block';
             } else {
-                document.getElementById('segundo-publicador').style.display = 'none';
+                document.getElementById('publicador-segundo').style.display = 'none';
             }
         });
     });
@@ -259,7 +259,7 @@ document.getElementById('tradutor').addEventListener('change', function () {
     document.querySelectorAll('input[name="paginacao"]').forEach(radio => {
         radio.addEventListener('change', function () {
     
-            if (document.getElementById('pag-com-num').checked) {
+            if (document.getElementById('pag-num').checked) {
                 document.getElementById('paginacao-numerada').style.display = 'block';
                 document.getElementById('paginacao-nao-numerada').style.display = 'none';
             } else if (document.getElementById('pag-sem-num').checked) {
@@ -274,7 +274,7 @@ document.getElementById('tradutor').addEventListener('change', function () {
 
 
     // Paginação romana ou laminas 
-    document.querySelectorAll('input[name="outra-pag"]').forEach(checkbox => {
+    document.querySelectorAll('input[name="pag-outra"]').forEach(checkbox => {
         checkbox.addEventListener('change', function () {
 
             // Checkbox paginacao romana
@@ -289,7 +289,7 @@ document.getElementById('tradutor').addEventListener('change', function () {
             if (document.getElementById('pag-lamina').checked) {
                 document.getElementById('paginacao-lamina').style.display = 'block';
                 document.getElementById('imagem').style.display = 'none';
-                document.getElementById('tipo-imagem').style.display = 'block'; 
+                document.getElementById('imagem-tipo').style.display = 'block'; 
             } else {
                 document.getElementById('paginacao-lamina').style.display = 'none';
             }
@@ -316,10 +316,10 @@ document.getElementById('tradutor').addEventListener('change', function () {
     
     document.querySelectorAll('input[name="imagem"]').forEach(radio => {
         radio.addEventListener('change', function () {
-            if (document.getElementById('sim-imagem').checked) {
-                document.getElementById('tipo-imagem').style.display = 'block';
+            if (document.getElementById('imagem-sim').checked) {
+                document.getElementById('imagem-tipo').style.display = 'block';
             } else {
-                document.getElementById('tipo-imagem').style.display = 'none';
+                document.getElementById('imagem-tipo').style.display = 'none';
             }
         });
     });
@@ -328,9 +328,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
         document.getElementById('ilustracoes').addEventListener('change', function () {
            
             if (document.getElementById('ilustracoes').checked) {
-                document.getElementById('coloracao-il').style.display = 'block';
+                document.getElementById('il-coloracao').style.display = 'block';
             } else   {
-                document.getElementById('coloracao-il').style.display = 'none';             
+                document.getElementById('il-coloracao').style.display = 'none';             
             } 
         })
 
@@ -338,9 +338,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
         document.getElementById('fotos').addEventListener('change', function () {
            
             if (document.getElementById('fotos').checked) {
-                document.getElementById('coloracao-fotos').style.display = 'block';
+                document.getElementById('fotos-coloracao').style.display = 'block';
             } else   {
-                document.getElementById('coloracao-fotos').style.display = 'none';             
+                document.getElementById('fotos-coloracao').style.display = 'none';             
             } 
         })
 
@@ -348,9 +348,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
         document.getElementById('mapas').addEventListener('change', function () {
            
             if (document.getElementById('mapas').checked) {
-                document.getElementById('coloracao-mapas').style.display = 'block';
+                document.getElementById('mapas-coloracao').style.display = 'block';
             } else   {
-                document.getElementById('coloracao-mapas').style.display = 'none';             
+                document.getElementById('mapas-coloracao').style.display = 'none';             
             } 
         }) 
         
@@ -401,9 +401,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
 
     // MATERIAL Adicional
 
-        document.querySelectorAll('input[name="material-adicional-SN"]').forEach (radio => {
+        document.querySelectorAll('input[name="material-adicional-sn"]').forEach (radio => {
             radio.addEventListener('change', function () {
-                if (document.getElementById('sim-material-adicional').checked) {
+                if (document.getElementById('material-adicional-sim').checked) {
                     document.getElementById('material-adicional-section').style.display = 'block';
                 } else {
                     document.getElementById('material-adicional-section').style.display = 'none';
@@ -411,6 +411,33 @@ document.getElementById('tradutor').addEventListener('change', function () {
             });
         });
        
+    //ÁREA DE SÉRIE
+
+    // Serie - sim ou não
+    
+    document.querySelectorAll('input[name="serie-sn"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            if (document.getElementById('serie-sim').checked) {
+                document.getElementById('serie').style.display = 'block';
+                document.getElementById('subserie-sn').style.display = 'block';
+            } else {
+                document.getElementById('serie').style.display = 'none';
+                document.getElementById('subserie-sn').style.display = 'none';
+            }
+        });
+    });
+
+    // Subserie - sim ou não
+
+    document.querySelectorAll('input[name="subserie-sn"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            if (document.getElementById('subserie-sim').checked) {
+                document.getElementById('subserie').style.display = 'block';
+            } else {
+                document.getElementById('subserie').style.display = 'none';
+            }
+        });
+    });
 
 
 
