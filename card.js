@@ -184,7 +184,7 @@ export function getPublicacao() {
     publicador = publicador? ' : ' + publicador : ' : [s.n.]';
     
     let loc = document.getElementById("local").value;
-    const local = loc? '. - ' + loc : ". - [S.l.]";
+    const local = loc? '. -- ' + loc : ". -- [S.l.]";
 
     let ano = document.getElementById("ano").value;
     ano = ano? ', ' + ano + '.' : ', [s.d.].'; 
@@ -449,3 +449,26 @@ export function getISBN() {
             
             return { nota1, nota2  };
         }
+
+    export function getAssunto() {
+        let assunto1 = document.getElementById("assunto-1").value;
+        assunto1 = assunto1? `1. ${assunto1}` : "";
+
+        let assunto2 = document.getElementById("assunto-2").value;
+        assunto2 = assunto2? `2. ${assunto2}` : "";
+
+        let assunto3 = document.getElementById("assunto-3").value;
+        assunto3 = assunto3? `3. ${assunto3}` : "";
+
+        let assunto4 = document.getElementById("assunto-4").value;
+        assunto4 = assunto4? `4. ${assunto4}` : "";
+
+        let assunto5 = document.getElementById("assunto-5").value;
+        assunto5 = assunto5? `5. ${assunto5}` : "";
+
+        const assuntos = `${assunto1} ${assunto2} ${assunto3} ${assunto4} ${assunto5}`;
+
+        return { assuntos };
+
+    
+        } 

@@ -84,6 +84,7 @@ export function geraFicha() {
     const isbn = card.getISBN().ISBN;
     const nota1 = card.getNota().nota1;
     const nota2 = card.getNota().nota2;
+    const assuntos = card.getAssunto().assuntos;
     
     //Configuração da ficha catalográfica
 
@@ -95,6 +96,8 @@ export function geraFicha() {
     ${nota1}
     ${nota2}
     ${isbn}
+
+    ${assuntos}
     
     `
     

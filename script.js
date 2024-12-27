@@ -4,6 +4,31 @@ import { geraFicha } from './functions.js';
 
 alert("Funcionando");
 
+// Materialidade
+
+    document.querySelectorAll('input[name="materia"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+    
+            if (document.getElementById('fisico').checked) {
+                eraseChildText('materialidade');
+                
+                document.getElementById('formato-fisico').style.display = 'block';
+                document.getElementById('formato-digital').style.display = 'none';
+                document.getElementById('material-adicional-section').style.display = 'block';
+
+            } else if (document.getElementById('digital').checked) {
+                uncheckOption('formato');
+                uncheckOption('material-adicional-sn');  
+                eraseChildText('material-adicional-section');
+                document.getElementById('formato-fisico').style.display = 'none';
+                document.getElementById('material-adicional-section').style.display = 'none';
+                document.getElementById('formato-digital').style.display = 'block';
+            } else  {
+                document.getElementById('formato-fisico').style.display = 'none';
+                document.getElementById('formato-digital').style.display = 'none';
+            }      
+        })   
+    })
 
 
 // resp-int-section
@@ -356,28 +381,7 @@ document.getElementById('tradutor').addEventListener('change', function () {
         
     //FORMATO
 
-    // OPÇOES DIV MATERIALIDADE (name:MATERIA)
-    document.querySelectorAll('input[name="materia"]').forEach(radio => {
-        radio.addEventListener('change', function () {
-    
-            if (document.getElementById('fisico').checked) {
-                eraseChildText('materialidade');
-                
-                document.getElementById('formato-fisico').style.display = 'block';
-                document.getElementById('formato-digital').style.display = 'none';
-                document.getElementById('material-adicional').style.display = 'block';
 
-            } else if (document.getElementById('digital').checked) {
-                uncheckOption('formato');   
-                eraseChildText('material-adicional');
-                document.getElementById('formato-fisico').style.display = 'none';
-                document.getElementById('formato-digital').style.display = 'block';
-            } else  {
-                document.getElementById('formato-fisico').style.display = 'none';
-                document.getElementById('formato-digital').style.display = 'none';
-            }      
-        })   
-    })
 
 
     // OPÇOES DIV FORMATO-FÍSICO (name:FORMATO)
@@ -404,9 +408,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
         document.querySelectorAll('input[name="material-adicional-sn"]').forEach (radio => {
             radio.addEventListener('change', function () {
                 if (document.getElementById('material-adicional-sim').checked) {
-                    document.getElementById('material-adicional-section').style.display = 'block';
+                    document.getElementById('material-adicional').style.display = 'block';
                 } else {
-                    document.getElementById('material-adicional-section').style.display = 'none';
+                    document.getElementById('material-adicional').style.display = 'none';
                 }
             });
         });

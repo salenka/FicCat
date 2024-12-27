@@ -1,22 +1,6 @@
-:root {
- 
-    --margin-bottom: 100px;
-    --label-padding-right: 20px;
-    --label-width: 200px;
-    --widget-width:250px;
-    --border-radius: 4px;
-    --main-padding: 10px;
-    --input-text-size: 14px;
-    --xolor-main: #5d6063;
-     
-    }
-     
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box /*inclui padding e border em um elemento considerando sua altura e largura total*/
-    }
-     
+
+/*
+        
     body {
     color: var(--color-main);
     background-color: rgb(152, 219, 255);
@@ -35,13 +19,25 @@
     margin: 20px 10px;
     padding: var(--main-padding);
      
-    }
-    
+    } */    
 
+
+       
+
+.form-group-bordered {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
 
 
 #ficha_aqui {
     white-space: pre-wrap; /* Preserva quebras de linha e espaços */
+}
+
+#fichaCatalografica {
+    display: none;
 }
 
 /* Esconde seções condicionais */

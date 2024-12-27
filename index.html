@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <title>Ficha</title>
@@ -8,657 +9,689 @@
     <link rel="stylesheet" href="style.css" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <head>
+        <!-- Adicione o link para o CSS do Bootstrap -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    </head>
 
 
 </head>
 
 
 <body>
-    
-    <header class="profile-header"><b>Biblioteca TESTE</b></header>
+    <div class="container">
+        <h1>Gerador de Ficha Catalográfica</h1>
 
-    <form id="ficcat">
+        <form id="ficcat">
 
 
-        <div id="materialidade">
-            <br>
-            <p>Quanto a materialidade</p>
-            <input type="radio" id="fisico" name="materia" value="fisico">
-            <label for="fisico">O livro é físico</label>
-            <br>
-            <input type="radio" id="digital" name="materia" value="digital">
-            <label for="digital">O livro é digital</label>
-            <br>
+            <div id="materialidade" class="form-group">
 
-            <div id="formato-digital">
-                <label for="extensao">Informe a extensão do arquivo digital</label><br>
-                <input type="text" id="extensao" name="extensao" required>
+                <p>Preencha as informações abaixo sobre o livro:</p>
+                <input type="radio" id="fisico" name="materia" value="fisico">
+                <label for="fisico">O livro é físico</label>
+                <br>
+                <input type="radio" id="digital" name="materia" value="digital">
+                <label for="digital">O livro é digital</label>
+
+
+                <div id="formato-digital">
+                    <label for="extensao">Informe a extensão do arquivo digital</label><br>
+                    <input type="text" class="form-control" id="extensao" name="extensao" required>
+                </div>
             </div>
-        </div>
 
-        <br>
 
-   
+
+
             <!-- TÍTULO E SUBTÍTULO -->
 
-        <div id="titulo-section">
+            <div id="titulo-section" class="form-group form-group-bordered">
 
-            <label for="titulo">Título</label><br>
-            <input type="text" id="titulo" name="titulo" required><br><br>
+                <label for="titulo">Título</label><br>
+                <input type="text" class="form-control" id="titulo" name="titulo" required>
 
-            <label for="subtitulo">Subtítulo</label><br>
-            <input type="text" id="subtitulo" name="subtitulo"><br><br>
-        </div>
-
-        <!-- TIPO DE RESPONSÁVEL -->
-
-        <div id="resp-int-section">
-
-            <p>O principal responsável intelectual pela obra é</p>
-
-            <input type="radio" id="pessoa" name="resp-int" value="pessoa">
-            <label for="pessoa">uma pessoa</label>
-            <br>
-            <input type="radio" id="entidade" name="resp-int" value="entidade">
-            <label for="entidade">uma entidade</label>
-            <br>
-            <input type="radio" id="evento" name="resp-int" value="evento">
-            <label for="evento">um evento</label>
-        </div>
-
-        <br><br>
-
-        <!-- PESSOA-->
-
-        <div id="pessoa-section">
-
-            <p>A pessoa é</p>
-
-            <input type="radio" id="autor" name="pessoa-tipo" value="autor">
-            <label for="autor">autor</label><br>
-
-            <input type="radio" id="organizador" name="pessoa-tipo" value="organizador">
-            <label for="organizador">organizador</label><br>
-
-            <input type="radio" id="coordenador" name="pessoa-tipo" value="coordenador">
-            <label for="coordenador">coordenador</label><br>
-
-            <input type="radio" id="compilador" name="pessoa-tipo" value="compilador">
-            <label for="compilador">compilador</label><br>
-
-            <input type="radio" id="editor" name="pessoa-tipo" value="editor">
-            <label for="editor">editor</label><br><br>
-        
-        
-
-            <div id="autor-section">
-                <label for="nome">Prenomes do autor</label><br>
-                <input type="text" id="nome" name="nome"><br>
-
-                <label for="sobrenome">Sobrenome do autor</label><br>
-                <input type="text" id="sobrenome" name="sobrenome" required><br>
-
-                <p>Existe mais de um autor?</p>
+                <label for="subtitulo">Subtítulo</label><br>
+                <input type="text" class="form-control" id="subtitulo" name="subtitulo">
             </div>
 
-            <div id="organizador-section">
-                <label for="organizador-nome">Nome do organizador</label><br>
-                <input type="text" id="organizador-nome" name="organizador-nome" required><br><br>
+            <div id="edicao-section" class="form-group form-group-bordered">
 
-                <p>Existe mais de um organizador?</p>
+                <label for="edicao">Número de edição</label><br>
+                <input type="text" class="form-control" id="edicao" name="edicao">
+                <small id="edicaoHelp" class="form-text text-muted"></small>
             </div>
 
-            <div id="coordenador-section">
-                <label for="coordenador-nome">Nome do coordenador</label><br>
-                <input type="text" id="coordenador-nome" name="coordenador-nome" required><br>
+            <!-- TIPO DE RESPONSÁVEL -->
 
-                <p>Existe mais de um coordenador?</p>
-            </div>
+            <div id="resp-int-section" class="form-group form-group-bordered">
 
-            <div id="compilador-section">
-                <label for="compilador-nome">Nome do compilador</label><br>
-                <input type="text" id="compilador-nome" name="compilador-nome" required><br>
+                <p>O principal responsável intelectual pela obra é</p>
 
-                <p>Existe mais de um compilador?</p>
-            </div>
+                <input type="radio" id="pessoa" name="resp-int" value="pessoa">
+                <label for="pessoa">uma pessoa</label>
 
-            <div id="editor-section">
-                <label for="editor-nome">Nome do editor</label><br>
-                <input type="text" id="editor-nome" name="editor-nome" required><br>
+                <input type="radio" id="entidade" name="resp-int" value="entidade">
+                <label for="entidade">uma entidade</label>
 
-                <p>Existe mais de um editor?</p>
-            </div>
-        </div>
-        
-        <!--</div>-->
+                <input type="radio" id="evento" name="resp-int" value="evento">
+                <label for="evento">um evento</label>
+            
 
 
-        <!-- ENTIDADE -->
 
-        <div id="entidade-section">
-            <label for="entidade-nome">Entidade</label><br>
-            <input type="text" id="entidade-nome" name="entidade-nome" required><br><br>
-        </div>
+            <!-- PESSOA-->
 
+            <div id="pessoa-section" class="form-group form-group-bordered">
 
-        <!-- EVENTO -->
+                <p>A pessoa é</p>
 
-        <div id="evento-section">
-            <label for="evento-nome">Nome do Evento</label><br>
-            <input type="text" id="evento-nome" name="evento-nome" required><br><br>
-            <label for="evento-numero">Número de ordem do evento (se houver) em algarismos arábicos</label><br>
-            <input type="text" id="evento-numero" name="evento-numero" required><br>
-            <label for="evento-ano">Ano de realização do evento</label><br>
-            <input type="text" id="evento-ano" name="evento-ano" required><br>
-            <label for="evento-local">Cidade de realização do evento</label><br>
-            <input type="text" id="evento-local" name="evento-local" required>
-        </div>
+                <input type="radio" id="autor" name="pessoa-tipo" value="autor">
+                <label for="autor">autor</label><br>
 
+                <input type="radio" id="organizador" name="pessoa-tipo" value="organizador">
+                <label for="organizador">organizador</label><br>
 
-        <!-- pessoa-mais -->
+                <input type="radio" id="coordenador" name="pessoa-tipo" value="coordenador">
+                <label for="coordenador">coordenador</label><br>
 
-        <div id="pessoa-mais">
-            <!--<p>Existem mais pessoas com essa mesma função?</p>-->
-            <input type="radio" id="sim" name="pessoa-mais" value="sim">
-            <label for="sim">Sim</label><br>
+                <input type="radio" id="compilador" name="pessoa-tipo" value="compilador">
+                <label for="compilador">compilador</label><br>
 
-            <input type="radio" id="nao" name="pessoa-mais" value="nao">
-            <label for="nao">Não</label><br><br />
-        </div>
+                <input type="radio" id="editor" name="pessoa-tipo" value="editor">
+                <label for="editor">editor</label><br>
 
 
-        <!-- pessoa-qtd-->
 
-        <div id="pessoa-qtd">
-            <p>Quantos são no total?</p>
-            <input type="radio" id="pessoa-qtd-2" name="pessoa-qtd" value="2">
-            <label for="pessoa-qtd-2">2</label><br>
-            <input type="radio" id="pessoa-qtd-3" name="pessoa-qtd" value="3">
-            <label for="pessoa-qtd-3">3</label><br>
-            <input type="radio" id="pessoa-qtd-4" name="pessoa-qtd" value="4">
-            <label for="pessoa-qtd-4">4 ou mais</label><br><br>
-        </div>
+                <div id="autor-section">
+                    <label for="nome">Prenomes do autor</label><br>
+                    <input type="text" class="form-control" id="nome" name="nome"><br>
 
-        
-    <!-- OUTRA-PESSOA -->
+                    <label for="sobrenome">Sobrenome do autor</label><br>
+                    <input type="text" class="form-control" id="sobrenome" name="sobrenome" required><br>
 
-        <div id="pessoa-segunda">
-            <label for="pessoa-2">Segundo <span class="span-tipo-pessoa">...</span></label><br>
-            <input type="text" id="pessoa-2" name="pessoa-2" required><br><br>
-        </div>
-
-        <div id="pessoa-terceira">
-            <label for="pessoa-3">Terceiro <span class="span-tipo-pessoa">...</span></label><br>
-            <input type="text" id="pessoa-3" name="pessoa-3" required><br><br>
-        </div>
-
-        <div id="pessoa-quarta">
-            <p>Não é preciso informar os outros nomes. Prossiga.</p>
-        </div>
-       
-
-        <!-- CONTRIBUIDORES-->
-
-       
-            <p>Existem outros contribuidores?</p>
-       
-         <!-- ILUSTRADOR -->
-        <div id="contribuidor-ilustrador">         
-            <input type="checkbox" id="ilustrador" name="contribuidor-tipo" value="ilustrador">
-            <label for="ilustrador">ilustrador</label><br>
-        </div>       
-
-                <div id="ilustrador-section">
-                    <label for="ilustrador-nome">Nome do ilustrador</label><br>
-                    <input type="text" id="ilustrador-nome" name="ilustrador-nome" required><br><br>
+                    <p>Existe mais de um autor?</p>
                 </div>
 
-                <!-- MAIS Ilustrador -->
+                <div id="organizador-section">
+                    <label for="organizador-nome">Nome do organizador</label><br>
+                    <input type="text" class="form-control" id="organizador-nome" name="organizador-nome" required><br>
 
-                <div id="ilustrador-mais">
+                    <p>Existe mais de um organizador?</p>
+                </div>
 
-                    <p>Existe mais de um ilustrador?</p>
+                <div id="coordenador-section">
+                    <label for="coordenador-nome">Nome do coordenador</label><br>
+                    <input type="text" class="form-control" id="coordenador-nome" name="coordenador-nome" required><br>
 
-                    <!--<p>Existem mais ilustradores com essa mesma função?</p>-->
-                    <input type="radio" id="ilustrador-sim" name="ilustrador-mais" value="sim">
+                    <p>Existe mais de um coordenador?</p>
+                </div>
+
+                <div id="compilador-section">
+                    <label for="compilador-nome">Nome do compilador</label><br>
+                    <input type="text" class="form-control" id="compilador-nome" name="compilador-nome" required><br>
+
+                    <p>Existe mais de um compilador?</p>
+                </div>
+
+                <div id="editor-section">
+                    <label for="editor-nome">Nome do editor</label><br>
+                    <input type="text" class="form-control" id="editor-nome" name="editor-nome" required><br>
+
+                    <p>Existe mais de um editor?</p>
+                </div>
+
+
+                <!-- pessoa-mais -->
+
+                <div id="pessoa-mais">
+                    <!--<p>Existem mais pessoas com essa mesma função?</p>-->
+                    <input type="radio" id="sim" name="pessoa-mais" value="sim">
                     <label for="sim">Sim</label><br>
-        
-                    <input type="radio" id="ilustrador-nao" name="ilustrador-mais" value="nao">
+
+                    <input type="radio" id="nao" name="pessoa-mais" value="nao">
                     <label for="nao">Não</label><br><br />
                 </div>
-        
-                <!-- ilustrador-qtd-->
-        
-                <div id="ilustrador-qtd">
-                    <p>Quantos são no total?</p>
-                    <input type="radio" id="ilustrador-qtd-2" name="ilustrador-qtd" value="2">
-                    <label for="ilustrador-qtd-2">2</label><br>
-                    <input type="radio" id="ilustrador-qtd-3" name="ilustrador-qtd" value="3">
-                    <label for="ilustrador-qtd-3">3</label><br>
-                    <input type="radio" id="ilustrador-qtd-4" name="ilustrador-qtd" value="4">
-                    <label for="ilustrador-qtd-4">4 ou mais</label><br><br>
-                </div>
-    
-                <!-- OUTRO Ilustrador -->
-            
-                <div id="ilustrador-segundo">
-                    <label for="ilustrador-2">Segundo ilustrador</label><br>
-                    <input type="text" id="ilustrador-2" name="ilustrador-2" required><br><br>
-                </div>
-        
-                <div id="ilustrador-terceiro">
-                    <label for="ilustrador-3">Terceiro ilustrador</span></label><br>
-                    <input type="text" id="ilustrador-3" name="ilustrador-3" required><br><br>
-                </div>
-        
-                <div id="ilustrador-quarto">
-                    <p>Não é preciso informar os outros nomes. Prossiga.</p>
 
+
+                <!-- pessoa-qtd-->
+
+                <div id="pessoa-qtd">
+                    <p>Quantos são no total?</p>
+                    <input type="radio" id="pessoa-qtd-2" name="pessoa-qtd" value="2">
+                    <label for="pessoa-qtd-2">2</label><br>
+                    <input type="radio" id="pessoa-qtd-3" name="pessoa-qtd" value="3">
+                    <label for="pessoa-qtd-3">3</label><br>
+                    <input type="radio" id="pessoa-qtd-4" name="pessoa-qtd" value="4">
+                    <label for="pessoa-qtd-4">4 ou mais</label>
                 </div>
-            
-            <!-- TRADUTOR -->
-            
-            <div id="contribuidor-tradutor">
-            <input type="checkbox" id="tradutor" name="contribuidor-tipo" value="tradutor">
-            <label for="tradutor">tradutor</label><br>
+
+
+                <!-- OUTRA-PESSOA -->
+
+                <div id="pessoa-segunda">
+                    <label for="pessoa-2">Segundo <span class="span-tipo-pessoa">...</span></label><br>
+                    <input type="text" class="form-control" id="pessoa-2" name="pessoa-2" required>
+                </div>
+
+                <div id="pessoa-terceira">
+                    <label for="pessoa-3">Terceiro <span class="span-tipo-pessoa">...</span></label><br>
+                    <input type="text" class="form-control" id="pessoa-3" name="pessoa-3" required>
+                </div>
+
+                <div id="pessoa-quarta">
+                    <p>Não é preciso informar os outros nomes. Prossiga.</p>
+                </div>
+
             </div>
+            <!-- ENTIDADE -->
+
+            <div id="entidade-section">
+                <label for="entidade-nome">Entidade</label><br>
+                <input type="text" class="form-control" id="entidade-nome" name="entidade-nome" required><br>
+            </div>
+
+
+            <!-- EVENTO -->
+
+            <div id="evento-section" class="form-group form-group-bordered">
+                <label for="evento-nome">Nome do Evento</label><br>
+                <input type="text" class="form-control" id="evento-nome" name="evento-nome" required>
+                <small id="evento-nome-Help" class="form-text text-muted">Informe o nome do evento sem o número da edição do evento</small><br>
+                
+                <label for="evento-numero">Número da edição do evento (se houver)</label><br>
+                <input type="text" class="form-control" id="evento-numero" name="evento-numero" required>
+                <small id="evento-numero-Help" class="form-text text-muted">Utilize algarismos arábicos</small><br>
+                
+                <label for="evento-ano">Ano de realização do evento</label><br>
+                <input type="text" class="form-control" id="evento-ano" name="evento-ano" required>
+                <small id="evento-ano-Help" class="form-text text-muted"></small><br>
+                
+                <label for="evento-local">Cidade de realização do evento</label><br>
+                <input type="text" class="form-control" id="evento-local" name="evento-local" required>
+                <small id="evento-local-Help" class="form-text text-muted">Se não for uma capital, informe também a sigla do estado </small>
+            </div>
+        </div>
+
+            <!-- CONTRIBUIDORES-->
+
+            <div id="contribuidores" class="form-group form-group-bordered">
+                <p>Existem outros contribuidores?</p>
+
+                <!-- ILUSTRADOR -->
+                <div id="contribuidor-ilustrador" class="form-group form-group-bordered">
+                    <input type="checkbox" id="ilustrador" name="contribuidor-tipo" value="ilustrador">
+                    <label for="ilustrador">ilustrador</label><br>
+
+
+                    <div id="ilustrador-section">
+                        <label for="ilustrador-nome">Nome do ilustrador</label><br>
+                        <input type="text" class="form-control" id="ilustrador-nome" name="ilustrador-nome" required>
+                    </div>
+
+                    <!-- MAIS Ilustrador -->
+
+                    <div id="ilustrador-mais">
+
+                        <p>Existe mais de um ilustrador?</p>
+
+                        <!--<p>Existem mais ilustradores com essa mesma função?</p>-->
+                        <input type="radio" id="ilustrador-sim" name="ilustrador-mais" value="sim">
+                        <label for="sim">Sim</label>
+
+                        <input type="radio" id="ilustrador-nao" name="ilustrador-mais" value="nao">
+                        <label for="nao">Não</label><br><br />
+                    </div>
+
+                    <!-- ilustrador-qtd-->
+
+                    <div id="ilustrador-qtd">
+                        <p>Quantos são no total?</p>
+                        <input type="radio" id="ilustrador-qtd-2" name="ilustrador-qtd" value="2">
+                        <label for="ilustrador-qtd-2">2</label><br>
+                        <input type="radio" id="ilustrador-qtd-3" name="ilustrador-qtd" value="3">
+                        <label for="ilustrador-qtd-3">3</label><br>
+                        <input type="radio" id="ilustrador-qtd-4" name="ilustrador-qtd" value="4">
+                        <label for="ilustrador-qtd-4">4 ou mais</label>
+                    </div>
+
+                    <!-- OUTRO Ilustrador -->
+
+                    <div id="ilustrador-segundo">
+                        <label for="ilustrador-2">Segundo ilustrador</label><br>
+                        <input type="text" class="form-control" id="ilustrador-2" name="ilustrador-2" required>
+                    </div>
+
+                    <div id="ilustrador-terceiro">
+                        <label for="ilustrador-3">Terceiro ilustrador</span></label><br>
+                        <input type="text" class="form-control" id="ilustrador-3" name="ilustrador-3" required>
+                    </div>
+
+                    <div id="ilustrador-quarto">
+                        <p>Não é preciso informar os outros nomes. Prossiga.</p>
+
+                    </div>
+                </div>
+
+                <!-- TRADUTOR -->
+
+                <div id="contribuidor-tradutor" class="form-group form-group-bordered">
+                    <input type="checkbox" id="tradutor" name="contribuidor-tipo" value="tradutor">
+                    <label for="tradutor">tradutor</label><br>
+                </div>
 
                 <div id="tradutor-section">
                     <label for="tradutor-nome">Nome do tradutor</label><br>
-                    <input type="text" id="tradutor-nome" name="tradutor-nome" required><br><br>
+                    <input type="text" class="form-control" id="tradutor-nome" name="tradutor-nome" required>
                 </div>
 
-                    <!-- MAIS Tradutor -->
+                <!-- MAIS Tradutor -->
 
-                    <div id="tradutor-mais">
+                <div id="tradutor-mais">
 
-                        <p>Existe mais de um tradutor?</p>
-            
-                        <input type="radio" id="tradutor-sim" name="tradutor-mais" value="sim">
-                        <label for="sim">Sim</label><br>
-            
-                        <input type="radio" id="tradutor-nao" name="tradutor-mais" value="nao">
-                        <label for="nao">Não</label><br><br />
-                    </div>
-            
-            
-                    <!-- tradutor-qtd-->
-            
-                    <div id="tradutor-qtd">
-                        <p>Quantos são no total?</p>
-                        <input type="radio" id="tradutor-qtd-2" name="tradutor-qtd" value="2">
-                        <label for="tradutor-qtd-2">2</label><br>
-                        <input type="radio" id="tradutor-qtd-3" name="tradutor-qtd" value="3">
-                        <label for="tradutor-qtd-3">3</label><br>
-                        <input type="radio" id="tradutor-qtd-4" name="tradutor-qtd" value="4">
-                        <label for="tradutor-qtd-4">4 ou mais</label><br><br>
-                    </div>
+                    <p>Existe mais de um tradutor?</p>
 
-                    <!-- OUTRO Tradutor -->
+                    <input type="radio" id="tradutor-sim" name="tradutor-mais" value="sim">
+                    <label for="sim">Sim</label>
 
-                    <div id="tradutor-segundo">
-                        <label for="tradutor-2">Segundo tradutor</span></label><br>
-                        <input type="text" id="tradutor-2" name="tradutor-2" required><br><br>
-                    </div>
-            
-                    <div id="tradutor-terceiro">
-                        <label for="tradutor-3">Terceiro tradutor</span></label><br>
-                        <input type="text" id="tradutor-3" name="tradutor-3" required><br><br>
-                    </div>
-            
-                    <div id="tradutor-quarto">
-                        <p>Não é preciso informar os outros nomes. Prossiga.</p>
-                    </div>
+                    <input type="radio" id="tradutor-nao" name="tradutor-mais" value="nao">
+                    <label for="nao">Não</label><br><br />
+                </div>
 
- <!-- ÁREA DE PUBLICAÇÃO -->
 
- <div id="publicacao">
-    <br>
-    <label for="edicao">Número de edição</label><br>
-    <input type="text" id="edicao" name="edicao"><br><br>
-    <label for="publicador">Publicador</label><br>
-    <input type="text" id="publicador" name="publicador"><br><br>
-    <label for="local">Local do publicador</label><br>
-    <input type="text" id="local" name="local"><br><br>
-    <label for="ano">Ano</label><br>
-    <input type="text" id="ano" name="ano"><br>
-</div>
+                <!-- tradutor-qtd-->
 
-        <!-- MAIS-PUBLICAODR -->
+                <div id="tradutor-qtd">
+                    <p>Quantos são no total?</p>
+                    <input type="radio" id="tradutor-qtd-2" name="tradutor-qtd" value="2">
+                    <label for="tradutor-qtd-2">2</label><br>
+                    <input type="radio" id="tradutor-qtd-3" name="tradutor-qtd" value="3">
+                    <label for="tradutor-qtd-3">3</label><br>
+                    <input type="radio" id="tradutor-qtd-4" name="tradutor-qtd" value="4">
+                    <label for="tradutor-qtd-4">4 ou mais</label>
+                </div>
 
-        <div id="publicador-mais">
-            <br>
-            <p>Existe mais um publicador?</p>
-            <input type="radio" id="publicador-sim" name="publicador-mais" value="sim">
-            <label for="sim">Sim</label>
+                <!-- OUTRO Tradutor -->
 
-            <input type="radio" id="publicador-nao" name="publicador-mais" value="nao">
-            <label for="nao">Não</label>
-        </div>
+                <div id="tradutor-segundo">
+                    <label for="tradutor-2">Segundo tradutor</span></label><br>
+                    <input type="text" class="form-control" id="tradutor-2" name="tradutor-2" required>
+                </div>
 
-         <!-- OUTRO-PUBLICAODR -->       
-    <div id="publicador-segundo">
-        <label for="publicador-2">Segundo publicador</label><br>
-        <input type="text" id="publicador-2" name="publicador-2"><br><br>
-        <label for="local-2">Local do publicador</label><br>
-        <input type="text" id="local-2" name="local-2"><br>
-    </div>
+                <div id="tradutor-terceiro">
+                    <label for="tradutor-3">Terceiro tradutor</span></label><br>
+                    <input type="text" class="form-control" id="tradutor-3" name="tradutor-3" required>
+                </div>
 
-<!-- ÁREA DE DESCRIÇÃO FÍSICA -->
+                <div id="tradutor-quarto">
+                    <p>Não é preciso informar os outros nomes. Prossiga.</p>
+                </div>
+            </div>
 
-    <!--Paginação-->
+            <!-- ÁREA DE PUBLICAÇÃO -->
 
-        <div id="paginacao">
-            <br>
-            <p>Sobre a forma como a obra é paginada:</p>
-            <input type="radio" id="pag-num" name="paginacao" value="pag-num">
-            <label for="pag-num">As páginas possuem numeração impressa</label><br>
+            <div id="publicacao" class="form-group form-group-bordered">
 
-            <input type="radio" id="pag-sem-num" name="paginacao" value="pag-sem-num">
-            <label for="pag-sem-num">As páginas não são numeradas</label>
-        
-                
-                <div id="paginacao-numerada">
-                    <br>
-                    <label for="pag-num-qtd">Número da última página impressa</label>
-                    <input type="text" id="pag-num-qtd" name="pag-num-qtd" required>
-                    <br>
-                    <input type="checkbox" id="pag-romana" name="pag-outra">
-                    <label for="pag-romana">O livro possui páginas prefaciais em algarismos romanos</label>
-                    <br>
-                    <input type="checkbox" id="pag-lamina" name="pag-outra">
-                    <label for="pag-lamina">O livro possui páginas não numeradas contendo imagens (lâminas)</label>
-                
+                <label for="publicador">Publicador</label><br>
+                <input type="text" class="form-control" id="publicador" name="publicador"><br>
+                <label for="local">Local do publicador</label><br>
+                <input type="text" class="form-control" id="local" name="local"><br>
+                <label for="ano">Ano</label><br>
+                <input type="text" class="form-control" id="ano" name="ano"><br>
 
-                    <div id="paginacao-romana">
-                        <br>
-                        <label for="pag-romana-qtd">Quantidade de páginas com numeração romana</label>
-                        <input type="text" id="pag-romana-qtd" name="pag-romana-qtd">
+
+                <!-- MAIS-PUBLICAODR -->
+
+                <div id="publicador-mais">
+
+                    <p>Existe mais um publicador?</p>
+                    <input type="radio" id="publicador-sim" name="publicador-mais" value="sim">
+                    <label for="sim">Sim</label>
+
+                    <input type="radio" id="publicador-nao" name="publicador-mais" value="nao">
+                    <label for="nao">Não</label>
+                </div>
+
+                <!-- OUTRO-PUBLICAODR -->
+                <div id="publicador-segundo">
+                    <label for="publicador-2">Segundo publicador</label><br>
+                    <input type="text" class="form-control" id="publicador-2" name="publicador-2"><br>
+                    <label for="local-2">Local do publicador</label><br>
+                    <input type="text" class="form-control" id="local-2" name="local-2"><br>
+                </div>
+
+            </div>
+
+            <!-- ÁREA DE DESCRIÇÃO FÍSICA -->
+
+            <!--Paginação-->
+
+            <div id="paginacao" class="form-group form-group-bordered">
+
+                <p>Sobre a forma como a obra é paginada:</p>
+
+                <div id="paginacao-numerada-section" class="form-group form-group-bordered">
+
+                    <input type="radio" id="pag-num" name="paginacao" value="pag-num"
+                        class="form-group form-group-bordered">
+                    <label for="pag-num">As páginas possuem numeração impressa</label><br>
+
+                    <div id="paginacao-numerada">
+                        <label for="pag-num-qtd">Número da última página impressa</label><br>
+                        <input type="text" class="form-control" id="pag-num-qtd" name="pag-num-qtd" required><br>
+                        <input type="checkbox" id="pag-romana" name="pag-outra">
+                        <label for="pag-romana">O livro possui páginas prefaciais em algarismos romanos</label><br>
+                        <div id="paginacao-romana">
+                            <label for="pag-romana-qtd">Quantidade de páginas com numeração romana</label><br>
+                            <input type="text" class="form-control" id="pag-romana-qtd" name="pag-romana-qtd">
+                        </div>
+
+                        <input type="checkbox" id="pag-lamina" name="pag-outra">
+                        <label for="pag-lamina">O livro possui páginas não numeradas contendo imagens (lâminas)</label>
                     </div>
 
                     <div id="paginacao-lamina">
-                        <br>
-                        <input type="radio" id="pagina" name="pag-ou-folha" value="pagina">
-                        <label for="pagina">Há imagens nos dois lados da folha</label><br>
-            
-                        <input type="radio" id="folha" name="pag-ou-folha" value="folha">
-                        <label for="folha">Há imagens apenas em um lado da folha</label>
-
+                        <div id="paginacao-lamina-section" class="form-group form-group-bordered">
+                            <input type="radio" id="pagina" name="pag-ou-folha" value="pagina">
+                            <label for="pagina">Há imagens nos dois lados da folha</label>
                             <div id="pagina-lamina">
-                                <label for="pag-lamina-qtd">Quantidade de páginas ilustradas sem numeração</label>
-                                <input type="text" id="pag-lamina-qtd" name="pag-lamina-qtd">
+                                <label for="pag-lamina-qtd">Quantidade de páginas ilustradas sem numeração</label><br>
+                                <input type="text" class="form-control" id="pag-lamina-qtd" name="pag-lamina-qtd">
                             </div>
+                        </div>
 
+                        <div id="paginacao-folha-section" class="form-group form-group-bordered">
+                            <input type="radio" id="folha" name="pag-ou-folha" value="folha">
+                            <label for="folha">Há imagens apenas em um lado da folha</label>
                             <div id="folha-lamina">
-                                <label for="folha-lamina-qtd">Quantidade de folhas ilustradas sem numeração</label>
-                                <input type="text" id="folha-lamina-qtd" name="folha-lamina-qtd">
+                                <label for="folha-lamina-qtd">Quantidade de folhas ilustradas sem numeração</label><br>
+                                <input type="text" class="form-control" id="folha-lamina-qtd" name="folha-lamina-qtd">
                             </div>
+                        </div>
                     </div>
                 </div>
-        
-                <div id="paginacao-nao-numerada">
-                    <br>
-                    <label for="pag-nao-num-qtd">Quantidade de páginas não numeradas</label>
-                    <input type="text" id="pag-nao-num-qtd" name="pag-nao-num-qtd" required>
+
+
+                <div id="paginacao-nao-numerada-section" class="form-group form-group-bordered">
+
+                    <input type="radio" id="pag-sem-num" name="paginacao" value="pag-sem-num">
+                    <label for="pag-sem-num">As páginas não são numeradas</label><br>
+
+                    <div id="paginacao-nao-numerada">
+                        <label for="pag-nao-num-qtd">Quantidade de páginas não numeradas</label><br>
+                        <input type="text" class="form-control" id="pag-nao-num-qtd" name="pag-nao-num-qtd" required>
 
                         <p>A quantidade de páginas é</p>
-                        <label for="certa">Certa</label>
                         <input type="radio" id="certa" name="pag-certeza" value="certa">
-                       
-                        <label for="presumida">Presumida</label>
+                        <label for="certa">Certa</label>
+
                         <input type="radio" id="presumida" name="pag-certeza" value="presumida">
+                        <label for="presumida">Presumida</label>
                     </div>
-        </div>
-    <!-- Material gráfico -->
-
-        <div id="imagem">
-            <br>
-            <p>O livro contém imagens?</p>
-            <input type="radio" id="imagem-sim" name="imagem" value="sim">
-            <label for="imagem-sim">Sim</label>
-
-            <input type="radio" id="imagem-nao" name="imagem" value="nao">
-            <label for="imagem-nao">Não</label>
-        </div>
-
-            
-            <div id="imagem-tipo">
-<br>
-                <p>Este livro contém que tipo de imagem?</p>
-
-                <input type="checkbox" id="ilustracoes" name="imagem-tipo" value="ilustracoes">
-                <label for="sim">Ilustrações</label>
-                <br>        
-                <input type="checkbox" id="fotos" name="imagem-tipo" value="fotos">
-                <label for="nao">Fotos</label>
-                <br>
-                <input type="checkbox" id="mapas" name="imagem-tipo" value="mapas">
-                <label for="nao">Mapas</label>
-            
-
-            <div id="il-coloracao">
-<br>                
-                <p>As ilustrações são, predominantemente</p>
-                <input type="radio" id="il-cores" name="il-coloracao" value="il-cores">
-                <label for="foto-cores">Em cores</label>
-<br>
-                <input type="radio" id="il-pb" name="il-coloracao" value="il-pb">
-                <label for="il-pb">Preto-e-branco</label>
-<br>
-                <input type="radio" id="il" name="il-coloracao" value="il">
-                <label for="il">Não existe uma coloração predominante ou essa informação não é relevante</label>
-
-
+                </div>
             </div>
 
-            <div id="fotos-coloracao">
-<br>       
-                <p>As fotos são, predominantemente</p>
-                <input type="radio" id="foto-cores" name="fotos-coloracao" value="foto-cores">
-                <label for="foto-cores">Em cores</label>
-<br>   
-                <input type="radio" id="foto-pb" name="fotos-coloracao" value="foto-pb">
-                <label for="foto-pb">Preto-e-branco</label>
-<br>
-                <input type="radio" id="fotos" name="fotos-coloracao" value="fotos">
-                <label for="Fotos">Não existe uma coloração predominante ou essa informação não é relevante</label>
-            </div>
+            <!-- Material gráfico -->
 
-            <div id="mapas-coloracao">
-<br>
-                <p>Os mapas são, predominantemente</p>
-                <input type="radio" id="mapa-cores" name="mapas-coloracao" value="mapa-cores">
-                <label for="mapa-cores">Em cores</label>
-<br>   
-                <input type="radio" id="mapa-pb" name="mapas-coloracao" value="mapa-pb">
-                <label for="mapa-pb">Preto-e-branco</label>
-<br>
-                <input type="radio" id="mapas" name="mapas-coloracao" value="mapas">
-                <label for="mapas">Não existe uma coloração predominante ou essa informação não é relevante</label>
-            </div>
-        </div>
+            <div id="imagem-section" class="form-group form-group-bordered">
 
-    <!-- Formato -->
+                <div id="imagem">
 
-                <div id="formato-fisico">
-                    <br>
-                    <p>Quanto ao formato</p>
-                    <input type="radio" id="formato-trad" name="formato" value="tradicional">
-                    <label for="formato-trad">O livro tem o formato tradicional</label>
-                    <br>
-                    <input type="radio" id="formato-nao-trad" name="formato" value="nao-tradicional">
-                    <label for="formato-nao-trad">O livro tem um formato não tradicional</label>
-                    <br>
-                    <input type="radio" id="sem-formato" name="sem-formato" value="sem-formato">
-                    <label for="sem-formato">Não sei ou não desejo informar suas dimensões</label>
-                <br>
+                    <p>O livro contém imagens?</p>
+                    <input type="radio" id="imagem-sim" name="imagem" value="sim">
+                    <label for="imagem-sim">Sim</label>
 
-                    <div id="formato-tradicional">
-                        <label for="altura">Altura em centímetros</label><br>
-                        <input type="text" id="altura" name="altura" required>
-                    </div>
-        
-                    <div id="formato-nao-tradicional">
-                        <label for="largura">Largura em centímetros</label><br>
-                        <input type="text" id="largura" name="largura" required>
-                    </div>
-
-                
+                    <input type="radio" id="imagem-nao" name="imagem" value="nao">
+                    <label for="imagem-nao">Não</label>
                 </div>
 
-    <!-- Material Adicional -->
-       
-    <div id="material-adicional">
-            <br>
-            <p>O livro é acompanhado de material adicional?</p>
-            <input type="radio" id="material-adicional-sim" name="material-adicional-sn" value="sim">
-            <label for="material-adicional-sim">Sim</label>
 
-            <input type="radio" id="material-adicional-nao" name="material-adicional-sn" value="nao">
-            <label for="material-adicional-nao">Não</label>
-                    
-        <div id="material-adicional-section">
-<br>
-            <p>Informe o tipo e a quantidade de material adicional (se for mais que uma unidade):</p>
-<br>
-            <label for="material-adicional-tipo">Tipo de material (por exemplo: DVD, Folheto, Brinquedo, etc)</label><br>
-            <input type="text" id="material-adicional-tipo" name="material-adicional-tipo">
-<br>
-            <label for="material-adicional-qtd">Quantidade do material</label><br>
-            <input type="text" id="material-adicional-qtd" name="material-adicional-qtd">
-        </div>
-    </div>
+                <div id="imagem-tipo">
+                    <p>Este livro contém que tipo de imagem?</p>
 
-     <!-- ÁREA DE SÉRIE -->
+                    <input type="checkbox" id="ilustracoes" name="imagem-tipo" value="ilustracoes">
+                    <label for="sim">Ilustrações</label><br>
 
-         <!-- Existe série? -->
-<br>
-         <div id="serie-sn">
-            <p>O livro pertence a uma série ou coleção?</p>
-            <input type="radio" id="serie-sim" name="serie-sn" value="sim">
-            <label for="sim">Sim</label>
-
-            <input type="radio" id="serie-nao" name="serie-sn" value="nao">
-            <label for="nao">Não</label>
-        </div>
- 
-     <div id="serie">
-<br>
-    <label for="serie-nome">Nome da série</label><br>
-    <input type="text" id="serie-nome" name="serie-nome"><br><br>
-    <label for="serie-volume">Número do volume</label><br>
-    <input type="text" id="serie-volume" name="serie-volume"><br><br>
-</div>
-
-        <!-- Existe subsérie? -->
-<br>
-        <div id="subserie-sn">
-            <p>A série tem uma subsérie?</p>
-            <input type="radio" id="subserie-sim" name="subserie-sn" value="sim">
-            <label for="sim">Sim</label>
-
-            <input type="radio" id="subserie-nao" name="subserie-sn" value="nao">
-            <label for="nao">Não</label>
-        </div>
-
-         <!-- Subsérie -->       
-    <div id="subserie">
-        <label for="subserie-nome">Nome da subsérie</label><br>
-        <input type="text" id="subserie-nome" name="subserie-nome"><br><br>
-        <label for="subserie-volume">Número do volume</label><br>
-        <input type="text" id="subserie-volume" name="subserie-volume"><br>
-    </div>
-
-        <!-- ÁREA DE NOTAS -->
-
-         <!-- Existe ISBN? -->
-
-         <div id="isbn-sn">
-   <p>O livro possui ISBN?</p>
-   <input type="radio" id="isbn-sim" name="isbn-sn" value="sim">
-   <label for="sim">Sim</label>
-
-   <input type="radio" id="isbn-nao" name="isbn-sn" value="nao">
-   <label for="nao">Não</label>
-</div>
-
-<div id="isbn">
-    <br>
-<label for="isbn-1">ISBN</label><br>
-<input type="text" id="isbn-1" name="isbn-1"><br><br>
-</div>
-
-    <!-- Existe outro ISBN -->
-        <div id="isbn-2-sn">
-        <p>Existe outro ISBN?</p>
-        <input type="radio" id="isbn-2-sim" name="isbn-2-sn" value="sim">
-        <label for="sim">Sim</label>
-
-        <input type="radio" id="isbn-2-nao" name="isbn-2-sn" value="nao">
-        <label for="nao">Não</label>
-    </div>
-
-        <!-- Outro ISBN -->       
-<div id="isbn-outro">
-    <br>
-    <label for="qualificador-1">Qualificador do primeiro ISBN</label><br>
-    <input type="text" id="qualificador-1" name="qualificador-1"><br>
-    <br>
-    <label for="isbn-2">Segundo ISBN</label><br>
-    <input type="text" id="isbn-2" name="isbn-2"><br><br>
-    <label for="qualificador-2">Qualificador do segundo ISBN</label><br>
-    <input type="text" id="qualificador-2" name="qualificador-2"><br>
-</div>
-
-// Nota
-
-<div id="nota-sn">
-    <p>É preciso acrescentar uma nota?</p>
-    <input type="radio" id="nota-sim" name="nota-sn" value="sim">
-    <label for="sim">Sim</label>
- 
-    <input type="radio" id="nota-nao" name="nota-sn" value="nao">
-    <label for="nao">Não</label>
- </div>
-
- 
- <div id="nota">
-     <br>
- <label for="nota-1">Redija uma nota sucinta</label><br>
- <input type="text" id="nota-1" name="nota-1"><br><br>
- </div>
- 
-     <!-- Existe outro ISBN -->
-         <div id="nota-2-sn">
-         <p>É preciso acrescentar outra nota?</p>
-         <input type="radio" id="nota-2-sim" name="nota-2-sn" value="sim">
-         <label for="sim">Sim</label>
- 
-         <input type="radio" id="nota-2-nao" name="nota-2-sn" value="nao">
-         <label for="nao">Não</label>
-     </div>
- 
-         <!-- Outra nota -->       
- <div id="nota-outro">
-    <br>
-    <label for="nota-2">Redija uma nota sucinta</label><br>
-    <input type="text" id="nota-2" name="nota-2"><br><br>
- </div>
+                    <div id="il-coloracao" class="form-group form-group-bordered">
+                        <p>As ilustrações são, predominantemente</p>
+                        <input type="radio" id="il-cores" name="il-coloracao" value="il-cores">
+                        <label for="foto-cores">Em cores</label><br>
+                        <input type="radio" id="il-pb" name="il-coloracao" value="il-pb">
+                        <label for="il-pb">Preto-e-branco</label><br>
+                        <input type="radio" id="il" name="il-coloracao" value="il">
+                        <label for="il">Não existe uma coloração predominante ou essa informação não é relevante</label>
+                    </div>
 
 
-        <br />
-        <button type="button" id="btn">Testa conexão</button>
-        <button type="button" id="btn_gf">Gera ficha</button>
+                    <input type="checkbox" id="fotos" name="imagem-tipo" value="fotos">
+                    <label for="nao">Fotos</label><br>
+
+                    <div id="fotos-coloracao" class="form-group form-group-bordered">
+                        <p>As fotos são, predominantemente</p>
+                        <input type="radio" id="foto-cores" name="fotos-coloracao" value="foto-cores">
+                        <label for="foto-cores">Em cores</label><br>
+                        <input type="radio" id="foto-pb" name="fotos-coloracao" value="foto-pb">
+                        <label for="foto-pb">Preto-e-branco</label><br>
+                        <input type="radio" id="fotos" name="fotos-coloracao" value="fotos">
+                        <label for="Fotos">Não existe uma coloração predominante ou essa informação não é
+                            relevante</label>
+                    </div>
+
+                    <input type="checkbox" id="mapas" name="imagem-tipo" value="mapas">
+                    <label for="nao">Mapas</label>
+
+                    <div id="mapas-coloracao" class="form-group form-group-bordered">
+                        <p>Os mapas são, predominantemente</p>
+                        <input type="radio" id="mapa-cores" name="mapas-coloracao" value="mapa-cores">
+                        <label for="mapa-cores">Em cores</label><br>
+                        <input type="radio" id="mapa-pb" name="mapas-coloracao" value="mapa-pb">
+                        <label for="mapa-pb">Preto-e-branco</label><br>
+                        <input type="radio" id="mapas" name="mapas-coloracao" value="mapas">
+                        <label for="mapas">Não existe uma coloração predominante ou essa informação não é
+                            relevante</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Formato -->
         
-    </form>
 
-    <div id="fichaCatalografica" style="display: none;">
-        <h3>Ficha Catalográfica:</h3>
-        <p id="ficha_aqui"></p>
+            <div id="formato-fisico" class="form-group form-group-bordered">
+
+                <p>Quanto ao formato</p>
+                <input type="radio" id="formato-trad" name="formato" value="tradicional">
+                <label for="formato-trad">O livro tem o formato tradicional</label><br>
+                <input type="radio" id="formato-nao-trad" name="formato" value="nao-tradicional">
+                <label for="formato-nao-trad">O livro tem um formato não tradicional</label><br>
+                <input type="radio" id="sem-formato" name="formato" value="sem-formato">
+                <label for="sem-formato">Não sei ou não desejo informar suas dimensões</label>
+
+                <div id="formato-tradicional" >
+                    <label for="altura">Altura em centímetros</label><br>
+                    <input type="text" class="form-control" id="altura" name="altura" required>
+                </div>
+
+                <div id="formato-nao-tradicional" >
+                    <label for="largura">Largura em centímetros</label><br>
+                    <input type="text" class="form-control" id="largura" name="largura" required>
+                </div>
+
+
+            </div>
+
+            <!-- Material Adicional -->
+
+            <div id="material-adicional-section" class="form-group form-group-bordered">
+
+                <p>O livro é acompanhado de material adicional?</p>
+                <input type="radio" id="material-adicional-sim" name="material-adicional-sn" value="sim">
+                <label for="material-adicional-sim">Sim</label>
+
+                <input type="radio" id="material-adicional-nao" name="material-adicional-sn" value="nao">
+                <label for="material-adicional-nao">Não</label>
+
+                <div id="material-adicional">
+
+                    <p>Informe o tipo e a quantidade de material adicional:</p>
+
+                    <label for="material-adicional-tipo">Tipo de material (por exemplo: DVD, Folheto, Brinquedo,
+                        etc)</label><br>
+                    <input type="text" class="form-control" id="material-adicional-tipo" name="material-adicional-tipo"><br>
+                    <label for="material-adicional-qtd">Quantidade do material (se for mais que uma unidade)</label><br>
+                    <input type="text" class="form-control" id="material-adicional-qtd" name="material-adicional-qtd">
+                </div>
+            </div>
+
+            <!-- ÁREA DE SÉRIE -->
+
+            <!-- Existe série? -->
+            <div id="serie-section" class="form-group form-group-bordered">
+                <div id="serie-sn">
+                    <p>O livro pertence a uma série ou coleção?</p>
+                    <input type="radio" id="serie-sim" name="serie-sn" value="sim">
+                    <label for="sim">Sim</label>
+
+                    <input type="radio" id="serie-nao" name="serie-sn" value="nao">
+                    <label for="nao">Não</label>
+                </div>
+
+                <div id="serie">
+
+                    <label for="serie-nome">Nome da série</label><br>
+                    <input type="text" class="form-control" id="serie-nome" name="serie-nome"><br>
+                    <label for="serie-volume">Número do volume</label><br>
+                    <input type="text" class="form-control" id="serie-volume" name="serie-volume">
+                </div>
+            
+                <!-- Existe subsérie? -->
+
+                <div id="subserie-sn">
+                    <p>A série tem uma subsérie?</p>
+                    <input type="radio" id="subserie-sim" name="subserie-sn" value="sim">
+                    <label for="sim">Sim</label>
+
+                    <input type="radio" id="subserie-nao" name="subserie-sn" value="nao">
+                    <label for="nao">Não</label>
+                </div>
+
+                <!-- Subsérie -->
+                <div id="subserie">
+                    <label for="subserie-nome">Nome da subsérie</label><br>
+                    <input type="text" class="form-control" id="subserie-nome" name="subserie-nome"><br>
+                    <label for="subserie-volume">Número do volume</label><br>
+                    <input type="text" class="form-control" id="subserie-volume" name="subserie-volume">
+                </div>
+            </div>
+            <!-- ÁREA DE NOTAS -->
+
+            <!-- Existe ISBN? -->
+            <div id="isbn-section" class="form-group form-group-bordered">  
+                <div id="isbn-sn">
+                    <p>O livro possui ISBN?</p>
+                    <input type="radio" id="isbn-sim" name="isbn-sn" value="sim">
+                    <label for="sim">Sim</label>
+
+                    <input type="radio" id="isbn-nao" name="isbn-sn" value="nao">
+                    <label for="nao">Não</label>
+                </div>
+
+                <div id="isbn">
+
+                    <label for="isbn-1">ISBN</label><br>
+                    <input type="text" class="form-control" id="isbn-1" name="isbn-1">
+                </div>
+
+                <!-- Existe outro ISBN -->
+                <div id="isbn-2-sn">
+                    <p>Existe outro ISBN?</p>
+                    <input type="radio" id="isbn-2-sim" name="isbn-2-sn" value="sim">
+                    <label for="sim">Sim</label>
+
+                    <input type="radio" id="isbn-2-nao" name="isbn-2-sn" value="nao">
+                    <label for="nao">Não</label>
+                </div>
+            
+                <!-- Outro ISBN -->
+                <div id="isbn-outro">
+
+                    <label for="qualificador-1">Qualificador do primeiro ISBN</label><br>
+                    <input type="text" class="form-control" id="qualificador-1" name="qualificador-1"><br>
+                    <br>
+                    <label for="isbn-2">Segundo ISBN</label><br>
+                    <input type="text" class="form-control" id="isbn-2" name="isbn-2"><br>
+                    <label for="qualificador-2">Qualificador do segundo ISBN</label><br>
+                    <input type="text" class="form-control" id="qualificador-2" name="qualificador-2"><br>
+                </div>
+            </div>
+                
+            <!-- Notas -->
+
+            <div id="nota-section" class="form-group form-group-bordered">
+                
+                <div id="nota-sn">
+                    <p>É preciso acrescentar uma nota?</p>
+                    <input type="radio" id="nota-sim" name="nota-sn" value="sim">
+                    <label for="sim">Sim</label>
+
+                    <input type="radio" id="nota-nao" name="nota-sn" value="nao">
+                    <label for="nao">Não</label>
+                </div>
+
+
+                <div id="nota">
+                    <label for="nota-1">Redija uma nota sucinta</label><br>
+                    <input type="text" class="form-control" id="nota-1" name="nota-1">
+                </div>
+            
+                <!-- Outra nota - sim ou não -->
+                <div id="nota-2-sn">
+                    <p>É preciso acrescentar outra nota?</p>
+                    <input type="radio" id="nota-2-sim" name="nota-2-sn" value="sim">
+                    <label for="sim">Sim</label>
+
+                    <input type="radio" id="nota-2-nao" name="nota-2-sn" value="nao">
+                    <label for="nao">Não</label>
+                </div>
+
+            <!-- Outra nota -->
+            <div id="nota-outro">
+                <label for="nota-2">Redija uma nota sucinta</label><br>
+                <input type="text" class="form-control" id="nota-2" name="nota-2">
+            </div>
+        </div>
+            <!-- ASSUNTO -->
+
+            <div id="assunto" class="form-group form-group-bordered">
+
+                <p>Preencha ao menos 1 e até 5 assuntos</p>
+
+                <label for="assunto-1">Assunto*</label><br>
+                <input type="text" class="form-control" id="assunto-1" name="assunto"><br>
+                <label for="assunto-2">Assunto</label><br>
+                <input type="text" class="form-control" id="assunto-2" name="assunto"><br>
+                <label for="assunto-3">Assunto</label><br>
+                <input type="text" class="form-control" id="assunto-3" name="assunto"><br>
+                <label for="assunto-4">Assunto</label><br>
+                <input type="text" class="form-control" id="assunto-4" name="assunto"><br>
+                <label for="assunto-5">Assunto</label><br>
+                <input type="text" class="form-control" id="assunto-5" name="assunto"><br>
+
+            </div>
+
+
+            <br />
+            <button type="button" id="btn">Testa conexão</button>
+            <button type="button" id="btn_gf">Gera ficha</button>
+
+        </form>
+
+        <div id="fichaCatalografica">
+            <br>
+            <h3>Ficha Catalográfica</h3>
+
+            <p id="ficha_aqui" class="form-group form-group-bordered"></p>
+        </div>
     </div>
 
-    
     <script type="module" src="script.js" charset="utf-8"></script>
     <script type="module" src="functions.js" charset="utf-8"></script>
     <script type="module" src="card.js" charset="utf-8"></script>
@@ -666,4 +699,5 @@
 
 
 </body>
+
 </html>
