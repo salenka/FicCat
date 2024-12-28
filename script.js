@@ -288,6 +288,8 @@ document.getElementById('tradutor').addEventListener('change', function () {
                 document.getElementById('paginacao-numerada').style.display = 'block';
                 document.getElementById('paginacao-nao-numerada').style.display = 'none';
             } else if (document.getElementById('pag-sem-num').checked) {
+                eraseChildText('paginacao-numerada-section');
+                uncheckOption('pag-outra');
                 document.getElementById('paginacao-numerada').style.display = 'none';
                 document.getElementById('paginacao-nao-numerada').style.display = 'block';
             } else {
@@ -324,9 +326,11 @@ document.getElementById('tradutor').addEventListener('change', function () {
     document.querySelectorAll('input[name="pag-ou-folha"]').forEach(radio => { 
         radio.addEventListener('change', function () {
             if (document.getElementById('pagina').checked) {
+                eraseChildText('folha-lamina');
                 document.getElementById('pagina-lamina').style.display = 'block';
                 document.getElementById('folha-lamina').style.display = 'none';
                 } else if (document.getElementById('folha').checked) {
+                    eraseChildText('pagina-lamina');
                     document.getElementById('pagina-lamina').style.display = 'none';
                     document.getElementById('folha-lamina').style.display = 'block';
                 } else {

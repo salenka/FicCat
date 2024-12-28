@@ -88,19 +88,23 @@ export function geraFicha() {
     
     //Configuração da ficha catalográfica
 
-    const ficha = `
+    let ficha = `
     ${entradaPrincipal}
     ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
     ${paginacao}${imagens}${dimensoes}${materialAdicional}${areaSerie}
-
-    ${nota1}
-    ${nota2}
-    ${isbn}
+    ${nota1}${nota2}${isbn}
 
     ${assuntos}
     
     `
-    
+    // Ajustes finais
+    ficha = ficha.replace('.. -- ', ' . -- ') // Elimina ponto final que é seguido de marcador de nova seção
+    ficha = ficha.replace('il..', 'il.') // Elimina ponto final da área de série após abreviação il.
+    ficha = ficha.replace('p..', 'p.') // Elimina ponto final da área de série após abreviação p.
+    ficha = ficha.replace('color..', 'color.') // Elimina de ponto final da área de série após abreviação color.
+
+
+
     // Exibição da ficha no HTML
     document.getElementById("ficha_aqui").textContent = ficha;
     document.getElementById("fichaCatalografica").style.display = "block";

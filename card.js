@@ -223,44 +223,38 @@ export function getDescricaoFisica() {
         const pagLamina_cbox = document.getElementById("pag-lamina").checked;
         const radioCerteza = document.querySelector('input[name="pag-certeza"]:checked')?.value;
 
-        let pagNum = "";
-        let pagNaoNum = "";
-        let pagRomana = "";
-        let lamina = "";
+        let pagNum = document.getElementById("pag-num-qtd")?.value;
+        let pagNaoNum = document.getElementById("pag-nao-num-qtd")?.value;
+        let pagRomana = document.getElementById("pag-romana-qtd")?.value;
+        let pagLamina = document.getElementById("pag-lamina-qtd")?.value;
+        let folhaLamina = document.getElementById("folha-lamina-qtd")?.value;
+
 
         if (paginacao_radio === "pag-num") {
-            pagNum = document.getElementById("pag-num-qtd")?.value;
-            pagNum = pagNum + " p.";
-        } else if (paginacao_radio === "pag-sem-num") {
-            pagNaoNum = document.getElementById("pag-nao-num-qtd")?.value;
-            if (radioCerteza === "certa") {
-                pagNaoNum = pagNaoNum + " p.";
-            } else if (radioCerteza === "presumida") {
-                pagNaoNum = "[" + pagNaoNum + "] p.";
+            pagNum = pagNum? ` ${pagNum}` : ''; //essa construção só acontece quando houver um valor
+        } else if (paginacao_radio === "pag-sem-num") {          
+            if (radioCerteza === "presumida") {
+                pagNaoNum = pagNaoNum? `[${pagNaoNum}] p.` : ''; //essa construção só acontece...
             } else {
-                pagNaoNum = "";
+                pagNaoNum = pagNaoNum? `${pagNaoNum} p.` : ''; //essa construção só acontece...
             }
         }
 
         if (pagRomana_cbox) {
-            pagRomana = document.getElementById("pag-romana-qtd")?.value;
-            pagRomana = pagRomana + ", ";  
+            pagRomana = pagRomana? `${pagRomana}, `: '';  
         }
 
         if (pagLamina_cbox) {
-
             if (paginaOuFolha_radio === "pagina") {
-            lamina = document.getElementById("pag-lamina-qtd")?.value;
-            lamina = ", [" + lamina + "] p. de lâminas";
+            pagLamina = pagLamina? `, [${pagLamina}] p. de lâminas` : ' p.'; //inclui o "p." das páginas numeradas
             } else if (paginaOuFolha_radio === "folha") {
-                lamina = document.getElementById("folha-lamina-qtd")?.value;
-                lamina = ", [" + lamina + "] f. de lâminas"; 
+              folhaLamina = folhaLamina? ` p., [${folhaLamina}] f. de lâminas` : ''; // idem
             }
-        
+
         }
 
               
-        const paginacao = `${pagRomana}${pagNum}${lamina}${pagNaoNum}`;
+        const paginacao = `${pagRomana}${pagNum}${pagLamina}${folhaLamina}${pagNaoNum}`;
 
 
     //Material gráfico (Imagens)
@@ -371,17 +365,18 @@ return {paginacao, imagens, dimensoes, materialAdicional}
 
 export function getSerie() {
 // Elementos antessessores sem ponto final
-const pagRomana = document.getElementById("pag-romana").checked ;
-const imagem = document.getElementById("imagem-sim").checked ;
-const digital = document.getElementById("digital").checked ;
-const formatoTrad = document.getElementById("formato-trad").checked ;
-const formatoNaoTrad = document.getElementById("formato-nao-trad").checked;
+// const pagRomana = document.getElementById("pag-romana").checked ; // xv (na vdd esse nunca vai ser o caso)
+const imagem = document.getElementById("imagem-sim").checked ; // p&b fotos mapas (menos color. e il.)
+const digital = document.getElementById("digital").checked ; // PDF
+const formatoTrad = document.getElementById("formato-trad").checked ; // cm
+const formatoNaoTrad = document.getElementById("formato-nao-trad").checked; // cm
 
-const elementosAntecessoresSemPontoFinal = pagRomana || imagem || digital || formatoTrad || formatoNaoTrad ;
+
+const elementosAntecessoresSemPontoFinal = imagem || digital || formatoTrad || formatoNaoTrad ;
 
 
 const serieSN = document.querySelector('input[name="serie-sn"]:checked')?.value;
-let areaSerie = "";
+let areaSerie = ".";
 
 
 let serieNome = document.getElementById("serie-nome").value;
@@ -401,37 +396,10 @@ let subserieVolume = document.getElementById("subserie-volume").value;
         } else {
             areaSerie += `)`;
         }
-    } else if (elementosAntecessoresSemPontoFinal) {
-        areaSerie = ".";
-    }
+    } 
 
     return { areaSerie };
 }
-
-export function getISBN() {
-         
-   // const isbnSN = document.querySelector('input[name="isbn-sn"]:checked')?.value;
-    //let areaNotaISBN = "";
-    
-    
-    let isbn1 = document.getElementById("isbn-1").value;
-        isbn1 = isbn1? `ISBN ${isbn1}` : "";
-    let qualificador1 = document.getElementById("qualificador-1").value;
-        qualificador1 = qualificador1? ` (${qualificador1})` : "";
-
-    isbn1 = `${isbn1}${qualificador1}`;
-
-    let isbn2 = document.getElementById("isbn-2").value;
-        isbn2 = isbn2? `. -- ISBN ${isbn2}` : "";
-    let qualificador2 = document.getElementById("qualificador-2").value;
-        qualificador2 = qualificador2? ` (${qualificador2})` : "";
-
-     isbn2 = `${isbn2}${qualificador2}`;
-
-     let ISBN = isbn1 + isbn2;
-        
-        return { ISBN  };
-    }
 
     export function getNota() {
 
@@ -440,15 +408,40 @@ export function getISBN() {
         
         
         let nota1 = document.getElementById("nota-1").value;
-            nota1 = nota1? nota1 : "";
+            nota1 = nota1? `\n ${nota1}` : "";
 
     
         let nota2 = document.getElementById("nota-2").value;
-            nota2 = nota2? nota2 : "";
+            nota2 = nota2? `\n ${nota2}` : "";
 
             
             return { nota1, nota2  };
         }
+
+        export function getISBN() {
+         
+            // const isbnSN = document.querySelector('input[name="isbn-sn"]:checked')?.value;
+             //let areaNotaISBN = "";
+             
+             
+             let isbn1 = document.getElementById("isbn-1").value;
+                 isbn1 = isbn1? `\n ISBN ${isbn1}` : "";
+             let qualificador1 = document.getElementById("qualificador-1").value;
+                 qualificador1 = qualificador1? ` (${qualificador1})` : "";
+         
+             isbn1 = `${isbn1}${qualificador1}`;
+         
+             let isbn2 = document.getElementById("isbn-2").value;
+                 isbn2 = isbn2? `. -- ISBN ${isbn2}` : "";
+             let qualificador2 = document.getElementById("qualificador-2").value;
+                 qualificador2 = qualificador2? ` (${qualificador2})` : "";
+         
+              isbn2 = `${isbn2}${qualificador2}`;
+         
+              let ISBN = isbn1 + isbn2;
+                 
+                 return { ISBN  };
+             }
 
     export function getAssunto() {
         let assunto1 = document.getElementById("assunto-1").value;

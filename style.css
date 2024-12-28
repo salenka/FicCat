@@ -25,10 +25,19 @@
        
 
 .form-group-bordered {
-    border: 1px solid #ccc;
+    border: 1px solid #572222;
     padding: 15px;
     border-radius: 5px;
     margin-bottom: 15px;
+}
+
+.card-box {
+    width: 12.5cm;
+    height: 7.5cm;
+    border: 2px solid #070210; /* Adiciona uma borda para visualização */
+    padding: 10px; /* Adiciona um preenchimento interno */
+    box-sizing: border-box; /* Inclui a borda e o preenchimento no tamanho total da caixa */
+    overflow: auto; /* Adiciona rolagem se o conteúdo exceder o tamanho da caixa */
 }
 
 
