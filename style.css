@@ -126,17 +126,11 @@
         display: none;
         }
     
-    #ilustrador-segundo {
+    #ilustrador-outro {
     display: none;
     }
         
-    #ilustrador-terceiro {
-    display: none;
-    }
-        
-    #ilustrador-quarto {
-    display: none;
-    }
+    
 
 /* CONTRIBUIDOR - Tradutor */
 
@@ -148,18 +142,10 @@
     display: none;
     }
 
-#tradutor-segundo {
+#tradutor-outro {
 display: none;
 }
     
-#tradutor-terceiro {
-display: none;
-}
-    
-#tradutor-quarto {
-display: none;
-}
-
 #publicador-segundo {
     display: none;
 }

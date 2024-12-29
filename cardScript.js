@@ -163,10 +163,10 @@ export function getRespInt() {
 
     // Verifica se a edição está presente para adicionar o ponto após "ed" além de "/"
     const edicaoPresente = document.getElementById("edicao").value;
-    if (edicaoPresente && respInt === "pessoa" || respInt === "entidade") {
+    if (edicaoPresente && respInt === "pessoa" || edicaoPresente && respInt === "entidade") {
         areaResponsabilidade = ". / ";
     
-    } else if (!edicaoPresente && respInt === "pessoa" || respInt === "entidade") {
+    } else if (!edicaoPresente && respInt === "pessoa" || !edicaoPresente &&respInt === "entidade") {
         areaResponsabilidade = " / ";
     } 
 
@@ -234,9 +234,9 @@ export function getDescricaoFisica() {
             pagNum = pagNum? ` ${pagNum}` : ''; //essa construção só acontece quando houver um valor
         } else if (paginacao_radio === "pag-sem-num") {          
             if (radioCerteza === "presumida") {
-                pagNaoNum = pagNaoNum? `[${pagNaoNum}] p.` : ''; //essa construção só acontece...
+                pagNaoNum = pagNaoNum? `[${pagNaoNum}] p.` : ''; // idem
             } else {
-                pagNaoNum = pagNaoNum? `${pagNaoNum} p.` : ''; //essa construção só acontece...
+                pagNaoNum = pagNaoNum? `${pagNaoNum} p.` : ''; // idem
             }
         }
 
@@ -246,11 +246,15 @@ export function getDescricaoFisica() {
 
         if (pagLamina_cbox) {
             if (paginaOuFolha_radio === "pagina") {
-            pagLamina = pagLamina? `, [${pagLamina}] p. de lâminas` : ' p.'; //inclui o "p." das páginas numeradas
+            pagLamina = pagLamina? `, [${pagLamina}] p. de lâminas` : ' p.'; 
+            //inclui o "p." das páginas num. qdo não há input de lâminas apesar do checkbox estar marcado
+            //não vai precisar quando o preenchimento for obrigatório
             } else if (paginaOuFolha_radio === "folha") {
               folhaLamina = folhaLamina? ` p., [${folhaLamina}] f. de lâminas` : ''; // idem
-            }
+            } 
 
+        } else if (!pagLamina_cbox && pagNum) {
+            pagLamina = " p."; // inclui o "p.' das páginas numeradas qdo não há lâminas
         }
 
               

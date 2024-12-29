@@ -1,4 +1,4 @@
-import * as card from './card.js' ;
+import * as card from './cardScript.js' ;
 // FORM -----------------------------------------------------------------
 
 //desmarca a opção selecionada de uma div-filha com determinado name
@@ -88,8 +88,7 @@ export function geraFicha() {
     
     //Configuração da ficha catalográfica
 
-    let ficha = `
-    ${entradaPrincipal}
+    let ficha = `${entradaPrincipal}
     ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
     ${paginacao}${imagens}${dimensoes}${materialAdicional}${areaSerie}
     ${nota1}${nota2}${isbn}

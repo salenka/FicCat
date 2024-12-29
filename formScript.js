@@ -36,9 +36,13 @@ alert("Funcionando");
 document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
+        uncheckOption('pessoa-tipo');
+        uncheckOption('pessoa-qtd');
+        eraseChildText('pessoa-section');
+        eraseChildText('entidade-section');
+        eraseChildText('evento-section');
+
         if (document.getElementById('pessoa').checked) {
-            uncheckOption('pessoa-tipo');
-            uncheckOption('pessoa-qtd');
             document.getElementById('pessoa-section').style.display = 'block';
             document.getElementById('entidade-section').style.display = 'none';
             document.getElementById('evento-section').style.display = 'none';
@@ -66,6 +70,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
            
         uncheckOption('pessoa-qtd');
         uncheckOption('pessoa-mais');
+        eraseChildText('pessoa-section');
 
         if (document.getElementById('autor').checked) {
             document.getElementById('autor-section').style.display = 'block';
@@ -128,6 +133,10 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
 
 document.querySelectorAll('input[name="pessoa-mais"]').forEach(radio => {
     radio.addEventListener('change', function () {
+
+        uncheckOption('pessoa-qtd');
+        eraseChildText('pessoa-outra');
+
         if (document.getElementById('sim').checked) {
             document.getElementById('pessoa-qtd').style.display = 'block';
         } else {
@@ -140,6 +149,8 @@ document.querySelectorAll('input[name="pessoa-mais"]').forEach(radio => {
 
 document.querySelectorAll('input[name="pessoa-qtd"]').forEach(radio => {
     radio.addEventListener('change', function () {
+
+        eraseChildText('pessoa-outra');
 
         if (document.getElementById('pessoa-qtd-2').checked) {
             document.getElementById('pessoa-segunda').style.display = 'block';
@@ -165,14 +176,18 @@ document.querySelectorAll('input[name="pessoa-qtd"]').forEach(radio => {
 //ILUSTRADOR
 
 document.getElementById('ilustrador').addEventListener('change', function () {
+
+        eraseChildText('ilustrador-section');
            
         if (document.getElementById('ilustrador').checked) {
             document.getElementById('ilustrador-section').style.display = 'block';
             document.getElementById('ilustrador-mais').style.display = 'block';
 
-        } else   {
+        } else {
             document.getElementById('ilustrador-section').style.display = 'none';
-            document.getElementById('ilustrador-mais').style.display = 'none';               
+            document.getElementById('ilustrador-mais').style.display = 'none';
+            document.getElementById('ilustrador-qtd').style.display = 'none';
+            document.getElementById('ilustrador-outro').style.display = 'none';             
         } 
     })
 
@@ -180,6 +195,10 @@ document.getElementById('ilustrador').addEventListener('change', function () {
     
     document.querySelectorAll('input[name="ilustrador-mais"]').forEach(radio => {
         radio.addEventListener('change', function () {
+
+            uncheckOption('ilustrador-qtd');
+            eraseChildText('ilustrador-outro');
+
             if (document.getElementById('ilustrador-sim').checked) {
                 document.getElementById('ilustrador-qtd').style.display = 'block';
             } else {
@@ -192,31 +211,39 @@ document.getElementById('ilustrador').addEventListener('change', function () {
 
     document.querySelectorAll('input[name="ilustrador-qtd"]').forEach(radio => {
         radio.addEventListener('change', function () {
-    
+
+            eraseChildText('ilustrador-outro');    
     
             if (document.getElementById('ilustrador-qtd-2').checked) {
+                document.getElementById('ilustrador-outro').style.display = 'block';
                 document.getElementById('ilustrador-segundo').style.display = 'block';
                 document.getElementById('ilustrador-terceiro').style.display = 'none';
                 document.getElementById('ilustrador-quarto').style.display = 'none';
             } else if (document.getElementById('ilustrador-qtd-3').checked) {
+                document.getElementById('ilustrador-outro').style.display = 'block';
                 document.getElementById('ilustrador-segundo').style.display = 'block';
                 document.getElementById('ilustrador-terceiro').style.display = 'block';
                 document.getElementById('ilustrador-quarto').style.display = 'none';
             } else if (document.getElementById('ilustrador-qtd-4').checked) {
+                document.getElementById('ilustrador-outro').style.display = 'block'
                 document.getElementById('ilustrador-segundo').style.display = 'none';
                 document.getElementById('ilustrador-terceiro').style.display = 'none';
                 document.getElementById('ilustrador-quarto').style.display = 'block';
             } else {
-                document.getElementById('ilustrador-segundo').style.display = 'none';
-                document.getElementById('ilustrador-terceiro').style.display = 'none';
-                document.getElementById('ilustrador-quarto').style.display = 'none';
+                document.getElementById('ilustrador-outro').style.display = 'none';
+
             }
         });
     });
 
+
+
 //TRADUTOR
 
 document.getElementById('tradutor').addEventListener('change', function () {
+    
+
+    eraseChildText('tradutor-section');
            
     if (document.getElementById('tradutor').checked) {
         document.getElementById('tradutor-section').style.display = 'block';
@@ -224,14 +251,22 @@ document.getElementById('tradutor').addEventListener('change', function () {
 
     } else   {
         document.getElementById('tradutor-section').style.display = 'none';
-        document.getElementById('tradutor-mais').style.display = 'none';              
+        document.getElementById('tradutor-mais').style.display = 'none';
+        document.getElementById('tradutor-qtd').style.display = 'none';
+        document.getElementById('tradutor-outro').style.display = 'none';               
     } 
 })
+
+
 
     //tradutor-mais
     
     document.querySelectorAll('input[name="tradutor-mais"]').forEach(radio => {
         radio.addEventListener('change', function () {
+
+            uncheckOption('tradutor-qtd');
+            eraseChildText('tradutor-outro');
+
             if (document.getElementById('tradutor-sim').checked) {
                 document.getElementById('tradutor-qtd').style.display = 'block';
             } else {
@@ -244,24 +279,25 @@ document.getElementById('tradutor').addEventListener('change', function () {
 
     document.querySelectorAll('input[name="tradutor-qtd"]').forEach(radio => {
         radio.addEventListener('change', function () {
-    
+
+            eraseChildText('tradutor-outro');    
     
             if (document.getElementById('tradutor-qtd-2').checked) {
-                document.getElementById('tradutor-segundo').style.display = 'block';
+                document.getElementById('tradutor-outro').style.display = 'block';
                 document.getElementById('tradutor-terceiro').style.display = 'none';
                 document.getElementById('tradutor-quarto').style.display = 'none';
             } else if (document.getElementById('tradutor-qtd-3').checked) {
+                document.getElementById('tradutor-outro').style.display = 'block';
                 document.getElementById('tradutor-segundo').style.display = 'block';
                 document.getElementById('tradutor-terceiro').style.display = 'block';
                 document.getElementById('tradutor-quarto').style.display = 'none';
             } else if (document.getElementById('tradutor-qtd-4').checked) {
+                document.getElementById('tradutor-outro').style.display = 'block';
                 document.getElementById('tradutor-segundo').style.display = 'none';
                 document.getElementById('tradutor-terceiro').style.display = 'none';
                 document.getElementById('tradutor-quarto').style.display = 'block';
             } else {
-                document.getElementById('tradutor-segundo').style.display = 'none';
-                document.getElementById('tradutor-terceiro').style.display = 'none';
-                document.getElementById('tradutor-quarto').style.display = 'none';
+                document.getElementById('tradutor-outro').style.display = 'none';
             }
         });
     });
@@ -285,12 +321,16 @@ document.getElementById('tradutor').addEventListener('change', function () {
         radio.addEventListener('change', function () {
     
             if (document.getElementById('pag-num').checked) {
+                eraseChildText('paginacao-nao-numerada-section');
+                uncheckOption('pag-certeza');
                 document.getElementById('paginacao-numerada').style.display = 'block';
                 document.getElementById('paginacao-nao-numerada').style.display = 'none';
             } else if (document.getElementById('pag-sem-num').checked) {
                 eraseChildText('paginacao-numerada-section');
                 uncheckOption('pag-outra');
+                uncheckOption('pag-ou-folha');
                 document.getElementById('paginacao-numerada').style.display = 'none';
+                document.getElementById('paginacao-lamina').style.display = 'none';
                 document.getElementById('paginacao-nao-numerada').style.display = 'block';
             } else {
                 document.getElementById('paginacao-numerada').style.display = 'none';
@@ -303,6 +343,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
     // Paginação romana ou laminas 
     document.querySelectorAll('input[name="pag-outra"]').forEach(checkbox => {
         checkbox.addEventListener('change', function () {
+
+            eraseChildText('paginacao-romana');
+            eraseChildText('paginacao-lamina');
 
             // Checkbox paginacao romana
     
@@ -411,6 +454,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
 
         document.querySelectorAll('input[name="material-adicional-sn"]').forEach (radio => {
             radio.addEventListener('change', function () {
+
+                    eraseChildText('material-adicional');
+
                 if (document.getElementById('material-adicional-sim').checked) {
                     document.getElementById('material-adicional').style.display = 'block';
                 } else {
@@ -425,6 +471,10 @@ document.getElementById('tradutor').addEventListener('change', function () {
     
     document.querySelectorAll('input[name="serie-sn"]').forEach(radio => {
         radio.addEventListener('change', function () {
+
+            uncheckOption('subserie-sn');
+            eraseChildText('serie-section');
+
             if (document.getElementById('serie-sim').checked) {
                 document.getElementById('serie').style.display = 'block';
                 document.getElementById('subserie-sn').style.display = 'block';
@@ -439,6 +489,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
 
     document.querySelectorAll('input[name="subserie-sn"]').forEach(radio => {
         radio.addEventListener('change', function () {
+
+            eraseChildText('subserie');
+
             if (document.getElementById('subserie-sim').checked) {
                 document.getElementById('subserie').style.display = 'block';
             } else {
@@ -453,12 +506,17 @@ document.getElementById('tradutor').addEventListener('change', function () {
     
     document.querySelectorAll('input[name="isbn-sn"]').forEach(radio => {
         radio.addEventListener('change', function () {
+
+            uncheckOption('isbn-2-sn');
+            eraseChildText('isbn-section');
+
             if (document.getElementById('isbn-sim').checked) {
                 document.getElementById('isbn').style.display = 'block';
                 document.getElementById('isbn-2-sn').style.display = 'block';
             } else {
                 document.getElementById('isbn').style.display = 'none';
                 document.getElementById('isbn-2-sn').style.display = 'none';
+                document.getElementById('isbn-outro').style.display = 'none';
             }
         });
     });
@@ -467,6 +525,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
 
     document.querySelectorAll('input[name="isbn-2-sn"]').forEach(radio => {
         radio.addEventListener('change', function () {
+
+            eraseChildText('isbn-outro');
+
             if (document.getElementById('isbn-2-sim').checked) {
                 document.getElementById('isbn-outro').style.display = 'block';
             } else {
@@ -481,6 +542,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
     
         document.querySelectorAll('input[name="nota-sn"]').forEach(radio => {
             radio.addEventListener('change', function () {
+
+                eraseChildText('nota');
+
                 if (document.getElementById('nota-sim').checked) {
                     document.getElementById('nota').style.display = 'block';
                     document.getElementById('nota-2-sn').style.display = 'block';
@@ -495,6 +559,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
     
         document.querySelectorAll('input[name="nota-2-sn"]').forEach(radio => {
             radio.addEventListener('change', function () {
+
+                eraseChildText('nota-outro');
+
                 if (document.getElementById('nota-2-sim').checked) {
                     document.getElementById('nota-outro').style.display = 'block';
                 } else {
