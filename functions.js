@@ -130,6 +130,7 @@ export function geraFicha() {
 
     */
 
+    return { ficha };
 }
 
 
@@ -137,9 +138,10 @@ export function geraFicha() {
 
         console.log("função recuperaFicha acionada");
 
-        fichaHTML = geraFicha().fichaHTML;
-        fichaSalva = geraFicha().fichaSalva;
-
-        return { fichaHTML, fichaSalva };   
+        const ficha = JSON.parse(localStorage.getItem('ficha'))
+        
+        console.log(JSON.parse(localStorage.getItem('ficha')));
+        
+        return { ficha };   
         
     }

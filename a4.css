@@ -1,0 +1,26 @@
+/* a4.css */
+
+
+
+#ficha_iframe {
+    width: 12.5cm !important; /* Largura do iframe */
+    height: 7.5cm !important; /* Altura do iframe */
+    border: 1px solid #15a45c; /* Borda opcional para visualização */
+    box-sizing: border-box; /* Inclui a borda e o preenchimento no tamanho total */
+    overflow: hidden !important;
+    
+}
+
+
+#card-box {
+    width: 12.5cm !important;
+    height: 7.5cm !important;
+    border: 2px solid #645286; /* Adiciona uma borda para visualização */
+    padding: 10px; /* Adiciona um preenchimento interno */
+    
+    padding-right: 10px;
+    box-sizing: border-box; /* Inclui a borda e o preenchimento no tamanho total da caixa */
+    overflow: hidden; /* Adiciona rolagem se o conteúdo exceder o tamanho da caixa */
+    
+}
+
