@@ -3,9 +3,9 @@
 
 
 export function getTitulo() {
-    let titulo = document.getElementById("titulo").value;
+    let titulo = document.getElementById("titulo").value.trim().trim();
 
-    let subtitulo = document.getElementById("subtitulo").value;
+    let subtitulo = document.getElementById("subtitulo").value.trim();
     subtitulo = subtitulo ? ': ' + subtitulo : "";
     
     let areaTitulo = `${titulo}${subtitulo}`;
@@ -16,7 +16,7 @@ export function getTitulo() {
 // ÁREA DE EDIÇÃO
 
 export function getEdicao() {   
-    let edicao = document.getElementById("edicao").value;
+    let edicao = document.getElementById("edicao").value.trim();
     let areaEdicao = edicao ? '. -- ' + edicao + ' ed' : "";
     
     return {areaEdicao}
@@ -37,14 +37,14 @@ export function getRespInt() {
         
     } else if (respInt === "entidade") {
         console.log("radio entidade selecionado");
-        entidade = document.getElementById("entidade-nome").value || "";
+        entidade = document.getElementById("entidade-nome").value.trim() || "";
 
     } else if (respInt === "evento") {
         console.log("radio evento selecionado");
-        evento = document.getElementById("evento-nome").value;
-        const num = document.getElementById("evento-numero").value || "" ;
-        const ano = document.getElementById("evento-ano").value || "" ;
-        const local = document.getElementById("evento-local").value || "" ;
+        evento = document.getElementById("evento-nome").value.trim();
+        const num = document.getElementById("evento-numero").value.trim() || "" ;
+        const ano = document.getElementById("evento-ano").value.trim() || "" ;
+        const local = document.getElementById("evento-local").value.trim() || "" ;
         evento = evento? evento + " (" + num + ". : " + ano + " : " + local + ")" : "" ;
         
     }
@@ -60,25 +60,25 @@ export function getRespInt() {
 
     const tipoPessoa = document.querySelector('input[name="pessoa-tipo"]:checked')?.value;
     if (tipoPessoa === "autor") {
-        const nome = document.getElementById("nome").value || "" ; 
-        const sobrenome = document.getElementById("sobrenome").value || "" ;
+        const nome = document.getElementById("nome").value.trim() || "" ; 
+        const sobrenome = document.getElementById("sobrenome").value.trim() || "" ;
         autorEntrada = sobrenome + ", " + nome;
         autor = nome + " " + sobrenome;
 
     } else if (tipoPessoa === "organizador") {
-        const org = document.getElementById("organizador-nome").value || "" ;
+        const org = document.getElementById("organizador-nome").value.trim() || "" ;
         organizador = 'organizado por ' + org;
 
     } else if (tipoPessoa === "coordenador") {
-        const coord = document.getElementById("coordenador-nome").value || "";
+        const coord = document.getElementById("coordenador-nome").value.trim() || "";
         coordenador = 'coordenado por ' + coord;
 
     } else if (tipoPessoa === "compilador") {
-        const comp = document.getElementById("compilador-nome").value || "" ;
+        const comp = document.getElementById("compilador-nome").value.trim() || "" ;
         compilador = 'compilado por ' + comp;
 
     } else if (tipoPessoa === "editor") {
-    const ed = document.getElementById("editor-nome").value || "";
+    const ed = document.getElementById("editor-nome").value.trim() || "";
     editor = 'editado por ' + ed;
 }
 
@@ -91,11 +91,11 @@ export function getRespInt() {
 
     if (maisPessoa === "sim") {
         if (qtdPessoa === "2") {
-            const p2 = document.getElementById("pessoa-2").value;
+            const p2 = document.getElementById("pessoa-2").value.trim();
             pessoa2 = ' e ' + p2;
         } else if (qtdPessoa === "3") {
-            const p2 = document.getElementById("pessoa-2").value;
-            const p3 = document.getElementById("pessoa-3").value;
+            const p2 = document.getElementById("pessoa-2").value.trim();
+            const p3 = document.getElementById("pessoa-3").value.trim();
             pessoa2 = ', ' + p2;
             pessoa3 = ' e ' + p3;
         } else if (qtdPessoa === "4") {
@@ -106,7 +106,7 @@ export function getRespInt() {
 //Contribuidores - Ilustrador
     let ilustrador = "";
     if (document.getElementById("ilustrador").checked) {
-        const nIlustrador = document.getElementById("ilustrador-nome").value;
+        const nIlustrador = document.getElementById("ilustrador-nome").value.trim();
         ilustrador = ' ; ilustrado por ' + nIlustrador;
     }
 
@@ -117,11 +117,11 @@ export function getRespInt() {
 
     if (maisIlustrador === "sim") {
         if (qtdIlustrador === "2") {
-            ilustrador2 = document.getElementById("ilustrador-2").value;
+            ilustrador2 = document.getElementById("ilustrador-2").value.trim();
             ilustrador2 = ' e ' + ilustrador2;
         } else if (qtdIlustrador === "3") {
-            ilustrador2 = document.getElementById("ilustrador-2").value;
-            ilustrador3 = document.getElementById("ilustrador-3").value;
+            ilustrador2 = document.getElementById("ilustrador-2").value.trim();
+            ilustrador3 = document.getElementById("ilustrador-3").value.trim();
             ilustrador2 = ', ' + ilustrador2;
             ilustrador3 = ' e ' + ilustrador3;
         } else {
@@ -132,7 +132,7 @@ export function getRespInt() {
 //Contribuidores - Tradutor  
     let tradutor = "";
     if (document.getElementById("tradutor").checked) {
-        const nTradutor = document.getElementById("tradutor-nome").value;
+        const nTradutor = document.getElementById("tradutor-nome").value.trim();
         tradutor = ' ; traduzido por ' + nTradutor;
     }
 
@@ -143,11 +143,11 @@ export function getRespInt() {
 
     if (maisTradutor === "sim") {
         if (qtdTradutor === "2") {
-            tradutor2 = document.getElementById("tradutor-2").value;
+            tradutor2 = document.getElementById("tradutor-2").value.trim();
             tradutor2 = ' e ' + tradutor2;
         } else if (qtdTradutor === "3") {
-            tradutor2 = document.getElementById("tradutor-2").value;
-            tradutor3 = document.getElementById("tradutor-3").value;
+            tradutor2 = document.getElementById("tradutor-2").value.trim();
+            tradutor3 = document.getElementById("tradutor-3").value.trim();
             tradutor2 = ', ' + tradutor2;
             tradutor3 = ' e ' + tradutor3;
         } else {
@@ -162,7 +162,7 @@ export function getRespInt() {
     let areaResponsabilidade = "";
 
     // Verifica se a edição está presente para adicionar o ponto após "ed" além de "/"
-    const edicaoPresente = document.getElementById("edicao").value;
+    const edicaoPresente = document.getElementById("edicao").value.trim();
     if (edicaoPresente && respInt === "pessoa" || edicaoPresente && respInt === "entidade") {
         areaResponsabilidade = ". / ";
     
@@ -180,23 +180,23 @@ export function getRespInt() {
 
 export function getPublicacao() {
 
-    let publicador = document.getElementById("publicador").value;
+    let publicador = document.getElementById("publicador").value.trim();
     publicador = publicador? ' : ' + publicador : ' : [s.n.]';
     
-    let loc = document.getElementById("local").value;
+    let loc = document.getElementById("local").value.trim();
     const local = loc? '. -- ' + loc : ". -- [S.l.]";
 
-    let ano = document.getElementById("ano").value;
+    let ano = document.getElementById("ano").value.trim();
     ano = ano? ', ' + ano + '.' : ', [s.d.].'; 
     
     //Mais publicador
     
     const maisPublicador = document.querySelector('input[name="publicador-mais"]:checked')?.value;
         
-    let publicador2 = document.getElementById("publicador-2").value;
+    let publicador2 = document.getElementById("publicador-2").value.trim();
     publicador2 = publicador2? ' : ' + publicador2 : "";
 
-    let loc2 = document.getElementById("local-2").value;
+    let loc2 = document.getElementById("local-2").value.trim();
     let local2 = loc2? ' ; ' + loc2 : "";
 
     if (maisPublicador === "sim") {
@@ -327,7 +327,7 @@ if (imagensPresentes.length > 1) {
 
 //formato digital
 
-let ext = document.getElementById("extensao").value;
+let ext = document.getElementById("extensao").value.trim();
 const extensao = ext? ` ; ${ext}` : "";
 
 //formato físico
@@ -335,8 +335,8 @@ const extensao = ext? ` ; ${ext}` : "";
 const formatoFisico = document.querySelector('input[name="formato"]:checked')?.value; //tradicional ou nao
 
 let altura = "";
-let alt = document.getElementById("altura").value;
-let larg = document.getElementById("largura").value;
+let alt = document.getElementById("altura").value.trim();
+let larg = document.getElementById("largura").value.trim();
 
 let largura = "";
 
@@ -352,8 +352,8 @@ const dimensoes = `${altura}${largura}${extensao}`;
 
 // Material adicional
 
-let matAdic = document.getElementById("material-adicional-tipo").value;
-let qtdMatAdic = document.getElementById("material-adicional-qtd").value;
+let matAdic = document.getElementById("material-adicional-tipo").value.trim();
+let qtdMatAdic = document.getElementById("material-adicional-qtd").value.trim();
 
 const materialAdicional = matAdic? ` + ${qtdMatAdic} ${matAdic}` : "";
 
@@ -383,13 +383,13 @@ const serieSN = document.querySelector('input[name="serie-sn"]:checked')?.value;
 let areaSerie = ".";
 
 
-let serieNome = document.getElementById("serie-nome").value;
-let serieVolume = document.getElementById("serie-volume").value;
+let serieNome = document.getElementById("serie-nome").value.trim();
+let serieVolume = document.getElementById("serie-volume").value.trim();
     serieVolume = serieVolume? " ; " + serieVolume : "";
 
 
-let subserieNome = document.getElementById("subserie-nome").value;
-let subserieVolume = document.getElementById("subserie-volume").value;
+let subserieNome = document.getElementById("subserie-nome").value.trim();
+let subserieVolume = document.getElementById("subserie-volume").value.trim();
     subserieVolume = subserieVolume? " ; " + subserieVolume : "";
 
     // Construção da área da série
@@ -411,11 +411,11 @@ let subserieVolume = document.getElementById("subserie-volume").value;
         let areaNotaISBN = "";
         
         
-        let nota1 = document.getElementById("nota-1").value;
+        let nota1 = document.getElementById("nota-1").value.trim();
             nota1 = nota1? `\n ${nota1}` : "";
 
     
-        let nota2 = document.getElementById("nota-2").value;
+        let nota2 = document.getElementById("nota-2").value.trim();
             nota2 = nota2? `\n ${nota2}` : "";
 
             
@@ -428,16 +428,16 @@ let subserieVolume = document.getElementById("subserie-volume").value;
              //let areaNotaISBN = "";
              
              
-             let isbn1 = document.getElementById("isbn-1").value;
+             let isbn1 = document.getElementById("isbn-1").value.trim();
                  isbn1 = isbn1? `\n ISBN ${isbn1}` : "";
-             let qualificador1 = document.getElementById("qualificador-1").value;
+             let qualificador1 = document.getElementById("qualificador-1").value.trim();
                  qualificador1 = qualificador1? ` (${qualificador1})` : "";
          
              isbn1 = `${isbn1}${qualificador1}`;
          
-             let isbn2 = document.getElementById("isbn-2").value;
+             let isbn2 = document.getElementById("isbn-2").value.trim();
                  isbn2 = isbn2? `. -- ISBN ${isbn2}` : "";
-             let qualificador2 = document.getElementById("qualificador-2").value;
+             let qualificador2 = document.getElementById("qualificador-2").value.trim();
                  qualificador2 = qualificador2? ` (${qualificador2})` : "";
          
               isbn2 = `${isbn2}${qualificador2}`;
@@ -448,19 +448,19 @@ let subserieVolume = document.getElementById("subserie-volume").value;
              }
 
     export function getAssunto() {
-        let assunto1 = document.getElementById("assunto-1").value;
+        let assunto1 = document.getElementById("assunto-1").value.trim();
         assunto1 = assunto1? `1. ${assunto1}` : "";
 
-        let assunto2 = document.getElementById("assunto-2").value;
+        let assunto2 = document.getElementById("assunto-2").value.trim();
         assunto2 = assunto2? `2. ${assunto2}` : "";
 
-        let assunto3 = document.getElementById("assunto-3").value;
+        let assunto3 = document.getElementById("assunto-3").value.trim();
         assunto3 = assunto3? `3. ${assunto3}` : "";
 
-        let assunto4 = document.getElementById("assunto-4").value;
+        let assunto4 = document.getElementById("assunto-4").value.trim();
         assunto4 = assunto4? `4. ${assunto4}` : "";
 
-        let assunto5 = document.getElementById("assunto-5").value;
+        let assunto5 = document.getElementById("assunto-5").value.trim();
         assunto5 = assunto5? `5. ${assunto5}` : "";
 
         const assuntos = `${assunto1} ${assunto2} ${assunto3} ${assunto4} ${assunto5}`;

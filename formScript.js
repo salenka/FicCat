@@ -1,5 +1,5 @@
-import { uncheckOption, updateTipoPessoa, eraseChildText, saveData  } from './functions.js';
-import { geraFicha } from './functions.js';
+import { uncheckOption, updateTipoPessoa, eraseChildText, saveData, recuperaFicha, geraFicha  } from './functions.js';
+
 
 
 alert("Funcionando");
@@ -582,17 +582,21 @@ document.getElementById('tradutor').addEventListener('change', function () {
         })
 
 
-// BOTÃO DE TESTE DE CONEXÃO (REMOVER)
-    document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("btn").addEventListener("click", function () {
-            alert("botão acionado");
-        });
-    })
+// BOTÕES
+
+// Botão Abrir Página
+document.getElementById("btn_ap").addEventListener("click", function () {
+    // Redireciona para a4.html
+    //window.location.href = "a4.html"; // substitui a página atual
+    console.log("Botão Abrir Página acionado");
+    window.open("a4.html", "_blank");
+    console.log("janela aberta");
+    
+
+});
 
 
-      // CARD ----------------------------------------------------------
-
-      // Botão Gera Ficha
+// Botão Gera Ficha
 
 document.getElementById("btn_gf").addEventListener("click", function () {
 

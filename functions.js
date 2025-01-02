@@ -88,7 +88,8 @@ export function geraFicha() {
     
     //Configuração da ficha catalográfica
 
-    let ficha = `${entradaPrincipal}
+    let ficha = `
+    ${entradaPrincipal}
     ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
     ${paginacao}${imagens}${dimensoes}${materialAdicional}${areaSerie}
     ${nota1}${nota2}${isbn}
@@ -101,12 +102,44 @@ export function geraFicha() {
     ficha = ficha.replace('il..', 'il.') // Elimina ponto final da área de série após abreviação il.
     ficha = ficha.replace('p..', 'p.') // Elimina ponto final da área de série após abreviação p.
     ficha = ficha.replace('color..', 'color.') // Elimina de ponto final da área de série após abreviação color.
+    
+    // Salva ficha no localStorage
 
-
+    localStorage.setItem('ficha', JSON.stringify(ficha));
+    console.log("Ficha salva no localStorage:");
+    console.log(JSON.parse(localStorage.getItem('ficha')));
 
     // Exibição da ficha no HTML
     document.getElementById("ficha_aqui").textContent = ficha;
     document.getElementById("fichaCatalografica").style.display = "block";
 
+    console.log("Exibiu a ficha em index.html")
+
+    console.log('ficha gerada no HTML (textContent)');
+    console.log(document.getElementById("ficha_aqui").textContent);
+
+    /*
+
+    ficha = removeUnwantedInvisibleChars(ficha);
+
+    console.log('ficha gerada no HTML (textContent) sem caracteres invisíveis: ');
+    console.log(document.getElementById("ficha_aqui").textContent);
+
+    console.log('ficha salva em localStorage sem caracteres invisíveis: ');
+    console.log(JSON.parse(localStorage.getItem('ficha')));
+
+    */
 
 }
+
+
+    export function recuperaFicha() {
+
+        console.log("função recuperaFicha acionada");
+
+        fichaHTML = geraFicha().fichaHTML;
+        fichaSalva = geraFicha().fichaSalva;
+
+        return { fichaHTML, fichaSalva };   
+        
+    }
