@@ -157,7 +157,7 @@ export function getRespInt() {
 
 //Saída da função getRespInt
 
-    const entradaPrincipal = `${autorEntrada}${entidade}${evento}`;  
+    const entradaPrincipal = `\n${autorEntrada}${entidade}${evento}`;  
     
     let areaResponsabilidade = "";
 
@@ -412,11 +412,11 @@ let subserieVolume = document.getElementById("subserie-volume").value.trim();
         
         
         let nota1 = document.getElementById("nota-1").value.trim();
-            nota1 = nota1? `\n ${nota1}` : "";
+            nota1 = nota1? `\n   ${nota1}` : "";
 
     
         let nota2 = document.getElementById("nota-2").value.trim();
-            nota2 = nota2? `\n ${nota2}` : "";
+            nota2 = nota2? `\n   ${nota2}` : "";
 
             
             return { nota1, nota2  };
@@ -429,7 +429,7 @@ let subserieVolume = document.getElementById("subserie-volume").value.trim();
              
              
              let isbn1 = document.getElementById("isbn-1").value.trim();
-                 isbn1 = isbn1? `\n ISBN ${isbn1}` : "";
+                 isbn1 = isbn1? `\n   ISBN ${isbn1}` : "";
              let qualificador1 = document.getElementById("qualificador-1").value.trim();
                  qualificador1 = qualificador1? ` (${qualificador1})` : "";
          

@@ -38,6 +38,11 @@
     padding: 10px; /* Adiciona um preenchimento interno */
     box-sizing: border-box; /* Inclui a borda e o preenchimento no tamanho total da caixa */
     overflow: auto; /* Adiciona rolagem se o conteúdo exceder o tamanho da caixa */
+
+    display: flex; /* Define o contêiner como um flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: left; /* Centraliza o texto dentro do conteúdo */
 }
 
 

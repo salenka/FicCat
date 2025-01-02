@@ -12,15 +12,23 @@
 }
 
 
-#card-box {
+.card-box {
     width: 12.5cm !important;
     height: 7.5cm !important;
     border: 2px solid #645286; /* Adiciona uma borda para visualização */
     padding: 10px; /* Adiciona um preenchimento interno */
+    padding-top: 0px;
     
-    padding-right: 10px;
     box-sizing: border-box; /* Inclui a borda e o preenchimento no tamanho total da caixa */
-    overflow: hidden; /* Adiciona rolagem se o conteúdo exceder o tamanho da caixa */
+    overflow: auto; /* Adiciona rolagem se o conteúdo exceder o tamanho da caixa */
+
+    display: flex; /* Define o contêiner como um flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: left; /* Centraliza o texto dentro do conteúdo */
     
 }
 
+#ficha_aqui {
+    white-space: pre-wrap; /* Preserva quebras de linha e espaços */
+}
