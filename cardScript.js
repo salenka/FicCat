@@ -1,9 +1,32 @@
 
+// CÓDICOS OPCIONAIS
+
+export function getCodigo() {
+    
+    let cdd = document.getElementById("cdd").value.trim();
+        cdd = cdd? `CDD ${cdd}`: '';
+
+    let cdu = document.getElementById("cdu").value.trim();
+        cdu = cdu? `CDU ${cdu}` : '';
+
+    let cutter = document.getElementById("cutter").value.trim();
+        cutter = cutter? `Cutter ${cutter}` : '';
+
+    let pha = document.getElementById("pha").value.trim();
+        pha = pha? `PHA ${pha}` : '';
+
+    return {cdd, cdu, cutter, pha}
+}
+
+
+
+
 // ÁREA DE TÍTULO
 
 
 export function getTitulo() {
-    let titulo = document.getElementById("titulo").value.trim().trim();
+    
+    let titulo = document.getElementById("titulo").value.trim();
 
     let subtitulo = document.getElementById("subtitulo").value.trim();
     subtitulo = subtitulo ? ': ' + subtitulo : "";
@@ -16,6 +39,7 @@ export function getTitulo() {
 // ÁREA DE EDIÇÃO
 
 export function getEdicao() {   
+    
     let edicao = document.getElementById("edicao").value.trim();
     let areaEdicao = edicao ? '. -- ' + edicao + ' ed' : "";
     
@@ -27,6 +51,7 @@ export function getEdicao() {
 // Tipo de responsável
 
 export function getRespInt() {
+    
     let entidade = "";
     let evento = "";
 

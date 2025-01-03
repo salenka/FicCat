@@ -35,26 +35,58 @@
     width: 12.5cm;
     height: 7.5cm;
     border: 2px solid #070210; /* Adiciona uma borda para visualização */
-    padding: 10px; /* Adiciona um preenchimento interno */
+    padding-top: 0px;
+    padding-left: 10px; /* Adiciona um preenchimento interno */
+    padding-right: 10px;
+    padding-bottom: 0px;
     box-sizing: border-box; /* Inclui a borda e o preenchimento no tamanho total da caixa */
     overflow: auto; /* Adiciona rolagem se o conteúdo exceder o tamanho da caixa */
 
-    display: flex; /* Define o contêiner como um flexbox */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    text-align: left; /* Centraliza o texto dentro do conteúdo */
+
 }
 
 
 #ficha_aqui {
     white-space: pre-wrap; /* Preserva quebras de linha e espaços */
+
+    font-size: medium;
+
+    display: flex; /* Define o contêiner como um flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: left; /* Centraliza o texto dentro do conteúdo */
+    margin-top: 0px;
+    
 }
+
+#codigos_aqui {
+    text-align: center;
+    margin-top: 0px;
+    font-size: small;
+    }
 
 #fichaCatalografica {
     display: none;
 }
 
 /* Esconde seções condicionais */
+
+/* CÓDIGOS OPCIONAIS */
+#codigo-cdd {
+    display: none
+}
+
+#codigo-cdu {
+    display: none
+}
+
+#codigo-cutter {
+    display: none
+}
+
+#codigo-pha {
+    display: none
+}
 
  /* PESSOA */
     #pessoa-mais {

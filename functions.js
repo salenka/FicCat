@@ -85,35 +85,70 @@ export function geraFicha() {
     const nota1 = card.getNota().nota1;
     const nota2 = card.getNota().nota2;
     const assuntos = card.getAssunto().assuntos;
+    const cdd = card.getCodigo().cdd;
+    const cdu = card.getCodigo().cdu;
+    const cutter = card.getCodigo().cutter;
+    const pha = card.getCodigo().pha;
     
     //Configuração da ficha catalográfica
 
-    let ficha = `
-    ${entradaPrincipal}
+    let ficha = `${entradaPrincipal}
     ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
     ${paginacao}${imagens}${dimensoes}${materialAdicional}${areaSerie}
     ${nota1}${nota2}${isbn}
 
     ${assuntos}
-    
     `
+
+    const classificacao = `
+    ${cdd}
+    ${cdu}
+    `
+
+    const notacao = `
+    ${cutter}
+    ${pha}
+    `
+    const codigos = `\n${cdd} ${cdu} ${cutter} ${pha}`
+
     // Ajustes finais
     ficha = ficha.replace('.. -- ', ' . -- ') // Elimina ponto final que é seguido de marcador de nova seção
     ficha = ficha.replace('il..', 'il.') // Elimina ponto final da área de série após abreviação il.
     ficha = ficha.replace('p..', 'p.') // Elimina ponto final da área de série após abreviação p.
     ficha = ficha.replace('color..', 'color.') // Elimina de ponto final da área de série após abreviação color.
     
-    // Salva ficha no localStorage
+    // Salva ficha no localStorage (para recuperação por a4.js)
 
     localStorage.setItem('ficha', JSON.stringify(ficha));
     console.log("Ficha salva no localStorage:");
     console.log(JSON.parse(localStorage.getItem('ficha')));
 
-    // Exibição da ficha no HTML
-    document.getElementById("ficha_aqui").textContent = ficha;
-    document.getElementById("fichaCatalografica").style.display = "block";
 
+    // Exibição da ficha no HTML
+
+    /*
+    document.getElementById("ficha_aqui").textContent = ficha;
+    document.getElementById("classificacao_aqui").textContent = classificacao;
+    document.getElementById("notacao_aqui").textContent = notacao;
+    */
+ 
+
+
+
+    
+    
+
+
+    localStorage.setItem('ficha', JSON.stringify(ficha));
+    localStorage.setItem('codigos', JSON.stringify(codigos));
+
+    document.getElementById("ficha_aqui").textContent = ficha;
+    document.getElementById("codigos_aqui").textContent = codigos
+
+    document.getElementById("fichaCatalografica").style.display = "block";
     console.log("Exibiu a ficha em index.html")
+
+    // Verificações
 
     console.log('ficha gerada no HTML (textContent)');
     console.log(document.getElementById("ficha_aqui").textContent);
@@ -130,7 +165,7 @@ export function geraFicha() {
 
     */
 
-    return { ficha };
+    return { ficha, codigos };
 }
 
 

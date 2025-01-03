@@ -30,6 +30,37 @@ alert("Funcionando");
         })   
     })
 
+// codigos-section
+
+document.querySelectorAll('input[name="codigos_ckbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', function () {
+
+        if (document.getElementById('cdd_ckbox').checked) {
+            document.getElementById('codigo-cdd').style.display = 'block' 
+        } else {
+            document.getElementById('codigo-cdd').style.display = 'none'
+        }
+
+        if (document.getElementById('cdu_ckbox').checked) {
+            document.getElementById('codigo-cdu').style.display = 'block'
+        } else {
+            document.getElementById('codigo-cdu').style.display = 'none'
+        }
+
+        if (document.getElementById('cutter_ckbox').checked) {
+            document.getElementById('codigo-cutter').style.display = 'block' 
+        } else {
+            document.getElementById('codigo-cutter').style.display = 'none'
+        }
+
+        if (document.getElementById('pha_ckbox').checked) {
+            document.getElementById('codigo-pha').style.display = 'block' 
+        } else {
+            document.getElementById('codigo-pha').style.display = 'none'
+        }
+    })
+})
+
 
 // resp-int-section
 
