@@ -18,7 +18,20 @@ export function getCodigo() {
     return {cdd, cdu, cutter, pha}
 }
 
+    /* Licensa Section */
 
+    export function getLicenca() {
+
+    //document.querySelectorAll('input[name="cc_radio"]').forEach(radio => {
+        //radio.addEventListener('change', function () {
+    let licenca = document.querySelector('input[name="cc-radio"]:checked')?.value;
+    licenca = licenca? licenca : '';
+        localStorage.setItem("licenca", licenca ); 
+        console.log(`licenca salva em localStorage: ${localStorage.getItem(licenca)}`);
+
+        return {licenca}
+    
+}
 
 
 // ÁREA DE TÍTULO
@@ -52,8 +65,11 @@ export function getEdicao() {
 
 export function getRespInt() {
     
-    let entidade = "";
-    let evento = "";
+    let entidade = document.getElementById("entidade-nome").value.trim();
+    entidade = entidade? entidade : "";
+    
+    let evento = document.getElementById("evento-nome").value.trim();
+    evento = evento? evento : "";
 
     const respInt = document.querySelector('input[name="resp-int"]:checked')?.value;
 
@@ -62,11 +78,11 @@ export function getRespInt() {
         
     } else if (respInt === "entidade") {
         console.log("radio entidade selecionado");
-        entidade = document.getElementById("entidade-nome").value.trim() || "";
+        //entidade = document.getElementById("entidade-nome").value.trim() || "";
 
     } else if (respInt === "evento") {
         console.log("radio evento selecionado");
-        evento = document.getElementById("evento-nome").value.trim();
+        //evento = document.getElementById("evento-nome").value.trim();
         const num = document.getElementById("evento-numero").value.trim() || "" ;
         const ano = document.getElementById("evento-ano").value.trim() || "" ;
         const local = document.getElementById("evento-local").value.trim() || "" ;
@@ -91,20 +107,20 @@ export function getRespInt() {
         autor = nome + " " + sobrenome;
 
     } else if (tipoPessoa === "organizador") {
-        const org = document.getElementById("organizador-nome").value.trim() || "" ;
-        organizador = 'organizado por ' + org;
+        const org = document.getElementById("organizador-nome").value.trim();
+        organizador = org? 'organizado por ' + org : '';
 
     } else if (tipoPessoa === "coordenador") {
-        const coord = document.getElementById("coordenador-nome").value.trim() || "";
-        coordenador = 'coordenado por ' + coord;
+        const coord = document.getElementById("coordenador-nome").value.trim();
+        coordenador = coord? 'coordenado por ' + coord : '';
 
     } else if (tipoPessoa === "compilador") {
-        const comp = document.getElementById("compilador-nome").value.trim() || "" ;
-        compilador = 'compilado por ' + comp;
+        const comp = document.getElementById("compilador-nome").value.trim();
+        compilador = comp? 'compilado por ' + comp : '';
 
     } else if (tipoPessoa === "editor") {
-    const ed = document.getElementById("editor-nome").value.trim() || "";
-    editor = 'editado por ' + ed;
+    const ed = document.getElementById("editor-nome").value.trim();
+    editor = ed? 'editado por ' + ed : '';
 }
 
 //Mais pessoas com a mesma função
@@ -182,7 +198,9 @@ export function getRespInt() {
 
 //Saída da função getRespInt
 
-    const entradaPrincipal = `\n${autorEntrada}${entidade}${evento}`;  
+    let entradaPrincipal = `\n${autorEntrada}${entidade}${evento}`;
+    entradaPrincipal = entradaPrincipal? entradaPrincipal : "s.n.";
+
     
     let areaResponsabilidade = "";
 

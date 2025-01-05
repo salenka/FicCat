@@ -44,7 +44,7 @@
             <!--Códigos opcionais-->
     <div id="codigos-section" class="form-group form-group-bordered">
 
-        <p>Gostaria de inserir</p>
+        <p>Gostaria de inserir o(s) códigos(s) abaixo:</p>
 
         <div id="codigos_ckbox">
             <input type="checkbox" id="cdd_ckbox" name="codigos_ckbox" value="cdd">
@@ -60,6 +60,7 @@
             <label for="pha_ckbox">PHA</label>
         </div>
 
+        
         <!--Inputs dos códigos-->
 
         <div id="codigo-cdd">
@@ -82,6 +83,66 @@
             <input type="text" class="form-control" id="pha" name="pha" required>
         </div>
     </div>
+
+            <!-- CREATIVE COMMONS -->
+
+        <div id="licenca-section" class="form-group form-group-bordered">
+
+            <div id="licenca_radio">
+
+                <p>Gostaria de acrescentar a seguinte licença Creative Commons:</p>
+
+                <input type="radio" id="by_radio" name="cc_radio" value="by">
+                <label for="by_radio">Atribuição (CC BY)</label><br>
+    
+                <input type="radio" id="by-sa_radio" name="cc_radio" value="by-sa">
+                <label for="by-sa_radio">Atribuição-CompartilhaIgual (CC BY-SA)</label><br>
+                
+                <input type="radio" id="by-nd_radio" name="cc_radio" value="by-nd">
+                <label for="by-nd_radio">Atribuição-SemDerivações (CC BY-ND)</label><br>
+
+                <input type="radio" id="by-nc_radio" name="cc_radio" value="by-nc">
+                <label for="by-nc_radio">Atribuição-NãoComercial (CC BY-NC)</label><br>
+
+                <input type="radio" id="by-nc-sa_radio" name="cc_radio" value="by-nc-sa">
+                <label for="by-nc-sa_radio">Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA)</label><br>
+
+                <input type="radio" id="by-nc-nd_radio" name="cc_radio" value="by-nc-nd">
+                <label for="by-nc-nd_radio">Atribuição-NãoComercial-SemDerivações (CC BY-NC-ND)</label><br>
+
+                <input type="radio" id="cc-0" name="cc_radio" value="cc-0">
+                <label for="cc-0">Domínio Público (CC0)</label>
+            </div>
+
+            <!-- Inputs das licenças-->
+
+            <div id="by">
+                <img src="IMG/cc-by.jpg" alt="CC BY" width="150" height="55">
+            </div>
+
+            <div id="by-sa">
+                <img src="IMG/cc-by-sa.jpg" alt="CC BY-SA" width="150" height="55">
+            </div>
+
+            <div id="by-nd">
+                <img src="IMG/cc-by-nd.jpg" alt="CC BY-ND" width="150" height="55">
+            </div>
+
+            <div id="by-nc">
+                <img src="IMG/cc-by-nc.jpg" alt="CC BY-NC" width="150" height="55">
+            </div>
+
+            <div id="by-nc-sa">
+                <img src="IMG/cc-by-nc-sa.jpg" alt="CC BY-NC" width="150" height="55">
+            </div>
+
+            <div id="by-nc-nd">
+                <img src="IMG/cc-by-nc-nd.jpg" alt="CC BY-NC-ND" width="150" height="55">
+            </div>
+
+
+        </div> <!-- Fim da div licenca-section-->
+        
 
 
             <!-- TÍTULO E SUBTÍTULO -->
@@ -746,9 +807,9 @@
             <div id="card" class="card-box">
                 
 
-                
                 <p id="ficha_aqui"></p>
                 <p id="codigos_aqui"></p>
+                
 
 
             </div>    

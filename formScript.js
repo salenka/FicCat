@@ -61,6 +61,17 @@ document.querySelectorAll('input[name="codigos_ckbox"]').forEach(checkbox => {
     })
 })
 
+    /* Licensa Section */
+
+    document.querySelectorAll('input[name="cc_radio"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+    
+        localStorage.setItem("licenca", document.querySelector('input[name="cc_radio"]:checked')?.value); 
+        console.log(`licenca salva em localStorage: ${localStorage.getItem("licenca")}`);
+    
+
+    })
+})
 
 // resp-int-section
 

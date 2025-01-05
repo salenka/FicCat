@@ -71,6 +71,7 @@ export function geraFicha() {
 	console.log("botão Gera Ficha acionado");  
 
     //chamada de funções de cada área em Card.js
+
     const areaTitulo  = card.getTitulo().areaTitulo;
     const areaEdicao = card.getEdicao().areaEdicao;
     const entradaPrincipal = card.getRespInt().entradaPrincipal;
@@ -89,6 +90,21 @@ export function geraFicha() {
     const cdu = card.getCodigo().cdu;
     const cutter = card.getCodigo().cutter;
     const pha = card.getCodigo().pha;
+
+    
+    const classificacao = `
+    ${cdd}
+    ${cdu}
+    `
+    const notacao = `
+    ${cutter}
+    ${pha}
+    `
+    const codigos = `\n${cdd} ${cdu} ${cutter} ${pha}`
+
+
+
+
     
     //Configuração da ficha catalográfica
 
@@ -96,20 +112,10 @@ export function geraFicha() {
     ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
     ${paginacao}${imagens}${dimensoes}${materialAdicional}${areaSerie}
     ${nota1}${nota2}${isbn}
-
     ${assuntos}
     `
 
-    const classificacao = `
-    ${cdd}
-    ${cdu}
-    `
 
-    const notacao = `
-    ${cutter}
-    ${pha}
-    `
-    const codigos = `\n${cdd} ${cdu} ${cutter} ${pha}`
 
     // Ajustes finais
     ficha = ficha.replace('.. -- ', ' . -- ') // Elimina ponto final que é seguido de marcador de nova seção
@@ -122,22 +128,7 @@ export function geraFicha() {
     localStorage.setItem('ficha', JSON.stringify(ficha));
     console.log("Ficha salva no localStorage:");
     console.log(JSON.parse(localStorage.getItem('ficha')));
-
-
-    // Exibição da ficha no HTML
-
-    /*
-    document.getElementById("ficha_aqui").textContent = ficha;
-    document.getElementById("classificacao_aqui").textContent = classificacao;
-    document.getElementById("notacao_aqui").textContent = notacao;
-    */
- 
-
-
-
-    
-    
-
+   
 
     localStorage.setItem('ficha', JSON.stringify(ficha));
     localStorage.setItem('codigos', JSON.stringify(codigos));
