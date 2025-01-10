@@ -31,8 +31,8 @@
 }
 
 .card-box {
-    width: 12.5cm;
-    height: 7.5cm;
+    width: 125mm;
+    height: 75mm;
     border: 1px solid #070210; /* Adiciona uma borda para visualização */
     box-sizing: border-box; /* Inclui a borda e o preenchimento no tamanho total da caixa */
     padding-top: 0px;
@@ -87,8 +87,8 @@
 /* Estilos de impressão */
 @media print {
     .card-box {
-        width: 12.5cm !important;
-        height: 7.5cm !important;
+        width: 125mm !important;
+        height: 75mm !important;
 
         -webkit-print-color-adjust: exact; /* Garante que as cores sejam impressas corretamente */
         print-color-adjust: exact; /* Garante que as cores sejam impressas corretamente */

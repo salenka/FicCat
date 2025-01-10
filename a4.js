@@ -43,3 +43,18 @@ window.onload = function() {
 
     console.log(`códigos salvos no localStorage: ${ficha}`);
 };
+
+const btnGerarPDF = document.getElementById("btnGerarPDF");
+
+btnGerarPDF.addEventListener("click", function() {
+    const content = document.getElementById("pagina");
+
+    const options = {
+        filename: "ficha-catalográfica",
+        jsPDF: {unit: "mm", orientation: "portrait"}
+    };
+
+    //Gerar PDF
+    html2pdf().set(options).from(content).save();
+
+});
