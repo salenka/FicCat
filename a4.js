@@ -51,8 +51,19 @@ btnGerarPDF.addEventListener("click", function() {
 
     const options = {
         filename: "ficha-catalográfica",
-        jsPDF: {unit: "mm", orientation: "portrait"}
-    };
+        jsPDF: {
+            unit: "mm", 
+            orientation: "portrait",
+            layout: "portrait",
+            content: {
+            align: "center",
+            valign: "middle"
+          }},
+        margin: 0,
+        padding: 0,
+        height: 257,
+        width: 170,
+    }
 
     //Gerar PDF
     html2pdf().set(options).from(content).save();

@@ -11,51 +11,54 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div id="pagina">
-        <h1>Ficha para impressão</h1>
-        
-        <p>Este é um exemplo de conteúdo a ser impresso em uma página A4.</p>
+    <div id="btnPDF" style="text-align: center; padding: 20px;">
+        <button type="button" id="btnGerarPDF">Gerar PDF</button>
+    </div>
+    <div id="bordaA4" ;>
+        <div id="pagina">
+            <h3>Ficha para impressão</h3>
 
-        <div id="licenca">
-        
-            <!-- Inputs das licenças-->
+            <div id="licenca">
+            
+                <!-- Inputs das licenças-->
 
-            <div id="by">
-                <img src="IMG/cc-by.jpg" alt="CC BY" width="150" height="55">
-            </div>
+                <div id="by">
+                    <img src="IMG/cc-by.jpg" alt="CC BY" width="150" height="55">
+                </div>
 
-            <div id="by-sa">
-                <img src="IMG/cc-by-sa.jpg" alt="CC BY-SA" width="150" height="55">
-            </div>
+                <div id="by-sa">
+                    <img src="IMG/cc-by-sa.jpg" alt="CC BY-SA" width="150" height="55">
+                </div>
 
-            <div id="by-nd">
-                <img src="IMG/cc-by-nd.jpg" alt="CC BY-ND" width="150" height="55">
-            </div>
+                <div id="by-nd">
+                    <img src="IMG/cc-by-nd.jpg" alt="CC BY-ND" width="150" height="55">
+                </div>
 
-            <div id="by-nc">
-                <img src="IMG/cc-by-nc.jpg" alt="CC BY-NC" width="150" height="55">
-            </div>
+                <div id="by-nc">
+                    <img src="IMG/cc-by-nc.jpg" alt="CC BY-NC" width="150" height="55">
+                </div>
 
-            <div id="by-nc-sa">
-                <img src="IMG/cc-by-nc-sa.jpg" alt="CC BY-NC" width="150" height="55">
-            </div>
+                <div id="by-nc-sa">
+                    <img src="IMG/cc-by-nc-sa.jpg" alt="CC BY-NC" width="150" height="55">
+                </div>
 
-            <div id="by-nc-nd">
-                <img src="IMG/cc-by-nc-nd.jpg" alt="CC BY-NC-ND" width="150" height="55">
-            </div>
-        
-        
-        </div> 
-        
-        
-        <div id="card-print" class="card-box">
-            <p id="ficha_aqui"></p>
-            <p id="codigos_aqui"></p>
-        </div>    
+                <div id="by-nc-nd">
+                    <img src="IMG/cc-by-nc-nd.jpg" alt="CC BY-NC-ND" width="150" height="55">
+                </div>
+            
+            
+            </div> 
+            
+            
+            <div id="card-print" class="card-box">
+                <p id="ficha_aqui"></p>
+                <p id="codigos_aqui"></p>
+            </div>    
 
-    </div> <!-- fim da página a ser impressa -->
+        </div> <!-- fim da página a ser impressa -->
+    </div> <!-- fim da div bordaA4 -->
 
-    <button type="button" id="btnGerarPDF">Gerar PDF</button>
+    
 
         <script type="module" src="a4.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
