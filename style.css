@@ -57,6 +57,19 @@ body{
 
 }
 
+.licenceTitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.licenceText {
+    font-size: 0.8rem;
+    margin-left: 80px;
+    margin-right: 80px;
+    
+}
+
 #bordaA4{
  
     height: 257mm; /* 297mm - 40mm */
@@ -75,11 +88,10 @@ body{
 
 #pagina {
     /*
-    border: 1px solid #070210;
+    border: 2px solid #c01a1a;
     box-sizing: border-box; 
     */
 
-    
     display: flex;
     flex-direction: column;
     align-items: center;  /* Centraliza horizontalmente */
@@ -90,13 +102,23 @@ body{
     margin: 0;
     padding: 0;
 
+    font-size: smaller;
+    
+
     }
 
 #licenca {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Centraliza horizontalmente */
+    text-align: center;
+    
+    
 
-    border: 1px solid #070210;
-    box-sizing: border-box; 
-    padding: 1mm;
+    
+
+
+    font-size: smaller;
 } 
 
 #card-print {
