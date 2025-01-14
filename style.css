@@ -1,45 +1,4 @@
 
-/*
-        
-    body {
-    color: var(--color-main);
-    background-color: rgb(152, 219, 255);
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1,5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    }
-     
-    .profile-header {
-    text-align: center;
-    border: 2px solid rgb(186, 189, 190);
-    border-radius: var(--border-radius);
-    box-shadow: 0px 1px 2px rgba(0,0,0,0.5);
-    margin: 20px 10px;
-    padding: var(--main-padding);
-
-
-/*
-.pagina {
-
-    position: relative;
-    display: flex; /* Define o contêiner como um flexbox 
-    flex-direction: column;
-    justify-content: center; /* Centraliza horizontalmente 
-    align-items: center;  Centraliza verticalmente 
-    text-align: center; /* Centraliza o texto dentro do conteúdo 
-    margin-top: 20px;
-    }   
-    
-      
-    body {
-        transform: scale(1);
-        transform-origin: top left;
-    }
-
-    */    
-
 .form-group-bordered {
     border: 1px solid #572222;
     padding: 15px;
@@ -56,7 +15,6 @@ body{
     padding: 0;
 
 }
-
 
 #bordaA4{
  
@@ -89,8 +47,7 @@ body{
 
     margin: 0;
     padding: 0;
-
-    }
+}
 
 #licenca {
     display: flex;
@@ -125,14 +82,12 @@ body{
     50% posiciona o lado esquerdo do elemento no meio do contêiner pai, 
     e translateX(-50%) ajusta o elemento para que ele fique centralizado horizontalmente. */
     top: calc(257mm - 75mm - 20mm); /* Posiciona a parte superior do card-box de forma relativa ao tamanho da página */
-    /* margin-bottom: calc(100vh / 3); Adiciona uma margem inferior ao elemento #card que é igual a um terço da altura
-    da janela de visualização (viewport height). Isso posiciona o elemento #card no terço inferior da página. */
+
 }
 
-
 .card-box {
-    width: 125mm;
-    height: 75mm;
+    width: 125mm !important;
+    height: 75mm !important;
     border: 1px solid #070210; /* Adiciona uma borda para visualização */
     box-sizing: border-box; /* Inclui a borda e o preenchimento no tamanho total da caixa */
     padding-top: 0px;
@@ -143,7 +98,6 @@ body{
         
     overflow: auto; /* Adiciona rolagem se o conteúdo exceder o tamanho da caixa */
 }
-
 
 #ficha_aqui {
     white-space: pre-wrap; /* Preserva quebras de linha e espaços */
@@ -166,7 +120,6 @@ body{
 
 #fichaCatalografica {
     display: none;
-
 }
 
 /* Estilos de impressão */
@@ -185,11 +138,6 @@ body{
         display: none;
     }
 }
-
-
-
-
-
 
 /* Esconde seções condicionais */
 

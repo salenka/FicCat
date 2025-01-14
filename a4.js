@@ -31,6 +31,7 @@ window.onload = function() {
             break;
         default:
             console.log("Licença não selecionada")
+    
     }
 
 
@@ -58,6 +59,7 @@ btnGerarPDF.addEventListener("click", function() {
             format: [257, 170],
             content: {
             align: "center",
+            valign: "middle",
           }},
         margin: 0,
         padding: 0,
