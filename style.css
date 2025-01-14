@@ -57,18 +57,6 @@ body{
 
 }
 
-.licenceTitle {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin: 0;
-}
-
-.licenceText {
-    font-size: 0.8rem;
-    margin-left: 80px;
-    margin-right: 80px;
-    
-}
 
 #bordaA4{
  
@@ -102,9 +90,6 @@ body{
     margin: 0;
     padding: 0;
 
-    font-size: smaller;
-    
-
     }
 
 #licenca {
@@ -112,14 +97,24 @@ body{
     flex-direction: column;
     align-items: center;  /* Centraliza horizontalmente */
     text-align: center;
-    
-    
-
-    
-
-
+    margin-top: 10mm;
     font-size: smaller;
 } 
+
+/*  O TÍTULO DA LICENÇA FOI REMOVIDO
+.licenceTitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+}
+    */
+
+    .licenceText {
+        font-size: 0.7rem;
+        margin-left: 10%;
+        margin-right: 10%;
+        text-align: justify;   
+    }
 
 #card-print {
     position: absolute;
@@ -144,6 +139,7 @@ body{
     padding-left: 10px; /* Adiciona um preenchimento interno */
     padding-right: 10px;
     padding-bottom: 0px;
+    margin: 0;
         
     overflow: auto; /* Adiciona rolagem se o conteúdo exceder o tamanho da caixa */
 }
