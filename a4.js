@@ -56,15 +56,15 @@ btnGerarPDF.addEventListener("click", function() {
             unit: "mm", 
             orientation: "portrait",
             layout: "portrait",
-            format: [257, 170],
+            format: [297, 210],
             content: {
             align: "center",
             valign: "middle",
           }},
         margin: 0,
         padding: 0,
-        height: 257,
-        width: 170,
+        height: 297,
+        width: 210,
     }
 
     //Gerar PDF
