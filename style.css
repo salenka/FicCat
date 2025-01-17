@@ -68,6 +68,10 @@ body{
 }
 
     .card-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;  /* Centraliza horizontalmente */
+        justify-content: center; /* Centraliza horizontalmente */
         width: 125mm !important;
         height: 75mm !important;
         border-top: 1px solid #070210; /* borda para visualização */
@@ -87,23 +91,20 @@ body{
             margin: 0;
             padding: 0;
             font-size: medium;
-
-            display: flex; /* Define o contêiner como um flexbox */
-            justify-content: center; /* Centraliza horizontalmente */
-            align-items: center; /* Centraliza verticalmente */
-            text-align: left; /* Centraliza o texto dentro do conteúdo */
+        
         }
 
         #codigos_aqui {
-            margin: 0;
+            margin-top: auto; /* Alinha o próprio elemento na parte inferior */
             padding: 0;
-            text-align: center;
             font-size: small;
+            font-family: 'Courier New', Courier, monospace;
             }
 
 #fichaCatalografica {
     display: none;
 }
+
 
 /* Estilos de impressão */
 @media print {
@@ -373,3 +374,8 @@ display: none;
 #nota-outro {
     display: none;
 }
+
+#btn_ap {
+    display: none;
+}
+

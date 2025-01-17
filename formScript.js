@@ -626,6 +626,15 @@ document.getElementById('tradutor').addEventListener('change', function () {
 
 // BOTÕES
 
+
+// Botão Gera Ficha
+
+document.getElementById("btn_gf").addEventListener("click", function () {
+
+geraFicha();
+    
+})
+
 // Botão Abrir Página
 document.getElementById("btn_ap").addEventListener("click", function () {
     // Redireciona para a4.html
@@ -637,11 +646,29 @@ document.getElementById("btn_ap").addEventListener("click", function () {
 
 });
 
+// Controles de fonte
 
-// Botão Gera Ficha
+document.addEventListener('DOMContentLoaded', function() {
+    const fontSelect = document.getElementById('font-select');
+    const fontSizeInput = document.getElementById('font-size');
+    const fichaAqui = document.getElementById('ficha_aqui');
+    const codigosAqui = document.getElementById('codigos_aqui');
 
-document.getElementById("btn_gf").addEventListener("click", function () {
+    fontSelect.addEventListener('change', function() {
+        fichaAqui.style.fontFamily = fontSelect.value;
+        localStorage.setItem("fontSelect", fontSelect.value);
+    });
 
-geraFicha();
-    
-})
+    fontSizeInput.addEventListener('input', function() {
+        fichaAqui.style.fontSize = fontSizeInput.value + 'px';
+        localStorage.setItem("fontSizeInput", fontSizeInput.value);
+    });
+
+    fontSizeInput.addEventListener('input', function() {
+        codigosAqui.style.fontSize = (fontSizeInput.value - 1) + 'px';
+        
+    });
+
+        
+
+});

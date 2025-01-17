@@ -1,3 +1,33 @@
+ TAMANHO DA FICHA
+    /* com borda na página o tam da ficha sai errado
+    border: 2px solid #c01a1a;
+    box-sizing: border-box; /*A borda "entra" no tamanho da pagina entre 6 e 7 mm */
+    */
+
+
+LARGURA DO FORMULÁRIO
+Com div container logo abaixo de body o formulário fica bem mais largo. Mas vou deixar sem. 
+Estava com o div container até o commit 338d7364da4ef4a8b5fe051fc7fc26a8a4caf335 de mensagem
+"Tamanho da ficha corrigido no PDF A4".
+
+
+FAZER:
+
+
+- Levar "codigos_aqui" para ficar alinhado com o bottom do card-box
+- Centralizar "ficha_aqui" verticalmente (pq não funciona atualmente?)
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
             alert("Evento disparado para:", this.id);
 
             // Abra uma nova aba
@@ -152,7 +182,4 @@ export function eraseChildText(motherDivId) {
 
 
 
-    /* com borda na página o tam da ficha sai errado
-    border: 2px solid #c01a1a;
-    box-sizing: border-box; /*A borda "entra" no tamanho da pagina entre 6 e 7 mm */
-    */
+

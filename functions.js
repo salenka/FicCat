@@ -133,10 +133,15 @@ export function geraFicha() {
     localStorage.setItem('ficha', JSON.stringify(ficha));
     localStorage.setItem('codigos', JSON.stringify(codigos));
 
+    // Renderização da ficha
+
     document.getElementById("ficha_aqui").textContent = ficha;
     document.getElementById("codigos_aqui").textContent = codigos
 
     document.getElementById("fichaCatalografica").style.display = "block";
+    document.getElementById("btn_ap").style.display = "block";
+    document.getElementById("controls").style.display = "block";
+
     console.log("Exibiu a ficha em index.html")
 
     // Verificações
