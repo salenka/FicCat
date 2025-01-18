@@ -6,6 +6,22 @@
     margin-bottom: 15px;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+.img-licenca {
+    margin: 10px; /* Add margin to images */
+}
+
+.form-group-bordered {
+
+    border: 1px solid #572222;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
 body{
     display: flex;
     flex-direction: column;
@@ -55,6 +71,10 @@ body{
         text-align: justify;   
     }
 
+    #licenca img {
+        margin-bottom: 10px; /* Adiciona uma margem inferior à imagem */
+    }
+
 #card-print {
     position: absolute;
     bottom: 0; /* distância entre a parte inferior de #card e a parte inferior do contêiner pai */
@@ -83,7 +103,7 @@ body{
         padding-bottom: 0px;
         margin: 0;
             
-        overflow: auto; /* Adiciona rolagem se o conteúdo exceder o tamanho da caixa */
+        overflow: hidden; /* Adiciona rolagem se o conteúdo exceder o tamanho da caixa */
     }
 
         #ficha_aqui {
@@ -378,4 +398,3 @@ display: none;
 #btn_ap {
     display: none;
 }
-
