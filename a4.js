@@ -61,7 +61,7 @@ btnGerarPDF.addEventListener("click", function() {
             unit: "mm", 
             orientation: "portrait",
             layout: "portrait",
-            format: [297, 210],
+            format: [298, 210],
             content: {
             align: "center",
             valign: "middle",
