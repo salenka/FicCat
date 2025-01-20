@@ -1,4 +1,4 @@
-import { uncheckOption, updateTipoPessoa, eraseChildText, saveData, recuperaFicha, geraFicha  } from './functions.js';
+import { uncheckOption, updateTipoPessoa, eraseChildText, saveData, recuperaFicha, geraFicha, geraPDF  } from './functions.js';
 
 
 
@@ -637,12 +637,9 @@ geraFicha();
 
 // Botão Abrir Página
 document.getElementById("btn_ap").addEventListener("click", function () {
-    // Redireciona para a4.html
-    //window.location.href = "a4.html"; // substitui a página atual
-    console.log("Botão Abrir Página acionado");
-    window.open("a4.html", "_blank");
-    console.log("janela aberta");
-    
+
+geraPDF();    
+  
 
 });
 

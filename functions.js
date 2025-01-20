@@ -140,7 +140,7 @@ export function geraFicha() {
 
     document.getElementById("fichaCatalografica").style.display = "block";
     document.getElementById("btn_ap").style.display = "block";
-    document.getElementById("controls").style.display = "block";
+    document.getElementById("font-controls").style.display = "block";
 
     console.log("Exibiu a ficha em index.html")
 
@@ -164,15 +164,70 @@ export function geraFicha() {
     return { ficha, codigos };
 }
 
+    export function geraPDF() {
 
-    export function recuperaFicha() {
+        const ficha = JSON.parse(localStorage.getItem('ficha'));
+        const codigos = JSON.parse(localStorage.getItem('codigos'));
+        const licenca = localStorage.getItem("licenca");
+        const fontSelect = localStorage.getItem("fontSelect");
+        const fontSizeInput = localStorage.getItem("fontSizeInput");
+        
+    
+        switch (licenca) {
+            case "by": 
+                document.getElementById("by").style.display = 'block';
+                break;
+            case "by-sa": 
+                document.getElementById("by-sa").style.display = 'block';
+                break;
+            case "by-nd": 
+                document.getElementById("by-nd").style.display = 'block';
+                break;
+            case "by-nc": 
+                document.getElementById("by-nc").style.display = 'block';
+                break;
+            case "by-nc-sa": 
+                document.getElementById("by-nc-sa").style.display = 'block';
+                break;
+            case "by-nc-nd": 
+                document.getElementById("by-nc-nd").style.display = 'block';
+                break;
+            case "cc-0": 
+                document.getElementById("cc-0").style.display = 'block';
+                break;
+            default:
+                console.log("Licença não selecionada")
+        
+        }
+    
+    
+        document.getElementById("ficha_aqui_pdf").textContent = ficha;
+        document.getElementById("ficha_aqui_pdf").style.fontFamily = fontSelect;
+        document.getElementById("ficha_aqui_pdf").style.fontSize = fontSizeInput + 'px';
+    
+        document.getElementById("codigos_aqui_pdf").textContent = codigos;
+        document.getElementById("codigos_aqui_pdf").style.fontSize = (fontSizeInput - 1) + 'px';
+        
+        const content = document.getElementById("pagina");
 
-        console.log("função recuperaFicha acionada");
+        const options = {
+            filename: "ficha_catalografica",
+            jsPDF: {
+                unit: "mm", 
+                orientation: "portrait",
+                layout: "portrait",
+                format: [298, 210],
+                content: {
+                align: "center",
+                valign: "middle",
+              }},
+            margin: 0,
+            padding: 0,
+            height: 297,
+            width: 210,
+        }
+    
+        //Gerar PDF
+        html2pdf().set(options).from(content).save();
 
-        const ficha = JSON.parse(localStorage.getItem('ficha'))
-        
-        console.log(JSON.parse(localStorage.getItem('ficha')));
-        
-        return { ficha };   
-        
     }

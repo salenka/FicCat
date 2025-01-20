@@ -20,7 +20,42 @@ FAZER:
 
 
  
- 
+                 <!-- Inputs das licenças--> REMOVIDO DE INDEX.HTML
+
+                <div id="by">
+                    <img src="IMG/cc-by.jpg" alt="CC BY" width="150" height="55">
+                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição (CC BY)</b>. Esta licença permite a distribuição, remixagem, adaptação e criação a partir desta obra, mesmo para fins comerciais, desde que o devido crédito seja atribuído ao autor. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+                </div>
+
+                <div id="by-sa">
+                    <img src="IMG/cc-by-sa.jpg" alt="CC BY-SA" width="150" height="55">
+                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição-CompartilhaIgual (CC BY-SA)</b>. Esta licença permite a remixagem, adaptação e criação a partir deste trabalho, mesmo para fins comerciais, desde que o devido crédito seja atribuído ao autor e que as novas criações sejam licenciadas sob termos idênticos. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+                </div>
+
+                <div id="by-nd">
+                    <img src="IMG/cc-by-nd.jpg" alt="CC BY-ND" width="150" height="55">
+                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição-SemDerivações (CC BY-ND)</b>. Esta licença permite a redistribuição, comercial e não comercial, desde que o trabalho seja distribuído de forma inalterada e o crédito seja atribuído ao autor. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+                </div>
+
+                <div id="by-nc">
+                    <img src="IMG/cc-by-nc.jpg" alt="CC BY-NC" width="150" height="55">
+                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição-NãoComercial (CC BY-NC)</b>. Esta licença permite a remixagem, adaptação e criação a partir deste trabalho para fins não comerciais, desde que o devido crédito seja atribuído ao autor. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+                </div>
+
+                <div id="by-nc-sa">
+                    <img src="IMG/cc-by-nc-sa.jpg" alt="CC BY-NC-SA" width="150" height="55">
+                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA)</b>. Esta licença permite a remixagem, adaptação e criação a partir deste trabalho para fins não comerciais, desde que o devido crédito seja atribuído ao autor e que a nova criação seja licenciada sob termos idênticos. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+                </div>
+
+                <div id="by-nc-nd">
+                    <img src="IMG/cc-by-nc-nd.jpg" alt="CC BY-NC-ND" width="150" height="55">
+                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição-NãoComercial-SemDerivações (CC BY-NC-ND)</b>. Esta licença permite a redistribuição deste trabalho sem fins comerciais, desde que ele não seja alterado de nenhuma forma e o crédito seja atribuído ao autor. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+                </div>
+            
+                <div id="cc-0">
+                    <img src="IMG/cc-0.jpg" alt="CC BY" width="150" height="55">
+                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Domínio Público (CC-0)</b>.Esta licença renuncia a todos os direitos colocando o trabalho em domínio público. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+                </div>
  
  
  

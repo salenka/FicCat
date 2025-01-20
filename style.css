@@ -84,7 +84,6 @@ body{
     50% posiciona o lado esquerdo do elemento no meio do contêiner pai, 
     e translateX(-50%) ajusta o elemento para que ele fique centralizado horizontalmente. */
     top: calc(297mm - 75mm - 30mm); /* Posiciona a parte superior do card-box de forma relativa ao tamanho da página */
-
 }
 
     .card-box {
@@ -106,7 +105,7 @@ body{
         overflow: hidden; /* Adiciona rolagem se o conteúdo exceder o tamanho da caixa */
     }
 
-        #ficha_aqui {
+        #ficha_aqui, #ficha_aqui_pdf {
             white-space: pre-wrap; /* Preserva quebras de linha e espaços */
             margin: 0;
             padding: 0;
@@ -114,7 +113,7 @@ body{
         
         }
 
-        #codigos_aqui {
+        #codigos_aqui, #codigos_aqui_pdf {
             margin-top: auto; /* Alinha o próprio elemento na parte inferior */
             padding: 0;
             font-size: small;
