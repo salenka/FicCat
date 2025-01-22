@@ -1,33 +1,23 @@
 
-.form-group-bordered {
-    border: 1px solid #572222;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-}
-.img-licenca {
-    margin: 10px; /* Add margin to images */
-}
-
-.form-group-bordered {
-
-    border: 1px solid #572222;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
-
 body{
     display: flex;
     flex-direction: column;
     align-items: center;  /* Centraliza horizontalmente */
-    margin: 0;
-    padding: 0;
+    page-break-before: avoid
+    
+}
+
+
+.form-group-bordered {
+    border: 1px solid #572222;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+
+.img-licenca {
+    margin: 10px; /* Add margin to images */
 }
 
 /* div bordaA4 foi removida de index.html */
@@ -41,12 +31,13 @@ body{
     margin: 0;
     padding: 0; }
 
-#pagina {
+#pagina-impressao {
 
-    position: relative; /* Não faz != apesar de card-print ser "absolute" */
+    position: relative; /* Segura o card-box no fim da página */
     display: flex;
     flex-direction: column;
     align-items: center;  /* Centraliza horizontalmente */
+    page-break-inside: avoid;
 
     height: 296mm; /* Página com 1mm a menos de altura impede impressão de uma 2ª folha em branco */
     width: 210mm;

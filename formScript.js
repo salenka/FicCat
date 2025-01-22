@@ -1,4 +1,4 @@
-import { uncheckOption, updateTipoPessoa, eraseChildText, saveData, recuperaFicha, geraFicha, geraPDF  } from './functions.js';
+import { uncheckOption, updateTipoPessoa, eraseChildText, saveData, geraFicha, geraPDF  } from './functions.js';
 
 
 

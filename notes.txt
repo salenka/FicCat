@@ -11,11 +11,20 @@ Estava com o div container até o commit 338d7364da4ef4a8b5fe051fc7fc26a8a4caf33
 "Tamanho da ficha corrigido no PDF A4".
 
 
-FAZER:
+PODE SER ÚTIL FUTURAMENTE SE DER PROBLEMA PARA VISUALIZAR A FICHA COM PAGINA DISPLAY:NONE:
+
+const paginaDiv = document.querySelector('.pagina');
+paginaDiv.style.display = 'block'; // Torna visível
+gerarPDF(); // Chama a função que cria o PDF
+paginaDiv.style.display = 'none'; // Retorna ao estado original
+
+INSTABILIDADE NA LICENÇA (AS VEZES APARECEM AS DUAS ULTIMAS ESCOLHIDAS
+Em que ponto colocar um listener para apagar a licenca do localStorage (se é que é pra fazer isso)?
 
 
-- Levar "codigos_aqui" para ficar alinhado com o bottom do card-box
-- Centralizar "ficha_aqui" verticalmente (pq não funciona atualmente?)
+
+
+
 
 
 

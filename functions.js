@@ -208,26 +208,33 @@ export function geraFicha() {
         document.getElementById("codigos_aqui_pdf").textContent = codigos;
         document.getElementById("codigos_aqui_pdf").style.fontSize = (fontSizeInput - 1) + 'px';
         
-        const content = document.getElementById("pagina");
+        //const content = document.getElementById("pagina-impressao").innerHTML;
+        const content = document.body;
 
         const options = {
             filename: "ficha_catalografica",
+            scrollX: 0,
+            scrollY: 0,
             jsPDF: {
                 unit: "mm", 
-                orientation: "portrait",
+                //orientation: "portrait",
                 layout: "portrait",
                 format: [298, 210],
                 content: {
                 align: "center",
-                valign: "middle",
+                //valign: "middle",
               }},
-            margin: 0,
-            padding: 0,
-            height: 297,
-            width: 210,
+            //margin: 0,
+            //padding: 0,
+            //height: 297,
+            //width: 210,
+            
         }
     
-        //Gerar PDF
-        html2pdf().set(options).from(content).save();
+        //Comando para gerar o PDF
+        html2pdf().set(options).from(content).outputPdf('blob').then((blob) => {
+            const url = URL.createObjectURL(blob);
+            window.open(url);
+        });
 
     }

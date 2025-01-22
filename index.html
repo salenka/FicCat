@@ -19,848 +19,868 @@
 
 
 <body>
-    
-        <h2>Gerador de Ficha Catalográfica para Livros</h2>
 
-        <form id="ficcat">
+    <h2>Gerador de Ficha Catalográfica para Livros</h2>
 
+    <form id="ficcat">
 
-            <div id="materialidade" class="form-group">
 
-                <p>Preencha as informações abaixo sobre o livro:</p>
-                <input type="radio" id="fisico" name="materia" value="fisico">
-                <label for="fisico">O livro é físico</label>
-                <br>
-                <input type="radio" id="digital" name="materia" value="digital">
-                <label for="digital">O livro é digital</label>
+        <div id="materialidade" class="form-group">
 
-
-                <div id="formato-digital">
-                    <label for="extensao">Informe a extensão do arquivo digital</label><br>
-                    <input type="text" class="form-control" id="extensao" name="extensao" required>
-                </div>
-            </div>
-
-            <!--Códigos opcionais-->
-            <div id="codigos-section" class="form-group form-group-bordered">
-
-                <p>Gostaria de inserir o(s) códigos(s) abaixo:</p>
-
-                <div id="codigos_ckbox">
-                    <input type="checkbox" id="cdd_ckbox" name="codigos_ckbox" value="cdd">
-                    <label for="cdd_ckbox">CDD</label>
-
-                    <input type="checkbox" id="cdu_ckbox" name="codigos_ckbox" value="cdu">
-                    <label for="cdu_ckbox">CDU</label>
-
-                    <input type="checkbox" id="cutter_ckbox" name="codigos_ckbox" value="cutter">
-                    <label for="cutter_ckbox">Cutter</label>
-
-                    <input type="checkbox" id="pha_ckbox" name="codigos_ckbox" value="pha">
-                    <label for="pha_ckbox">PHA</label>
-                </div>
-
-
-                <!--Inputs dos códigos-->
-
-                <div id="codigo-cdd">
-                    <label for="cdd">CDD</label><br>
-                    <input type="text" class="form-control" id="cdd" name="cdd" required>
-                </div>
-
-                <div id="codigo-cdu">
-                    <label for="cdu">CDU</label><br>
-                    <input type="text" class="form-control" id="cdu" name="cdu" required>
-                </div>
-
-                <div id="codigo-cutter">
-                    <label for="cutter">Cutter</label><br>
-                    <input type="text" class="form-control" id="cutter" name="cutter" required>
-                </div>
-
-                <div id="codigo-pha">
-                    <label for="pha">PHA</label><br>
-                    <input type="text" class="form-control" id="pha" name="pha" required>
-                </div>
-            </div>
-
-            <!-- CREATIVE COMMONS -->
-
-            <div id="licenca-section" class="form-group form-group-bordered">
-
-                <div id="licenca_radio">
-
-                    <p>Gostaria de acrescentar a seguinte licença Creative Commons:</p>
-
-                    <input type="radio" id="by_radio" name="cc_radio" value="by">
-                    <label for="by_radio">Atribuição (CC BY)</label><br>
-
-                    <input type="radio" id="by-sa_radio" name="cc_radio" value="by-sa">
-                    <label for="by-sa_radio">Atribuição-CompartilhaIgual (CC BY-SA)</label><br>
-
-                    <input type="radio" id="by-nd_radio" name="cc_radio" value="by-nd">
-                    <label for="by-nd_radio">Atribuição-SemDerivações (CC BY-ND)</label><br>
-
-                    <input type="radio" id="by-nc_radio" name="cc_radio" value="by-nc">
-                    <label for="by-nc_radio">Atribuição-NãoComercial (CC BY-NC)</label><br>
-
-                    <input type="radio" id="by-nc-sa_radio" name="cc_radio" value="by-nc-sa">
-                    <label for="by-nc-sa_radio">Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA)</label><br>
-
-                    <input type="radio" id="by-nc-nd_radio" name="cc_radio" value="by-nc-nd">
-                    <label for="by-nc-nd_radio">Atribuição-NãoComercial-SemDerivações (CC BY-NC-ND)</label><br>
-
-                    <input type="radio" id="cc-0_radio" name="cc_radio" value="cc-0">
-                    <label for="cc-0_radio">Domínio Público (CC0)</label>
-                </div>
-              
-            </div> <!-- Fim da div licenca-section-->
-
-            <!-- TÍTULO E SUBTÍTULO -->
-
-            <div id="titulo-section" class="form-group form-group-bordered">
-
-                <label for="titulo">Título</label><br>
-                <input type="text" class="form-control" id="titulo" name="titulo" required>
-
-                <label for="subtitulo">Subtítulo</label><br>
-                <input type="text" class="form-control" id="subtitulo" name="subtitulo">
-            </div>
-
-            <div id="edicao-section" class="form-group form-group-bordered">
-
-                <label for="edicao">Número de edição</label><br>
-                <input type="text" class="form-control" id="edicao" name="edicao">
-                <small id="edicaoHelp" class="form-text text-muted"></small>
-            </div>
-
-            <!-- TIPO DE RESPONSÁVEL -->
-
-            <div id="resp-int-section" class="form-group form-group-bordered">
-
-                <p>O principal responsável intelectual pela obra é</p>
-
-                <input type="radio" id="pessoa" name="resp-int" value="pessoa">
-                <label for="pessoa">uma pessoa</label>
-
-                <input type="radio" id="entidade" name="resp-int" value="entidade">
-                <label for="entidade">uma entidade</label>
-
-                <input type="radio" id="evento" name="resp-int" value="evento">
-                <label for="evento">um evento</label>
-
-
-
-
-                <!-- PESSOA-->
-
-                <div id="pessoa-section" class="form-group form-group-bordered">
-
-                    <p>A pessoa é</p>
-
-                    <input type="radio" id="autor" name="pessoa-tipo" value="autor">
-                    <label for="autor">autor</label><br>
-
-                    <input type="radio" id="organizador" name="pessoa-tipo" value="organizador">
-                    <label for="organizador">organizador</label><br>
-
-                    <input type="radio" id="coordenador" name="pessoa-tipo" value="coordenador">
-                    <label for="coordenador">coordenador</label><br>
-
-                    <input type="radio" id="compilador" name="pessoa-tipo" value="compilador">
-                    <label for="compilador">compilador</label><br>
-
-                    <input type="radio" id="editor" name="pessoa-tipo" value="editor">
-                    <label for="editor">editor</label><br>
-
-
-
-                    <div id="autor-section">
-                        <label for="nome">Prenomes do autor</label><br>
-                        <input type="text" class="form-control" id="nome" name="nome"><br>
-
-                        <label for="sobrenome">Sobrenome do autor</label><br>
-                        <input type="text" class="form-control" id="sobrenome" name="sobrenome" required><br>
-
-                        <p>Existe mais de um autor?</p>
-                    </div>
-
-                    <div id="organizador-section">
-                        <label for="organizador-nome">Nome do organizador</label><br>
-                        <input type="text" class="form-control" id="organizador-nome" name="organizador-nome"
-                            required><br>
-
-                        <p>Existe mais de um organizador?</p>
-                    </div>
-
-                    <div id="coordenador-section">
-                        <label for="coordenador-nome">Nome do coordenador</label><br>
-                        <input type="text" class="form-control" id="coordenador-nome" name="coordenador-nome"
-                            required><br>
-
-                        <p>Existe mais de um coordenador?</p>
-                    </div>
-
-                    <div id="compilador-section">
-                        <label for="compilador-nome">Nome do compilador</label><br>
-                        <input type="text" class="form-control" id="compilador-nome" name="compilador-nome"
-                            required><br>
-
-                        <p>Existe mais de um compilador?</p>
-                    </div>
-
-                    <div id="editor-section">
-                        <label for="editor-nome">Nome do editor</label><br>
-                        <input type="text" class="form-control" id="editor-nome" name="editor-nome" required><br>
-
-                        <p>Existe mais de um editor?</p>
-                    </div>
-
-
-                    <!-- pessoa-mais -->
-
-                    <div id="pessoa-mais">
-                        <!--<p>Existem mais pessoas com essa mesma função?</p>-->
-                        <input type="radio" id="sim" name="pessoa-mais" value="sim">
-                        <label for="sim">Sim</label><br>
-
-                        <input type="radio" id="nao" name="pessoa-mais" value="nao">
-                        <label for="nao">Não</label><br><br />
-                    </div>
-
-
-                    <!-- pessoa-qtd-->
-
-                    <div id="pessoa-qtd">
-                        <p>Quantos são no total?</p>
-                        <input type="radio" id="pessoa-qtd-2" name="pessoa-qtd" value="2">
-                        <label for="pessoa-qtd-2">2</label><br>
-                        <input type="radio" id="pessoa-qtd-3" name="pessoa-qtd" value="3">
-                        <label for="pessoa-qtd-3">3</label><br>
-                        <input type="radio" id="pessoa-qtd-4" name="pessoa-qtd" value="4">
-                        <label for="pessoa-qtd-4">4 ou mais</label>
-                    </div>
-
-
-                    <!-- OUTRA-PESSOA -->
-
-                    <div id="pessoa-outra" class="form-group form-group-bordered">
-
-                        <div id="pessoa-segunda">
-                            <label for="pessoa-2">Segundo <span class="span-tipo-pessoa">...</span></label><br>
-                            <input type="text" class="form-control" id="pessoa-2" name="pessoa-2" required>
-                        </div>
-
-                        <div id="pessoa-terceira">
-                            <label for="pessoa-3">Terceiro <span class="span-tipo-pessoa">...</span></label><br>
-                            <input type="text" class="form-control" id="pessoa-3" name="pessoa-3" required>
-                        </div>
-
-                        <div id="pessoa-quarta">
-                            <p>Não é preciso informar os outros nomes. Prossiga.</p>
-                        </div>
-
-                    </div>
-
-                </div>
-                <!-- ENTIDADE -->
-
-                <div id="entidade-section">
-                    <label for="entidade-nome">Entidade</label><br>
-                    <input type="text" class="form-control" id="entidade-nome" name="entidade-nome" required><br>
-                </div>
-
-
-                <!-- EVENTO -->
-
-                <div id="evento-section" class="form-group form-group-bordered">
-                    <label for="evento-nome">Nome do Evento</label><br>
-                    <input type="text" class="form-control" id="evento-nome" name="evento-nome" required>
-                    <small id="evento-nome-Help" class="form-text text-muted">Informe o nome do evento sem o número da
-                        edição do evento</small><br>
-
-                    <label for="evento-numero">Número da edição do evento (se houver)</label><br>
-                    <input type="text" class="form-control" id="evento-numero" name="evento-numero" required>
-                    <small id="evento-numero-Help" class="form-text text-muted">Utilize algarismos arábicos</small><br>
-
-                    <label for="evento-ano">Ano de realização do evento</label><br>
-                    <input type="text" class="form-control" id="evento-ano" name="evento-ano" required>
-                    <small id="evento-ano-Help" class="form-text text-muted"></small><br>
-
-                    <label for="evento-local">Cidade de realização do evento</label><br>
-                    <input type="text" class="form-control" id="evento-local" name="evento-local" required>
-                    <small id="evento-local-Help" class="form-text text-muted">Se não for uma capital, informe também a
-                        sigla do estado </small>
-                </div>
-            </div>
-
-            <!-- CONTRIBUIDORES-->
-
-            <div id="contribuidores" class="form-group form-group-bordered">
-                <p>Existem outros contribuidores?</p>
-
-                <!-- ILUSTRADOR -->
-                <div id="contribuidor-ilustrador" class="form-group form-group-bordered">
-                    <input type="checkbox" id="ilustrador" name="contribuidor-tipo" value="ilustrador">
-                    <label for="ilustrador">ilustrador</label><br>
-
-
-                    <div id="ilustrador-section">
-                        <label for="ilustrador-nome">Nome do ilustrador</label><br>
-                        <input type="text" class="form-control" id="ilustrador-nome" name="ilustrador-nome" required>
-                    </div>
-
-                    <!-- MAIS Ilustrador -->
-
-                    <div id="ilustrador-mais">
-
-                        <p>Existe mais de um ilustrador?</p>
-
-                        <!--<p>Existem mais ilustradores com essa mesma função?</p>-->
-                        <input type="radio" id="ilustrador-sim" name="ilustrador-mais" value="sim">
-                        <label for="sim">Sim</label>
-
-                        <input type="radio" id="ilustrador-nao" name="ilustrador-mais" value="nao">
-                        <label for="nao">Não</label><br><br />
-                    </div>
-
-                    <!-- ilustrador-qtd-->
-
-                    <div id="ilustrador-qtd">
-                        <p>Quantos são no total?</p>
-                        <input type="radio" id="ilustrador-qtd-2" name="ilustrador-qtd" value="2">
-                        <label for="ilustrador-qtd-2">2</label><br>
-                        <input type="radio" id="ilustrador-qtd-3" name="ilustrador-qtd" value="3">
-                        <label for="ilustrador-qtd-3">3</label><br>
-                        <input type="radio" id="ilustrador-qtd-4" name="ilustrador-qtd" value="4">
-                        <label for="ilustrador-qtd-4">4 ou mais</label>
-                    </div>
-
-                    <!-- OUTRO Ilustrador -->
-
-                    <div id="ilustrador-outro" class="form-group form-group-bordered">
-
-                        <div id="ilustrador-segundo">
-                            <label for="ilustrador-2">Segundo ilustrador</label><br>
-                            <input type="text" class="form-control" id="ilustrador-2" name="ilustrador-2" required>
-                        </div>
-
-                        <div id="ilustrador-terceiro">
-                            <label for="ilustrador-3">Terceiro ilustrador</span></label><br>
-                            <input type="text" class="form-control" id="ilustrador-3" name="ilustrador-3" required>
-                        </div>
-
-                        <div id="ilustrador-quarto">
-                            <p>Não é preciso informar os outros nomes. Prossiga.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- TRADUTOR -->
-
-                <div id="contribuidor-tradutor" class="form-group form-group-bordered">
-                    <input type="checkbox" id="tradutor" name="contribuidor-tipo" value="tradutor">
-                    <label for="tradutor">tradutor</label><br>
-
-
-                    <div id="tradutor-section">
-                        <label for="tradutor-nome">Nome do tradutor</label><br>
-                        <input type="text" class="form-control" id="tradutor-nome" name="tradutor-nome" required>
-                    </div>
-
-                    <!-- MAIS Tradutor -->
-
-                    <div id="tradutor-mais">
-
-                        <p>Existe mais de um tradutor?</p>
-
-                        <input type="radio" id="tradutor-sim" name="tradutor-mais" value="sim">
-                        <label for="sim">Sim</label>
-
-                        <input type="radio" id="tradutor-nao" name="tradutor-mais" value="nao">
-                        <label for="nao">Não</label><br><br />
-                    </div>
-
-
-                    <!-- tradutor-qtd-->
-
-                    <div id="tradutor-qtd">
-                        <p>Quantos são no total?</p>
-                        <input type="radio" id="tradutor-qtd-2" name="tradutor-qtd" value="2">
-                        <label for="tradutor-qtd-2">2</label><br>
-                        <input type="radio" id="tradutor-qtd-3" name="tradutor-qtd" value="3">
-                        <label for="tradutor-qtd-3">3</label><br>
-                        <input type="radio" id="tradutor-qtd-4" name="tradutor-qtd" value="4">
-                        <label for="tradutor-qtd-4">4 ou mais</label>
-                    </div>
-
-                    <!-- OUTRO Tradutor -->
-
-                    <div id="tradutor-outro" class="form-group form-group-bordered">
-
-                        <div id="tradutor-segundo">
-                            <label for="tradutor-2">Segundo tradutor</span></label><br>
-                            <input type="text" class="form-control" id="tradutor-2" name="tradutor-2" required>
-                        </div>
-
-                        <div id="tradutor-terceiro">
-                            <label for="tradutor-3">Terceiro tradutor</span></label><br>
-                            <input type="text" class="form-control" id="tradutor-3" name="tradutor-3" required>
-                        </div>
-
-                        <div id="tradutor-quarto">
-                            <p>Não é preciso informar os outros nomes. Prossiga.</p>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ÁREA DE PUBLICAÇÃO -->
-
-            <div id="publicacao" class="form-group form-group-bordered">
-
-                <label for="publicador">Publicador</label><br>
-                <input type="text" class="form-control" id="publicador" name="publicador"><br>
-                <label for="local">Local do publicador</label><br>
-                <input type="text" class="form-control" id="local" name="local"><br>
-                <label for="ano">Ano</label><br>
-                <input type="text" class="form-control" id="ano" name="ano"><br>
-
-
-                <!-- MAIS-PUBLICAODR -->
-
-                <div id="publicador-mais">
-
-                    <p>Existe mais um publicador?</p>
-                    <input type="radio" id="publicador-sim" name="publicador-mais" value="sim">
-                    <label for="sim">Sim</label>
-
-                    <input type="radio" id="publicador-nao" name="publicador-mais" value="nao">
-                    <label for="nao">Não</label>
-                </div>
-
-                <!-- OUTRO-PUBLICAODR -->
-                <div id="publicador-segundo">
-                    <label for="publicador-2">Segundo publicador</label><br>
-                    <input type="text" class="form-control" id="publicador-2" name="publicador-2"><br>
-                    <label for="local-2">Local do publicador</label><br>
-                    <input type="text" class="form-control" id="local-2" name="local-2"><br>
-                </div>
-
-            </div>
-
-            <!-- ÁREA DE DESCRIÇÃO FÍSICA -->
-
-            <!--Paginação-->
-
-            <div id="paginacao" class="form-group form-group-bordered">
-
-                <p>Sobre a forma como a obra é paginada:</p>
-
-                <div id="paginacao-numerada-section" class="form-group form-group-bordered">
-
-                    <input type="radio" id="pag-num" name="paginacao" value="pag-num"
-                        class="form-group form-group-bordered">
-                    <label for="pag-num">As páginas possuem numeração impressa</label><br>
-
-                    <div id="paginacao-numerada">
-                        <label for="pag-num-qtd">Número da última página impressa</label><br>
-                        <input type="text" class="form-control" id="pag-num-qtd" name="pag-num-qtd" required><br>
-
-                        <input type="checkbox" id="pag-romana" name="pag-outra">
-                        <label for="pag-romana">O livro possui páginas prefaciais em algarismos romanos</label><br>
-
-                        <div id="paginacao-romana">
-                            <label for="pag-romana-qtd">Quantidade de páginas com numeração romana</label><br>
-                            <input type="text" class="form-control" id="pag-romana-qtd" name="pag-romana-qtd">
-                        </div>
-
-                        <input type="checkbox" id="pag-lamina" name="pag-outra">
-                        <label for="pag-lamina">O livro possui páginas não numeradas contendo imagens (lâminas)</label>
-                    </div>
-
-                    <div id="paginacao-lamina">
-                        <div id="paginacao-lamina-section" class="form-group form-group-bordered">
-                            <input type="radio" id="pagina" name="pag-ou-folha" value="pagina">
-                            <label for="pagina">Há imagens nos dois lados das folhas</label>
-                            <div id="pagina-lamina">
-                                <label for="pag-lamina-qtd">Quantidade de páginas ilustradas sem numeração</label><br>
-                                <input type="text" class="form-control" id="pag-lamina-qtd" name="pag-lamina-qtd">
-                            </div>
-                        </div>
-
-                        <div id="paginacao-folha-section" class="form-group form-group-bordered">
-                            <input type="radio" id="folha" name="pag-ou-folha" value="folha">
-                            <label for="folha">Há imagens apenas em um lado das folhas</label>
-                            <div id="folha-lamina">
-                                <label for="folha-lamina-qtd">Quantidade de folhas ilustradas sem numeração</label><br>
-                                <input type="text" class="form-control" id="folha-lamina-qtd" name="folha-lamina-qtd">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div id="paginacao-nao-numerada-section" class="form-group form-group-bordered">
-
-                    <input type="radio" id="pag-sem-num" name="paginacao" value="pag-sem-num">
-                    <label for="pag-sem-num">As páginas não são numeradas</label><br>
-
-                    <div id="paginacao-nao-numerada">
-                        <label for="pag-nao-num-qtd">Quantidade de páginas não numeradas</label><br>
-                        <input type="text" class="form-control" id="pag-nao-num-qtd" name="pag-nao-num-qtd" required>
-
-                        <p>Essa quantidade de páginas é </p>
-                        <input type="radio" id="certa" name="pag-certeza" value="certa">
-                        <label for="certa">Certa</label>
-
-                        <input type="radio" id="presumida" name="pag-certeza" value="presumida">
-                        <label for="presumida">Presumida</label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Material gráfico -->
-
-            <div id="imagem-section" class="form-group form-group-bordered">
-
-                <div id="imagem">
-
-                    <p>O livro contém imagens?</p>
-                    <input type="radio" id="imagem-sim" name="imagem" value="sim">
-                    <label for="imagem-sim">Sim</label>
-
-                    <input type="radio" id="imagem-nao" name="imagem" value="nao">
-                    <label for="imagem-nao">Não</label>
-                </div>
-
-
-                <div id="imagem-tipo">
-                    <p>Este livro contém que tipo de imagem?</p>
-
-                    <input type="checkbox" id="ilustracoes" name="imagem-tipo" value="ilustracoes">
-                    <label for="sim">Ilustrações</label><br>
-
-                    <div id="il-coloracao" class="form-group form-group-bordered">
-                        <p>As ilustrações são, predominantemente</p>
-                        <input type="radio" id="il-cores" name="il-coloracao" value="il-cores">
-                        <label for="foto-cores">Em cores</label><br>
-                        <input type="radio" id="il-pb" name="il-coloracao" value="il-pb">
-                        <label for="il-pb">Preto-e-branco</label><br>
-                        <input type="radio" id="il" name="il-coloracao" value="il">
-                        <label for="il">Não existe uma coloração predominante ou essa informação não é relevante</label>
-                    </div>
-
-
-                    <input type="checkbox" id="fotos" name="imagem-tipo" value="fotos">
-                    <label for="nao">Fotos</label><br>
-
-                    <div id="fotos-coloracao" class="form-group form-group-bordered">
-                        <p>As fotos são, predominantemente</p>
-                        <input type="radio" id="foto-cores" name="fotos-coloracao" value="foto-cores">
-                        <label for="foto-cores">Em cores</label><br>
-                        <input type="radio" id="foto-pb" name="fotos-coloracao" value="foto-pb">
-                        <label for="foto-pb">Preto-e-branco</label><br>
-                        <input type="radio" id="fotos" name="fotos-coloracao" value="fotos">
-                        <label for="Fotos">Não existe uma coloração predominante ou essa informação não é
-                            relevante</label>
-                    </div>
-
-                    <input type="checkbox" id="mapas" name="imagem-tipo" value="mapas">
-                    <label for="nao">Mapas</label>
-
-                    <div id="mapas-coloracao" class="form-group form-group-bordered">
-                        <p>Os mapas são, predominantemente</p>
-                        <input type="radio" id="mapa-cores" name="mapas-coloracao" value="mapa-cores">
-                        <label for="mapa-cores">Em cores</label><br>
-                        <input type="radio" id="mapa-pb" name="mapas-coloracao" value="mapa-pb">
-                        <label for="mapa-pb">Preto-e-branco</label><br>
-                        <input type="radio" id="mapas" name="mapas-coloracao" value="mapas">
-                        <label for="mapas">Não existe uma coloração predominante ou essa informação não é
-                            relevante</label>
-                    </div>
-                </div>
-            </div>
-            <!-- Formato -->
-
-
-            <div id="formato-fisico" class="form-group form-group-bordered">
-
-                <p>Quanto ao formato</p>
-                <input type="radio" id="formato-trad" name="formato" value="tradicional">
-                <label for="formato-trad">O livro tem o formato tradicional</label><br>
-                <input type="radio" id="formato-nao-trad" name="formato" value="nao-tradicional">
-                <label for="formato-nao-trad">O livro tem um formato não tradicional</label><br>
-                <input type="radio" id="sem-formato" name="formato" value="sem-formato">
-                <label for="sem-formato">Não sei ou não desejo informar suas dimensões</label>
-
-                <div id="formato-tradicional">
-                    <label for="altura">Altura em centímetros</label><br>
-                    <input type="text" class="form-control" id="altura" name="altura" required>
-                </div>
-
-                <div id="formato-nao-tradicional">
-                    <label for="largura">Largura em centímetros</label><br>
-                    <input type="text" class="form-control" id="largura" name="largura" required>
-                </div>
-
-
-            </div>
-
-            <!-- Material Adicional -->
-
-            <div id="material-adicional-section" class="form-group form-group-bordered">
-
-                <p>O livro é acompanhado de material adicional?</p>
-                <input type="radio" id="material-adicional-sim" name="material-adicional-sn" value="sim">
-                <label for="material-adicional-sim">Sim</label>
-
-                <input type="radio" id="material-adicional-nao" name="material-adicional-sn" value="nao">
-                <label for="material-adicional-nao">Não</label>
-
-                <div id="material-adicional">
-
-                    <p>Informe o tipo e a quantidade de material adicional:</p>
-
-                    <label for="material-adicional-tipo">Tipo de material (por exemplo: DVD, Folheto, Brinquedo,
-                        etc)</label><br>
-                    <input type="text" class="form-control" id="material-adicional-tipo"
-                        name="material-adicional-tipo"><br>
-                    <label for="material-adicional-qtd">Quantidade do material (se for mais que uma unidade)</label><br>
-                    <input type="text" class="form-control" id="material-adicional-qtd" name="material-adicional-qtd">
-                </div>
-            </div>
-
-            <!-- ÁREA DE SÉRIE -->
-
-            <!-- Existe série? -->
-            <div id="serie-section" class="form-group form-group-bordered">
-                <div id="serie-sn">
-                    <p>O livro pertence a uma série ou coleção?</p>
-                    <input type="radio" id="serie-sim" name="serie-sn" value="sim">
-                    <label for="sim">Sim</label>
-
-                    <input type="radio" id="serie-nao" name="serie-sn" value="nao">
-                    <label for="nao">Não</label>
-                </div>
-
-                <div id="serie">
-
-                    <label for="serie-nome">Nome da série</label><br>
-                    <input type="text" class="form-control" id="serie-nome" name="serie-nome"><br>
-                    <label for="serie-volume">Número do volume</label><br>
-                    <input type="text" class="form-control" id="serie-volume" name="serie-volume">
-                </div>
-
-                <!-- Existe subsérie? -->
-
-                <div id="subserie-sn">
-                    <p>A série tem uma subsérie?</p>
-                    <input type="radio" id="subserie-sim" name="subserie-sn" value="sim">
-                    <label for="sim">Sim</label>
-
-                    <input type="radio" id="subserie-nao" name="subserie-sn" value="nao">
-                    <label for="nao">Não</label>
-                </div>
-
-                <!-- Subsérie -->
-                <div id="subserie">
-                    <label for="subserie-nome">Nome da subsérie</label><br>
-                    <input type="text" class="form-control" id="subserie-nome" name="subserie-nome"><br>
-                    <label for="subserie-volume">Número do volume</label><br>
-                    <input type="text" class="form-control" id="subserie-volume" name="subserie-volume">
-                </div>
-            </div>
-            <!-- ÁREA DE NOTAS -->
-
-            <!-- Existe ISBN? -->
-            <div id="isbn-section" class="form-group form-group-bordered">
-                <div id="isbn-sn">
-                    <p>O livro possui ISBN?</p>
-                    <input type="radio" id="isbn-sim" name="isbn-sn" value="sim">
-                    <label for="sim">Sim</label>
-
-                    <input type="radio" id="isbn-nao" name="isbn-sn" value="nao">
-                    <label for="nao">Não</label>
-                </div>
-
-                <div id="isbn">
-
-                    <label for="isbn-1">ISBN</label><br>
-                    <input type="text" class="form-control" id="isbn-1" name="isbn-1">
-                </div>
-
-                <!-- Existe outro ISBN -->
-                <div id="isbn-2-sn">
-                    <p>Existe outro ISBN?</p>
-                    <input type="radio" id="isbn-2-sim" name="isbn-2-sn" value="sim">
-                    <label for="sim">Sim</label>
-
-                    <input type="radio" id="isbn-2-nao" name="isbn-2-sn" value="nao">
-                    <label for="nao">Não</label>
-                </div>
-
-                <!-- Outro ISBN -->
-                <div id="isbn-outro">
-
-                    <label for="qualificador-1">Qualificador do primeiro ISBN</label><br>
-                    <input type="text" class="form-control" id="qualificador-1" name="qualificador-1"><br>
-                    <br>
-                    <label for="isbn-2">Segundo ISBN</label><br>
-                    <input type="text" class="form-control" id="isbn-2" name="isbn-2"><br>
-                    <label for="qualificador-2">Qualificador do segundo ISBN</label><br>
-                    <input type="text" class="form-control" id="qualificador-2" name="qualificador-2"><br>
-                </div>
-            </div>
-
-            <!-- Notas -->
-
-            <div id="nota-section" class="form-group form-group-bordered">
-
-                <div id="nota-sn">
-                    <p>É preciso acrescentar uma nota?</p>
-                    <input type="radio" id="nota-sim" name="nota-sn" value="sim">
-                    <label for="sim">Sim</label>
-
-                    <input type="radio" id="nota-nao" name="nota-sn" value="nao">
-                    <label for="nao">Não</label>
-                </div>
-
-
-                <div id="nota">
-                    <label for="nota-1">Redija uma nota sucinta</label><br>
-                    <input type="text" class="form-control" id="nota-1" name="nota-1">
-                </div>
-
-                <!-- Outra nota - sim ou não -->
-                <div id="nota-2-sn">
-                    <p>É preciso acrescentar outra nota?</p>
-                    <input type="radio" id="nota-2-sim" name="nota-2-sn" value="sim">
-                    <label for="sim">Sim</label>
-
-                    <input type="radio" id="nota-2-nao" name="nota-2-sn" value="nao">
-                    <label for="nao">Não</label>
-                </div>
-
-                <!-- Outra nota -->
-                <div id="nota-outro">
-                    <label for="nota-2">Redija outra nota sucinta</label><br>
-                    <input type="text" class="form-control" id="nota-2" name="nota-2">
-                </div>
-            </div>
-            <!-- ASSUNTO -->
-
-            <div id="assunto" class="form-group form-group-bordered">
-
-                <p>Preencha até 5 assuntos</p>
-
-                <label for="assunto-1">Assunto</label><br>
-                <input type="text" class="form-control" id="assunto-1" name="assunto"><br>
-                <label for="assunto-2">Assunto</label><br>
-                <input type="text" class="form-control" id="assunto-2" name="assunto"><br>
-                <label for="assunto-3">Assunto</label><br>
-                <input type="text" class="form-control" id="assunto-3" name="assunto"><br>
-                <label for="assunto-4">Assunto</label><br>
-                <input type="text" class="form-control" id="assunto-4" name="assunto"><br>
-                <label for="assunto-5">Assunto</label><br>
-                <input type="text" class="form-control" id="assunto-5" name="assunto"><br>
-
-            </div>
-        </form>      
-
-        <br />
-        <button type="button" id="btn_gf">Gerar ficha</button>
-
-        <div id="fichaCatalografica">
+            <p>Preencha as informações abaixo sobre o livro:</p>
+            <input type="radio" id="fisico" name="materia" value="fisico">
+            <label for="fisico">O livro é físico</label>
             <br>
-            <div id="card" class="card-box">
-                <p id="ficha_aqui"></p>
-                <p id="codigos_aqui"></p>
+            <input type="radio" id="digital" name="materia" value="digital">
+            <label for="digital">O livro é digital</label>
+
+
+            <div id="formato-digital">
+                <label for="extensao">Informe a extensão do arquivo digital</label><br>
+                <input type="text" class="form-control" id="extensao" name="extensao" required>
             </div>
-        
+        </div>
 
-            <BR>
-            <!-- CONTROLES DA FONTE -->
+        <!--Códigos opcionais-->
+        <div id="codigos-section" class="form-group form-group-bordered">
 
-            <div id="font-controls">
-                <label for="font-select">Fonte:</label>
-                <select id="font-select">
-                    <option value="Arial">Arial</option>
-                    <option value="Times New Roman">Times New Roman</option>
-                    <option value="Courier New">Courier New</option>
-                    <!-- Adicione mais opções de fonte conforme necessário -->
-                </select>
+            <p>Gostaria de inserir o(s) códigos(s) abaixo:</p>
 
-                <label for="font-size">Tamanho da Fonte:</label>
-                <input type="number" id="font-size" value="14">
+            <div id="codigos_ckbox">
+                <input type="checkbox" id="cdd_ckbox" name="codigos_ckbox" value="cdd">
+                <label for="cdd_ckbox">CDD</label>
+
+                <input type="checkbox" id="cdu_ckbox" name="codigos_ckbox" value="cdu">
+                <label for="cdu_ckbox">CDU</label>
+
+                <input type="checkbox" id="cutter_ckbox" name="codigos_ckbox" value="cutter">
+                <label for="cutter_ckbox">Cutter</label>
+
+                <input type="checkbox" id="pha_ckbox" name="codigos_ckbox" value="pha">
+                <label for="pha_ckbox">PHA</label>
             </div>
-        </div>    
-        
-    
+
+
+            <!--Inputs dos códigos-->
+
+            <div id="codigo-cdd">
+                <label for="cdd">CDD</label><br>
+                <input type="text" class="form-control" id="cdd" name="cdd" required>
+            </div>
+
+            <div id="codigo-cdu">
+                <label for="cdu">CDU</label><br>
+                <input type="text" class="form-control" id="cdu" name="cdu" required>
+            </div>
+
+            <div id="codigo-cutter">
+                <label for="cutter">Cutter</label><br>
+                <input type="text" class="form-control" id="cutter" name="cutter" required>
+            </div>
+
+            <div id="codigo-pha">
+                <label for="pha">PHA</label><br>
+                <input type="text" class="form-control" id="pha" name="pha" required>
+            </div>
+        </div>
+
+        <!-- CREATIVE COMMONS -->
+
+        <div id="licenca-section" class="form-group form-group-bordered">
+
+            <div id="licenca_radio">
+
+                <p>Gostaria de acrescentar a seguinte licença Creative Commons:</p>
+
+                <input type="radio" id="by_radio" name="cc_radio" value="by">
+                <label for="by_radio">Atribuição (CC BY)</label><br>
+
+                <input type="radio" id="by-sa_radio" name="cc_radio" value="by-sa">
+                <label for="by-sa_radio">Atribuição-CompartilhaIgual (CC BY-SA)</label><br>
+
+                <input type="radio" id="by-nd_radio" name="cc_radio" value="by-nd">
+                <label for="by-nd_radio">Atribuição-SemDerivações (CC BY-ND)</label><br>
+
+                <input type="radio" id="by-nc_radio" name="cc_radio" value="by-nc">
+                <label for="by-nc_radio">Atribuição-NãoComercial (CC BY-NC)</label><br>
+
+                <input type="radio" id="by-nc-sa_radio" name="cc_radio" value="by-nc-sa">
+                <label for="by-nc-sa_radio">Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA)</label><br>
+
+                <input type="radio" id="by-nc-nd_radio" name="cc_radio" value="by-nc-nd">
+                <label for="by-nc-nd_radio">Atribuição-NãoComercial-SemDerivações (CC BY-NC-ND)</label><br>
+
+                <input type="radio" id="cc-0_radio" name="cc_radio" value="cc-0">
+                <label for="cc-0_radio">Domínio Público (CC0)</label>
+            </div>
+
+        </div> <!-- Fim da div licenca-section-->
+
+        <!-- TÍTULO E SUBTÍTULO -->
+
+        <div id="titulo-section" class="form-group form-group-bordered">
+
+            <label for="titulo">Título</label><br>
+            <input type="text" class="form-control" id="titulo" name="titulo" required>
+
+            <label for="subtitulo">Subtítulo</label><br>
+            <input type="text" class="form-control" id="subtitulo" name="subtitulo">
+        </div>
+
+        <div id="edicao-section" class="form-group form-group-bordered">
+
+            <label for="edicao">Número de edição</label><br>
+            <input type="text" class="form-control" id="edicao" name="edicao">
+            <small id="edicaoHelp" class="form-text text-muted"></small>
+        </div>
+
+        <!-- TIPO DE RESPONSÁVEL -->
+
+        <div id="resp-int-section" class="form-group form-group-bordered">
+
+            <p>O principal responsável intelectual pela obra é</p>
+
+            <input type="radio" id="pessoa" name="resp-int" value="pessoa">
+            <label for="pessoa">uma pessoa</label>
+
+            <input type="radio" id="entidade" name="resp-int" value="entidade">
+            <label for="entidade">uma entidade</label>
+
+            <input type="radio" id="evento" name="resp-int" value="evento">
+            <label for="evento">um evento</label>
+
+
+
+
+            <!-- PESSOA-->
+
+            <div id="pessoa-section" class="form-group form-group-bordered">
+
+                <p>A pessoa é</p>
+
+                <input type="radio" id="autor" name="pessoa-tipo" value="autor">
+                <label for="autor">autor</label><br>
+
+                <input type="radio" id="organizador" name="pessoa-tipo" value="organizador">
+                <label for="organizador">organizador</label><br>
+
+                <input type="radio" id="coordenador" name="pessoa-tipo" value="coordenador">
+                <label for="coordenador">coordenador</label><br>
+
+                <input type="radio" id="compilador" name="pessoa-tipo" value="compilador">
+                <label for="compilador">compilador</label><br>
+
+                <input type="radio" id="editor" name="pessoa-tipo" value="editor">
+                <label for="editor">editor</label><br>
+
+
+
+                <div id="autor-section">
+                    <label for="nome">Prenomes do autor</label><br>
+                    <input type="text" class="form-control" id="nome" name="nome"><br>
+
+                    <label for="sobrenome">Sobrenome do autor</label><br>
+                    <input type="text" class="form-control" id="sobrenome" name="sobrenome" required><br>
+
+                    <p>Existe mais de um autor?</p>
+                </div>
+
+                <div id="organizador-section">
+                    <label for="organizador-nome">Nome do organizador</label><br>
+                    <input type="text" class="form-control" id="organizador-nome" name="organizador-nome" required><br>
+
+                    <p>Existe mais de um organizador?</p>
+                </div>
+
+                <div id="coordenador-section">
+                    <label for="coordenador-nome">Nome do coordenador</label><br>
+                    <input type="text" class="form-control" id="coordenador-nome" name="coordenador-nome" required><br>
+
+                    <p>Existe mais de um coordenador?</p>
+                </div>
+
+                <div id="compilador-section">
+                    <label for="compilador-nome">Nome do compilador</label><br>
+                    <input type="text" class="form-control" id="compilador-nome" name="compilador-nome" required><br>
+
+                    <p>Existe mais de um compilador?</p>
+                </div>
+
+                <div id="editor-section">
+                    <label for="editor-nome">Nome do editor</label><br>
+                    <input type="text" class="form-control" id="editor-nome" name="editor-nome" required><br>
+
+                    <p>Existe mais de um editor?</p>
+                </div>
+
+
+                <!-- pessoa-mais -->
+
+                <div id="pessoa-mais">
+                    <!--<p>Existem mais pessoas com essa mesma função?</p>-->
+                    <input type="radio" id="sim" name="pessoa-mais" value="sim">
+                    <label for="sim">Sim</label><br>
+
+                    <input type="radio" id="nao" name="pessoa-mais" value="nao">
+                    <label for="nao">Não</label><br><br />
+                </div>
+
+
+                <!-- pessoa-qtd-->
+
+                <div id="pessoa-qtd">
+                    <p>Quantos são no total?</p>
+                    <input type="radio" id="pessoa-qtd-2" name="pessoa-qtd" value="2">
+                    <label for="pessoa-qtd-2">2</label><br>
+                    <input type="radio" id="pessoa-qtd-3" name="pessoa-qtd" value="3">
+                    <label for="pessoa-qtd-3">3</label><br>
+                    <input type="radio" id="pessoa-qtd-4" name="pessoa-qtd" value="4">
+                    <label for="pessoa-qtd-4">4 ou mais</label>
+                </div>
+
+
+                <!-- OUTRA-PESSOA -->
+
+                <div id="pessoa-outra" class="form-group form-group-bordered">
+
+                    <div id="pessoa-segunda">
+                        <label for="pessoa-2">Segundo <span class="span-tipo-pessoa">...</span></label><br>
+                        <input type="text" class="form-control" id="pessoa-2" name="pessoa-2" required>
+                    </div>
+
+                    <div id="pessoa-terceira">
+                        <label for="pessoa-3">Terceiro <span class="span-tipo-pessoa">...</span></label><br>
+                        <input type="text" class="form-control" id="pessoa-3" name="pessoa-3" required>
+                    </div>
+
+                    <div id="pessoa-quarta">
+                        <p>Não é preciso informar os outros nomes. Prossiga.</p>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- ENTIDADE -->
+
+            <div id="entidade-section">
+                <label for="entidade-nome">Entidade</label><br>
+                <input type="text" class="form-control" id="entidade-nome" name="entidade-nome" required><br>
+            </div>
+
+
+            <!-- EVENTO -->
+
+            <div id="evento-section" class="form-group form-group-bordered">
+                <label for="evento-nome">Nome do Evento</label><br>
+                <input type="text" class="form-control" id="evento-nome" name="evento-nome" required>
+                <small id="evento-nome-Help" class="form-text text-muted">Informe o nome do evento sem o número da
+                    edição do evento</small><br>
+
+                <label for="evento-numero">Número da edição do evento (se houver)</label><br>
+                <input type="text" class="form-control" id="evento-numero" name="evento-numero" required>
+                <small id="evento-numero-Help" class="form-text text-muted">Utilize algarismos arábicos</small><br>
+
+                <label for="evento-ano">Ano de realização do evento</label><br>
+                <input type="text" class="form-control" id="evento-ano" name="evento-ano" required>
+                <small id="evento-ano-Help" class="form-text text-muted"></small><br>
+
+                <label for="evento-local">Cidade de realização do evento</label><br>
+                <input type="text" class="form-control" id="evento-local" name="evento-local" required>
+                <small id="evento-local-Help" class="form-text text-muted">Se não for uma capital, informe também a
+                    sigla do estado </small>
+            </div>
+        </div>
+
+        <!-- CONTRIBUIDORES-->
+
+        <div id="contribuidores" class="form-group form-group-bordered">
+            <p>Existem outros contribuidores?</p>
+
+            <!-- ILUSTRADOR -->
+            <div id="contribuidor-ilustrador" class="form-group form-group-bordered">
+                <input type="checkbox" id="ilustrador" name="contribuidor-tipo" value="ilustrador">
+                <label for="ilustrador">ilustrador</label><br>
+
+
+                <div id="ilustrador-section">
+                    <label for="ilustrador-nome">Nome do ilustrador</label><br>
+                    <input type="text" class="form-control" id="ilustrador-nome" name="ilustrador-nome" required>
+                </div>
+
+                <!-- MAIS Ilustrador -->
+
+                <div id="ilustrador-mais">
+
+                    <p>Existe mais de um ilustrador?</p>
+
+                    <!--<p>Existem mais ilustradores com essa mesma função?</p>-->
+                    <input type="radio" id="ilustrador-sim" name="ilustrador-mais" value="sim">
+                    <label for="sim">Sim</label>
+
+                    <input type="radio" id="ilustrador-nao" name="ilustrador-mais" value="nao">
+                    <label for="nao">Não</label><br><br />
+                </div>
+
+                <!-- ilustrador-qtd-->
+
+                <div id="ilustrador-qtd">
+                    <p>Quantos são no total?</p>
+                    <input type="radio" id="ilustrador-qtd-2" name="ilustrador-qtd" value="2">
+                    <label for="ilustrador-qtd-2">2</label><br>
+                    <input type="radio" id="ilustrador-qtd-3" name="ilustrador-qtd" value="3">
+                    <label for="ilustrador-qtd-3">3</label><br>
+                    <input type="radio" id="ilustrador-qtd-4" name="ilustrador-qtd" value="4">
+                    <label for="ilustrador-qtd-4">4 ou mais</label>
+                </div>
+
+                <!-- OUTRO Ilustrador -->
+
+                <div id="ilustrador-outro" class="form-group form-group-bordered">
+
+                    <div id="ilustrador-segundo">
+                        <label for="ilustrador-2">Segundo ilustrador</label><br>
+                        <input type="text" class="form-control" id="ilustrador-2" name="ilustrador-2" required>
+                    </div>
+
+                    <div id="ilustrador-terceiro">
+                        <label for="ilustrador-3">Terceiro ilustrador</span></label><br>
+                        <input type="text" class="form-control" id="ilustrador-3" name="ilustrador-3" required>
+                    </div>
+
+                    <div id="ilustrador-quarto">
+                        <p>Não é preciso informar os outros nomes. Prossiga.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRADUTOR -->
+
+            <div id="contribuidor-tradutor" class="form-group form-group-bordered">
+                <input type="checkbox" id="tradutor" name="contribuidor-tipo" value="tradutor">
+                <label for="tradutor">tradutor</label><br>
+
+
+                <div id="tradutor-section">
+                    <label for="tradutor-nome">Nome do tradutor</label><br>
+                    <input type="text" class="form-control" id="tradutor-nome" name="tradutor-nome" required>
+                </div>
+
+                <!-- MAIS Tradutor -->
+
+                <div id="tradutor-mais">
+
+                    <p>Existe mais de um tradutor?</p>
+
+                    <input type="radio" id="tradutor-sim" name="tradutor-mais" value="sim">
+                    <label for="sim">Sim</label>
+
+                    <input type="radio" id="tradutor-nao" name="tradutor-mais" value="nao">
+                    <label for="nao">Não</label><br><br />
+                </div>
+
+
+                <!-- tradutor-qtd-->
+
+                <div id="tradutor-qtd">
+                    <p>Quantos são no total?</p>
+                    <input type="radio" id="tradutor-qtd-2" name="tradutor-qtd" value="2">
+                    <label for="tradutor-qtd-2">2</label><br>
+                    <input type="radio" id="tradutor-qtd-3" name="tradutor-qtd" value="3">
+                    <label for="tradutor-qtd-3">3</label><br>
+                    <input type="radio" id="tradutor-qtd-4" name="tradutor-qtd" value="4">
+                    <label for="tradutor-qtd-4">4 ou mais</label>
+                </div>
+
+                <!-- OUTRO Tradutor -->
+
+                <div id="tradutor-outro" class="form-group form-group-bordered">
+
+                    <div id="tradutor-segundo">
+                        <label for="tradutor-2">Segundo tradutor</span></label><br>
+                        <input type="text" class="form-control" id="tradutor-2" name="tradutor-2" required>
+                    </div>
+
+                    <div id="tradutor-terceiro">
+                        <label for="tradutor-3">Terceiro tradutor</span></label><br>
+                        <input type="text" class="form-control" id="tradutor-3" name="tradutor-3" required>
+                    </div>
+
+                    <div id="tradutor-quarto">
+                        <p>Não é preciso informar os outros nomes. Prossiga.</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ÁREA DE PUBLICAÇÃO -->
+
+        <div id="publicacao" class="form-group form-group-bordered">
+
+            <label for="publicador">Publicador</label><br>
+            <input type="text" class="form-control" id="publicador" name="publicador"><br>
+            <label for="local">Local do publicador</label><br>
+            <input type="text" class="form-control" id="local" name="local"><br>
+            <label for="ano">Ano</label><br>
+            <input type="text" class="form-control" id="ano" name="ano"><br>
+
+
+            <!-- MAIS-PUBLICAODR -->
+
+            <div id="publicador-mais">
+
+                <p>Existe mais um publicador?</p>
+                <input type="radio" id="publicador-sim" name="publicador-mais" value="sim">
+                <label for="sim">Sim</label>
+
+                <input type="radio" id="publicador-nao" name="publicador-mais" value="nao">
+                <label for="nao">Não</label>
+            </div>
+
+            <!-- OUTRO-PUBLICAODR -->
+            <div id="publicador-segundo">
+                <label for="publicador-2">Segundo publicador</label><br>
+                <input type="text" class="form-control" id="publicador-2" name="publicador-2"><br>
+                <label for="local-2">Local do publicador</label><br>
+                <input type="text" class="form-control" id="local-2" name="local-2"><br>
+            </div>
+
+        </div>
+
+        <!-- ÁREA DE DESCRIÇÃO FÍSICA -->
+
+        <!--Paginação-->
+
+        <div id="paginacao" class="form-group form-group-bordered">
+
+            <p>Sobre a forma como a obra é paginada:</p>
+
+            <div id="paginacao-numerada-section" class="form-group form-group-bordered">
+
+                <input type="radio" id="pag-num" name="paginacao" value="pag-num"
+                    class="form-group form-group-bordered">
+                <label for="pag-num">As páginas possuem numeração impressa</label><br>
+
+                <div id="paginacao-numerada">
+                    <label for="pag-num-qtd">Número da última página impressa</label><br>
+                    <input type="text" class="form-control" id="pag-num-qtd" name="pag-num-qtd" required><br>
+
+                    <input type="checkbox" id="pag-romana" name="pag-outra">
+                    <label for="pag-romana">O livro possui páginas prefaciais em algarismos romanos</label><br>
+
+                    <div id="paginacao-romana">
+                        <label for="pag-romana-qtd">Quantidade de páginas com numeração romana</label><br>
+                        <input type="text" class="form-control" id="pag-romana-qtd" name="pag-romana-qtd">
+                    </div>
+
+                    <input type="checkbox" id="pag-lamina" name="pag-outra">
+                    <label for="pag-lamina">O livro possui páginas não numeradas contendo imagens (lâminas)</label>
+                </div>
+
+                <div id="paginacao-lamina">
+                    <div id="paginacao-lamina-section" class="form-group form-group-bordered">
+                        <input type="radio" id="pagina" name="pag-ou-folha" value="pagina">
+                        <label for="pagina">Há imagens nos dois lados das folhas</label>
+                        <div id="pagina-lamina">
+                            <label for="pag-lamina-qtd">Quantidade de páginas ilustradas sem numeração</label><br>
+                            <input type="text" class="form-control" id="pag-lamina-qtd" name="pag-lamina-qtd">
+                        </div>
+                    </div>
+
+                    <div id="paginacao-folha-section" class="form-group form-group-bordered">
+                        <input type="radio" id="folha" name="pag-ou-folha" value="folha">
+                        <label for="folha">Há imagens apenas em um lado das folhas</label>
+                        <div id="folha-lamina">
+                            <label for="folha-lamina-qtd">Quantidade de folhas ilustradas sem numeração</label><br>
+                            <input type="text" class="form-control" id="folha-lamina-qtd" name="folha-lamina-qtd">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="paginacao-nao-numerada-section" class="form-group form-group-bordered">
+
+                <input type="radio" id="pag-sem-num" name="paginacao" value="pag-sem-num">
+                <label for="pag-sem-num">As páginas não são numeradas</label><br>
+
+                <div id="paginacao-nao-numerada">
+                    <label for="pag-nao-num-qtd">Quantidade de páginas não numeradas</label><br>
+                    <input type="text" class="form-control" id="pag-nao-num-qtd" name="pag-nao-num-qtd" required>
+
+                    <p>Essa quantidade de páginas é </p>
+                    <input type="radio" id="certa" name="pag-certeza" value="certa">
+                    <label for="certa">Certa</label>
+
+                    <input type="radio" id="presumida" name="pag-certeza" value="presumida">
+                    <label for="presumida">Presumida</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Material gráfico -->
+
+        <div id="imagem-section" class="form-group form-group-bordered">
+
+            <div id="imagem">
+
+                <p>O livro contém imagens?</p>
+                <input type="radio" id="imagem-sim" name="imagem" value="sim">
+                <label for="imagem-sim">Sim</label>
+
+                <input type="radio" id="imagem-nao" name="imagem" value="nao">
+                <label for="imagem-nao">Não</label>
+            </div>
+
+
+            <div id="imagem-tipo">
+                <p>Este livro contém que tipo de imagem?</p>
+
+                <input type="checkbox" id="ilustracoes" name="imagem-tipo" value="ilustracoes">
+                <label for="sim">Ilustrações</label><br>
+
+                <div id="il-coloracao" class="form-group form-group-bordered">
+                    <p>As ilustrações são, predominantemente</p>
+                    <input type="radio" id="il-cores" name="il-coloracao" value="il-cores">
+                    <label for="foto-cores">Em cores</label><br>
+                    <input type="radio" id="il-pb" name="il-coloracao" value="il-pb">
+                    <label for="il-pb">Preto-e-branco</label><br>
+                    <input type="radio" id="il" name="il-coloracao" value="il">
+                    <label for="il">Não existe uma coloração predominante ou essa informação não é relevante</label>
+                </div>
+
+
+                <input type="checkbox" id="fotos" name="imagem-tipo" value="fotos">
+                <label for="nao">Fotos</label><br>
+
+                <div id="fotos-coloracao" class="form-group form-group-bordered">
+                    <p>As fotos são, predominantemente</p>
+                    <input type="radio" id="foto-cores" name="fotos-coloracao" value="foto-cores">
+                    <label for="foto-cores">Em cores</label><br>
+                    <input type="radio" id="foto-pb" name="fotos-coloracao" value="foto-pb">
+                    <label for="foto-pb">Preto-e-branco</label><br>
+                    <input type="radio" id="fotos" name="fotos-coloracao" value="fotos">
+                    <label for="Fotos">Não existe uma coloração predominante ou essa informação não é
+                        relevante</label>
+                </div>
+
+                <input type="checkbox" id="mapas" name="imagem-tipo" value="mapas">
+                <label for="nao">Mapas</label>
+
+                <div id="mapas-coloracao" class="form-group form-group-bordered">
+                    <p>Os mapas são, predominantemente</p>
+                    <input type="radio" id="mapa-cores" name="mapas-coloracao" value="mapa-cores">
+                    <label for="mapa-cores">Em cores</label><br>
+                    <input type="radio" id="mapa-pb" name="mapas-coloracao" value="mapa-pb">
+                    <label for="mapa-pb">Preto-e-branco</label><br>
+                    <input type="radio" id="mapas" name="mapas-coloracao" value="mapas">
+                    <label for="mapas">Não existe uma coloração predominante ou essa informação não é
+                        relevante</label>
+                </div>
+            </div>
+        </div>
+        <!-- Formato -->
+
+
+        <div id="formato-fisico" class="form-group form-group-bordered">
+
+            <p>Quanto ao formato</p>
+            <input type="radio" id="formato-trad" name="formato" value="tradicional">
+            <label for="formato-trad">O livro tem o formato tradicional</label><br>
+            <input type="radio" id="formato-nao-trad" name="formato" value="nao-tradicional">
+            <label for="formato-nao-trad">O livro tem um formato não tradicional</label><br>
+            <input type="radio" id="sem-formato" name="formato" value="sem-formato">
+            <label for="sem-formato">Não sei ou não desejo informar suas dimensões</label>
+
+            <div id="formato-tradicional">
+                <label for="altura">Altura em centímetros</label><br>
+                <input type="text" class="form-control" id="altura" name="altura" required>
+            </div>
+
+            <div id="formato-nao-tradicional">
+                <label for="largura">Largura em centímetros</label><br>
+                <input type="text" class="form-control" id="largura" name="largura" required>
+            </div>
+
+
+        </div>
+
+        <!-- Material Adicional -->
+
+        <div id="material-adicional-section" class="form-group form-group-bordered">
+
+            <p>O livro é acompanhado de material adicional?</p>
+            <input type="radio" id="material-adicional-sim" name="material-adicional-sn" value="sim">
+            <label for="material-adicional-sim">Sim</label>
+
+            <input type="radio" id="material-adicional-nao" name="material-adicional-sn" value="nao">
+            <label for="material-adicional-nao">Não</label>
+
+            <div id="material-adicional">
+
+                <p>Informe o tipo e a quantidade de material adicional:</p>
+
+                <label for="material-adicional-tipo">Tipo de material (por exemplo: DVD, Folheto, Brinquedo,
+                    etc)</label><br>
+                <input type="text" class="form-control" id="material-adicional-tipo" name="material-adicional-tipo"><br>
+                <label for="material-adicional-qtd">Quantidade do material (se for mais que uma unidade)</label><br>
+                <input type="text" class="form-control" id="material-adicional-qtd" name="material-adicional-qtd">
+            </div>
+        </div>
+
+        <!-- ÁREA DE SÉRIE -->
+
+        <!-- Existe série? -->
+        <div id="serie-section" class="form-group form-group-bordered">
+            <div id="serie-sn">
+                <p>O livro pertence a uma série ou coleção?</p>
+                <input type="radio" id="serie-sim" name="serie-sn" value="sim">
+                <label for="sim">Sim</label>
+
+                <input type="radio" id="serie-nao" name="serie-sn" value="nao">
+                <label for="nao">Não</label>
+            </div>
+
+            <div id="serie">
+
+                <label for="serie-nome">Nome da série</label><br>
+                <input type="text" class="form-control" id="serie-nome" name="serie-nome"><br>
+                <label for="serie-volume">Número do volume</label><br>
+                <input type="text" class="form-control" id="serie-volume" name="serie-volume">
+            </div>
+
+            <!-- Existe subsérie? -->
+
+            <div id="subserie-sn">
+                <p>A série tem uma subsérie?</p>
+                <input type="radio" id="subserie-sim" name="subserie-sn" value="sim">
+                <label for="sim">Sim</label>
+
+                <input type="radio" id="subserie-nao" name="subserie-sn" value="nao">
+                <label for="nao">Não</label>
+            </div>
+
+            <!-- Subsérie -->
+            <div id="subserie">
+                <label for="subserie-nome">Nome da subsérie</label><br>
+                <input type="text" class="form-control" id="subserie-nome" name="subserie-nome"><br>
+                <label for="subserie-volume">Número do volume</label><br>
+                <input type="text" class="form-control" id="subserie-volume" name="subserie-volume">
+            </div>
+        </div>
+        <!-- ÁREA DE NOTAS -->
+
+        <!-- Existe ISBN? -->
+        <div id="isbn-section" class="form-group form-group-bordered">
+            <div id="isbn-sn">
+                <p>O livro possui ISBN?</p>
+                <input type="radio" id="isbn-sim" name="isbn-sn" value="sim">
+                <label for="sim">Sim</label>
+
+                <input type="radio" id="isbn-nao" name="isbn-sn" value="nao">
+                <label for="nao">Não</label>
+            </div>
+
+            <div id="isbn">
+
+                <label for="isbn-1">ISBN</label><br>
+                <input type="text" class="form-control" id="isbn-1" name="isbn-1">
+            </div>
+
+            <!-- Existe outro ISBN -->
+            <div id="isbn-2-sn">
+                <p>Existe outro ISBN?</p>
+                <input type="radio" id="isbn-2-sim" name="isbn-2-sn" value="sim">
+                <label for="sim">Sim</label>
+
+                <input type="radio" id="isbn-2-nao" name="isbn-2-sn" value="nao">
+                <label for="nao">Não</label>
+            </div>
+
+            <!-- Outro ISBN -->
+            <div id="isbn-outro">
+
+                <label for="qualificador-1">Qualificador do primeiro ISBN</label><br>
+                <input type="text" class="form-control" id="qualificador-1" name="qualificador-1"><br>
+                <br>
+                <label for="isbn-2">Segundo ISBN</label><br>
+                <input type="text" class="form-control" id="isbn-2" name="isbn-2"><br>
+                <label for="qualificador-2">Qualificador do segundo ISBN</label><br>
+                <input type="text" class="form-control" id="qualificador-2" name="qualificador-2"><br>
+            </div>
+        </div>
+
+        <!-- Notas -->
+
+        <div id="nota-section" class="form-group form-group-bordered">
+
+            <div id="nota-sn">
+                <p>É preciso acrescentar uma nota?</p>
+                <input type="radio" id="nota-sim" name="nota-sn" value="sim">
+                <label for="sim">Sim</label>
+
+                <input type="radio" id="nota-nao" name="nota-sn" value="nao">
+                <label for="nao">Não</label>
+            </div>
+
+
+            <div id="nota">
+                <label for="nota-1">Redija uma nota sucinta</label><br>
+                <input type="text" class="form-control" id="nota-1" name="nota-1">
+            </div>
+
+            <!-- Outra nota - sim ou não -->
+            <div id="nota-2-sn">
+                <p>É preciso acrescentar outra nota?</p>
+                <input type="radio" id="nota-2-sim" name="nota-2-sn" value="sim">
+                <label for="sim">Sim</label>
+
+                <input type="radio" id="nota-2-nao" name="nota-2-sn" value="nao">
+                <label for="nao">Não</label>
+            </div>
+
+            <!-- Outra nota -->
+            <div id="nota-outro">
+                <label for="nota-2">Redija outra nota sucinta</label><br>
+                <input type="text" class="form-control" id="nota-2" name="nota-2">
+            </div>
+        </div>
+        <!-- ASSUNTO -->
+
+        <div id="assunto" class="form-group form-group-bordered">
+
+            <p>Preencha até 5 assuntos</p>
+
+            <label for="assunto-1">Assunto</label><br>
+            <input type="text" class="form-control" id="assunto-1" name="assunto"><br>
+            <label for="assunto-2">Assunto</label><br>
+            <input type="text" class="form-control" id="assunto-2" name="assunto"><br>
+            <label for="assunto-3">Assunto</label><br>
+            <input type="text" class="form-control" id="assunto-3" name="assunto"><br>
+            <label for="assunto-4">Assunto</label><br>
+            <input type="text" class="form-control" id="assunto-4" name="assunto"><br>
+            <label for="assunto-5">Assunto</label><br>
+            <input type="text" class="form-control" id="assunto-5" name="assunto"><br>
+
+        </div>
+    </form>
+
+    <br />
+    <button type="button" id="btn_gf">Gerar ficha</button>
+
+    <div id="fichaCatalografica">
+        <br>
+        <div id="card" class="card-box">
+            <p id="ficha_aqui"></p>
+            <p id="codigos_aqui"></p>
+        </div>
+
+
+        <BR>
+        <!-- CONTROLES DA FONTE -->
+
+        <div id="font-controls">
+            <label for="font-select">Fonte:</label>
+            <select id="font-select">
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+                <!-- Adicione mais opções de fonte conforme necessário -->
+            </select>
+
+            <label for="font-size">Tamanho da Fonte:</label>
+            <input type="number" id="font-size" value="14">
+        </div>
+    </div>
 
     <BR>
     <button type="button" id="btn_ap">Abrir página</button>
 
-        <div id="pagina">
-            
-            <div id="licenca">
-                <!-- Inputs das licenças-->
+    <div id="pagina-impressao">
 
-                <div id="by">
-                    <img src="IMG/cc-by.jpg" alt="CC BY" width="150" height="55">
-                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição (CC BY)</b>. Esta licença permite a distribuição, remixagem, adaptação e criação a partir desta obra, mesmo para fins comerciais, desde que o devido crédito seja atribuído ao autor. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
-                </div>
+        <div id="licenca">
+            <!-- Inputs das licenças-->
 
-                <div id="by-sa">
-                    <img src="IMG/cc-by-sa.jpg" alt="CC BY-SA" width="150" height="55">
-                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição-CompartilhaIgual (CC BY-SA)</b>. Esta licença permite a remixagem, adaptação e criação a partir deste trabalho, mesmo para fins comerciais, desde que o devido crédito seja atribuído ao autor e que as novas criações sejam licenciadas sob termos idênticos. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
-                </div>
+            <div id="by">
+                <img src="IMG/cc-by.jpg" alt="CC BY" width="150" height="55">
+                <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição (CC
+                        BY)</b>. Esta licença permite a distribuição, remixagem, adaptação e criação a partir desta
+                    obra, mesmo para fins comerciais, desde que o devido crédito seja atribuído ao autor. Os termos da
+                    licença são detalhados em <a
+                        href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+            </div>
 
-                <div id="by-nd">
-                    <img src="IMG/cc-by-nd.jpg" alt="CC BY-ND" width="150" height="55">
-                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição-SemDerivações (CC BY-ND)</b>. Esta licença permite a redistribuição, comercial e não comercial, desde que o trabalho seja distribuído de forma inalterada e o crédito seja atribuído ao autor. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
-                </div>
+            <div id="by-sa">
+                <img src="IMG/cc-by-sa.jpg" alt="CC BY-SA" width="150" height="55">
+                <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons
+                        Atribuição-CompartilhaIgual (CC BY-SA)</b>. Esta licença permite a remixagem, adaptação e
+                    criação a partir deste trabalho, mesmo para fins comerciais, desde que o devido crédito seja
+                    atribuído ao autor e que as novas criações sejam licenciadas sob termos idênticos. Os termos da
+                    licença são detalhados em <a
+                        href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+            </div>
 
-                <div id="by-nc">
-                    <img src="IMG/cc-by-nc.jpg" alt="CC BY-NC" width="150" height="55">
-                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição-NãoComercial (CC BY-NC)</b>. Esta licença permite a remixagem, adaptação e criação a partir deste trabalho para fins não comerciais, desde que o devido crédito seja atribuído ao autor. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
-                </div>
+            <div id="by-nd">
+                <img src="IMG/cc-by-nd.jpg" alt="CC BY-ND" width="150" height="55">
+                <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons
+                        Atribuição-SemDerivações (CC BY-ND)</b>. Esta licença permite a redistribuição, comercial e não
+                    comercial, desde que o trabalho seja distribuído de forma inalterada e o crédito seja atribuído ao
+                    autor. Os termos da licença são detalhados em <a
+                        href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+            </div>
 
-                <div id="by-nc-sa">
-                    <img src="IMG/cc-by-nc-sa.jpg" alt="CC BY-NC-SA" width="150" height="55">
-                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA)</b>. Esta licença permite a remixagem, adaptação e criação a partir deste trabalho para fins não comerciais, desde que o devido crédito seja atribuído ao autor e que a nova criação seja licenciada sob termos idênticos. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
-                </div>
+            <div id="by-nc">
+                <img src="IMG/cc-by-nc.jpg" alt="CC BY-NC" width="150" height="55">
+                <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons
+                        Atribuição-NãoComercial (CC BY-NC)</b>. Esta licença permite a remixagem, adaptação e criação a
+                    partir deste trabalho para fins não comerciais, desde que o devido crédito seja atribuído ao autor.
+                    Os termos da licença são detalhados em <a
+                        href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+            </div>
 
-                <div id="by-nc-nd">
-                    <img src="IMG/cc-by-nc-nd.jpg" alt="CC BY-NC-ND" width="150" height="55">
-                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição-NãoComercial-SemDerivações (CC BY-NC-ND)</b>. Esta licença permite a redistribuição deste trabalho sem fins comerciais, desde que ele não seja alterado de nenhuma forma e o crédito seja atribuído ao autor. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
-                </div>
-            
-                <div id="cc-0">
-                    <img src="IMG/cc-0.jpg" alt="CC BY" width="150" height="55">
-                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Domínio Público (CC-0)</b>.Esta licença renuncia a todos os direitos colocando o trabalho em domínio público. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
-                </div>
-            
-            </div> <!-- fim da div licenca -->
+            <div id="by-nc-sa">
+                <img src="IMG/cc-by-nc-sa.jpg" alt="CC BY-NC-SA" width="150" height="55">
+                <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons
+                        Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA)</b>. Esta licença permite a remixagem,
+                    adaptação e criação a partir deste trabalho para fins não comerciais, desde que o devido crédito
+                    seja atribuído ao autor e que a nova criação seja licenciada sob termos idênticos. Os termos da
+                    licença são detalhados em <a
+                        href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+            </div>
 
-            
-            <div id="card-print" class="card-box">
-                <p id="ficha_aqui_pdf"></p>
-                <p id="codigos_aqui_pdf"></p>
-            </div>    
+            <div id="by-nc-nd">
+                <img src="IMG/cc-by-nc-nd.jpg" alt="CC BY-NC-ND" width="150" height="55">
+                <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons
+                        Atribuição-NãoComercial-SemDerivações (CC BY-NC-ND)</b>. Esta licença permite a redistribuição
+                    deste trabalho sem fins comerciais, desde que ele não seja alterado de nenhuma forma e o crédito
+                    seja atribuído ao autor. Os termos da licença são detalhados em <a
+                        href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+            </div>
 
-        </div> <!-- fim da página a ser impressa -->
+            <div id="cc-0">
+                <img src="IMG/cc-0.jpg" alt="CC BY" width="150" height="55">
+                <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Domínio Público
+                        (CC-0)</b>.Esta licença renuncia a todos os direitos colocando o trabalho em domínio público. Os
+                    termos da licença são detalhados em <a
+                        href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+            </div>
+
+        </div> <!-- fim da div licenca -->
+
+
+        <div id="card-print" class="card-box">
+            <p id="ficha_aqui_pdf"></p>
+            <p id="codigos_aqui_pdf"></p>
+        </div>
+
+    </div> <!-- fim da página a ser impressa -->
 
 
     <script type="module" src="formScript.js" charset="utf-8"></script>
     <script type="module" src="functions.js" charset="utf-8"></script>
     <script type="module" src="cardScript.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
-
-
-
 
 </body>
 
