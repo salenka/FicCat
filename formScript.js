@@ -1,8 +1,8 @@
-import { uncheckOption, updateTipoPessoa, eraseChildText, saveData, geracard, geraPDF  } from './functions.js';
+import { uncheckOption, updateTipoPessoa, eraseChildText, saveData, geraFicha, geraPDF  } from './functions.js';
 
 alert("Funcionando");
 
-// Materialidade
+// materialidade
 
     document.querySelectorAll('input[name="materia"]').forEach(radio => {
         radio.addEventListener('change', function () {
@@ -28,38 +28,38 @@ alert("Funcionando");
         })   
     })
 
-// codes-section
+// CODIGOS OPCIONAIS
 
-document.querySelectorAll('input[name="codes-ckbox"]').forEach(checkbox => {
+document.querySelectorAll('input[name="codigos-ckbox"]').forEach(checkbox => {
     checkbox.addEventListener('change', function () {
 
         if (document.getElementById('cdd-ckbox').checked) {
-            document.getElementById('code-cdd').style.display = 'block' 
+            document.getElementById('codigo-cdd').style.display = 'block' 
         } else {
-            document.getElementById('code-cdd').style.display = 'none'
+            document.getElementById('codigo-cdd').style.display = 'none'
         }
 
         if (document.getElementById('cdu-ckbox').checked) {
-            document.getElementById('code-cdu').style.display = 'block'
+            document.getElementById('codigo-cdu').style.display = 'block'
         } else {
-            document.getElementById('code-cdu').style.display = 'none'
+            document.getElementById('codigo-cdu').style.display = 'none'
         }
 
         if (document.getElementById('cutter-ckbox').checked) {
-            document.getElementById('code-cutter').style.display = 'block' 
+            document.getElementById('codigo-cutter').style.display = 'block' 
         } else {
-            document.getElementById('code-cutter').style.display = 'none'
+            document.getElementById('codigo-cutter').style.display = 'none'
         }
 
         if (document.getElementById('pha-ckbox').checked) {
-            document.getElementById('code-pha').style.display = 'block' 
+            document.getElementById('codigo-pha').style.display = 'block' 
         } else {
-            document.getElementById('code-pha').style.display = 'none'
+            document.getElementById('codigo-pha').style.display = 'none'
         }
     })
 })
 
-    /* Licensa Section */
+// LICENCA
 
     document.querySelectorAll('input[name="cc-radio"]').forEach(radio => {
         radio.addEventListener('change', function () {
@@ -71,7 +71,7 @@ document.querySelectorAll('input[name="codes-ckbox"]').forEach(checkbox => {
     })
 })
 
-// resp-int-section
+// RESPONSABILIDADE INTELECTUAL
 
 document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
     radio.addEventListener('change', function () {
@@ -102,14 +102,13 @@ document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
     });
 });
 
-
-// pessoa-section
+// PESSOA
 
 document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
     radio.addEventListener('change', function () {
            
         uncheckOption('pessoa-qtd');
-        uncheckOption('pessoa-mais');
+        uncheckOption('pessoa-sn');
         eraseChildText('pessoa-section');
 
         if (document.getElementById('autor').checked) {
@@ -118,7 +117,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'none';
-            document.getElementById('pessoa-mais').style.display = 'block';
+            document.getElementById('pessoa-sn').style.display = 'block';
 
         } else if (document.getElementById('organizador').checked)  {
             document.getElementById('autor-section').style.display = 'none';
@@ -126,7 +125,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'none';
-            document.getElementById('pessoa-mais').style.display = 'block';
+            document.getElementById('pessoa-sn').style.display = 'block';
                  
         } else if (document.getElementById('coordenador').checked) {
             document.getElementById('autor-section').style.display = 'none';
@@ -134,7 +133,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             document.getElementById('coordenador-section').style.display = 'block';
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'none';
-            document.getElementById('pessoa-mais').style.display = 'block';
+            document.getElementById('pessoa-sn').style.display = 'block';
               
         } else if (document.getElementById('compilador').checked) {
             document.getElementById('autor-section').style.display = 'none';
@@ -142,7 +141,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'block';
             document.getElementById('editor-section').style.display = 'none';
-            document.getElementById('pessoa-mais').style.display = 'block';
+            document.getElementById('pessoa-sn').style.display = 'block';
                  
         } else if (document.getElementById('editor').checked) {
             document.getElementById('autor-section').style.display = 'none';
@@ -150,7 +149,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'block';
-            document.getElementById('pessoa-mais').style.display = 'block';
+            document.getElementById('pessoa-sn').style.display = 'block';
                 
          } else {
             document.getElementById('autor-section').style.display = 'none';
@@ -158,7 +157,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'none';
-            document.getElementById('pessoa-mais').style.display = 'none';
+            document.getElementById('pessoa-sn').style.display = 'none';
 
         }
     });
@@ -169,13 +168,13 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
 
 });
 
-//pessoa-mais
+//pessoa-sn
 
-document.querySelectorAll('input[name="pessoa-mais"]').forEach(radio => {
+document.querySelectorAll('input[name="pessoa-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
         uncheckOption('pessoa-qtd');
-        eraseChildText('pessoa-outra');
+        eraseChildText('pessoa-outro');
 
         if (document.getElementById('sim').checked) {
             document.getElementById('pessoa-qtd').style.display = 'block';
@@ -185,35 +184,37 @@ document.querySelectorAll('input[name="pessoa-mais"]').forEach(radio => {
     });
 });
 
-//OUTRA-PESSOA
+// pessoa-outro
 
 document.querySelectorAll('input[name="pessoa-qtd"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        eraseChildText('pessoa-outra');
-
+        eraseChildText('pessoa-outro');
+        
         if (document.getElementById('pessoa-qtd-2').checked) {
-            document.getElementById('pessoa-segunda').style.display = 'block';
-            document.getElementById('pessoa-terceira').style.display = 'none';
-            document.getElementById('pessoa-quarta').style.display = 'none';
+            document.getElementById('pessoa-outro').style.display = 'block';
+            document.getElementById('pessoa-segundo').style.display = 'block';
+            document.getElementById('pessoa-terceiro').style.display = 'none';
+            document.getElementById('pessoa-quarto').style.display = 'none';
         } else if (document.getElementById('pessoa-qtd-3').checked) {
-            document.getElementById('pessoa-segunda').style.display = 'block';
-            document.getElementById('pessoa-terceira').style.display = 'block';
-            document.getElementById('pessoa-quarta').style.display = 'none';
+            document.getElementById('pessoa-outro').style.display = 'block';
+            document.getElementById('pessoa-segundo').style.display = 'block';
+            document.getElementById('pessoa-terceiro').style.display = 'block';
+            document.getElementById('pessoa-quarto').style.display = 'none';
         } else if (document.getElementById('pessoa-qtd-4').checked) {
-            document.getElementById('pessoa-segunda').style.display = 'none';
-            document.getElementById('pessoa-terceira').style.display = 'none';
-            document.getElementById('pessoa-quarta').style.display = 'block';
+            document.getElementById('pessoa-outro').style.display = 'block';
+            document.getElementById('pessoa-segundo').style.display = 'none';
+            document.getElementById('pessoa-terceiro').style.display = 'none';
+            document.getElementById('pessoa-quarto').style.display = 'block';
         } else {
-            document.getElementById('pessoa-segunda').style.display = 'none';
-            document.getElementById('pessoa-terceira').style.display = 'none';
-            document.getElementById('pessoa-quarta').style.display = 'none';
-            
+            document.getElementById('pessoa-segundo').style.display = 'none';
+            document.getElementById('pessoa-terceiro').style.display = 'none';
+            document.getElementById('pessoa-quarto').style.display = 'none';
         }
     });
 });
 
-//ILUSTRADOR
+// CONTRIBUIDORES - ILUSTRADOR
 
 document.getElementById('ilustrador').addEventListener('change', function () {
 
@@ -221,19 +222,19 @@ document.getElementById('ilustrador').addEventListener('change', function () {
            
         if (document.getElementById('ilustrador').checked) {
             document.getElementById('ilustrador-section').style.display = 'block';
-            document.getElementById('ilustrador-mais').style.display = 'block';
+            document.getElementById('ilustrador-sn').style.display = 'block';
 
         } else {
             document.getElementById('ilustrador-section').style.display = 'none';
-            document.getElementById('ilustrador-mais').style.display = 'none';
+            document.getElementById('ilustrador-sn').style.display = 'none';
             document.getElementById('ilustrador-qtd').style.display = 'none';
             document.getElementById('ilustrador-outro').style.display = 'none';             
         } 
     })
 
-    //ilustrador-mais
+    //ilustrador-sn
     
-    document.querySelectorAll('input[name="ilustrador-mais"]').forEach(radio => {
+    document.querySelectorAll('input[name="ilustrador-sn"]').forEach(radio => {
         radio.addEventListener('change', function () {
 
             uncheckOption('ilustrador-qtd');
@@ -247,7 +248,7 @@ document.getElementById('ilustrador').addEventListener('change', function () {
         });
     });
     
-    //OUTRO-Ilustrador
+    //outro-ilustrador
 
     document.querySelectorAll('input[name="ilustrador-qtd"]').forEach(radio => {
         radio.addEventListener('change', function () {
@@ -276,9 +277,7 @@ document.getElementById('ilustrador').addEventListener('change', function () {
         });
     });
 
-
-
-//TRADUTOR
+// CONTRIBUIDORES - TRADUTOR
 
 document.getElementById('tradutor').addEventListener('change', function () {
     
@@ -287,21 +286,19 @@ document.getElementById('tradutor').addEventListener('change', function () {
            
     if (document.getElementById('tradutor').checked) {
         document.getElementById('tradutor-section').style.display = 'block';
-        document.getElementById('tradutor-mais').style.display = 'block';
+        document.getElementById('tradutor-sn').style.display = 'block';
 
     } else   {
         document.getElementById('tradutor-section').style.display = 'none';
-        document.getElementById('tradutor-mais').style.display = 'none';
+        document.getElementById('tradutor-sn').style.display = 'none';
         document.getElementById('tradutor-qtd').style.display = 'none';
         document.getElementById('tradutor-outro').style.display = 'none';               
     } 
 })
 
-
-
-    //tradutor-mais
+    //tradutor-sn
     
-    document.querySelectorAll('input[name="tradutor-mais"]').forEach(radio => {
+    document.querySelectorAll('input[name="tradutor-sn"]').forEach(radio => {
         radio.addEventListener('change', function () {
 
             uncheckOption('tradutor-qtd');
@@ -315,7 +312,7 @@ document.getElementById('tradutor').addEventListener('change', function () {
         });
     });
 
-    //OUTRO-Tradutor
+    //outro-tradutor
 
     document.querySelectorAll('input[name="tradutor-qtd"]').forEach(radio => {
         radio.addEventListener('change', function () {
@@ -342,9 +339,11 @@ document.getElementById('tradutor').addEventListener('change', function () {
         });
     });
 
-    //publicador-mais
+    // PUBLICADORES
     
-    document.querySelectorAll('input[name="publicador-mais"]').forEach(radio => {
+    //publicador-sn
+    
+    document.querySelectorAll('input[name="publicador-sn"]').forEach(radio => {
         radio.addEventListener('change', function () {
             if (document.getElementById('publicador-sim').checked) {
                 document.getElementById('publicador-segundo').style.display = 'block';
@@ -437,9 +436,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
     });
 
         //Checkbox ILUSTRAÇÕES
-        document.getElementById('ilustracoes').addEventListener('change', function () {
+        document.getElementById('img-ilustracoes').addEventListener('change', function () {
            
-            if (document.getElementById('ilustracoes').checked) {
+            if (document.getElementById('img-ilustracoes').checked) {
                 document.getElementById('il-coloracao').style.display = 'block';
             } else   {
                 document.getElementById('il-coloracao').style.display = 'none';             
@@ -447,9 +446,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
         })
 
         //Checkbox FOTOS
-        document.getElementById('fotos').addEventListener('change', function () {
+        document.getElementById('img-fotos').addEventListener('change', function () {
            
-            if (document.getElementById('fotos').checked) {
+            if (document.getElementById('img-fotos').checked) {
                 document.getElementById('fotos-coloracao').style.display = 'block';
             } else   {
                 document.getElementById('fotos-coloracao').style.display = 'none';             
@@ -457,9 +456,9 @@ document.getElementById('tradutor').addEventListener('change', function () {
         })
 
         //Checkbox MAPAS
-        document.getElementById('mapas').addEventListener('change', function () {
+        document.getElementById('img-mapas').addEventListener('change', function () {
            
-            if (document.getElementById('mapas').checked) {
+            if (document.getElementById('img-mapas').checked) {
                 document.getElementById('mapas-coloracao').style.display = 'block';
             } else   {
                 document.getElementById('mapas-coloracao').style.display = 'none';             
@@ -468,10 +467,7 @@ document.getElementById('tradutor').addEventListener('change', function () {
         
     //FORMATO
 
-
-
-
-    // OPÇOES DIV FORMATO-FÍSICO (name:FORMATO)
+    // FORMATO-FÍSICO
     document.querySelectorAll('input[name="formato"]').forEach(radio => {
         radio.addEventListener('change', function () {
 
@@ -576,8 +572,6 @@ document.getElementById('tradutor').addEventListener('change', function () {
         });
     });
 
-
-
         // Nota - sim ou não
     
         document.querySelectorAll('input[name="nota-sn"]').forEach(radio => {
@@ -610,10 +604,6 @@ document.getElementById('tradutor').addEventListener('change', function () {
             });
         });
     
-
-
-
-
      // SALVA DADOS - adicionando o evento 'input' para todos os campos do formulário
      document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll('#card-form input[type="text"]').forEach(campo => {
@@ -625,11 +615,11 @@ document.getElementById('tradutor').addEventListener('change', function () {
 // BOTÕES
 
 
-// Botão Gera card
+// Botão Gera Ficha
 
 document.getElementById("btn-card").addEventListener("click", function () {
 
-geracard();
+geraFicha();
     
 })
 
@@ -646,21 +636,21 @@ geraPDF();
 document.addEventListener('DOMContentLoaded', function() {
     const fontSelect = document.getElementById('font-select');
     const fontSizeInput = document.getElementById('font-size');
-    const cardhere = document.getElementById('card-here');
-    const codeshere = document.getElementById('codes-here');
+    const fichaAqui = document.getElementById('ficha-aqui');
+    const codigosAqui = document.getElementById('codigos-aqui');
 
     fontSelect.addEventListener('change', function() {
-        cardhere.style.fontFamily = fontSelect.value;
+        fichaAqui.style.fontFamily = fontSelect.value;
         localStorage.setItem("fontSelect", fontSelect.value);
     });
 
     fontSizeInput.addEventListener('input', function() {
-        cardhere.style.fontSize = fontSizeInput.value + 'px';
+        fichaAqui.style.fontSize = fontSizeInput.value + 'px';
         localStorage.setItem("fontSizeInput", fontSizeInput.value);
     });
 
     fontSizeInput.addEventListener('input', function() {
-        codeshere.style.fontSize = (fontSizeInput.value - 1) + 'px';
+        codigosAqui.style.fontSize = (fontSizeInput.value - 1) + 'px';
         
     });
 

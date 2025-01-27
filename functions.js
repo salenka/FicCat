@@ -1,4 +1,4 @@
-import * as card from './cardScript.js';
+import * as cs from './cardScript.js';
 // FORM -----------------------------------------------------------------
 
 //desmarca a opção selecionada de uma div-filha com determinado name
@@ -23,7 +23,18 @@ export function uncheckOption(inputName) {
     })
 }
 
-// ERASE CHILD
+// ERASE TEXT INPUTS
+
+export function eraseChildText(motherDivId) {
+    const divMae = document.getElementById(`${motherDivId}`);
+    const inputsText = divMae.querySelectorAll('input[type="text"]');
+
+    inputsText.forEach(inputText => {
+        inputText.value = '';
+    })
+}
+
+// UPDATE TIPO DE PESSOA (2ª E 3ª PESSOA)
 
 export function updateTipoPessoa() {
     const pessoaSelecionada = document.querySelector('input[name="pessoa-tipo"]:checked')?.value;
@@ -48,32 +59,33 @@ export function saveData(event) {
 }
 
 
-// CARD -----------------------------------------------------------------
+// GERA FICHA -----------------------------------------------------------------
 
-export function geracard() {
+export function geraFicha() {
 
-    console.log("botão Gera card acionado");
+    console.log("botão Gerar Ficha acionado");
 
-    //chamada de funções de cada área em Card.js
+    //chamada de funções de cada área em cs.js
 
-    const areaTitulo = card.getTitulo().areaTitulo;
-    const areaEdicao = card.getEdicao().areaEdicao;
-    const entradaPrincipal = card.getRespInt().entradaPrincipal;
-    const areaResponsabilidade = card.getRespInt().areaResponsabilidade;
-    const areaPublicacao = card.getPublicacao().areaPublicacao;
-    const paginacao = card.getDescricaoFisica().paginacao;
-    const imagens = card.getDescricaoFisica().imagens;
-    const dimensoes = card.getDescricaoFisica().dimensoes;
-    const materialAdicional = card.getDescricaoFisica().materialAdicional;
-    const areaSerie = card.getSerie().areaSerie;
-    const isbn = card.getISBN().ISBN;
-    const nota1 = card.getNota().nota1;
-    const nota2 = card.getNota().nota2;
-    const assuntos = card.getAssunto().assuntos;
-    const cdd = card.getcode().cdd;
-    const cdu = card.getcode().cdu;
-    const cutter = card.getcode().cutter;
-    const pha = card.getcode().pha;
+    const areaTitulo = cs.getTitulo().areaTitulo;
+    const areaEdicao = cs.getEdicao().areaEdicao;
+    const entradaPrincipal = cs.getRespInt().entradaPrincipal;
+    const areaResponsabilidade = cs.getRespInt().areaResponsabilidade;
+    const areaPublicacao = cs.getPublicacao().areaPublicacao;
+    const paginacao = cs.getDescricaoFisica().paginacao;
+    const imagens = cs.getDescricaoFisica().imagens;
+    const dimensoes = cs.getDescricaoFisica().dimensoes;
+    const materialAdicional = cs.getDescricaoFisica().materialAdicional;
+    const areaSerie = cs.getSerie().areaSerie;
+    const isbn = cs.getISBN().ISBN;
+    const nota1 = cs.getNota().nota1;
+    const nota2 = cs.getNota().nota2;
+    const assuntos = cs.getAssunto().assuntos;
+    const cdd = cs.getCodigo().cdd;
+    const cdu = cs.getCodigo().cdu;
+    const cutter = cs.getCodigo().cutter;
+    const pha = cs.getCodigo().pha;
+    const bibliotecario = cs.getBibliotecario().bibliotecario;
 
 
     const classificacao = `
@@ -84,72 +96,71 @@ export function geracard() {
     ${cutter}
     ${pha}
     `
-    const codes = `\n${cdd} ${cdu} ${cutter} ${pha}`
+    const codigos = `\n${cdd} ${cdu} ${cutter} ${pha}`
 
-    //Configuração da card catalográfica
+    //Configuração da ficha catalográfica
 
-    let card = `${entradaPrincipal}
+    let ficha = `${entradaPrincipal}
     ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
     ${paginacao}${imagens}${dimensoes}${materialAdicional}${areaSerie}
     ${nota1}${nota2}${isbn}
     ${assuntos}
     `
     // Ajustes finais
-    card = card.replace('.. -- ', ' . -- ') // Elimina ponto final que é seguido de marcador de nova seção
-    card = card.replace('il..', 'il.') // Elimina ponto final da área de série após abreviação il.
-    card = card.replace('p..', 'p.') // Elimina ponto final da área de série após abreviação p.
-    card = card.replace('color..', 'color.') // Elimina de ponto final da área de série após abreviação color.
+    ficha = ficha.replace('.. -- ', ' . -- ') // Elimina ponto final que é seguido de marcador de nova seção
+    ficha = ficha.replace('il..', 'il.') // Elimina ponto final da área de série após abreviação il.
+    ficha = ficha.replace('p..', 'p.') // Elimina ponto final da área de série após abreviação p.
+    ficha = ficha.replace('color..', 'color.') // Elimina de ponto final da área de série após abreviação color.
 
-    // Salva card no localStorage (para recuperação por a4.js)
+    // Salva ficha no localStorage (para recuperação por a4.js)
 
-    localStorage.setItem('card', JSON.stringify(card));
-    console.log("card salva no localStorage:");
-    console.log(JSON.parse(localStorage.getItem('card')));
+    localStorage.setItem('ficha', JSON.stringify(ficha));
+    console.log("Ficha salva no localStorage:");
+    console.log(JSON.parse(localStorage.getItem('ficha')));
 
-    localStorage.setItem('card', JSON.stringify(card));
-    localStorage.setItem('codes', JSON.stringify(codes));
 
-    // Renderização da card
+    localStorage.setItem('codigos', JSON.stringify(codigos));
 
-    document.getElementById("card-here").textContent = card;
-    document.getElementById("codes-here").textContent = codes;
 
-    document.getElementById("catalogingCard").style.display = "block";
+    // Renderização da ficha
+
+    document.getElementById("ficha-aqui").textContent = ficha;
+    document.getElementById("codigos-aqui").textContent = codigos;
+
+    document.getElementById("ficha-catalografica").style.display = "block";
     document.getElementById("btn-pdf").style.display = "block";
     document.getElementById("font-controls").style.display = "block";
 
-    console.log("Exibiu a card em index.html")
+    // Identificação do bibliotecário
+    
+    document.getElementById("bibliotecario-aqui").textContent = bibliotecario;
 
-    // Verificações
 
-    console.log('card gerada no HTML (textContent)');
-    console.log(document.getElementById("card-here").textContent);
 
-    /*
 
-    card = removeUnwantedInvisibleChars(card);
-
-    console.log('card gerada no HTML (textContent) sem caracteres invisíveis: ');
-    console.log(document.getElementById("card-here").textContent);
-
-    console.log('card salva em localStorage sem caracteres invisíveis: ');
-    console.log(JSON.parse(localStorage.getItem('card')));
-
-    */
-
-    return { card, codes };
+    return { ficha, codigos };
 }
+
+
+// GERA PDF
 
 export function geraPDF() {
 
-    document.getElementById("page").style.display = "block";
+    document.getElementById('card-form').style.display = "none";
+    document.getElementById("pagina-impressao").style.display = "block";
 
-    const card = JSON.parse(localStorage.getItem('card'));
-    const codes = JSON.parse(localStorage.getItem('codes'));
+
+    const ficha = JSON.parse(localStorage.getItem('ficha'));
+    const codigos = JSON.parse(localStorage.getItem('codigos'));
     const licenca = localStorage.getItem("licenca");
     const fontSelect = localStorage.getItem("fontSelect");
     const fontSizeInput = localStorage.getItem("fontSizeInput");
+    const bibliotecario = cs.getBibliotecario().bibliotecario;
 
+    // Oculta todas as divs de licença previamente habilitadas
+    document.querySelectorAll('#licenca > div').forEach(div => {
+        div.style.display = 'none';
+    });
 
     switch (licenca) {
         case "by":
@@ -178,20 +189,22 @@ export function geraPDF() {
 
     }
 
-    document.getElementById("card-here-pdf").textContent = card;
-    document.getElementById("card-here-pdf").style.fontFamily = fontSelect;
-    document.getElementById("card-here-pdf").style.fontSize = fontSizeInput + 'px';
+    document.getElementById("ficha-aqui-pdf").textContent = ficha;
+    document.getElementById("ficha-aqui-pdf").style.fontFamily = fontSelect;
+    document.getElementById("ficha-aqui-pdf").style.fontSize = fontSizeInput + 'px';
 
-    document.getElementById("codes-here-pdf").textContent = codes;
-    document.getElementById("codes-here-pdf").style.fontSize = (fontSizeInput - 1) + 'px';
+    document.getElementById("codigos-aqui-pdf").textContent = codigos;
+    document.getElementById("codigos-aqui-pdf").style.fontSize = (fontSizeInput - 1) + 'px';
 
-    const content = document.getElementById("page");
+    document.getElementById("bibliotecario-aqui-pdf").textContent = bibliotecario;
+
+    const content = document.getElementById("pagina-impressao");
     //const content = document.body;
 
     const options = {
-        filename: "cataloging-card",
-        //scrollX: 0, sem no ficcat2
-        //scrollY: 0, sem no ficcat2
+        filename: "ficha-catalografica",
+        //scrollX: 0, //sem no ficcat2
+        //scrollY: 0, //sem no ficcat2
         jsPDF: {
             unit: "mm",
             orientation: "portrait",
@@ -220,5 +233,8 @@ export function geraPDF() {
         //link.click();
     })
 
-
+    setTimeout(function () {
+        document.getElementById("pagina-impressao").style.display = "none";
+        document.getElementById("card-form").style.display = "block";
+    }, 2000);
 }

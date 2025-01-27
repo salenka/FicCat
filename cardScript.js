@@ -33,7 +33,6 @@ export function getCodigo() {
     
 }
 
-
 // ÁREA DE TÍTULO
 
 
@@ -124,7 +123,7 @@ export function getRespInt() {
 }
 
 //Mais pessoas com a mesma função
-    const maisPessoa = document.querySelector('input[name="pessoa-mais"]:checked')?.value;
+    const maisPessoa = document.querySelector('input[name="pessoa-sn"]:checked')?.value;
     const qtdPessoa = document.querySelector('input[name="pessoa-qtd"]:checked')?.value;
     let pessoa2 = "";
     let pessoa3 = "";
@@ -151,7 +150,7 @@ export function getRespInt() {
         ilustrador = ' ; ilustrado por ' + nIlustrador;
     }
 
-    const maisIlustrador = document.querySelector('input[name="ilustrador-mais"]:checked')?.value;
+    const maisIlustrador = document.querySelector('input[name="ilustrador-sn"]:checked')?.value;
     const qtdIlustrador = document.querySelector('input[name="ilustrador-qtd"]:checked')?.value;
     let ilustrador2 = "";
     let ilustrador3 = "";
@@ -177,7 +176,7 @@ export function getRespInt() {
         tradutor = ' ; traduzido por ' + nTradutor;
     }
 
-    const maisTradutor = document.querySelector('input[name="tradutor-mais"]:checked')?.value;
+    const maisTradutor = document.querySelector('input[name="tradutor-sn"]:checked')?.value;
     const qtdTradutor = document.querySelector('input[name="tradutor-qtd"]:checked')?.value;
     let tradutor2 = "";
     let tradutor3 = "";
@@ -234,7 +233,7 @@ export function getPublicacao() {
     
     //Mais publicador
     
-    const maisPublicador = document.querySelector('input[name="publicador-mais"]:checked')?.value;
+    const maisPublicador = document.querySelector('input[name="publicador-sn"]:checked')?.value;
         
     let publicador2 = document.getElementById("publicador-2").value.trim();
     publicador2 = publicador2? ' : ' + publicador2 : "";
@@ -408,8 +407,6 @@ return {paginacao, imagens, dimensoes, materialAdicional}
     
 // ÁREA DE SÉRIE
 
-
-
 export function getSerie() {
 // Elementos antessessores sem ponto final
 // const pagRomana = document.getElementById("pag-romana").checked ; // xv (na vdd esse nunca vai ser o caso)
@@ -448,6 +445,9 @@ let subserieVolume = document.getElementById("subserie-volume").value.trim();
     return { areaSerie };
 }
 
+// ÁREA DE NOTAS
+
+// Notas descritivas
     export function getNota() {
 
         const isbnSN = document.querySelector('input[name="isbn-sn"]:checked')?.value;
@@ -464,7 +464,7 @@ let subserieVolume = document.getElementById("subserie-volume").value.trim();
             
             return { nota1, nota2  };
         }
-
+// ISBN
         export function getISBN() {
          
             // const isbnSN = document.querySelector('input[name="isbn-sn"]:checked')?.value;
@@ -490,6 +490,8 @@ let subserieVolume = document.getElementById("subserie-volume").value.trim();
                  return { ISBN  };
              }
 
+
+// ASSUNTOS             
     export function getAssunto() {
         let assunto1 = document.getElementById("assunto-1").value.trim();
         assunto1 = assunto1? `1. ${assunto1}` : "";
@@ -512,3 +514,19 @@ let subserieVolume = document.getElementById("subserie-volume").value.trim();
 
     
         } 
+
+// IDENTIFICAÇÃO
+
+// Bibliotecário
+ export function getBibliotecario() {
+    
+    let bibliotecarioNome = document.getElementById("bibliotecario-nome").value.trim();
+    bibliotecarioNome = bibliotecarioNome? `${bibliotecarioNome} (bibliotecário responsável)` : "";
+    
+    let crb = document.getElementById("crb").value.trim();
+    crb = crb? ` - CRB ${crb}` : "";
+
+    let bibliotecario = `${bibliotecarioNome}${crb}` 
+
+    return { bibliotecario }  
+ }
