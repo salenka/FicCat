@@ -1,41 +1,12 @@
 import * as card from './cardScript.js';
 // FORM -----------------------------------------------------------------
 
-//desmarca a opção selecionada de uma div-filha com determinado name
-//use na div-mãe
-
-export function uncheckOption(inputName) {
-    const target = document.querySelector(`input[name="${inputName}"]:checked`);
-
-    // desmarca a seleção (rádio ou checkbox) que estiver marcada
-    if (target) {
-        target.checked = false;
-    }
-    // dispara o evento 'change' nas opções com inputName
-    const changeEvent = new Event('change');
-
-    document.querySelectorAll(`input[name="${inputName}"]`).forEach(option => {
-        if (option) {
-            option.dispatchEvent(changeEvent);
-        } else {
-            console.error(`Elemento ${inputName} não foi encontrado.`);
-        }
-    })
-}
+//UNCHECK OPTION
 
 // ERASE CHILD
 
-export function updateTipoPessoa() {
-    const pessoaSelecionada = document.querySelector('input[name="pessoa-tipo"]:checked')?.value;
-
-    // Atualiza todos os spans com a classe 'span-tipo-pessoa' com o valor selecionado
-    const spans = document.querySelectorAll('.span-tipo-pessoa');
-    spans.forEach(span => {
-        span.textContent = pessoaSelecionada;
-    });
-}
-
-// Função para salvar automaticamente os dados no localStorage
+// SAVE DATA
+// Saves form's text input in localStorage
 export function saveData(event) {
     const campo = event.target; // Campo que disparou o evento
     const valor = campo.value; // Valor do campo
@@ -52,7 +23,7 @@ export function saveData(event) {
 
 export function geracard() {
 
-    console.log("botão Gera card acionado");
+    console.log("botão Gerar Ficha acionado");
 
     //chamada de funções de cada área em Card.js
 
@@ -70,10 +41,10 @@ export function geracard() {
     const nota1 = card.getNota().nota1;
     const nota2 = card.getNota().nota2;
     const assuntos = card.getAssunto().assuntos;
-    const cdd = card.getcode().cdd;
-    const cdu = card.getcode().cdu;
-    const cutter = card.getcode().cutter;
-    const pha = card.getcode().pha;
+    const cdd = card.getCodigo().cdd;
+    const cdu = card.getCodigo().cdu;
+    const cutter = card.getCodigo().cutter;
+    const pha = card.getCodigo().pha;
 
 
     const classificacao = `
@@ -107,12 +78,12 @@ export function geracard() {
     console.log(JSON.parse(localStorage.getItem('card')));
 
     localStorage.setItem('card', JSON.stringify(card));
-    localStorage.setItem('codes', JSON.stringify(codes));
+    localStorage.setItem('codigos', JSON.stringify(codigos));
 
     // Renderização da card
 
     document.getElementById("card-here").textContent = card;
-    document.getElementById("codes-here").textContent = codes;
+    document.getElementById("codigos-here").textContent = codigos;
 
     document.getElementById("catalogingCard").style.display = "block";
     document.getElementById("btn-pdf").style.display = "block";

@@ -1,5 +1,5 @@
- TAMANHO DA FICHA
-    /* com borda na página o tam da ficha sai errado
+ TAMANHO DA card
+    /* com borda na página o tam da card sai errado
     border: 2px solid #c01a1a;
     box-sizing: border-box; /*A borda "entra" no tamanho da pagina entre 6 e 7 mm */
     */
@@ -8,10 +8,10 @@
 LARGURA DO FORMULÁRIO
 Com div container logo abaixo de body o formulário fica bem mais largo. Mas vou deixar sem. 
 Estava com o div container até o commit 338d7364da4ef4a8b5fe051fc7fc26a8a4caf335 de mensagem
-"Tamanho da ficha corrigido no PDF A4".
+"Tamanho da card corrigido no PDF A4".
 
 
-PODE SER ÚTIL FUTURAMENTE SE DER PROBLEMA PARA VISUALIZAR A FICHA COM PAGINA DISPLAY:NONE:
+PODE SER ÚTIL FUTURAMENTE SE DER PROBLEMA PARA VISUALIZAR A card COM PAGINA DISPLAY:NONE:
 
 const paginaDiv = document.querySelector('.pagina');
 paginaDiv.style.display = 'block'; // Torna visível
@@ -21,9 +21,26 @@ paginaDiv.style.display = 'none'; // Retorna ao estado original
 INSTABILIDADE NA LICENÇA (AS VEZES APARECEM AS DUAS ULTIMAS ESCOLHIDAS
 Em que ponto colocar um listener para apagar a licenca do localStorage (se é que é pra fazer isso)?
 
+    setTimeout(function() {
+        document.getElementById("page".style.display = "none")
+     }, 2000)
 
+/* Estilos de impressão */
+@media print {
+    .card-box {
+        width: 125mm !important;
+        height: 75mm !important;
 
+        -webkit-print-color-adjust: exact; /* Garante que as cores sejam impressas corretamente */
+        print-color-adjust: exact; /* Garante que as cores sejam impressas corretamente */
+                
+        overflow: hidden;
+    }
 
+    #btnPDF {
+        display: none;
+    }
+}
 
 
 
@@ -75,7 +92,7 @@ Em que ponto colocar um listener para apagar a licenca do localStorage (se é qu
             alert("Evento disparado para:", this.id);
 
             // Abra uma nova aba
- const novaAba = window.open("", "_blank");
+ const novaAba = window.open("", "-blank");
 
  // Configure o conteúdo da nova aba
  novaAba.document.write(`
@@ -84,7 +101,7 @@ Em que ponto colocar um listener para apagar a licenca do localStorage (se é qu
      <head>
          <meta charset="UTF-8">
          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <title>Ficha Bibliográfica</title>
+         <title>card Bibliográfica</title>
          <style>
              body {
                  font-family: Arial, sans-serif;
@@ -94,8 +111,8 @@ Em que ponto colocar um listener para apagar a licenca do localStorage (se é qu
          </style>
      </head>
      <body>
-         <h1>Ficha Bibliográfica</h1>
-         <p>${ficha}</p>
+         <h1>card Bibliográfica</h1>
+         <p>${card}</p>
      </body>
      </html>
  `);
@@ -168,7 +185,7 @@ export function saveData(event) {
 no script.js
      // SALVA DADOS - adicionando o evento 'input' para todos os campos do formulário
  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('#ficcat input[type="text"]').forEach(campo => {
+    document.querySelectorAll('#card-form input[type="text"]').forEach(campo => {
        campo.addEventListener("input", saveData);
        });
    
@@ -177,9 +194,9 @@ no script.js
 */
 
 
-export function geraFicha(callback) {
+export function geracard(callback) {
     
-	alert("botão Gera Ficha acionado");
+	alert("botão Gera card acionado");
 
 
     const script = document.createElement("script");
@@ -190,7 +207,7 @@ export function geraFicha(callback) {
     // Evento de sucesso no carregamento
     script.onload = () => {
         console.log("Script carregado com sucesso!");
-        // Aqui você pode usar funções do script carregado
+        // here você pode usar funções do script carregado
     };
 
     // Evento de erro no carregamento

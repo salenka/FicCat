@@ -92,14 +92,14 @@ body {
         overflow: hidden; /* Adiciona rolagem se o conteúdo exceder o tamanho da caixa */
     }
 
-        #card-here, #card-here-pdf {
+        #ficha-aqui, #ficha-aqui-pdf {
             white-space: pre-wrap; /* Preserva quebras de linha e espaços */
             margin: 0;
             padding: 0;
             font-size: medium;
         }
 
-        #codes-here, #codes-here-pdf {
+        #codigos-here, #codigos-here-pdf {
             margin-top: auto; /* Alinha o próprio elemento na parte inferior */
             padding: 0;
             font-size: small;
@@ -146,19 +146,19 @@ body {
 }
 
 /* CÓDIGOS OPCIONAIS */
-#code-cdd {
+#codigo-cdd {
     display: none
 }
 
-#code-cdu {
+#codigo-cdu {
     display: none
 }
 
-#code-cutter {
+#codigo-cutter {
     display: none
 }
 
-#code-pha {
+#codigo-pha {
     display: none
 }
 
@@ -311,27 +311,10 @@ display: none;
     display: none;
 }
 
-#formato-fisico {
-    display: none;
-}
 
-#formato-tradicional {
-    display: none;
-}
 
-#formato-nao-tradicional {
-    display: none;
-}
 
-#formato-digital {
-    display: none;
-}
-#material-adicional{
-    display: none;
-}   
-#material-adicional-section {
-    display: none;
-}
+
 #serie {
     display: none;
 }   
