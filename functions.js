@@ -203,8 +203,9 @@ export function geraPDF() {
 
     const options = {
         filename: "ficha-catalografica",
-        //scrollX: 0, //sem no ficcat2
-        //scrollY: 0, //sem no ficcat2
+        scrollX: 0, //sem no ficcat2
+        scrollY: 0, //sem no ficcat2
+        scale: 1,
         jsPDF: {
             unit: "mm",
             orientation: "portrait",
@@ -215,9 +216,9 @@ export function geraPDF() {
                 valign: "middle",
             }
         },
-        //margin: 0,
-        //padding: 0,
-        //height: 297,
+        margin: [5, 0, 0, 0], // [topo, direita, base, esquerda]
+        //padding: 10,
+        //height: 297, 
         //width: 210, 
     }
 

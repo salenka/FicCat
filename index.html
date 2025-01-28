@@ -15,11 +15,10 @@
 <body>
 
     <h2>Gerador de Ficha Catalográfica para Livros</h2>
-
-
+    
     <form id="card-form">
 
-        <div id="materialidade" class="form-group">
+        <fieldset id="materialidade" class="form-group">
 
             <p>Preencha as informações abaixo sobre o livro:</p>
             <input type="radio" id="fisico" name="materia" value="fisico">
@@ -33,10 +32,10 @@
                 <label for="extensao">Informe a extensão do arquivo digital</label><br>
                 <input type="text" class="form-control" id="extensao" name="extensao" required>
             </div>
-        </div>
+        </fieldset>
 
         <!--Códigos opcionais-->
-        <div id="codigos-section" class="form-group form-group-bordered">
+        <fieldset id="codigos-section" class="form-group form-group-bordered">
 
             <p>Gostaria de inserir o(s) códigos(s) abaixo:</p>
 
@@ -76,11 +75,11 @@
                 <label for="pha">PHA</label><br>
                 <input type="text" class="form-control" id="pha" name="pha" required>
             </div>
-        </div>
+        </fieldset>
 
         <!-- CREATIVE COMMONS -->
 
-        <div id="licenca-section" class="form-group form-group-bordered">
+        <fieldset id="licenca-section" class="form-group form-group-bordered">
 
             <div id="licenca-radio">
 
@@ -108,18 +107,18 @@
                 <label for="cc-0-radio">Domínio Público (CC0)</label>
             </div>
 
-        </div> <!-- Fim da div licenca-section-->
+        </fieldset> <!-- Fim de licenca-section-->
 
         <!-- TÍTULO E SUBTÍTULO -->
 
-        <div id="titulo-section" class="form-group form-group-bordered">
+        <fieldset id="titulo-section" class="form-group form-group-bordered">
 
             <label for="titulo">Título</label><br>
             <input type="text" class="form-control" id="titulo" name="titulo" required>
 
             <label for="subtitulo">Subtítulo</label><br>
             <input type="text" class="form-control" id="subtitulo" name="subtitulo">
-        </div>
+        </fieldset>
 
         <div id="edicao-section" class="form-group form-group-bordered">
 
@@ -130,7 +129,7 @@
 
         <!-- TIPO DE RESPONSÁVEL -->
 
-        <div id="resp-int-section" class="form-group form-group-bordered">
+        <fieldset id="resp-int-section" class="form-group form-group-bordered">
 
             <p>O principal responsável intelectual pela obra é</p>
 
@@ -281,11 +280,11 @@
                 <small id="evento-local-Help" class="form-text text-muted">Se não for uma capital, informe também a
                     sigla do estado </small>
             </div>
-        </div>
+        </fieldset> <!-- Fim de resp-int-section -->
 
         <!-- CONTRIBUIDORES-->
 
-        <div id="contribuidores" class="form-group form-group-bordered">
+        <fieldset id="contribuidores-section" class="form-group form-group-bordered">
             <p>Existem outros contribuidores?</p>
 
             <!-- ILUSTRADOR -->
@@ -299,7 +298,7 @@
                     <input type="text" class="form-control" id="ilustrador-nome" name="ilustrador-nome" required>
                 </div>
 
-                <!-- MAIS Ilustrador -->
+                <!-- ilustrador-sn -->
 
                 <div id="ilustrador-sn">
 
@@ -313,7 +312,7 @@
                     <label for="nao">Não</label><br><br />
                 </div>
 
-                <!-- ilustrador-qtd-->
+                <!-- ilustrador-qtd -->
 
                 <div id="ilustrador-qtd">
                     <p>Quantos são no total?</p>
@@ -325,7 +324,7 @@
                     <label for="ilustrador-qtd-4">4 ou mais</label>
                 </div>
 
-                <!-- OUTRO Ilustrador -->
+                <!-- ilustrador-outro -->
 
                 <div id="ilustrador-outro" class="form-group form-group-bordered">
 
@@ -357,7 +356,7 @@
                     <input type="text" class="form-control" id="tradutor-nome" name="tradutor-nome" required>
                 </div>
 
-                <!-- MAIS Tradutor -->
+                <!-- tradutor-sn -->
 
                 <div id="tradutor-sn">
 
@@ -383,7 +382,7 @@
                     <label for="tradutor-qtd-4">4 ou mais</label>
                 </div>
 
-                <!-- OUTRO Tradutor -->
+                <!-- tradutor-outro -->
 
                 <div id="tradutor-outro" class="form-group form-group-bordered">
 
@@ -404,11 +403,11 @@
                 </div>
 
             </div>
-        </div>
+        </fieldset> <!-- fim de contribuidores-section -->
 
         <!-- ÁREA DE PUBLICAÇÃO -->
 
-        <div id="publicacao" class="form-group form-group-bordered">
+        <fieldset id="publicacao-section" class="form-group form-group-bordered">
 
             <label for="publicador">Publicador</label><br>
             <input type="text" class="form-control" id="publicador" name="publicador"><br>
@@ -418,7 +417,7 @@
             <input type="text" class="form-control" id="ano" name="ano"><br>
 
 
-            <!-- MAIS-PUBLICAODR -->
+            <!-- publicador-sn -->
 
             <div id="publicador-sn">
 
@@ -430,7 +429,8 @@
                 <label for="nao">Não</label>
             </div>
 
-            <!-- OUTRO-PUBLICAODR -->
+            <!-- publicador-segundo -->
+
             <div id="publicador-segundo">
                 <label for="publicador-2">Segundo publicador</label><br>
                 <input type="text" class="form-control" id="publicador-2" name="publicador-2"><br>
@@ -438,13 +438,13 @@
                 <input type="text" class="form-control" id="local-2" name="local-2"><br>
             </div>
 
-        </div>
+        </fieldset> <!-- fim de publicacao-section -->
 
         <!-- ÁREA DE DESCRIÇÃO FÍSICA -->
 
         <!--Paginação-->
 
-        <div id="paginacao" class="form-group form-group-bordered">
+        <fieldset id="paginacao-section" class="form-group form-group-bordered">
 
             <p>Sobre a forma como a obra é paginada:</p>
 
@@ -460,10 +460,12 @@
 
                     <input type="checkbox" id="pag-romana" name="pag-outra">
                     <label for="pag-romana">O livro possui páginas prefaciais em algarismos romanos</label><br>
+    
 
                     <div id="paginacao-romana">
                         <label for="pag-romana-qtd">Quantidade de páginas com numeração romana</label><br>
                         <input type="text" class="form-control" id="pag-romana-qtd" name="pag-romana-qtd">
+                        <legend>Insira apenas numerais romanos</legend>
                     </div>
 
                     <input type="checkbox" id="pag-lamina" name="pag-outra">
@@ -509,11 +511,11 @@
                     <label for="presumida">Presumida</label>
                 </div>
             </div>
-        </div>
+        </fieldset> <!-- fim de paginacao-section -->
 
         <!-- Material gráfico -->
 
-        <div id="imagem-section" class="form-group form-group-bordered">
+        <fieldset id="imagem-section" class="form-group form-group-bordered">
 
             <div id="imagem">
 
@@ -524,7 +526,6 @@
                 <input type="radio" id="imagem-nao" name="imagem" value="nao">
                 <label for="imagem-nao">Não</label>
             </div>
-
 
             <div id="imagem-tipo">
                 <p>Este livro contém que tipo de imagem?</p>
@@ -571,10 +572,10 @@
                         relevante</label>
                 </div>
             </div>
-        </div>
+        </fieldset> <!-- fim de imagem-section -->
         <!-- Formato -->
 
-        <div id="formato-fisico" class="form-group form-group-bordered">
+        <fieldset id="formato-fisico-section" class="form-group form-group-bordered">
 
             <p>Quanto ao formato</p>
             <input type="radio" id="formato-trad" name="formato" value="tradicional">
@@ -594,11 +595,11 @@
                 <input type="text" class="form-control" id="largura" name="largura" required>
             </div>
 
-        </div>
+        </fieldset> <!-- fim de formato-fisico-section-->
 
         <!-- Material Adicional -->
 
-        <div id="material-adicional-section" class="form-group form-group-bordered">
+        <fieldset id="material-adicional-section" class="form-group form-group-bordered">
 
             <p>O livro é acompanhado de material adicional?</p>
             <input type="radio" id="material-adicional-sim" name="material-adicional-sn" value="sim">
@@ -618,11 +619,11 @@
                 <input type="text" class="form-control" id="material-adicional-qtd" name="material-adicional-qtd">
             </div>
 
-        </div>
+        </fieldset> <!-- fim de material-adicional-section -->
         <!-- ÁREA DE SÉRIE -->
 
         <!-- Existe série? -->
-        <div id="serie-section" class="form-group form-group-bordered">
+        <fieldset id="serie-section" class="form-group form-group-bordered">
             <div id="serie-sn">
                 <p>O livro pertence a uma série ou coleção?</p>
                 <input type="radio" id="serie-sim" name="serie-sn" value="sim">
@@ -658,11 +659,11 @@
                 <label for="subserie-volume">Número do volume</label><br>
                 <input type="text" class="form-control" id="subserie-volume" name="subserie-volume">
             </div>
-        </div>
+        </fieldset> <!-- fim de serie-section -->
         <!-- ÁREA DE NOTAS -->
 
         <!-- Existe ISBN? -->
-        <div id="isbn-section" class="form-group form-group-bordered">
+        <fieldset id="isbn-section" class="form-group form-group-bordered">
             <div id="isbn-sn">
                 <p>O livro possui ISBN?</p>
                 <input type="radio" id="isbn-sim" name="isbn-sn" value="sim">
@@ -699,11 +700,11 @@
                 <label for="qualificador-2">Qualificador do segundo ISBN</label><br>
                 <input type="text" class="form-control" id="qualificador-2" name="qualificador-2"><br>
             </div>
-        </div>
+        </fieldset> <!-- fim de isbn-section-->
 
         <!-- Notas -->
 
-        <div id="nota-section" class="form-group form-group-bordered">
+        <fieldset id="notas-section" class="form-group form-group-bordered">
 
             <div id="nota-sn">
                 <p>É preciso acrescentar uma nota?</p>
@@ -735,10 +736,10 @@
                 <label for="nota-2">Redija outra nota sucinta</label><br>
                 <input type="text" class="form-control" id="nota-2" name="nota-2">
             </div>
-        </div>
+        </fieldset> <!-- fim de notas-section-->
         <!-- ASSUNTO -->
 
-        <div id="assunto" class="form-group form-group-bordered">
+        <fieldset id="assuntos-section" class="form-group form-group-bordered">
 
             <p>Preencha até 5 assuntos</p>
 
@@ -753,7 +754,7 @@
             <label for="assunto-5">Assunto</label><br>
             <input type="text" class="form-control" id="assunto-5" name="assunto"><br>
 
-        </div>
+        </fieldset> <!-- fim de assuntos-section -->
 
         <!-- Bibliotecário e CRB -->
         <p>Sou bibliotecário(a) e quero informar meu registro profissional (CRB)</p>
@@ -765,11 +766,11 @@
             <input type="text" class="form-control" id="crb" name="identificacao">
         </div>
     </form>
-
+    
     <!-- BOTÃO GERAR FICHA-->
-
+    
     <button type="button" id="btn-card" style="margin: auto; margin-top: 15px; margin-bottom: 15px">Get ficha</button>
-
+    
     <!-- FICHA CATALOGRÁFICA -->
 
     <div id="ficha-catalografica">

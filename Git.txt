@@ -3,4 +3,4 @@ para descartar todas as alterações não confirmadas e voltar ao último commit
 
 Use git restore . 
 para restaurar todos os arquivos para o último commit 
-(se você estiver usando Git 2.23 ou posterior).
+

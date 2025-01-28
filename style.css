@@ -5,6 +5,11 @@ body {
     align-items: center;  /* Centraliza horizontalmente */
 }
 
+legend {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: smaller !important;
+}
+
 .form-group-bordered {
     border: 1px solid #572222;
     padding: 15px;
@@ -13,7 +18,8 @@ body {
 }
 
 .img-licenca {
-    margin: 10px; /* Add margin to images */
+    margin-bottom: 10px; /* Add margin to images */
+
 }
 
 /* div bordaA4 foi removida de index.html */
@@ -35,7 +41,7 @@ body {
     align-items: center;  /* Centraliza horizontalmente */
     page-break-inside: avoid;
 
-    height: 296mm; /* Página com 1mm a menos de altura impede impressão de uma 2ª folha em branco */
+    height: 297mm; /* */
     width: 210mm;
 
     margin: 0;
@@ -70,7 +76,7 @@ body {
     Move o elemento #card 50% da sua própria largura para a esquerda. Isso é necessário porque left: 
     50% posiciona o lado esquerdo do elemento no meio do contêiner pai, 
     e translateX(-50%) ajusta o elemento para que ele fique centralizado horizontalmente. */
-    top: calc(297mm - 75mm - 30mm); /* Posiciona a parte superior do card-box de forma relativa ao tamanho da página */
+    top: calc(297mm - 85mm - 30mm); /* Posiciona a parte superior do card-box de forma relativa ao tamanho da página */
 }
 
     .card-box {
@@ -118,7 +124,7 @@ body {
     Move o elemento #card 50% da sua própria largura para a esquerda. Isso é necessário porque left: 
     50% posiciona o lado esquerdo do elemento no meio do contêiner pai, 
     e translateX(-50%) ajusta o elemento para que ele fique centralizado horizontalmente. */
-    top: calc(297mm - 30mm); 
+    top: calc(297mm - 40mm); 
 }
 
 
