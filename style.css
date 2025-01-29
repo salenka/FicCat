@@ -10,6 +10,16 @@ legend {
     font-size: smaller !important;
 }
 
+#creditos {
+    padding: 10px;
+    width: 100%;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999"
+
+}
+
 .form-group-bordered {
     border: 1px solid #572222;
     padding: 15px;

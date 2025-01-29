@@ -603,6 +603,21 @@ document.getElementById('tradutor').addEventListener('change', function () {
                 }
             });
         });
+
+        // JavaScript para limitar a quantidade máxima de linhas
+        document.getElementById('creditos').addEventListener('input', function() {
+            const maxLines = 15;
+            const textarea = this;
+            const lines = textarea.value.split('\n');
+
+            if (lines.length > maxLines) {
+                textarea.value = lines.slice(0, maxLines).join('\n');
+            }
+        });
+
+
+
+
     
      // SALVA DADOS - adicionando o evento 'input' para todos os campos do formulário
      document.addEventListener("DOMContentLoaded", function () {
