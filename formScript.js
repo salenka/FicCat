@@ -675,7 +675,4 @@ document.addEventListener('DOMContentLoaded', function() {
         codigosAqui.style.fontSize = (fontSizeInput.value - 1) + 'px';
         
     });
-
-        
-
 });

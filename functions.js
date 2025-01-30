@@ -64,6 +64,7 @@ export function geraFicha() {
 
     console.log("botão Gerar Ficha acionado");
 
+    /*
     //chamada de funções de cada área em cs.js
     const areaTitulo = cs.getTitulo().areaTitulo;
     const areaEdicao = cs.getEdicao().areaEdicao;
@@ -99,6 +100,8 @@ export function geraFicha() {
     localStorage.setItem('ficha', JSON.stringify(ficha));
     localStorage.setItem('codigos', JSON.stringify(codigos));
 
+    */
+
     // Renderização da ficha
     document.getElementById("ficha-aqui").textContent = ficha;
     document.getElementById("codigos-aqui").textContent = codigos;
@@ -120,46 +123,28 @@ export function geraFicha() {
 
 export function geraPDF() {
 
+    // OCULTAÇÃO DE DIVS
     document.getElementById('card-form').style.display = "none";
     document.getElementById('ficha-catalografica').style.display = "none";
-    document.getElementById("opcionais-pdf").style.display = "none";
-    document.getElementById("pagina-pdf").style.display = "block";
-
+    document.getElementById('opcionais-pdf').style.display = "none";
+    document.getElementById('pagina-pdf').style.display = "block";
 
     // RENDERIZAÇÃO DA LICENÇA
 
     const licenca = localStorage.getItem("licenca");
-    // Oculta todas as divs de licença previamente habilitadas
-    document.querySelectorAll('#licenca > div').forEach(div => {
-        div.style.display = 'none';
-    });
-
-    switch (licenca) {
-        case "by":
-            document.getElementById("by").style.display = 'block';
-            break;
-        case "by-sa":
-            document.getElementById("by-sa").style.display = 'block';
-            break;
-        case "by-nd":
-            document.getElementById("by-nd").style.display = 'block';
-            break;
-        case "by-nc":
-            document.getElementById("by-nc").style.display = 'block';
-            break;
-        case "by-nc-sa":
-            document.getElementById("by-nc-sa").style.display = 'block';
-            break;
-        case "by-nc-nd":
-            document.getElementById("by-nc-nd").style.display = 'block';
-            break;
-        case "cc-0":
-            document.getElementById("cc-0").style.display = 'block';
-            break;
-        default:
-            console.log("Licença não selecionada")
-
-    }
+    
+        // Oculta todas as divs de licença
+        document.querySelectorAll('#licenca-section-pdf > div').forEach(div => {
+            div.style.display = 'none';
+        });
+   
+        // Mostra apenas a div correspondente à licença selecionada
+        if (licenca) {
+            const selectedDiv = document.getElementById(licenca);
+            selectedDiv.style.display = 'flex'; // Altera o display para flex
+            selectedDiv.style.flexDirection = 'column'; // Define a direção do flex
+            selectedDiv.style.alignItems = 'center'; // Centraliza os itens
+        }
 
     // RENDERIZAÇÃO DOS CRÉDITOS
 
@@ -205,7 +190,7 @@ export function geraPDF() {
         //height: 297, 
         //width: 210, 
     }
-
+    
     setTimeout(function () {
         html2pdf().set(options).from(content).outputPdf('blob').then((blob) => {
             const url = URL.createObjectURL(blob);
@@ -217,7 +202,7 @@ export function geraPDF() {
             //link.download = 'documento.pdf';
             //link.click();
         })
-    }, 2000);
+    }, 2500);
 
     setTimeout(function () {
         //document.getElementById("pagina-pdf").style.display = "none";

@@ -1,38 +1,50 @@
-// Chama a função geraPagina ao carregar a página
-window.onload = function() {
+import * as cs from './cardScript.js';
 
-    const ficha = JSON.parse(localStorage.getItem('ficha'));
-    const codigos = JSON.parse(localStorage.getItem('codigos'));
-    const licenca = localStorage.getItem("licenca");
+
+
+
+
+// Chama a função geraPagina ao carregar a página
+window.onload = function () {
+
+    /*
+        const ficha = JSON.parse(localStorage.getItem('ficha'));
+        const codigos = JSON.parse(localStorage.getItem('codigos'));
+        const licenca = localStorage.getItem("licenca");
+    */
+    
+    fichaPdf = JSON.parse(cs.getFicha().ficha);
+    codigos = JSON.parse(cs.getCodigos().codigos);
+    licenca = cs.getLicenca().licenca;
     const fontSelect = localStorage.getItem("fontSelect");
     const fontSizeInput = localStorage.getItem("fontSizeInput");
-    
+
 
     switch (licenca) {
-        case "by": 
+        case "by":
             document.getElementById("by").style.display = 'block';
             break;
-        case "by-sa": 
+        case "by-sa":
             document.getElementById("by-sa").style.display = 'block';
             break;
-        case "by-nd": 
+        case "by-nd":
             document.getElementById("by-nd").style.display = 'block';
             break;
-        case "by-nc": 
+        case "by-nc":
             document.getElementById("by-nc").style.display = 'block';
             break;
-        case "by-nc-sa": 
+        case "by-nc-sa":
             document.getElementById("by-nc-sa").style.display = 'block';
             break;
-        case "by-nc-nd": 
+        case "by-nc-nd":
             document.getElementById("by-nc-nd").style.display = 'block';
             break;
-        case "cc-0": 
+        case "cc-0":
             document.getElementById("cc-0").style.display = 'block';
             break;
         default:
             console.log("Licença não selecionada")
-    
+
     }
 
 
@@ -42,9 +54,9 @@ window.onload = function() {
 
     document.getElementById("codigos_aqui").textContent = codigos;
     document.getElementById("codigos_aqui").style.fontSize = (fontSizeInput - 1) + 'px';
-    
+
     console.log(`licença salva no localStorage: ${licenca}`)
-        
+
     console.log(`ficha salva no localStorage: ${ficha}`);
 
     console.log(`códigos salvos no localStorage: ${codigos}`);
@@ -52,20 +64,21 @@ window.onload = function() {
 
 const btnGerarPDF = document.getElementById("btnGerarPDF");
 
-btnGerarPDF.addEventListener("click", function() {
+btnGerarPDF.addEventListener("click", function () {
     const content = document.getElementById("pagina");
 
     const options = {
         filename: "ficha-catalográfica",
         jsPDF: {
-            unit: "mm", 
+            unit: "mm",
             orientation: "portrait",
             layout: "portrait",
             format: [298, 210],
             content: {
-            align: "center",
-            valign: "middle",
-          }},
+                align: "center",
+                valign: "middle",
+            }
+        },
         margin: 0,
         padding: 0,
         height: 297,
@@ -74,5 +87,7 @@ btnGerarPDF.addEventListener("click", function() {
 
     //Gerar PDF
     html2pdf().set(options).from(content).save();
+
+
 
 });
