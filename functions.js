@@ -81,7 +81,7 @@ export function geraFicha() {
     const assuntos = cs.getAssunto().assuntos;
     const codigos = cs.getCodigo().codigos;
     const bibliotecario = cs.getBibliotecario().bibliotecario;
-   
+
     //Configuração da ficha catalográfica
     let ficha = `${entradaPrincipal}
     ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
@@ -94,7 +94,7 @@ export function geraFicha() {
     ficha = ficha.replace('il..', 'il.') // Elimina ponto final da área de série após abreviação il.
     ficha = ficha.replace('p..', 'p.') // Elimina ponto final da área de série após abreviação p.
     ficha = ficha.replace('color..', 'color.') // Elimina de ponto final da área de série após abreviação color.
-    
+
     // Salva ficha no localStorage (para recuperação por a4.js)
     localStorage.setItem('ficha', JSON.stringify(ficha));
     localStorage.setItem('codigos', JSON.stringify(codigos));
@@ -123,7 +123,7 @@ export function geraPDF() {
     document.getElementById('card-form').style.display = "none";
     document.getElementById('ficha-catalografica').style.display = "none";
     document.getElementById("opcionais-pdf").style.display = "none";
-    document.getElementById("pagina-impressao").style.display = "block";
+    document.getElementById("pagina-pdf").style.display = "block";
 
 
     // RENDERIZAÇÃO DA LICENÇA
@@ -162,7 +162,7 @@ export function geraPDF() {
     }
 
     // RENDERIZAÇÃO DOS CRÉDITOS
-    
+
     const creditos = `${document.getElementById("creditos").value}`;
     document.getElementById("creditos-pdf").innerHTML = creditos;
 
@@ -183,7 +183,7 @@ export function geraPDF() {
 
 
     // IMPRESSÃO DO PDF
-    const content = document.getElementById("pagina-impressao");
+    const content = document.getElementById("pagina-pdf");
 
     const options = {
         filename: "ficha-catalografica",
@@ -206,19 +206,21 @@ export function geraPDF() {
         //width: 210, 
     }
 
-    html2pdf().set(options).from(content).outputPdf('blob').then((blob) => {
-        const url = URL.createObjectURL(blob);
-        window.open(url);
+    setTimeout(function () {
+        html2pdf().set(options).from(content).outputPdf('blob').then((blob) => {
+            const url = URL.createObjectURL(blob);
+            window.open(url);
 
-        //versão do código que faz downloado do pdf ao invés de abrir:
-        //const link = document.createElement('a');
-        //link.href = URL.createObjectURL(blob);
-        //link.download = 'documento.pdf';
-        //link.click();
-    })
+            //versão do código que faz downloado do pdf ao invés de abrir:
+            //const link = document.createElement('a');
+            //link.href = URL.createObjectURL(blob);
+            //link.download = 'documento.pdf';
+            //link.click();
+        })
+    }, 2000);
 
     setTimeout(function () {
-        //document.getElementById("pagina-impressao").style.display = "none";
+        //document.getElementById("pagina-pdf").style.display = "none";
         document.getElementById("card-form").style.display = "block";
         document.getElementById('ficha-catalografica').style.display = "block";
         document.getElementById("opcionais-pdf").style.display = "block";

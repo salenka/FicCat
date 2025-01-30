@@ -53,17 +53,14 @@ legend {
     padding: 0;
 }
 
-#pagina-impressao {
-
-    position: relative;
-    /* Segura o card-box no fim da página */
-    /*display: flex;
+#pagina-pdf {
+    position: relative; /* Segura o card-box no fim da página */
+    display: flex;
     flex-direction: column;
-    align-items: center;  /* Centraliza horizontalmente */
-    page-break-inside: avoid;
+    align-items: center;
+    /*page-break-inside: avoid; */
 
     height: 297mm;
-    /* */
     width: 210mm;
 
     margin: 0;
