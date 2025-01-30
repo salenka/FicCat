@@ -1,8 +1,7 @@
 import * as cs from './cardScript.js';
 // FORM -----------------------------------------------------------------
 
-//desmarca a opção selecionada de uma div-filha com determinado name
-//use na div-mãe
+// UNCHECK OPTIONS
 
 export function uncheckOption(inputName) {
     const target = document.querySelector(`input[name="${inputName}"]:checked`);
@@ -66,7 +65,6 @@ export function geraFicha() {
     console.log("botão Gerar Ficha acionado");
 
     //chamada de funções de cada área em cs.js
-
     const areaTitulo = cs.getTitulo().areaTitulo;
     const areaEdicao = cs.getEdicao().areaEdicao;
     const entradaPrincipal = cs.getRespInt().entradaPrincipal;
@@ -81,64 +79,40 @@ export function geraFicha() {
     const nota1 = cs.getNota().nota1;
     const nota2 = cs.getNota().nota2;
     const assuntos = cs.getAssunto().assuntos;
-    const cdd = cs.getCodigo().cdd;
-    const cdu = cs.getCodigo().cdu;
-    const cutter = cs.getCodigo().cutter;
-    const pha = cs.getCodigo().pha;
+    const codigos = cs.getCodigo().codigos;
     const bibliotecario = cs.getBibliotecario().bibliotecario;
-
-
-    const classificacao = `
-    ${cdd}
-    ${cdu}
-    `
-    const notacao = `
-    ${cutter}
-    ${pha}
-    `
-    const codigos = `\n${cdd} ${cdu} ${cutter} ${pha}`
-
+   
     //Configuração da ficha catalográfica
-
     let ficha = `${entradaPrincipal}
     ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
     ${paginacao}${imagens}${dimensoes}${materialAdicional}${areaSerie}
     ${nota1}${nota2}${isbn}
     ${assuntos}
     `
-    // Ajustes finais
+    // Ajustes finais da ficha
     ficha = ficha.replace('.. -- ', ' . -- ') // Elimina ponto final que é seguido de marcador de nova seção
     ficha = ficha.replace('il..', 'il.') // Elimina ponto final da área de série após abreviação il.
     ficha = ficha.replace('p..', 'p.') // Elimina ponto final da área de série após abreviação p.
     ficha = ficha.replace('color..', 'color.') // Elimina de ponto final da área de série após abreviação color.
-
+    
     // Salva ficha no localStorage (para recuperação por a4.js)
-
     localStorage.setItem('ficha', JSON.stringify(ficha));
-    console.log("Ficha salva no localStorage:");
-    console.log(JSON.parse(localStorage.getItem('ficha')));
-
-
     localStorage.setItem('codigos', JSON.stringify(codigos));
 
-
     // Renderização da ficha
-
     document.getElementById("ficha-aqui").textContent = ficha;
     document.getElementById("codigos-aqui").textContent = codigos;
 
+    // Identificação do bibliotecário
+    document.getElementById("bibliotecario-aqui").textContent = bibliotecario;
+
+    // Renderização dos elementos no HTML
     document.getElementById("ficha-catalografica").style.display = "block";
     document.getElementById("btn-pdf").style.display = "block";
     document.getElementById("font-controls").style.display = "block";
+    document.getElementById("opcionais-pdf").style.display = "block";
 
-    // Identificação do bibliotecário
-    
-    document.getElementById("bibliotecario-aqui").textContent = bibliotecario;
-
-
-
-
-    return { ficha, codigos };
+    //return { ficha, codigos };
 }
 
 
@@ -147,16 +121,14 @@ export function geraFicha() {
 export function geraPDF() {
 
     document.getElementById('card-form').style.display = "none";
+    document.getElementById('ficha-catalografica').style.display = "none";
+    document.getElementById("opcionais-pdf").style.display = "none";
     document.getElementById("pagina-impressao").style.display = "block";
 
 
-    const ficha = JSON.parse(localStorage.getItem('ficha'));
-    const codigos = JSON.parse(localStorage.getItem('codigos'));
-    const licenca = localStorage.getItem("licenca");
-    const fontSelect = localStorage.getItem("fontSelect");
-    const fontSizeInput = localStorage.getItem("fontSizeInput");
-    const bibliotecario = cs.getBibliotecario().bibliotecario;
+    // RENDERIZAÇÃO DA LICENÇA
 
+    const licenca = localStorage.getItem("licenca");
     // Oculta todas as divs de licença previamente habilitadas
     document.querySelectorAll('#licenca > div').forEach(div => {
         div.style.display = 'none';
@@ -189,17 +161,29 @@ export function geraPDF() {
 
     }
 
+    // RENDERIZAÇÃO DOS CRÉDITOS
+    
+    const creditos = `${document.getElementById("creditos").value}`;
+    document.getElementById("creditos-pdf").innerHTML = creditos;
+
+    //RENDERIZAÇÃO DA FICHA
+
+    const ficha = JSON.parse(localStorage.getItem('ficha'));
+    const codigos = JSON.parse(localStorage.getItem('codigos'));
+    const fontSelect = localStorage.getItem("fontSelect");
+    const fontSizeInput = localStorage.getItem("fontSizeInput");
+    const bibliotecario = cs.getBibliotecario().bibliotecario;
+
     document.getElementById("ficha-aqui-pdf").textContent = ficha;
     document.getElementById("ficha-aqui-pdf").style.fontFamily = fontSelect;
     document.getElementById("ficha-aqui-pdf").style.fontSize = fontSizeInput + 'px';
-
     document.getElementById("codigos-aqui-pdf").textContent = codigos;
     document.getElementById("codigos-aqui-pdf").style.fontSize = (fontSizeInput - 1) + 'px';
-
     document.getElementById("bibliotecario-aqui-pdf").textContent = bibliotecario;
 
+
+    // IMPRESSÃO DO PDF
     const content = document.getElementById("pagina-impressao");
-    //const content = document.body;
 
     const options = {
         filename: "ficha-catalografica",
@@ -222,7 +206,6 @@ export function geraPDF() {
         //width: 210, 
     }
 
-    //Comando para gerar o PDF
     html2pdf().set(options).from(content).outputPdf('blob').then((blob) => {
         const url = URL.createObjectURL(blob);
         window.open(url);
@@ -235,7 +218,9 @@ export function geraPDF() {
     })
 
     setTimeout(function () {
-        document.getElementById("pagina-impressao").style.display = "none";
+        //document.getElementById("pagina-impressao").style.display = "none";
         document.getElementById("card-form").style.display = "block";
+        document.getElementById('ficha-catalografica').style.display = "block";
+        document.getElementById("opcionais-pdf").style.display = "block";
     }, 2000);
 }

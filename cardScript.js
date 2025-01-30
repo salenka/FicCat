@@ -1,37 +1,33 @@
 
-// CÓDICOS OPCIONAIS
-
+// CÓDIGOS
 export function getCodigo() {
-    
-    let cdd = document.getElementById("cdd").value.trim();
-        cdd = cdd? `CDD ${cdd}`: '';
 
-    let cdu = document.getElementById("cdu").value.trim();
-        cdu = cdu? `CDU ${cdu}` : '';
+    let cdd = document.getElementById('cdd').value.trim();
+        cdd = cdd? `CDD ${cdd}` : "";
 
-    let cutter = document.getElementById("cutter").value.trim();
-        cutter = cutter? `Cutter ${cutter}` : '';
+    let cdu = document.getElementById('cdu').value.trim();
+        cdu = cdu? `CDU ${cdu}` : "";
 
-    let pha = document.getElementById("pha").value.trim();
-        pha = pha? `PHA ${pha}` : '';
+    let cutter = document.getElementById('cutter').value.trim();
+        cutter = cutter? `Cutter ${cutter}` : "";
 
-    return {cdd, cdu, cutter, pha}
+    let pha = document.getElementById('pha').value.trim();
+        pha = pha? `PHA ${pha}` : "";
+
+    const codigos = `\n${cdd} ${cdu} ${cutter} ${pha}`
+
+    const classificacao = `
+    ${cdd}
+    ${cdu}
+    `
+    const notacao = `
+    ${cutter}
+    ${pha}
+    `
+
+    return { codigos }
 }
 
-    /* Licensa Section */
-
-    export function getLicenca() {
-
-    //document.querySelectorAll('input[name="cc_radio"]').forEach(radio => {
-        //radio.addEventListener('change', function () {
-    let licenca = document.querySelector('input[name="cc-radio"]:checked')?.value;
-    licenca = licenca? licenca : '';
-        localStorage.setItem("licenca", licenca ); 
-        console.log(`licenca salva em localStorage: ${localStorage.getItem(licenca)}`);
-
-        return {licenca}
-    
-}
 
 // ÁREA DE TÍTULO
 
@@ -515,6 +511,8 @@ let subserieVolume = document.getElementById("subserie-volume").value.trim();
     
         } 
 
+
+
 // IDENTIFICAÇÃO
 
 // Bibliotecário
@@ -530,3 +528,17 @@ let subserieVolume = document.getElementById("subserie-volume").value.trim();
 
     return { bibliotecario }  
  }
+
+/* Licensa Section */
+
+export function getLicenca() {
+
+let licenca = document.querySelector('input[name="cc-radio"]:checked')?.value;
+licenca = licenca? licenca : '';
+    localStorage.setItem("licenca", licenca ); 
+    console.log(`licenca salva em localStorage: ${localStorage.getItem(licenca)}`);
+
+    return {licenca}
+
+}
+

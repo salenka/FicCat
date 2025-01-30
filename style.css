@@ -1,8 +1,13 @@
-
 body {
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Centraliza horizontalmente */
+    align-items: center;
+}
+
+h4 {
+    padding-top: 30px;
+    padding-bottom: 15px;
+    text-align: center;
 }
 
 legend {
@@ -17,7 +22,6 @@ legend {
     border-radius: 5px;
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px #999"
-
 }
 
 .form-group-bordered {
@@ -27,114 +31,140 @@ legend {
     margin-bottom: 15px;
 }
 
-.img-licenca {
-    margin-bottom: 10px; /* Add margin to images */
-
+.button {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* div bordaA4 foi removida de index.html */
-#bordaA4{
-    height: 297mm; /* 297mm - 40mm */
-    width: 210mm; /* 210mm - 40mm */
-    border: 1px solid #070210; /* Adiciona uma borda para visualização */
-    box-sizing: border-box; /* Inclui a borda e o preenchimento no tamanho total da caixa */
+#bordaA4 {
+    height: 297mm;
+    /* 297mm - 40mm */
+    width: 210mm;
+    /* 210mm - 40mm */
+    border: 1px solid #070210;
+    /* Adiciona uma borda para visualização */
+    box-sizing: border-box;
+    /* Inclui a borda e o preenchimento no tamanho total da caixa */
     display: flex;
     flex-direction: column;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+}
 
 #pagina-impressao {
 
-    position: relative; /* Segura o card-box no fim da página */
+    position: relative;
+    /* Segura o card-box no fim da página */
     /*display: flex;
     flex-direction: column;
     align-items: center;  /* Centraliza horizontalmente */
     page-break-inside: avoid;
 
-    height: 297mm; /* */
+    height: 297mm;
+    /* */
     width: 210mm;
 
     margin: 0;
     padding: 0;
 }
 
-#licenca {
+#licenca-section {
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Centraliza horizontalmente */
-    text-align: center;
+    width: 100%;
+    align-items: center;
+    text-align: left;
     margin-top: 10mm;
     font-size: smaller;
-} 
+}
 
-    .licenceText {
-        font-size: 0.7rem;
-        margin-left: 10%;
-        margin-right: 10%;
-        text-align: justify;   
-    }
+.licenceText {
+    font-size: 0.7rem;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: justify;
+}
 
-    #licenca img {
-        margin-bottom: 10px; /* Adiciona uma margem inferior à imagem */
-    }
+#licenca img {
+    margin: 0 auto;
+    margin-bottom: 10;    
+}
 
 #card-pdf {
     position: absolute;
-    bottom: 0; /* distância entre a parte inferior de #card e a parte inferior do contêiner pai */
-    left: 50%; /* centraliza horizontalmente em relação ao contêiner pai */
-    transform: translateX(-50%); /* centraliza horizontalmente em relação a si mesmo.
+    bottom: 0;
+    /* distância entre a parte inferior de #card e a parte inferior do contêiner pai */
+    left: 50%;
+    /* centraliza horizontalmente em relação ao contêiner pai */
+    transform: translateX(-50%);
+    /* centraliza horizontalmente em relação a si mesmo.
     Move o elemento #card 50% da sua própria largura para a esquerda. Isso é necessário porque left: 
     50% posiciona o lado esquerdo do elemento no meio do contêiner pai, 
     e translateX(-50%) ajusta o elemento para que ele fique centralizado horizontalmente. */
-    top: calc(297mm - 85mm - 30mm); /* Posiciona a parte superior do card-box de forma relativa ao tamanho da página */
+    top: calc(297mm - 85mm - 30mm);
+    /* Posiciona a parte superior do card-box de forma relativa ao tamanho da página */
 }
 
-    .card-box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;  /* Centraliza horizontalmente */
-        justify-content: center; /* Centraliza horizontalmente */
-        width: 125mm !important;
-        height: 75mm !important;
-        border-top: 1px solid #070210; /* borda para visualização */
-        border-bottom: 1px solid #070210; /* borda para visualização */
-        box-sizing: border-box; /* Inclui a borda e o preenchimento no tamanho total da caixa */
-        padding-top: 0px;
-        padding-left: 10px; /* Adiciona um preenchimento interno */
-        padding-right: 10px;
-        padding-bottom: 0px;
-        margin: 0;
-            
-        overflow: hidden; /* Adiciona rolagem se o conteúdo exceder o tamanho da caixa */
-    }
+.card-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centraliza horizontalmente */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    width: 125mm !important;
+    height: 75mm !important;
+    border-top: 1px solid #070210;
+    /* borda para visualização */
+    border-bottom: 1px solid #070210;
+    /* borda para visualização */
+    box-sizing: border-box;
+    /* Inclui a borda e o preenchimento no tamanho total da caixa */
+    padding-top: 0px;
+    padding-left: 10px;
+    /* Adiciona um preenchimento interno */
+    padding-right: 10px;
+    padding-bottom: 0px;
+    margin: 0;
 
-        #ficha-aqui, #ficha-aqui-pdf {
-            white-space: pre-wrap; /* Preserva quebras de linha e espaços */
-            margin: 0;
-            padding: 0;
-            font-size: medium;
-        }
-
-        #codigos-aqui, #codigos-aqui-pdf {
-            margin-top: auto; /* Alinha o próprio elemento na parte inferior */
-            padding: 0;
-            font-size: small;
-            font-family: 'Courier New', Courier, monospace;
-            }
-
-#ficha-catalografica {
-    display: none;
+    overflow: hidden;
+    /* Adiciona rolagem se o conteúdo exceder o tamanho da caixa */
 }
+
+#ficha-aqui,
+#ficha-aqui-pdf {
+    white-space: pre-wrap;
+    /* Preserva quebras de linha e espaços */
+    margin: 0;
+    padding: 0;
+    font-size: medium;
+}
+
+#codigos-aqui,
+#codigos-aqui-pdf {
+    margin-top: auto;
+    /* Alinha o próprio elemento na parte inferior */
+    padding: 0;
+    font-size: small;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
 
 #bib {
     position: absolute;
-    bottom: 0; /* distância entre a parte inferior de #bib e a parte inferior do contêiner pai */
-    left: 50%; /* centraliza horizontalmente em relação ao contêiner pai */
-    transform: translateX(-50%); /* centraliza horizontalmente em relação a si mesmo.
+    bottom: 0;
+    /* distância entre a parte inferior de #bib e a parte inferior do contêiner pai */
+    left: 50%;
+    /* centraliza horizontalmente em relação ao contêiner pai */
+    transform: translateX(-50%);
+    /* centraliza horizontalmente em relação a si mesmo.
     Move o elemento #card 50% da sua própria largura para a esquerda. Isso é necessário porque left: 
     50% posiciona o lado esquerdo do elemento no meio do contêiner pai, 
     e translateX(-50%) ajusta o elemento para que ele fique centralizado horizontalmente. */
-    top: calc(297mm - 40mm); 
+    top: calc(297mm - 40mm);
 }
 
 
@@ -187,107 +217,107 @@ legend {
     display: none
 }
 
- /* PESSOA */
-    
- 
- #pessoa-sn {
-    display: none;
-    }
-    
-    #pessoa-section {
-    display: none;
-    }
-    
-    #detalhes-pessoa {
-    display: none;
-    }
-    
-    #entidade-section {
-    display: none;
-    }
-    
-    #evento-section {
-    display: none;
-    }
-    
-    #autor-section {
-    display: none;
-    }
-    
-    #organizador-section {
-    display: none;
-    }
-    
-    #compilador-section {
-    display: none;
-    }
-    
-    #coordenador-section {
-    display: none;
-    }
-    
-    #editor-section {
-    display: none;
-    }
-    
-    #pessoa-qtd {
-    display: none;
-    }
+/* PESSOA */
 
-    #pessoa-outro {
-        display: none
-    }
-    
-    #tradutor-section {
-    display: none;
-    }
-    
-    #ilustrador-section {
-    display: none;
-    }
-    
-    #pessoa-segundo {
-    display: none;
-    }
-    
-    #pessoa-terceiro {
-    display: none;
-    }
-    
-    #pessoa-quarto {
-    display: none;
-    }
 
- /* CONTRIBUIDOR - Ilustrador */
-
-    #ilustrador-sn {
-        display: none;
-        }
-        
-        #ilustrador-qtd {
-        display: none;
-        }
-    
-    #ilustrador-outro {
+#pessoa-sn {
     display: none;
-    }
-        
-    
+}
+
+#pessoa-section {
+    display: none;
+}
+
+#detalhes-pessoa {
+    display: none;
+}
+
+#entidade-section {
+    display: none;
+}
+
+#evento-section {
+    display: none;
+}
+
+#autor-section {
+    display: none;
+}
+
+#organizador-section {
+    display: none;
+}
+
+#compilador-section {
+    display: none;
+}
+
+#coordenador-section {
+    display: none;
+}
+
+#editor-section {
+    display: none;
+}
+
+#pessoa-qtd {
+    display: none;
+}
+
+#pessoa-outro {
+    display: none
+}
+
+#tradutor-section {
+    display: none;
+}
+
+#ilustrador-section {
+    display: none;
+}
+
+#pessoa-segundo {
+    display: none;
+}
+
+#pessoa-terceiro {
+    display: none;
+}
+
+#pessoa-quarto {
+    display: none;
+}
+
+/* CONTRIBUIDOR - Ilustrador */
+
+#ilustrador-sn {
+    display: none;
+}
+
+#ilustrador-qtd {
+    display: none;
+}
+
+#ilustrador-outro {
+    display: none;
+}
+
+
 
 /* CONTRIBUIDOR - Tradutor */
 
 #tradutor-sn {
     display: none;
-    }
-    
-    #tradutor-qtd {
+}
+
+#tradutor-qtd {
     display: none;
-    }
+}
 
 #tradutor-outro {
-display: none;
+    display: none;
 }
-    
+
 #publicador-segundo {
     display: none;
 }
@@ -352,18 +382,23 @@ display: none;
 #formato-digital {
     display: none;
 }
-#material-adicional{
+
+#material-adicional {
     display: none;
-}   
+}
+
 #material-adicional-section {
     display: none;
 }
+
 #serie {
     display: none;
-}   
+}
+
 #subserie-sn {
     display: none;
-}   
+}
+
 #subserie {
     display: none;
 }
@@ -375,6 +410,7 @@ display: none;
 #isbn-2-sn {
     display: none;
 }
+
 #isbn-outro {
     display: none;
 }
@@ -392,5 +428,13 @@ display: none;
 }
 
 #btn-pdf {
+    display: none;
+}
+
+#ficha-catalografica {
+    display: none;
+}
+
+#opcionais-pdf {
     display: none;
 }

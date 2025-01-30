@@ -14,9 +14,11 @@
 
 <body>
 
-    <h2>Gerador de Ficha Catalográfica para Livros</h2>
-    
+    <!-- FORMULÁRIO -->
+
     <form id="card-form">
+
+        <h2>Gerador de Ficha Catalográfica para Livros</h2>
 
         <fieldset id="materialidade" class="form-group">
 
@@ -76,38 +78,6 @@
                 <input type="text" class="form-control" id="pha" name="pha" required>
             </div>
         </fieldset>
-
-        <!-- CREATIVE COMMONS -->
-
-        <fieldset id="licenca-section" class="form-group form-group-bordered">
-
-            <div id="licenca-radio">
-
-                <p>Gostaria de acrescentar a seguinte licença Creative Commons:</p>
-
-                <input type="radio" id="by-radio" name="cc-radio" value="by">
-                <label for="by-radio">Atribuição (CC BY)</label><br>
-
-                <input type="radio" id="by-sa-radio" name="cc-radio" value="by-sa">
-                <label for="by-sa-radio">Atribuição-CompartilhaIgual (CC BY-SA)</label><br>
-
-                <input type="radio" id="by-nd-radio" name="cc-radio" value="by-nd">
-                <label for="by-nd-radio">Atribuição-SemDerivações (CC BY-ND)</label><br>
-
-                <input type="radio" id="by-nc-radio" name="cc-radio" value="by-nc">
-                <label for="by-nc-radio">Atribuição-NãoComercial (CC BY-NC)</label><br>
-
-                <input type="radio" id="by-nc-sa-radio" name="cc-radio" value="by-nc-sa">
-                <label for="by-nc-sa-radio">Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA)</label><br>
-
-                <input type="radio" id="by-nc-nd-radio" name="cc-radio" value="by-nc-nd">
-                <label for="by-nc-nd-radio">Atribuição-NãoComercial-SemDerivações (CC BY-NC-ND)</label><br>
-
-                <input type="radio" id="cc-0-radio" name="cc-radio" value="cc-0">
-                <label for="cc-0-radio">Domínio Público (CC0)</label>
-            </div>
-
-        </fieldset> <!-- Fim de licenca-section-->
 
         <!-- TÍTULO E SUBTÍTULO -->
 
@@ -460,7 +430,7 @@
 
                     <input type="checkbox" id="pag-romana" name="pag-outra">
                     <label for="pag-romana">O livro possui páginas prefaciais em algarismos romanos</label><br>
-    
+
 
                     <div id="paginacao-romana">
                         <label for="pag-romana-qtd">Quantidade de páginas com numeração romana</label><br>
@@ -766,16 +736,13 @@
             <input type="text" class="form-control" id="crb" name="identificacao">
         </div>
 
-        <div id="creditos-section">
-            <label for="creditos">Créditos da publicação</label><br>
-            <textarea id="creditos" name="creditos" wrap="hard"></textarea>
-        </div>
-    </form>
-    
-    <!-- BOTÃO GERAR FICHA-->
-    
-    <button type="button" id="btn-card" style="margin: auto; margin-top: 15px; margin-bottom: 15px">Get ficha</button>
-    
+            <!-- BOTÃO GERAR FICHA-->
+
+    <button type="button" id="btn-card" class="button">Get ficha</button>
+
+
+    </form> <!-- fim de card-form -->
+
     <!-- FICHA CATALOGRÁFICA -->
 
     <div id="ficha-catalografica">
@@ -802,15 +769,63 @@
             <label for="font-size">Tamanho da Fonte:</label>
             <input type="number" id="font-size" value="14">
         </div>
+    </div> <!-- fim de ficha-catalografica -->
 
-        <button type="button" id="btn-pdf" style="margin: auto; margin-top: 30px; margin-bottom: 30px">Get PDF</button>
-    </div>
+    <!-- OPCIONAIS DO PDF -->
 
-    <!-- PAGE FOR PDF -->
+    <div id="opcionais-pdf">
+        <h4>Campos opcionais para PDF</h4>
+
+        <!-- Licença -->
+        <fieldset id="licenca-section" class="form-group form-group-bordered">
+
+            <div id="licenca-radio">
+
+                <p><em>Licença Creative Commons</em></p>
+
+                <input type="radio" id="by-radio" name="cc-radio" value="by">
+                <label for="by-radio">Atribuição (CC BY)</label><br>
+
+                <input type="radio" id="by-sa-radio" name="cc-radio" value="by-sa">
+                <label for="by-sa-radio">Atribuição-CompartilhaIgual (CC BY-SA)</label><br>
+
+                <input type="radio" id="by-nd-radio" name="cc-radio" value="by-nd">
+                <label for="by-nd-radio">Atribuição-SemDerivações (CC BY-ND)</label><br>
+
+                <input type="radio" id="by-nc-radio" name="cc-radio" value="by-nc">
+                <label for="by-nc-radio">Atribuição-NãoComercial (CC BY-NC)</label><br>
+
+                <input type="radio" id="by-nc-sa-radio" name="cc-radio" value="by-nc-sa">
+                <label for="by-nc-sa-radio">Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA)</label><br>
+
+                <input type="radio" id="by-nc-nd-radio" name="cc-radio" value="by-nc-nd">
+                <label for="by-nc-nd-radio">Atribuição-NãoComercial-SemDerivações (CC BY-NC-ND)</label><br>
+
+                <input type="radio" id="cc-0-radio" name="cc-radio" value="cc-0">
+                <label for="cc-0-radio">Domínio Público (CC0)</label>
+            </div>
+
+        </fieldset> <!-- Fim de licenca-section-->
+
+
+        <!-- Créditos -->
+        <div id="creditos-section">
+            <label for="creditos">Créditos da publicação</label><br>
+            <textarea id="creditos" name="creditos" wrap="hard"></textarea>
+        </div>
+
+
+        <button type="button" id="btn-pdf" style="margin: auto; margin-top: 30px; margin-bottom: 30px">Gerar
+            PDF</button>
+
+
+    </div> <!-- fim de opcionais-pdf -->
+
+    <!-- PÁGINA PARA PDF -->
 
     <div id="pagina-impressao">
 
-        <div id="licenca">
+        <div id="licenca-section-pdf">
             <!-- Inputs das licenças-->
 
             <div id="by">
@@ -877,7 +892,11 @@
                         href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
             </div>
 
-        </div> <!-- fim da div licenca -->
+        </div> <!-- fim de licenca-section-pdf -->
+
+        <div id="creditos-section-pdf">
+            <p id="creditos-pdf"></p>
+        </div> <!-- fim de creditos-section-pdf -->
 
         <div id="card-pdf" class="card-box">
             <p id="ficha-aqui-pdf"></p>
@@ -886,7 +905,7 @@
         <div id="bib">
             <p id="bibliotecario-aqui-pdf"></p>
         </div>
-    </div> <!-- page's end -->
+    </div> <!-- fim de pagina-impressao -->
 
 
     <script type="module" src="formScript.js" charset="utf-8"></script>

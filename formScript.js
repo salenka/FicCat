@@ -59,7 +59,7 @@ document.querySelectorAll('input[name="codigos-ckbox"]').forEach(checkbox => {
     })
 })
 
-// LICENCA
+// LICENCA - Salva em localStorage
 
     document.querySelectorAll('input[name="cc-radio"]').forEach(radio => {
         radio.addEventListener('change', function () {
@@ -70,6 +70,13 @@ document.querySelectorAll('input[name="codigos-ckbox"]').forEach(checkbox => {
 
     })
 })
+
+// CREDITOS - Salva em localStorage
+
+    let creditos = document.getElementById("creditos").value;
+    document.addEventListener("change", function () {
+        localStorage.setItem('creditos', JSON.stringify(creditos));
+    })
 
 // RESPONSABILIDADE INTELECTUAL
 
