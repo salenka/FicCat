@@ -64,6 +64,11 @@ export function geraFicha() {
 
     console.log("botão Gerar Ficha acionado");
 
+    ficha = JSON.parse(cs.getFicha().ficha);
+    codigos = JSON.parse(cs.getCodigos().codigos);
+    licenca = cs.getLicenca().licenca;
+    bibliotecario = cs.getBibliotecario().bibliotecario;
+
     /*
     //chamada de funções de cada área em cs.js
     const areaTitulo = cs.getTitulo().areaTitulo;

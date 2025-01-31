@@ -13,7 +13,7 @@ window.onload = function () {
         const licenca = localStorage.getItem("licenca");
     */
     
-    fichaPdf = JSON.parse(cs.getFicha().ficha);
+    ficha = JSON.parse(cs.getFicha().ficha);
     codigos = JSON.parse(cs.getCodigos().codigos);
     licenca = cs.getLicenca().licenca;
     const fontSelect = localStorage.getItem("fontSelect");
