@@ -131,7 +131,7 @@ legend {
     padding-bottom: 0px;
     margin: 0;
 
-    overflow: hidden;
+    overflow: auto;
     /* Adiciona rolagem se o conteúdo exceder o tamanho da caixa */
 }
 

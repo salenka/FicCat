@@ -2,7 +2,7 @@
 
 // ÁREA DE TÍTULO
 
-//export function getTitulo() {
+function getTitulo() {
 
 let titulo = document.getElementById("titulo").value.trim();
 
@@ -11,24 +11,24 @@ subtitulo = subtitulo ? ': ' + subtitulo : "";
 
 const areaTitulo = `${titulo}${subtitulo}`;
 
-//return { areaTitulo }
-//}
+return { areaTitulo }
+}
 
 // ÁREA DE EDIÇÃO
 
-//export function getEdicao() {
+function getEdicao() {
 
 let edicao = document.getElementById("edicao").value.trim();
 let areaEdicao = edicao ? '. -- ' + edicao + ' ed' : "";
 
-//return { areaEdicao }
-//}
+return { areaEdicao }
+}
 
 //ÁREA DE RESPONSABILIDADE INTELECTUAL
 
 // Tipo de responsável
 
-//export function getRespInt() {
+function getRespInt() {
 
 let entidade = document.getElementById("entidade-nome").value.trim();
 entidade = entidade ? entidade : "";
@@ -66,8 +66,10 @@ let editor = "";
 
 const tipoPessoa = document.querySelector('input[name="pessoa-tipo"]:checked')?.value;
 if (tipoPessoa === "autor") {
-    const nome = document.getElementById("nome").value.trim() || "";
-    const sobrenome = document.getElementById("sobrenome").value.trim() || "";
+    let nome = document.getElementById("nome").value.trim();
+    nome = nome? nome : "";
+    let sobrenome = document.getElementById("sobrenome").value.trim();
+    sobrenome = sobrenome? sobrenome : "";
     autorEntrada = sobrenome + ", " + nome;
     autor = nome + " " + sobrenome;
 
@@ -180,13 +182,12 @@ if (edicaoPresente && respInt === "pessoa" || edicaoPresente && respInt === "ent
 
 areaResponsabilidade += `${entidade}${autor}${organizador}${coordenador}${compilador}${editor}${pessoa2}${pessoa3}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3}`;
 
-//return { entradaPrincipal, areaResponsabilidade }
-//}
-
+return { entradaPrincipal, areaResponsabilidade }
+}
 
 // ÁREA DE PUBLICAÇÃO
 
-//export function getPublicacao() {
+function getPublicacao() {
 
 let publicador = document.getElementById("publicador").value.trim();
 publicador = publicador ? ' : ' + publicador : ' : [s.n.]';
@@ -215,15 +216,15 @@ if (maisPublicador === "sim") {
 
 const areaPublicacao = `${local}${publicador}${local2}${publicador2}${ano}`;
 
-//return { areaPublicacao }
+return { areaPublicacao }
 
-//}
+}
 
 // ÁREA DE DESCRIÇÃO FÍSICA
 
 //Paginação
 
-//export function getDescricaoFisica() {
+function getDescricaoFisica() {
 
 const paginacao_radio = document.querySelector('input[name="paginacao"]:checked')?.value;
 const pagRomana_cbox = document.getElementById("pag-romana").checked;
@@ -367,13 +368,13 @@ const materialAdicional = matAdic ? ` + ${qtdMatAdic} ${matAdic}` : "";
 
 // Saída da área de descrição física------------------
 
-//return { paginacao, imagens, dimensoes, materialAdicional }
+return { paginacao, imagens, dimensoes, materialAdicional }
 
-//}
+}
 
 // ÁREA DE SÉRIE
 
-//export function getSerie() {
+function getSerie() {
 // Elementos antessessores sem ponto final
 // const pagRomana = document.getElementById("pag-romana").checked ; // xv (na vdd esse nunca vai ser o caso)
 const imagemSim = document.getElementById("imagem-sim").checked; // p&b fotos mapas (menos color. e il.)
@@ -408,13 +409,13 @@ if (serieSN === "sim") {
     }
 }
 
-//return { areaSerie };
-//}
+return { areaSerie };
+}
 
 // ÁREA DE NOTAS
 
 // Notas descritivas
-//export function getNota() {
+function getNota() {
 
 const isbnSN = document.querySelector('input[name="isbn-sn"]:checked')?.value;
 let areaNotaISBN = "";
@@ -428,10 +429,10 @@ let nota2 = document.getElementById("nota-2").value.trim();
 nota2 = nota2 ? `\n    ${nota2}` : "";
 
 
-//return { nota1, nota2 };
-//}
+return { nota1, nota2 };
+}
 // ISBN
-//export function getISBN() {
+function getISBN() {
 
 // const isbnSN = document.querySelector('input[name="isbn-sn"]:checked')?.value;
 //let areaNotaISBN = "";
@@ -453,11 +454,11 @@ isbn2 = `${isbn2}${qualificador2}`;
 
 let isbn = isbn1 + isbn2;
 
-//return { ISBN };
-//}
+return { isbn };
+}
 
 // ASSUNTOS             
-//export function getAssunto() {
+function getAssunto() {
 let assunto1 = document.getElementById("assunto-1").value.trim();
 assunto1 = assunto1 ? `1. ${assunto1}` : "";
 
@@ -475,8 +476,8 @@ assunto5 = assunto5 ? `5. ${assunto5}` : "";
 
 const assuntos = `${assunto1} ${assunto2} ${assunto3} ${assunto4} ${assunto5}`;
 
-//return { assuntos };
-//}
+return { assuntos };
+}
 
 /*  .......................................................... FUNÇÕES EXPORTADAS  */
 
@@ -484,18 +485,38 @@ const assuntos = `${assunto1} ${assunto2} ${assunto3} ${assunto4} ${assunto5}`;
 
 export function getFicha() {
 
+    //chamada de funções de cada área (para obter o valor preenchido após carregamento)
+    const areaTitulo = getTitulo().areaTitulo;
+    const areaEdicao = getEdicao().areaEdicao;
+    const entradaPrincipal = getRespInt().entradaPrincipal;
+    const areaResponsabilidade = getRespInt().areaResponsabilidade;
+    const areaPublicacao = getPublicacao().areaPublicacao;
+    const paginacao = getDescricaoFisica().paginacao;
+    const imagens = getDescricaoFisica().imagens;
+    const dimensoes = getDescricaoFisica().dimensoes;
+    const materialAdicional = getDescricaoFisica().materialAdicional;
+    const areaSerie = getSerie().areaSerie;
+    const isbn = getISBN().isbn;
+    const nota1 = getNota().nota1;
+    const nota2 = getNota().nota2;
+    const assuntos = getAssunto().assuntos;
+
     //Configuração da ficha catalográfica
     let ficha = `${entradaPrincipal}
-${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
-${paginacao}${imagens}${dimensoes}${materialAdicional}${areaSerie}
-${nota1}${nota2}${isbn}
-${assuntos}
-`
+    ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
+    ${paginacao}${imagens}${dimensoes}${materialAdicional}${areaSerie}
+    ${nota1}${nota2}${isbn}
+    ${assuntos}
+    `
     // Ajustes finais da ficha
     ficha = ficha.replace('.. -- ', ' . -- ') // Elimina ponto final que é seguido de marcador de nova seção
     ficha = ficha.replace('il..', 'il.') // Elimina ponto final da área de série após abreviação il.
     ficha = ficha.replace('p..', 'p.') // Elimina ponto final da área de série após abreviação p.
     ficha = ficha.replace('color..', 'color.') // Elimina de ponto final da área de série após abreviação color.
+
+    // Salva ficha no localStorage (para recuperação por a4.js)
+    localStorage.setItem('ficha', JSON.stringify(ficha));
+    
 
     ficha = JSON.stringify(ficha);
 
@@ -531,6 +552,8 @@ export function getCodigos() {
     ${cutter}
     ${pha}
     `
+    // Salva ficha no localStorage (para recuperação por a4.js)
+    localStorage.setItem('codigos', JSON.stringify(codigos));
 
     return { codigos }
 }
