@@ -10,7 +10,7 @@ alert("Funcionando");
             if (document.getElementById('fisico').checked) {
                 eraseChildText('materialidade');
                 
-                document.getElementById('formato-fisico').style.display = 'block';
+                document.getElementById('formato-fisico-section').style.display = 'block';
                 document.getElementById('formato-digital').style.display = 'none';
                 document.getElementById('material-adicional-section').style.display = 'block';
 
@@ -18,11 +18,11 @@ alert("Funcionando");
                 uncheckOption('formato');
                 uncheckOption('material-adicional-sn');  
                 eraseChildText('material-adicional-section');
-                document.getElementById('formato-fisico').style.display = 'none';
+                document.getElementById('formato-fisico-section').style.display = 'none';
                 document.getElementById('material-adicional-section').style.display = 'none';
                 document.getElementById('formato-digital').style.display = 'block';
             } else  {
-                document.getElementById('formato-fisico').style.display = 'none';
+                document.getElementById('formato-fisico-section').style.display = 'none';
                 document.getElementById('formato-digital').style.display = 'none';
             }      
         })   
@@ -478,7 +478,7 @@ document.getElementById('tradutor').addEventListener('change', function () {
     document.querySelectorAll('input[name="formato"]').forEach(radio => {
         radio.addEventListener('change', function () {
 
-            eraseChildText('formato-fisico');
+            eraseChildText('formato-fisico-section');
             
             if (document.getElementById('formato-trad').checked) {
                 document.getElementById('formato-tradicional').style.display = 'block';

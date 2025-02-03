@@ -64,11 +64,6 @@ export function geraFicha() {
 
     console.log("botão Gerar Ficha acionado");
 
-    ficha = JSON.parse(cs.getFicha().ficha);
-    codigos = JSON.parse(cs.getCodigos().codigos);
-    licenca = cs.getLicenca().licenca;
-    bibliotecario = cs.getBibliotecario().bibliotecario;
-
     /*
     //chamada de funções de cada área em cs.js
     const areaTitulo = cs.getTitulo().areaTitulo;
@@ -107,6 +102,16 @@ export function geraFicha() {
 
     */
 
+    // Captura das variáveis de cardScript.js
+    const ficha = JSON.parse(cs.getFicha().ficha);
+
+    const msg = `Ficha parseada: ${ficha}`
+
+    console.log(msg);
+
+    const codigos = JSON.parse(cs.getCodigos().codigos);
+    const bibliotecario = JSON.parse(cs.getBibliotecario().bibliotecario);
+
     // Renderização da ficha
     document.getElementById("ficha-aqui").textContent = ficha;
     document.getElementById("codigos-aqui").textContent = codigos;
@@ -116,9 +121,9 @@ export function geraFicha() {
 
     // Renderização dos elementos no HTML
     document.getElementById("ficha-catalografica").style.display = "block";
-    document.getElementById("btn-pdf").style.display = "block";
     document.getElementById("font-controls").style.display = "block";
     document.getElementById("opcionais-pdf").style.display = "block";
+    document.getElementById("btn-pdf").style.display = "block";
 
     //return { ficha, codigos };
 }
@@ -159,7 +164,7 @@ export function geraPDF() {
     //RENDERIZAÇÃO DA FICHA
 
     const ficha = JSON.parse(localStorage.getItem('ficha'));
-    const codigos = JSON.parse(localStorage.getItem('codigos'));
+    const codigos = JSON.parse(cs.getCodigos().codigos);
     const fontSelect = localStorage.getItem("fontSelect");
     const fontSizeInput = localStorage.getItem("fontSizeInput");
     const bibliotecario = cs.getBibliotecario().bibliotecario;
