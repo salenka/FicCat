@@ -64,51 +64,8 @@ export function geraFicha() {
 
     console.log("botão Gerar Ficha acionado");
 
-    /*
-    //chamada de funções de cada área em cs.js
-    const areaTitulo = cs.getTitulo().areaTitulo;
-    const areaEdicao = cs.getEdicao().areaEdicao;
-    const entradaPrincipal = cs.getRespInt().entradaPrincipal;
-    const areaResponsabilidade = cs.getRespInt().areaResponsabilidade;
-    const areaPublicacao = cs.getPublicacao().areaPublicacao;
-    const paginacao = cs.getDescricaoFisica().paginacao;
-    const imagens = cs.getDescricaoFisica().imagens;
-    const dimensoes = cs.getDescricaoFisica().dimensoes;
-    const materialAdicional = cs.getDescricaoFisica().materialAdicional;
-    const areaSerie = cs.getSerie().areaSerie;
-    const isbn = cs.getISBN().ISBN;
-    const nota1 = cs.getNota().nota1;
-    const nota2 = cs.getNota().nota2;
-    const assuntos = cs.getAssunto().assuntos;
-    const codigos = cs.getCodigo().codigos;
-    const bibliotecario = cs.getBibliotecario().bibliotecario;
-
-    //Configuração da ficha catalográfica
-    let ficha = `${entradaPrincipal}
-    ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
-    ${paginacao}${imagens}${dimensoes}${materialAdicional}${areaSerie}
-    ${nota1}${nota2}${isbn}
-    ${assuntos}
-    `
-    // Ajustes finais da ficha
-    ficha = ficha.replace('.. -- ', ' . -- ') // Elimina ponto final que é seguido de marcador de nova seção
-    ficha = ficha.replace('il..', 'il.') // Elimina ponto final da área de série após abreviação il.
-    ficha = ficha.replace('p..', 'p.') // Elimina ponto final da área de série após abreviação p.
-    ficha = ficha.replace('color..', 'color.') // Elimina de ponto final da área de série após abreviação color.
-
-    // Salva ficha no localStorage (para recuperação por a4.js)
-    localStorage.setItem('ficha', JSON.stringify(ficha));
-    localStorage.setItem('codigos', JSON.stringify(codigos));
-
-    */
-
     // Captura das variáveis de cardScript.js
     const ficha = JSON.parse(cs.getFicha().ficha);
-
-    const msg = `Ficha parseada: ${ficha}`
-
-    console.log(msg);
-
     const codigos = JSON.parse(cs.getCodigos().codigos);
     const bibliotecario = JSON.parse(cs.getBibliotecario().bibliotecario);
 
@@ -133,16 +90,16 @@ export function geraFicha() {
 
 export function geraPDF() {
 
-    // OCULTAÇÃO DE DIVS
+    // Ocultação de divs
     document.getElementById('card-form').style.display = "none";
     document.getElementById('ficha-catalografica').style.display = "none";
     document.getElementById('opcionais-pdf').style.display = "none";
     document.getElementById('pagina-pdf').style.display = "block";
 
-    // RENDERIZAÇÃO DA LICENÇA
+    // Renderização da licença
 
-    const licenca = localStorage.getItem("licenca");
-    
+    const licenca = localStorage.getItem("licenca"); //mudar para cs.get
+        
         // Oculta todas as divs de licença
         document.querySelectorAll('#licenca-section-pdf > div').forEach(div => {
             div.style.display = 'none';
@@ -156,14 +113,14 @@ export function geraPDF() {
             selectedDiv.style.alignItems = 'center'; // Centraliza os itens
         }
 
-    // RENDERIZAÇÃO DOS CRÉDITOS
+    // Rnderização dos créditos
 
     const creditos = `${document.getElementById("creditos").value}`;
     document.getElementById("creditos-pdf").innerHTML = creditos;
 
-    //RENDERIZAÇÃO DA FICHA
+    //Renderização da ficha
 
-    const ficha = JSON.parse(localStorage.getItem('ficha'));
+    const ficha = JSON.parse(localStorage.getItem('ficha')); //mudar para cs.get
     const codigos = JSON.parse(cs.getCodigos().codigos);
     const fontSelect = localStorage.getItem("fontSelect");
     const fontSizeInput = localStorage.getItem("fontSizeInput");
@@ -177,14 +134,14 @@ export function geraPDF() {
     document.getElementById("bibliotecario-aqui-pdf").textContent = bibliotecario;
 
 
-    // IMPRESSÃO DO PDF
+    // Impressão do PDF
     const content = document.getElementById("pagina-pdf");
 
     const options = {
         filename: "ficha-catalografica",
-        scrollX: 0, //sem no ficcat2
-        scrollY: 0, //sem no ficcat2
-        scale: 1,
+        scrollX: 0, //sem no A4.html
+        scrollY: 0, //sem no A4.html
+        scale: 1,  // sem no A4.html
         jsPDF: {
             unit: "mm",
             orientation: "portrait",
@@ -201,7 +158,7 @@ export function geraPDF() {
         //width: 210, 
     }
     
-    setTimeout(function () {
+    //setTimeout(function () {
         html2pdf().set(options).from(content).outputPdf('blob').then((blob) => {
             const url = URL.createObjectURL(blob);
             window.open(url);
@@ -212,12 +169,12 @@ export function geraPDF() {
             //link.download = 'documento.pdf';
             //link.click();
         })
-    }, 2500);
+    //}, 3000);
 
     setTimeout(function () {
         //document.getElementById("pagina-pdf").style.display = "none";
         document.getElementById("card-form").style.display = "block";
         document.getElementById('ficha-catalografica').style.display = "block";
         document.getElementById("opcionais-pdf").style.display = "block";
-    }, 2000);
+    }, 2500);
 }

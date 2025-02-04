@@ -573,6 +573,7 @@ export function getBibliotecario() {
     crb = crb ? ` - CRB ${crb} ${quebraTexto}` : "";
 
     let bibliotecario = JSON.stringify(`${bibliotecarioNome}${crb}`);
+    localStorage.setItem("bibliotecario", bibliotecario);
 
     return { bibliotecario }
 }
@@ -583,8 +584,9 @@ export function getLicenca() {
 
     let licenca = document.querySelector('input[name="cc-radio"]:checked')?.value;
     licenca = licenca ? licenca : '';
-    localStorage.setItem("licenca", licenca);
-    console.log(`licenca salva em localStorage: ${localStorage.getItem(licenca)}`);
+
+    //localStorage.setItem("licenca", licenca);
+    //console.log(`licenca salva em localStorage: ${localStorage.getItem(licenca)}`);
 
     return { licenca }
 

@@ -1,24 +1,38 @@
 import * as cs from './cardScript.js';
 
 
+// AO CARREGAR O A4.HTML
 
-
-
-// Chama a função geraPagina ao carregar a página
 window.onload = function () {
 
-    /*
+    
         const ficha = JSON.parse(localStorage.getItem('ficha'));
         const codigos = JSON.parse(localStorage.getItem('codigos'));
+        const bibliotecario = JSON.parse(localStorage.getItem('bibliotecario'));
         const licenca = localStorage.getItem("licenca");
-    */
-    
-    ficha = JSON.parse(cs.getFicha().ficha);
-    codigos = JSON.parse(cs.getCodigos().codigos);
-    licenca = cs.getLicenca().licenca;
-    const fontSelect = localStorage.getItem("fontSelect");
-    const fontSizeInput = localStorage.getItem("fontSizeInput");
 
+        const fontSelect = localStorage.getItem("fontSelect");
+        const fontSizeInput = localStorage.getItem("fontSizeInput");
+ 
+    
+
+    // Oculta todas as divs de licença
+    document.querySelectorAll('#licenca-section-pdf > div').forEach(div => {
+        div.style.display = 'none';
+    });
+
+    //const licenca = cs.getLicenca().licenca;
+  
+/*
+    // Mostra apenas a div correspondente à licença selecionada
+    if (licenca) {
+        const selectedDiv = licenca;
+        selectedDiv.style.display = 'flex'; // Altera o display para flex
+        selectedDiv.style.flexDirection = 'column'; // Define a direção do flex
+        selectedDiv.style.alignItems = 'center'; // Centraliza os itens
+    
+    }
+*/
 
     switch (licenca) {
         case "by":
@@ -47,22 +61,22 @@ window.onload = function () {
 
     }
 
+    //Renderização da ficha
 
-    document.getElementById("ficha_aqui").textContent = ficha;
-    document.getElementById("ficha_aqui").style.fontFamily = fontSelect;
-    document.getElementById("ficha_aqui").style.fontSize = fontSizeInput + 'px';
 
-    document.getElementById("codigos_aqui").textContent = codigos;
-    document.getElementById("codigos_aqui").style.fontSize = (fontSizeInput - 1) + 'px';
 
-    console.log(`licença salva no localStorage: ${licenca}`)
+document.getElementById("ficha-aqui-pdf").textContent = ficha;
+document.getElementById("ficha-aqui-pdf").style.fontFamily = fontSelect;
+document.getElementById("ficha-aqui-pdf").style.fontSize = fontSizeInput + 'px';
+document.getElementById("codigos-aqui-pdf").textContent = codigos;
+document.getElementById("codigos-aqui-pdf").style.fontSize = (fontSizeInput - 1) + 'px';
+document.getElementById("bibliotecario-aqui-pdf").textContent = bibliotecario;
 
-    console.log(`ficha salva no localStorage: ${ficha}`);
-
-    console.log(`códigos salvos no localStorage: ${codigos}`);
 };
 
-const btnGerarPDF = document.getElementById("btnGerarPDF");
+// BOTÃO GERAR PDF
+
+const btnGerarPDF = document.getElementById("btn-pdf-A4");
 
 btnGerarPDF.addEventListener("click", function () {
     const content = document.getElementById("pagina");
@@ -79,15 +93,13 @@ btnGerarPDF.addEventListener("click", function () {
                 valign: "middle",
             }
         },
-        margin: 0,
-        padding: 0,
-        height: 297,
-        width: 210,
+        margin: 0, //[5, 0, 0, 0], // [topo, direita, base, esquerda] no form
+        padding: 0, //sem no form
+        height: 297, //sem no form
+        width: 210, //sem no form
     }
 
     //Gerar PDF
     html2pdf().set(options).from(content).save();
-
-
 
 });

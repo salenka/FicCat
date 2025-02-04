@@ -53,19 +53,7 @@ legend {
     padding: 0;
 }
 
-#pagina-pdf {
-    position: relative; /* Segura o card-box no fim da página */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /*page-break-inside: avoid; */
 
-    height: 297mm;
-    width: 210mm;
-
-    margin: 0;
-    padding: 0;
-}
 
 
 #licenca-section-pdf {
@@ -94,8 +82,22 @@ legend {
     margin-bottom: 10px;
 }
 
+#pagina-pdf {
+    position: relative; /* Segura o card-box no fim da página */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*page-break-inside: avoid; */
+
+    height: 297mm;
+    width: 210mm;
+
+    margin: 0;
+    padding: 0;
+}
+
 #card-pdf {
-    position: relative;
+    position: absolute;
     bottom: 0;
     /* distância entre a parte inferior de #card e a parte inferior do contêiner pai */
     left: 50%;
@@ -107,6 +109,20 @@ legend {
     e translateX(-50%) ajusta o elemento para que ele fique centralizado horizontalmente. */
     top: calc(297mm - 85mm - 30mm);
     /* Posiciona a parte superior do card-box de forma relativa ao tamanho da página */
+}
+
+#bib {
+    position: absolute;
+    bottom: 0;
+    /* distância entre a parte inferior de #bib e a parte inferior do contêiner pai */
+    left: 50%;
+    /* centraliza horizontalmente em relação ao contêiner pai */
+    transform: translateX(-50%);
+    /* centraliza horizontalmente em relação a si mesmo.
+    Move o elemento #card 50% da sua própria largura para a esquerda. Isso é necessário porque left: 
+    50% posiciona o lado esquerdo do elemento no meio do contêiner pai, 
+    e translateX(-50%) ajusta o elemento para que ele fique centralizado horizontalmente. */
+    top: calc(297mm - 40mm);
 }
 
 .card-box {
@@ -155,19 +171,7 @@ legend {
 
 
 
-#bib {
-    position: absolute;
-    bottom: 0;
-    /* distância entre a parte inferior de #bib e a parte inferior do contêiner pai */
-    left: 50%;
-    /* centraliza horizontalmente em relação ao contêiner pai */
-    transform: translateX(-50%);
-    /* centraliza horizontalmente em relação a si mesmo.
-    Move o elemento #card 50% da sua própria largura para a esquerda. Isso é necessário porque left: 
-    50% posiciona o lado esquerdo do elemento no meio do contêiner pai, 
-    e translateX(-50%) ajusta o elemento para que ele fique centralizado horizontalmente. */
-    top: calc(297mm - 40mm);
-}
+
 
 
 /* Esconde seções condicionais */

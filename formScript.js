@@ -645,13 +645,24 @@ geraFicha();
     
 })
 
-// Botão Abrir Página
+// Botão Abrir PDF
 document.getElementById("btn-pdf").addEventListener("click", function () {
 
 geraPDF();    
   
 
 });
+
+// Botão Abrir página A4
+
+document.getElementById("btn-A4").addEventListener("click", function () {
+
+    console.log("Botão Abrir Página acionado");
+    window.open("a4.html", "_blank");
+    console.log("janela aberta");
+      
+    
+    });
 
 // Controles de fonte
 
