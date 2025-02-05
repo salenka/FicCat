@@ -5,72 +5,42 @@ import * as cs from './cardScript.js';
 
 window.onload = function () {
 
-    
-        const ficha = JSON.parse(localStorage.getItem('ficha'));
-        const codigos = JSON.parse(localStorage.getItem('codigos'));
-        const bibliotecario = JSON.parse(localStorage.getItem('bibliotecario'));
-        const licenca = localStorage.getItem("licenca");
 
-        const fontSelect = localStorage.getItem("fontSelect");
-        const fontSizeInput = localStorage.getItem("fontSizeInput");
- 
-    
+    const ficha = JSON.parse(localStorage.getItem('ficha'));
+    const codigos = JSON.parse(localStorage.getItem('codigos'));
+    console.log("codigos salvo em localStorage")
+console.log(codigos)
+
+    const bibliotecario = JSON.parse(localStorage.getItem('bibliotecario'));
+    const fontSelect = localStorage.getItem("fontSelect");
+    const fontSizeInput = localStorage.getItem("fontSizeInput");
+
+//Renderização da licença
+
+const licenca = localStorage.getItem("licenca");
 
     // Oculta todas as divs de licença
     document.querySelectorAll('#licenca-section-pdf > div').forEach(div => {
         div.style.display = 'none';
     });
 
-    //const licenca = cs.getLicenca().licenca;
-  
-/*
-    // Mostra apenas a div correspondente à licença selecionada
-    if (licenca) {
-        const selectedDiv = licenca;
-        selectedDiv.style.display = 'flex'; // Altera o display para flex
-        selectedDiv.style.flexDirection = 'column'; // Define a direção do flex
-        selectedDiv.style.alignItems = 'center'; // Centraliza os itens
-    
-    }
-*/
+        // Mostra apenas a div correspondente à licença selecionada
+        if (licenca) {
+            const selectedDiv = document.getElementById(licenca);
+            selectedDiv.style.display = 'flex'; // Altera o display para flex
+            selectedDiv.style.flexDirection = 'column'; // Define a direção do flex
+            selectedDiv.style.alignItems = 'center'; // Centraliza os itens
+        }
 
-    switch (licenca) {
-        case "by":
-            document.getElementById("by").style.display = 'block';
-            break;
-        case "by-sa":
-            document.getElementById("by-sa").style.display = 'block';
-            break;
-        case "by-nd":
-            document.getElementById("by-nd").style.display = 'block';
-            break;
-        case "by-nc":
-            document.getElementById("by-nc").style.display = 'block';
-            break;
-        case "by-nc-sa":
-            document.getElementById("by-nc-sa").style.display = 'block';
-            break;
-        case "by-nc-nd":
-            document.getElementById("by-nc-nd").style.display = 'block';
-            break;
-        case "cc-0":
-            document.getElementById("cc-0").style.display = 'block';
-            break;
-        default:
-            console.log("Licença não selecionada")
-
-    }
 
     //Renderização da ficha
 
-
-
-document.getElementById("ficha-aqui-pdf").textContent = ficha;
-document.getElementById("ficha-aqui-pdf").style.fontFamily = fontSelect;
-document.getElementById("ficha-aqui-pdf").style.fontSize = fontSizeInput + 'px';
-document.getElementById("codigos-aqui-pdf").textContent = codigos;
-document.getElementById("codigos-aqui-pdf").style.fontSize = (fontSizeInput - 1) + 'px';
-document.getElementById("bibliotecario-aqui-pdf").textContent = bibliotecario;
+    document.getElementById("ficha-aqui-pdf").textContent = ficha;
+    document.getElementById("ficha-aqui-pdf").style.fontFamily = fontSelect;
+    document.getElementById("ficha-aqui-pdf").style.fontSize = fontSizeInput + 'px';
+    document.getElementById("codigos-aqui-pdf").textContent = codigos;
+    document.getElementById("codigos-aqui-pdf").style.fontSize = (fontSizeInput - 1) + 'px';
+    document.getElementById("bibliotecario-aqui-pdf").textContent = bibliotecario;
 
 };
 
@@ -79,10 +49,10 @@ document.getElementById("bibliotecario-aqui-pdf").textContent = bibliotecario;
 const btnGerarPDF = document.getElementById("btn-pdf-A4");
 
 btnGerarPDF.addEventListener("click", function () {
-    const content = document.getElementById("pagina");
+    const content = document.getElementById("pagina-pdf");
 
     const options = {
-        filename: "ficha-catalográfica",
+        filename: "ficha-catalografica",
         jsPDF: {
             unit: "mm",
             orientation: "portrait",
@@ -100,6 +70,11 @@ btnGerarPDF.addEventListener("click", function () {
     }
 
     //Gerar PDF
-    html2pdf().set(options).from(content).save();
+    //html2pdf().set(options).from(content).save(); // download do pdf
+
+    html2pdf().set(options).from(content).outputPdf('blob').then((blob) => {
+        const url = URL.createObjectURL(blob);
+        window.open(url);
+    }) //abre pdf em outra guia
 
 });

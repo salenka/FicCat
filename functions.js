@@ -99,6 +99,7 @@ export function geraPDF() {
     // Renderização da licença
 
     const licenca = localStorage.getItem("licenca"); //mudar para cs.get
+        //const licenca = cs.getLicenca().licenca;
         
         // Oculta todas as divs de licença
         document.querySelectorAll('#licenca-section-pdf > div').forEach(div => {
@@ -112,6 +113,7 @@ export function geraPDF() {
             selectedDiv.style.flexDirection = 'column'; // Define a direção do flex
             selectedDiv.style.alignItems = 'center'; // Centraliza os itens
         }
+
 
     // Rnderização dos créditos
 

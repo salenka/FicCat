@@ -540,7 +540,7 @@ export function getCodigos() {
     let pha = document.getElementById('pha').value.trim();
     pha = pha ? `PHA ${pha}` : "";
 
-    let codigos = `\n${cdd} ${cdu} ${cutter} ${pha}`
+    let codigos = `${cdd} ${cdu} ${cutter} ${pha}`
 
     codigos = JSON.stringify(codigos);
 
@@ -553,7 +553,7 @@ export function getCodigos() {
     ${pha}
     `
     // Salva ficha no localStorage (para recuperação por a4.js)
-    localStorage.setItem('codigos', JSON.stringify(codigos));
+    localStorage.setItem('codigos', codigos);
 
     return { codigos }
 }
@@ -566,11 +566,8 @@ export function getBibliotecario() {
     bibliotecarioNome = bibliotecarioNome ? `${bibliotecarioNome} (bibliotecário responsável)` : "";
 
     let crb = document.getElementById("crb").value.trim();
-    
-    let quebraTexto = `linha1
-     linha2 com crb: ${crb}`;
 
-    crb = crb ? ` - CRB ${crb} ${quebraTexto}` : "";
+    crb = crb ? ` - CRB ${crb}` : "";
 
     let bibliotecario = JSON.stringify(`${bibliotecarioNome}${crb}`);
     localStorage.setItem("bibliotecario", bibliotecario);
