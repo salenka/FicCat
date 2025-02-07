@@ -71,12 +71,15 @@ document.querySelectorAll('input[name="codigos-ckbox"]').forEach(checkbox => {
     })
 })
 
+/*
 // CREDITOS - Salva em localStorage
 
     let creditos = document.getElementById("creditos").value;
     document.addEventListener("change", function () {
         localStorage.setItem('creditos', JSON.stringify(creditos));
     })
+
+    */
 
 // RESPONSABILIDADE INTELECTUAL
 
@@ -613,7 +616,7 @@ document.getElementById('tradutor').addEventListener('change', function () {
 
         // JavaScript para limitar a quantidade máxima de linhas
         document.getElementById('creditos').addEventListener('input', function() {
-            const maxLines = 15;
+            const maxLines = 20;
             const textarea = this;
             const lines = textarea.value.split('\n');
 
@@ -653,7 +656,7 @@ geraPDF();
 
 });
 
-// Botão Abrir página A4
+// Botão Abrir HTML A4
 
 document.getElementById("btn-A4").addEventListener("click", function () {
 

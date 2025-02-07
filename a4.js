@@ -34,7 +34,7 @@ const licenca = localStorage.getItem("licenca");
     
     // Rnderização dos créditos
 
-    const creditos = localStorage.getItem(JSON.parse(creditos));
+    const creditos = JSON.parse(localStorage.getItem('creditos'));
     
     document.getElementById("creditos-pdf").innerHTML = creditos;
 

@@ -1,6 +1,6 @@
 * {
     margin: 0;
-    padding: 0;
+    padding: 0;    
 }
 
 body {
@@ -21,15 +21,6 @@ legend {
     font-size: smaller !important;
 }
 
-#creditos {
-    padding: 10px;
-    width: 100%;
-    line-height: 1.5;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-shadow: 1px 1px 1px #999"
-}
-
 .form-group-bordered {
     border: 1px solid #572222;
     padding: 15px;
@@ -42,6 +33,15 @@ legend {
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: aqua;
+}
+
+#creditos {
+    padding: 10px;
+    width: 100%;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999"
 }
 
 /* div bordaA4 foi removida de index.html */
@@ -91,11 +91,9 @@ legend {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*page-break-inside: avoid; */
-
+    
     height: 297mm;
     width: 210mm;
-
     margin: 0;
     padding: 0;
 }
@@ -166,19 +164,22 @@ legend {
 
 #codigos-aqui,
 #codigos-aqui-pdf {
-    margin-top: auto;
-    /* Alinha o próprio elemento na parte inferior */
+    margin-top: auto;/* Alinha o próprio elemento na parte inferior */
     padding: 0;
     font-size: small;
     font-family: 'Courier New', Courier, monospace;
 }
 
-#creditos-pdf {
-    white-space: pre-wrap;
+#creditos-section-pdf {
+    width: 100%;
 }
 
-
-
+#creditos-pdf {
+    white-space: pre-wrap;
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%; 
+}
 
 /* Esconde seções condicionais */
 
@@ -444,3 +445,4 @@ legend {
 #opcionais-pdf {
     display: none;
 }
+
