@@ -513,15 +513,12 @@ export function getFicha() {
     ficha = ficha.replace('il..', 'il.') // Elimina ponto final da área de série após abreviação il.
     ficha = ficha.replace('p..', 'p.') // Elimina ponto final da área de série após abreviação p.
     ficha = ficha.replace('color..', 'color.') // Elimina de ponto final da área de série após abreviação color.
-
-    // Salva ficha no localStorage (para recuperação por a4.js)
-    localStorage.setItem('ficha', JSON.stringify(ficha));
-    
-
+ 
     ficha = JSON.stringify(ficha);
 
-    return { ficha }
+    localStorage.setItem('ficha', ficha);
 
+    return { ficha }
 }
 
 // CÓDIGOS
@@ -540,19 +537,11 @@ export function getCodigos() {
     let pha = document.getElementById('pha').value.trim();
     pha = pha ? `PHA ${pha}` : "";
 
-    let codigos = `${cdd} ${cdu} ${cutter} ${pha}`
+    let codigos = `${cdd} ${cdu} 
+    ${cutter} ${pha}`
 
     codigos = JSON.stringify(codigos);
 
-    const classificacao = `
-    ${cdd}
-    ${cdu}
-    `
-    const notacao = `
-    ${cutter}
-    ${pha}
-    `
-    // Salva ficha no localStorage (para recuperação por a4.js)
     localStorage.setItem('codigos', codigos);
 
     return { codigos }
@@ -566,11 +555,15 @@ export function getBibliotecario() {
     bibliotecarioNome = bibliotecarioNome ? `${bibliotecarioNome} (bibliotecário responsável)` : "";
 
     let crb = document.getElementById("crb").value.trim();
+    crb = crb ? ` - CR
+    B ${crb}` : "";
 
-    crb = crb ? ` - CRB ${crb}` : "";
+    let bibliotecario = `${bibliotecarioNome}${crb}` // 1) var = template string
 
-    let bibliotecario = JSON.stringify(`${bibliotecarioNome}${crb}`);
-    localStorage.setItem("bibliotecario", bibliotecario);
+    bibliotecario = JSON.stringify(bibliotecario); // 2) stringify var
+    
+    localStorage.setItem("bibliotecario", bibliotecario); // 3) storage var
+
 
     return { bibliotecario }
 }
@@ -582,9 +575,22 @@ export function getLicenca() {
     let licenca = document.querySelector('input[name="cc-radio"]:checked')?.value;
     licenca = licenca ? licenca : '';
 
-    //localStorage.setItem("licenca", licenca);
-    //console.log(`licenca salva em localStorage: ${localStorage.getItem(licenca)}`);
-
+    localStorage.setItem("licenca", licenca);
+   
     return { licenca }
+
+}
+
+// CRÉDITOS
+
+export function getCreditos() {
+    let creditos = document.getElementById("creditos").value.trim();
+    creditos = creditos? creditos : "";
+
+    creditos = JSON.stringify(creditos);    
+
+    localStorage.setItem("creditos", creditos);
+
+    return { creditos }
 
 }

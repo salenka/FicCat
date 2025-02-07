@@ -9,7 +9,7 @@ window.onload = function () {
     const ficha = JSON.parse(localStorage.getItem('ficha'));
     const codigos = JSON.parse(localStorage.getItem('codigos'));
     console.log("codigos salvo em localStorage")
-console.log(codigos)
+    console.log(codigos)
 
     const bibliotecario = JSON.parse(localStorage.getItem('bibliotecario'));
     const fontSelect = localStorage.getItem("fontSelect");
@@ -31,7 +31,12 @@ const licenca = localStorage.getItem("licenca");
             selectedDiv.style.flexDirection = 'column'; // Define a direção do flex
             selectedDiv.style.alignItems = 'center'; // Centraliza os itens
         }
+    
+    // Rnderização dos créditos
 
+    const creditos = localStorage.getItem(JSON.parse(creditos));
+    
+    document.getElementById("creditos-pdf").innerHTML = creditos;
 
     //Renderização da ficha
 

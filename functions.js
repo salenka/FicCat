@@ -76,7 +76,7 @@ export function geraFicha() {
     // Identificação do bibliotecário
     document.getElementById("bibliotecario-aqui").textContent = bibliotecario;
 
-    // Renderização dos elementos no HTML
+    // Renderização dos elementos HTML
     document.getElementById("ficha-catalografica").style.display = "block";
     document.getElementById("font-controls").style.display = "block";
     document.getElementById("opcionais-pdf").style.display = "block";
@@ -117,16 +117,16 @@ export function geraPDF() {
 
     // Rnderização dos créditos
 
-    const creditos = `${document.getElementById("creditos").value}`;
+    const creditos = JSON.parse(cs.getCreditos().creditos);
     document.getElementById("creditos-pdf").innerHTML = creditos;
-
+    
     //Renderização da ficha
 
     const ficha = JSON.parse(localStorage.getItem('ficha')); //mudar para cs.get
     const codigos = JSON.parse(cs.getCodigos().codigos);
     const fontSelect = localStorage.getItem("fontSelect");
     const fontSizeInput = localStorage.getItem("fontSizeInput");
-    const bibliotecario = cs.getBibliotecario().bibliotecario;
+    const bibliotecario = JSON.parse(cs.getBibliotecario().bibliotecario);
 
     document.getElementById("ficha-aqui-pdf").textContent = ficha;
     document.getElementById("ficha-aqui-pdf").style.fontFamily = fontSelect;

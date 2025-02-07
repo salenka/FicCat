@@ -173,7 +173,9 @@ legend {
     font-family: 'Courier New', Courier, monospace;
 }
 
-
+#creditos-pdf {
+    white-space: pre-wrap;
+}
 
 
 
