@@ -5,7 +5,6 @@ import * as cs from './cardScript.js';
 
 window.onload = function () {
 
-
     const ficha = JSON.parse(localStorage.getItem('ficha'));
     const codigos = JSON.parse(localStorage.getItem('codigos'));
     console.log("codigos salvo em localStorage")

@@ -555,8 +555,7 @@ export function getBibliotecario() {
     bibliotecarioNome = bibliotecarioNome ? `${bibliotecarioNome} (bibliotecário responsável)` : "";
 
     let crb = document.getElementById("crb").value.trim();
-    crb = crb ? ` - CR
-    B ${crb}` : "";
+    crb = crb ? ` - CRB ${crb}` : "";
 
     let bibliotecario = `${bibliotecarioNome}${crb}` // 1) var = template string
 

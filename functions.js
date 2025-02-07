@@ -82,7 +82,8 @@ export function geraFicha() {
     document.getElementById("opcionais-pdf").style.display = "block";
     document.getElementById("btn-pdf").style.display = "block";
 
-    //return { ficha, codigos };
+    localStorage.removeItem('licenca');
+    localStorage.removeItem('creditos');
 }
 
 
