@@ -3,6 +3,18 @@
     padding: 0;    
 }
 
+/* Estiliza todos os elementos com o atributo required */
+input[required], select[required], textarea[required] {
+    border: 2px solid blue; /* Exemplo de estilo */
+}
+
+/* Estiliza elementos com o atributo required quando estão inválidos */
+.form-control.invalid-field {
+    border: 2px solid red;
+}
+
+
+
 body {
     display: flex;
     flex-direction: column;

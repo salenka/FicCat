@@ -45,6 +45,16 @@ export function updateTipoPessoa() {
     });
 }
 
+// REMOVE OBRIGATORIEDADE DOS INPUTS
+
+export function removeRequiredInput(motherDivId) {
+    motherDivId = document.getElementById(`${motherDivId}`);
+    const inputs = motherDivId.querySelectorAll('input[type="text"]');
+    inputs.forEach(input => {
+        input.removeAttribute('required');
+    })
+}
+
 // Função para salvar automaticamente os dados no localStorage
 export function saveData(event) {
     const campo = event.target; // Campo que disparou o evento
@@ -56,6 +66,8 @@ export function saveData(event) {
     // Salva no localStorage
     localStorage.setItem(nome, valor);
 }
+
+
 
 
 // GERA FICHA -----------------------------------------------------------------
@@ -100,27 +112,27 @@ export function geraPDF() {
     // Renderização da licença
 
     const licenca = localStorage.getItem("licenca"); //mudar para cs.get
-        //const licenca = cs.getLicenca().licenca;
-        
-        // Oculta todas as divs de licença
-        document.querySelectorAll('#licenca-section-pdf > div').forEach(div => {
-            div.style.display = 'none';
-        });
-   
-        // Mostra apenas a div correspondente à licença selecionada
-        if (licenca) {
-            const selectedDiv = document.getElementById(licenca);
-            selectedDiv.style.display = 'flex'; // Altera o display para flex
-            selectedDiv.style.flexDirection = 'column'; // Define a direção do flex
-            selectedDiv.style.alignItems = 'center'; // Centraliza os itens
-        }
+    //const licenca = cs.getLicenca().licenca;
+
+    // Oculta todas as divs de licença
+    document.querySelectorAll('#licenca-section-pdf > div').forEach(div => {
+        div.style.display = 'none';
+    });
+
+    // Mostra apenas a div correspondente à licença selecionada
+    if (licenca) {
+        const selectedDiv = document.getElementById(licenca);
+        selectedDiv.style.display = 'flex'; // Altera o display para flex
+        selectedDiv.style.flexDirection = 'column'; // Define a direção do flex
+        selectedDiv.style.alignItems = 'center'; // Centraliza os itens
+    }
 
 
     // Rnderização dos créditos
 
     const creditos = JSON.parse(cs.getCreditos().creditos);
     document.getElementById("creditos-pdf").innerHTML = creditos;
-    
+
     //Renderização da ficha
 
     const ficha = JSON.parse(localStorage.getItem('ficha')); //mudar para cs.get
@@ -160,18 +172,18 @@ export function geraPDF() {
         //height: 297, 
         //width: 210, 
     }
-    
-    //setTimeout(function () {
-        html2pdf().set(options).from(content).outputPdf('blob').then((blob) => {
-            const url = URL.createObjectURL(blob);
-            window.open(url);
 
-            //versão do código que faz downloado do pdf ao invés de abrir:
-            //const link = document.createElement('a');
-            //link.href = URL.createObjectURL(blob);
-            //link.download = 'documento.pdf';
-            //link.click();
-        })
+    //setTimeout(function () {
+    html2pdf().set(options).from(content).outputPdf('blob').then((blob) => {
+        const url = URL.createObjectURL(blob);
+        window.open(url);
+
+        //versão do código que faz downloado do pdf ao invés de abrir:
+        //const link = document.createElement('a');
+        //link.href = URL.createObjectURL(blob);
+        //link.download = 'documento.pdf';
+        //link.click();
+    })
     //}, 3000);
 
     setTimeout(function () {

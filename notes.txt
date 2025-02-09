@@ -5,6 +5,22 @@
     */
 
 
+INPUT OBRIGATÓRIOS DE SAÍDA
+titulo
+
+INPUT OBRIGATÓRIOS CASO OPÇÃO MARCADA
+nome/sobrenome
+organizador
+editor, etc. (tipo-pessoa)
+
+
+
+
+
+
+
+
+
 LARGURA DO FORMULÁRIO
 Com div container logo abaixo de body o formulário fica bem mais largo. Mas vou deixar sem. 
 Estava com o div container até o commit 338d7364da4ef4a8b5fe051fc7fc26a8a4caf335 de mensagem
