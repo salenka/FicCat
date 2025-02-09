@@ -788,11 +788,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // Botão Gera Ficha
-
+// validação de inputs de texto
 document.getElementById("btn-card").addEventListener("click", function (event) {
     let formIsValid = true;
     const requiredFields = document.querySelectorAll('input[required], select[required], textarea[required]');
     requiredFields.forEach(field => {
+
+// validaçao de radios
+
+
+        // Verifica se pelo menos um radio button está selecionado
+        const radioGroups = document.querySelectorAll('input[type="radio"][name="materia"]');
+        let radioSelected = false;
+        radioGroups.forEach(radio => {
+            if (radio.checked) {
+                radioSelected = true;
+            }
+        });
+
+        if (!radioSelected) {
+            formIsValid = false;
+            radioGroups.forEach(radio => {
+                radio.classList.add('invalid-radio');
+            });
+            alert('Por favor, selecione uma opção para "materia".');
+        } else {
+            radioGroups.forEach(radio => {
+                radio.classList.remove('invalid-radio');
+            });
+        }
+
+//daqui pra baixo vale pra inputs de texto e radio tb
+
         if (!field.checkValidity()) {
             field.classList.add('invalid-field');
             formIsValid = false;

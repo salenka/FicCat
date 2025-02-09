@@ -13,7 +13,10 @@ input[required], select[required], textarea[required] {
     border: 2px solid red;
 }
 
-
+/* Estiliza elementos radio com o atributo required quando estão inválidos */
+.invalid-radio {
+    outline: 2px solid red;
+}
 
 body {
     display: flex;
