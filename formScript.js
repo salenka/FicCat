@@ -27,19 +27,29 @@ document.querySelectorAll('input[name="materia"]').forEach(radio => {
             eraseChildText('materialidade');
 
             document.getElementById('formato-fisico-section').style.display = 'block';
+            
             document.getElementById('formato-digital').style.display = 'none';
+            document.getElementById('extensao').removeAttribute('required','required');
+
             document.getElementById('material-adicional-section').style.display = 'block';
 
         } else if (document.getElementById('digital').checked) {
             uncheckOption('formato');
             uncheckOption('material-adicional-sn');
             eraseChildText('material-adicional-section');
+
+            document.getElementById('formato-digital').style.display = 'block';
+            document.getElementById('extensao').setAttribute('required','required');
+
             document.getElementById('formato-fisico-section').style.display = 'none';
             document.getElementById('material-adicional-section').style.display = 'none';
-            document.getElementById('formato-digital').style.display = 'block';
+            
         } else {
             document.getElementById('formato-fisico-section').style.display = 'none';
+            
             document.getElementById('formato-digital').style.display = 'none';
+            document.getElementById('extensao').removeAttribute('required','required');
+
         }
     })
 })
@@ -533,6 +543,9 @@ document.querySelectorAll('input[name="imagem"]').forEach(radio => {
     radio.addEventListener('change', function () {
         if (document.getElementById('imagem-sim').checked) {
             document.getElementById('imagem-tipo').style.display = 'block';
+            document.getElementsByName('imagem-tipo').setAttribute('required', 'required')
+            
+
         } else {
             document.getElementById('imagem-tipo').style.display = 'none';
         }
@@ -543,7 +556,10 @@ document.querySelectorAll('input[name="imagem"]').forEach(radio => {
 document.getElementById('img-ilustracoes').addEventListener('change', function () {
 
     if (document.getElementById('img-ilustracoes').checked) {
+
         document.getElementById('il-coloracao').style.display = 'block';
+        
+
     } else {
         document.getElementById('il-coloracao').style.display = 'none';
     }
@@ -790,36 +806,10 @@ document.addEventListener("DOMContentLoaded", function () {
 // Botão Gera Ficha
 // validação de inputs de texto
 document.getElementById("btn-card").addEventListener("click", function (event) {
+
     let formIsValid = true;
     const requiredFields = document.querySelectorAll('input[required], select[required], textarea[required]');
     requiredFields.forEach(field => {
-
-// validaçao de radios
-
-
-        // Verifica se pelo menos um radio button está selecionado
-        const radioGroups = document.querySelectorAll('input[type="radio"][name="materia"]');
-        let radioSelected = false;
-        radioGroups.forEach(radio => {
-            if (radio.checked) {
-                radioSelected = true;
-            }
-        });
-
-        if (!radioSelected) {
-            formIsValid = false;
-            radioGroups.forEach(radio => {
-                radio.classList.add('invalid-radio');
-            });
-            alert('Por favor, selecione uma opção para "materia".');
-        } else {
-            radioGroups.forEach(radio => {
-                radio.classList.remove('invalid-radio');
-            });
-        }
-
-//daqui pra baixo vale pra inputs de texto e radio tb
-
         if (!field.checkValidity()) {
             field.classList.add('invalid-field');
             formIsValid = false;
@@ -828,7 +818,32 @@ document.getElementById("btn-card").addEventListener("click", function (event) {
         }
     });
 
-    if (!formIsValid) {
+// validaçao de radios
+
+        // Verifica se pelo menos um radio button está selecionado
+        const radioGroups = document.querySelectorAll('input[type="radio"][required]');
+        let radioSelected = false;
+        radioGroups.forEach(radio => {
+            if (radio.checked) {
+                radioSelected = true;
+            }
+        });
+
+        if (!radioSelected) { //só executa se TRUE
+            formIsValid = false;
+            radioGroups.forEach(radio => {
+                radio.classList.add('invalid-radio');
+            });
+            //alert('Por favor, selecione uma das opções obrigatórias.');
+        } else {
+            radioGroups.forEach(radio => {
+                radio.classList.remove('invalid-radio');
+            });
+        }
+
+//daqui pra baixo vale pra inputs de texto e radio tb
+
+    if (!formIsValid) {  //só executa se TRUE
         event.preventDefault(); // Impede o envio do formulário se houver campos inválidos
         alert('Por favor, preencha todos os campos obrigatórios.');
     } else {
