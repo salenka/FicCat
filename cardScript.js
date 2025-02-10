@@ -272,15 +272,19 @@ const paginacao = `${pagRomana}${pagNum}${pagLamina}${folhaLamina}${pagNaoNum}`;
 
 //Material gráfico (Imagens)
 
-const imagem = document.querySelector('input[name="imagem"]:checked')?.value;
+const imagem = document.querySelectorAll('input[name="imagem-tipo"]:checked');
 //const tipoImagem = document.querySelector('input[name="imagem-tipo"]:checked')?.value;
 const coloracaoIl = document.querySelector('input[name="il-coloracao"]:checked')?.value;
 const coloracaoFotos = document.querySelector('input[name="fotos-coloracao"]:checked')?.value;
-const coloracaoMapas = document.querySelector('input[name="mapas-coloracao"]:checked')?.value;
+//const coloracaoMapas = document.querySelector('input[name="mapas-coloracao"]:checked')?.value;
+//const coloracaoMapas = document.querySelector('input[name="mapas-coloracao"]:checked')?.value;
+const mapasChecked = document.querySelector('#img-mapas:checked');
+const formulasChecked = document.querySelector('#img-formulas:checked');
 
 let ilustracoes = "";
 let fotos = "";
 let mapas = "";
+let formulas = "";
 
 if (coloracaoIl === "il-cores") {
     ilustracoes = "il. color."
@@ -302,18 +306,16 @@ if (coloracaoFotos === "foto-cores") {
     fotos = "";
 }
 
-if (coloracaoMapas === "mapa-cores") {
-    mapas = "mapas color."
-} else if (coloracaoMapas === "mapa-pb") {
-    mapas = "mapas p&b"
-} else if (coloracaoMapas === "mapas") {
+if (mapasChecked) {
     mapas = "mapas"
-} else {
-    mapas = "";
 }
 
+if (formulasChecked) {
+    formulas = "formulas"
+} 
+
 // Cria uma lista com as imagens possíveis:
-const listaImagens = [ilustracoes, fotos, mapas];
+const listaImagens = [ilustracoes, fotos, formulas, mapas];
 
 // Filtra lista de imagens para remover as que não estão presentes no livro:
 const imagensPresentes = listaImagens.filter(imagem => imagem);
@@ -321,7 +323,7 @@ const imagensPresentes = listaImagens.filter(imagem => imagem);
 // Cria uma string formatada para o resultado final:
 let imagens = "";
 
-if (imagem === "sim") {
+if (imagem) {
     imagens = " : " + imagensPresentes[0];
 }
 
@@ -377,13 +379,12 @@ return { paginacao, imagens, dimensoes, materialAdicional }
 function getSerie() {
 // Elementos antessessores sem ponto final
 // const pagRomana = document.getElementById("pag-romana").checked ; // xv (na vdd esse nunca vai ser o caso)
-const imagemSim = document.getElementById("imagem-sim").checked; // p&b fotos mapas (menos color. e il.)
 const digital = document.getElementById("digital").checked; // PDF
 const formatoTrad = document.getElementById("formato-trad").checked; // cm
 const formatoNaoTrad = document.getElementById("formato-nao-trad").checked; // cm
+const imagemTipo = document.querySelector('#imagem-tipo input[type="checkbox"]:checked');
 
-
-const elementosAntecessoresSemPontoFinal = imagemSim || digital || formatoTrad || formatoNaoTrad;
+const elementosAntecessoresSemPontoFinal = imagemTipo || digital || formatoTrad || formatoNaoTrad;
 
 
 const serieSN = document.querySelector('input[name="serie-sn"]:checked')?.value;

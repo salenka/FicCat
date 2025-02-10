@@ -21,7 +21,7 @@
 
         <fieldset id="materialidade" class="form-group form-group-bordered">
 
-            <p>Preencha as informações abaixo sobre o livro:</p>
+            <p>Especifique o suporte do livro *</p>
             <input type="radio" id="fisico" name="materia" value="fisico" required>
             <label for="fisico">O livro é físico</label>
             <br>
@@ -38,7 +38,7 @@
         <!--Códigos opcionais-->
         <fieldset id="codigos-section" class="form-group form-group-bordered">
 
-            <p>Gostaria de inserir o(s) códigos(s) abaixo:</p>
+            <p>Dados para o número de chamada (opcional)</p>
 
             <div id="codigos-ckbox">
                 <input type="checkbox" id="cdd-ckbox" name="codigos-ckbox" value="cdd">
@@ -82,7 +82,7 @@
 
         <fieldset id="titulo-section" class="form-group form-group-bordered">
 
-            <label for="titulo">Título</label><br>
+            <label for="titulo">Título *</label><br>
             <input type="text" class="form-control" id="titulo" name="titulo" required>
 
             <label for="subtitulo">Subtítulo</label><br>
@@ -100,15 +100,15 @@
 
         <fieldset id="resp-int-section" class="form-group form-group-bordered">
 
-            <p>O principal responsável intelectual pela obra é</p>
+            <p>O principal responsável intelectual pela obra é *</p>
 
-            <input type="radio" id="pessoa" name="resp-int" value="pessoa">
+            <input type="radio" id="pessoa" name="resp-int" value="pessoa" required>
             <label for="pessoa">uma pessoa</label>
 
-            <input type="radio" id="entidade" name="resp-int" value="entidade">
+            <input type="radio" id="entidade" name="resp-int" value="entidade" required>
             <label for="entidade">uma entidade</label>
 
-            <input type="radio" id="evento" name="resp-int" value="evento">
+            <input type="radio" id="evento" name="resp-int" value="evento" required>
             <label for="evento">um evento</label>
 
 
@@ -136,38 +136,38 @@
 
 
                 <div id="autor-section">
-                    <label for="nome">Prenomes do autor</label><br>
+                    <label for="nome">Prenomes do autor *</label><br>
                     <input type="text" class="form-control" id="nome" name="nome"><br>
 
-                    <label for="sobrenome">Sobrenome do autor</label><br>
+                    <label for="sobrenome">Sobrenome do autor *</label><br>
                     <input type="text" class="form-control" id="sobrenome" name="sobrenome"><br>
 
                     <p>Existe mais de um autor?</p>
                 </div>
 
                 <div id="organizador-section">
-                    <label for="organizador-nome">Nome do organizador</label><br>
+                    <label for="organizador-nome">Nome do organizador *</label><br>
                     <input type="text" class="form-control" id="organizador-nome" name="organizador-nome"><br>
 
                     <p>Existe mais de um organizador?</p>
                 </div>
 
                 <div id="coordenador-section">
-                    <label for="coordenador-nome">Nome do coordenador</label><br>
+                    <label for="coordenador-nome">Nome do coordenador *</label><br>
                     <input type="text" class="form-control" id="coordenador-nome" name="coordenador-nome"><br>
 
                     <p>Existe mais de um coordenador?</p>
                 </div>
 
                 <div id="compilador-section">
-                    <label for="compilador-nome">Nome do compilador</label><br>
+                    <label for="compilador-nome">Nome do compilador *</label><br>
                     <input type="text" class="form-control" id="compilador-nome" name="compilador-nome"><br>
 
                     <p>Existe mais de um compilador?</p>
                 </div>
 
                 <div id="editor-section">
-                    <label for="editor-nome">Nome do editor</label><br>
+                    <label for="editor-nome">Nome do editor *</label><br>
                     <input type="text" class="form-control" id="editor-nome" name="editor-nome"><br>
 
                     <p>Existe mais de um editor?</p>
@@ -254,7 +254,7 @@
         <!-- CONTRIBUIDORES-->
 
         <fieldset id="contribuidores-section" class="form-group form-group-bordered">
-            <p>Existem outros contribuidores?</p>
+            <p>Outros contribuidores?</p>
 
             <!-- ILUSTRADOR -->
             <div id="contribuidor-ilustrador" class="form-group form-group-bordered">
@@ -263,7 +263,7 @@
 
 
                 <div id="ilustrador-section">
-                    <label for="ilustrador-nome">Nome do ilustrador</label><br>
+                    <label for="ilustrador-nome">Nome do ilustrador *</label><br>
                     <input type="text" class="form-control" id="ilustrador-nome" name="ilustrador-nome">
                 </div>
 
@@ -321,7 +321,7 @@
 
 
                 <div id="tradutor-section">
-                    <label for="tradutor-nome">Nome do tradutor</label><br>
+                    <label for="tradutor-nome">Nome do tradutor *</label><br>
                     <input type="text" class="form-control" id="tradutor-nome" name="tradutor-nome">
                 </div>
 
@@ -415,12 +415,12 @@
 
         <fieldset id="paginacao-section" class="form-group form-group-bordered">
 
-            <p>Sobre a forma como a obra é paginada:</p>
+            <p>Sobre a paginação *</p>
 
             <div id="paginacao-numerada-section" class="form-group form-group-bordered">
 
                 <input type="radio" id="pag-num" name="paginacao" value="pag-num"
-                    class="form-group form-group-bordered">
+                    class="form-group form-group-bordered" required>
                 <label for="pag-num">As páginas possuem numeração impressa</label><br>
 
                 <div id="paginacao-numerada">
@@ -468,7 +468,7 @@
 
             <div id="paginacao-nao-numerada-section" class="form-group form-group-bordered">
 
-                <input type="radio" id="pag-sem-num" name="paginacao" value="pag-sem-num">
+                <input type="radio" id="pag-sem-num" name="paginacao" value="pag-sem-num" required>
                 <label for="pag-sem-num">As páginas não são numeradas</label><br>
 
                 <div id="paginacao-nao-numerada">
@@ -489,18 +489,22 @@
 
         <fieldset id="imagem-section" class="form-group form-group-bordered">
 
+            <!--
+
             <div id="imagem">
 
-                <p>O livro contém imagens?</p>
-                <input type="radio" id="imagem-sim" name="imagem" value="sim">
+                <p>O livro contém imagens? *</p>
+                <input type="radio" id="imagem-sim" name="imagem" value="sim" required>
                 <label for="imagem-sim">Sim</label>
 
-                <input type="radio" id="imagem-nao" name="imagem" value="nao">
+                <input type="radio" id="imagem-nao" name="imagem" value="nao" required>
                 <label for="imagem-nao">Não</label>
             </div>
 
+            -->
+
             <div id="imagem-tipo">
-                <p>Este livro contém que tipo de imagem?</p>
+                <p>Tipos de imagem presentes</p>
 
                 <input type="checkbox" id="img-ilustracoes" name="imagem-tipo" value="ilustracoes">
                 <label for="img-ilustracoes">Ilustrações</label><br>
@@ -514,7 +518,6 @@
                     <input type="radio" id="il" name="il-coloracao" value="il">
                     <label for="il">Não existe uma coloração predominante ou essa informação não é relevante</label>
                 </div>
-
 
                 <input type="checkbox" id="img-fotos" name="imagem-tipo" value="fotos">
                 <label for="img-fotos">Fotos</label><br>
@@ -531,17 +534,12 @@
                 </div>
 
                 <input type="checkbox" id="img-mapas" name="imagem-tipo" value="mapas">
-                <label for="img-mapas">Mapas</label>
+                <label for="img-mapas">Mapas</label><br>
 
-                <div id="mapas-coloracao" class="form-group form-group-bordered">
-                    <p>Os mapas são, predominantemente</p>
-                    <input type="radio" id="mapa-cores" name="mapas-coloracao" value="mapa-cores">
-                    <label for="mapa-cores">Em cores</label><br>
-                    <input type="radio" id="mapa-pb" name="mapas-coloracao" value="mapa-pb">
-                    <label for="mapa-pb">Preto-e-branco</label><br>
-                    <input type="radio" id="mapas" name="mapas-coloracao" value="mapas">
-                    <label for="mapas">Não existe uma coloração predominante ou essa informação não é
-                        relevante</label>
+                <input type="checkbox" id="img-formulas" name="imagem-tipo" value="fórmulas">
+                <label for="img-formulas">Fórmulas</label>
+
+
                 </div>
             </div>
         </fieldset> <!-- fim de imagem-section -->

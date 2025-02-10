@@ -164,6 +164,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             document.getElementById('pessoa-sn').style.display = 'block';
 
             document.getElementById('nome').setAttribute('required', 'required');
+            document.getElementById('sobrenome').setAttribute('required', 'required')
 
         } else if (document.getElementById('organizador').checked) {
             document.getElementById('autor-section').style.display = 'none';
@@ -538,7 +539,7 @@ document.querySelectorAll('input[name="pag-ou-folha"]').forEach(radio => {
 });
 
 //IMAGENS  
-
+/*
 document.querySelectorAll('input[name="imagem"]').forEach(radio => {
     radio.addEventListener('change', function () {
         if (document.getElementById('imagem-sim').checked) {
@@ -551,6 +552,7 @@ document.querySelectorAll('input[name="imagem"]').forEach(radio => {
         }
     });
 });
+*/
 
 //Checkbox ILUSTRAÇÕES
 document.getElementById('img-ilustracoes').addEventListener('change', function () {
@@ -558,6 +560,7 @@ document.getElementById('img-ilustracoes').addEventListener('change', function (
     if (document.getElementById('img-ilustracoes').checked) {
 
         document.getElementById('il-coloracao').style.display = 'block';
+        document.getElementsByName('il-coloracao').setAttribute('required', 'required');
         
 
     } else {
@@ -575,6 +578,7 @@ document.getElementById('img-fotos').addEventListener('change', function () {
     }
 })
 
+/*
 //Checkbox MAPAS
 document.getElementById('img-mapas').addEventListener('change', function () {
 
@@ -584,6 +588,7 @@ document.getElementById('img-mapas').addEventListener('change', function () {
         document.getElementById('mapas-coloracao').style.display = 'none';
     }
 })
+*/    
 
 //FORMATO
 
