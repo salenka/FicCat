@@ -514,6 +514,7 @@ export function getFicha() {
     ficha = ficha.replace('il..', 'il.') // Elimina ponto final da área de série após abreviação il.
     ficha = ficha.replace('p..', 'p.') // Elimina ponto final da área de série após abreviação p.
     ficha = ficha.replace('color..', 'color.') // Elimina de ponto final da área de série após abreviação color.
+    ficha = ficha.replace('/  ; ', '/ ');
  
     ficha = JSON.stringify(ficha);
 

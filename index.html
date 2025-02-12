@@ -133,6 +133,9 @@
                 <input type="radio" id="editor" name="pessoa-tipo" value="editor">
                 <label for="editor">editor</label><br>
 
+                <input type="radio" id="anonima" name="pessoa-tipo" value="anonima">
+                <label for="anonima">anônima</label><br>
+
 
 
                 <div id="autor-section">
@@ -223,7 +226,7 @@
             <!-- ENTIDADE -->
 
             <div id="entidade-section">
-                <label for="entidade-nome">Entidade</label><br>
+                <label for="entidade-nome">Entidade *</label><br>
                 <input type="text" class="form-control" id="entidade-nome" name="entidade-nome"><br>
             </div>
 
@@ -231,23 +234,23 @@
             <!-- EVENTO -->
 
             <div id="evento-section" class="form-group form-group-bordered">
-                <label for="evento-nome">Nome do Evento</label><br>
+                <label for="evento-nome">Nome do Evento *</label><br>
                 <input type="text" class="form-control" id="evento-nome" name="evento-nome">
-                <small id="evento-nome-Help" class="form-text text-muted">Informe o nome do evento sem o número da
+                <small id="evento-nome-hint" class="form-text text-muted">Informe o nome do evento sem o número da
                     edição do evento</small><br>
 
                 <label for="evento-numero">Número da edição do evento (se houver)</label><br>
                 <input type="text" class="form-control" id="evento-numero" name="evento-numero">
-                <small id="evento-numero-Help" class="form-text text-muted">Utilize algarismos arábicos</small><br>
+                <small id="evento-numero-hint" class="form-text text-muted">Utilize algarismos arábicos</small><br>
 
-                <label for="evento-ano">Ano de realização do evento</label><br>
+                <label for="evento-ano">Ano de realização do evento *</label><br>
                 <input type="text" class="form-control" id="evento-ano" name="evento-ano">
-                <small id="evento-ano-Help" class="form-text text-muted"></small><br>
+                <small id="evento-ano-hint" class="form-text text-muted"></small><br>
 
-                <label for="evento-local">Cidade de realização do evento</label><br>
+                <label for="evento-local">Cidade de realização do evento *</label><br>
                 <input type="text" class="form-control" id="evento-local" name="evento-local">
-                <small id="evento-local-Help" class="form-text text-muted">Se não for uma capital, informe também a
-                    sigla do estado </small>
+                <small id="evento-local-hint" class="form-text text-muted">Se não for uma capital, informe também a
+                    sigla do estado, separada por vírgula </small>
             </div>
         </fieldset> <!-- Fim de resp-int-section -->
 
@@ -298,12 +301,12 @@
                 <div id="ilustrador-outro" class="form-group form-group-bordered">
 
                     <div id="ilustrador-segundo">
-                        <label for="ilustrador-2">Segundo ilustrador</label><br>
+                        <label for="ilustrador-2">Segundo ilustrador *</label><br>
                         <input type="text" class="form-control" id="ilustrador-2" name="ilustrador-2">
                     </div>
 
                     <div id="ilustrador-terceiro">
-                        <label for="ilustrador-3">Terceiro ilustrador</span></label><br>
+                        <label for="ilustrador-3">Terceiro ilustrador *</span></label><br>
                         <input type="text" class="form-control" id="ilustrador-3" name="ilustrador-3">
                     </div>
 
@@ -356,12 +359,12 @@
                 <div id="tradutor-outro" class="form-group form-group-bordered">
 
                     <div id="tradutor-segundo">
-                        <label for="tradutor-2">Segundo tradutor</span></label><br>
+                        <label for="tradutor-2">Segundo tradutor *</span></label><br>
                         <input type="text" class="form-control" id="tradutor-2" name="tradutor-2">
                     </div>
 
                     <div id="tradutor-terceiro">
-                        <label for="tradutor-3">Terceiro tradutor</span></label><br>
+                        <label for="tradutor-3">Terceiro tradutor *</span></label><br>
                         <input type="text" class="form-control" id="tradutor-3" name="tradutor-3">
                     </div>
 
@@ -405,6 +408,7 @@
                 <input type="text" class="form-control" id="publicador-2" name="publicador-2"><br>
                 <label for="local-2">Local do publicador</label><br>
                 <input type="text" class="form-control" id="local-2" name="local-2"><br>
+                <small id="local-2-hint" class="form-text text-muted">Se diferente do local do primeiro publicador</small>
             </div>
 
         </fieldset> <!-- fim de publicacao-section -->
