@@ -1,7 +1,7 @@
 import * as cs from './cardScript.js';
 // FORM -----------------------------------------------------------------
 
-// UNCHECK OPTIONS
+//  DESMARCA RADIO OU CHECKBOX
 
 export function uncheckOption(inputName) {
     const target = document.querySelector(`input[name="${inputName}"]:checked`);
@@ -22,7 +22,7 @@ export function uncheckOption(inputName) {
     })
 }
 
-// ERASE TEXT INPUTS
+// APAGA CONTEÚDO DOS CAMPOS
 
 export function eraseChildText(motherDivId) {
     const divMae = document.getElementById(`${motherDivId}`);
@@ -45,13 +45,31 @@ export function updateTipoPessoa() {
     });
 }
 
+// TORNA RADIO OU CHECKBOX OBRIGATÓRIO
+
+export function setRequiredOption(inputName) {
+    const target = document.querySelectorAll(`input[type="radio"][name="${inputName}"]`);
+    target.forEach(option => {
+        option.setAttribute('required', 'required');
+    })
+}
+
+// REMOVER OBRIGATORIEDADE DE RADIO OU CHECKBOX
+
+export function removeRequiredOption(optionType, inputName) {
+    const target = document.querySelectorAll(`input[type="radio"][name="${inputName}"]`);
+    target.forEach(option => {
+        option.removeAttribute('required', 'required');
+    })    
+}
+
 // REMOVE OBRIGATORIEDADE DOS INPUTS
 
 export function removeRequiredInput(motherDivId) {
     motherDivId = document.getElementById(`${motherDivId}`);
     const inputs = motherDivId.querySelectorAll('input[type="text"]');
     inputs.forEach(input => {
-        input.removeAttribute('required');
+        input.removeAttribute('required', 'required');
     })
 }
 

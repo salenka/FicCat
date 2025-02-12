@@ -1,4 +1,4 @@
-import { uncheckOption, updateTipoPessoa, eraseChildText, saveData, geraFicha, geraPDF, removeRequiredInput } from './functions.js';
+import { uncheckOption, updateTipoPessoa, eraseChildText, saveData, geraFicha, geraPDF, removeRequiredInput, setRequiredOption, removeRequiredOption } from './functions.js';
 
 alert("Funcionando");
 
@@ -27,9 +27,9 @@ document.querySelectorAll('input[name="materia"]').forEach(radio => {
             eraseChildText('materialidade');
 
             document.getElementById('formato-fisico-section').style.display = 'block';
-            
+
             document.getElementById('formato-digital').style.display = 'none';
-            document.getElementById('extensao').removeAttribute('required','required');
+            document.getElementById('extensao').removeAttribute('required', 'required');
 
             document.getElementById('material-adicional-section').style.display = 'block';
 
@@ -39,16 +39,16 @@ document.querySelectorAll('input[name="materia"]').forEach(radio => {
             eraseChildText('material-adicional-section');
 
             document.getElementById('formato-digital').style.display = 'block';
-            document.getElementById('extensao').setAttribute('required','required');
+            document.getElementById('extensao').setAttribute('required', 'required');
 
             document.getElementById('formato-fisico-section').style.display = 'none';
             document.getElementById('material-adicional-section').style.display = 'none';
-            
+
         } else {
             document.getElementById('formato-fisico-section').style.display = 'none';
-            
+
             document.getElementById('formato-digital').style.display = 'none';
-            document.getElementById('extensao').removeAttribute('required','required');
+            document.getElementById('extensao').removeAttribute('required', 'required');
 
         }
     })
@@ -120,9 +120,11 @@ document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
         removeRequiredInput('resp-int-section');
 
         if (document.getElementById('pessoa').checked) {
-            document.getElementById('pessoa-section').style.display = 'block';
+            document.getElementById('pessoa-section').style.display = 'block';         
             document.getElementById('entidade-section').style.display = 'none';
             document.getElementById('evento-section').style.display = 'none';
+
+            setRequiredOption('pessoa-tipo');
 
         } else if (document.getElementById('entidade').checked) {
             document.getElementById('pessoa-section').style.display = 'none';
@@ -141,11 +143,19 @@ document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
             document.getElementById('evento-ano').setAttribute('required', 'required');
             document.getElementById('evento-local').setAttribute('required', 'required');
 
+        } else {
+            document.getElementById('pessoa-section').style.display = 'none';
+            document.getElementById('entidade-section').style.display = 'none';
+            document.getElementById('evento-section').style.display = 'none';
         }
+
+
+
     });
 });
 
-// PESSOA
+
+// PESSOA-TIPO
 
 document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
     radio.addEventListener('change', function () {
@@ -525,15 +535,15 @@ document.querySelectorAll('input[name="pag-ou-folha"]').forEach(radio => {
             document.getElementById('folha-lamina-qtd').setAttribute('required', 'required');
 
             document.getElementById('pagina-lamina').style.display = 'none';
-            document.getElementById('pag-lamina-qtd').removeAttribute('required', 'required');  
-            
+            document.getElementById('pag-lamina-qtd').removeAttribute('required', 'required');
+
         } else {
             document.getElementById('pagina-lamina').style.display = 'none';
             document.getElementById('folha-lamina').style.display = 'none';
 
             document.getElementById('pag-lamina-qtd').removeAttribute('required', 'required');
             document.getElementById('folha-lamina-qtd').removeAttribute('required', 'required');
-            
+
         }
     });
 });
@@ -557,24 +567,37 @@ document.querySelectorAll('input[name="imagem"]').forEach(radio => {
 //Checkbox ILUSTRAÇÕES
 document.getElementById('img-ilustracoes').addEventListener('change', function () {
 
+    const ilColoracaoRadios = document.querySelectorAll('input[type="radio"][name="il-coloracao"]');
+
     if (document.getElementById('img-ilustracoes').checked) {
 
         document.getElementById('il-coloracao').style.display = 'block';
-        document.getElementsByName('il-coloracao').setAttribute('required', 'required');
-        
+        ilColoracaoRadios.forEach(radio => {
+            radio.setAttribute('required', 'required');
+        });
 
     } else {
         document.getElementById('il-coloracao').style.display = 'none';
+        ilColoracaoRadios.forEach(radio => {
+            radio.removeAttribute('required');
+        });
     }
 })
 
 //Checkbox FOTOS
 document.getElementById('img-fotos').addEventListener('change', function () {
+    const fotosColoracaoRadios = document.querySelectorAll('input[type="radio"][name="fotos-coloracao"]');
 
     if (document.getElementById('img-fotos').checked) {
         document.getElementById('fotos-coloracao').style.display = 'block';
+        fotosColoracaoRadios.forEach(radio => {
+            radio.setAttribute('required', 'required');
+        });
     } else {
         document.getElementById('fotos-coloracao').style.display = 'none';
+        ilColoracaoRadios.forEach(radio => {
+            radio.removeAttribute('required');
+        });
     }
 })
 
@@ -588,7 +611,7 @@ document.getElementById('img-mapas').addEventListener('change', function () {
         document.getElementById('mapas-coloracao').style.display = 'none';
     }
 })
-*/    
+*/
 
 //FORMATO
 
@@ -730,7 +753,7 @@ document.querySelectorAll('input[name="isbn-2-sn"]').forEach(radio => {
             document.getElementById('qualificador-1').setAttribute('required', 'required');
             document.getElementById('isbn-2').setAttribute('required', 'required');
             document.getElementById('qualificador-2').setAttribute('required', 'required');
-            
+
 
         } else {
 
@@ -781,7 +804,7 @@ document.querySelectorAll('input[name="nota-2-sn"]').forEach(radio => {
         } else {
 
             document.getElementById('nota-outro').style.display = 'none';
-            document.getElementById('nota-2').removeAttribute('required', 'required');  
+            document.getElementById('nota-2').removeAttribute('required', 'required');
         }
     });
 });
@@ -813,7 +836,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.getElementById("btn-card").addEventListener("click", function (event) {
 
     let formIsValid = true;
-    const requiredFields = document.querySelectorAll('input[required], select[required], textarea[required]');
+    const requiredFields = document.querySelectorAll('input[required]:not([type="radio"]), select[required], textarea[required]');
     requiredFields.forEach(field => {
         if (!field.checkValidity()) {
             field.classList.add('invalid-field');
@@ -823,30 +846,30 @@ document.getElementById("btn-card").addEventListener("click", function (event) {
         }
     });
 
-// validaçao de radios
+    // Validação de grupos de rádio
+    const radioGroups = document.querySelectorAll('input[type="radio"][required]');
+    let radiosPorGrupo = {};
 
-        // Verifica se pelo menos um radio button está selecionado
-        const radioGroups = document.querySelectorAll('input[type="radio"][required]');
-        let radioSelected = false;
-        radioGroups.forEach(radio => {
-            if (radio.checked) {
-                radioSelected = true;
-            }
-        });
-
-        if (!radioSelected) { //só executa se TRUE
-            formIsValid = false;
-            radioGroups.forEach(radio => {
-                radio.classList.add('invalid-radio');
-            });
-            //alert('Por favor, selecione uma das opções obrigatórias.');
-        } else {
-            radioGroups.forEach(radio => {
-                radio.classList.remove('invalid-radio');
-            });
+    // Agrupa rádios pelo atributo "name"
+    radioGroups.forEach(radio => {
+    
+        if (!radiosPorGrupo[radio.name]) {
+            radiosPorGrupo[radio.name] = []; 	//cria um grupo em radiosPorGrupo
         }
+        radiosPorGrupo[radio.name].push(radio); //add o rádio atual ao array correspondente dentro de radiosPorGrupo
+    });
 
-//daqui pra baixo vale pra inputs de texto e radio tb
+    // Verifica se pelo menos um rádio de cada grupo está marcado
+    Object.values(radiosPorGrupo).forEach(radios => { // itera sobre cada grupo de radios
+        if (!radios.some(radio => radio.checked)) { //.some() retorna true se ao menos 1 elemento do array estiver marcado
+            formIsValid = false;
+            radios.forEach(radio => radio.classList.add('invalid-radio'));
+        } else {
+            radios.forEach(radio => radio.classList.remove('invalid-radio'));
+        }
+    });
+
+    //daqui pra baixo vale pra inputs de texto e radio tb
 
     if (!formIsValid) {  //só executa se TRUE
         event.preventDefault(); // Impede o envio do formulário se houver campos inválidos
