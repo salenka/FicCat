@@ -54,9 +54,9 @@ export function setRequiredOption(inputName) {
     })
 }
 
-// REMOVER OBRIGATORIEDADE DE RADIO OU CHECKBOX
+// REMOVER OBRIGATORIEDADE DE CHECKBOX
 
-export function removeRequiredOption(optionType, inputName) {
+export function removeRequiredOption(inputName) {
     const target = document.querySelectorAll(`input[type="radio"][name="${inputName}"]`);
     target.forEach(option => {
         option.removeAttribute('required', 'required');

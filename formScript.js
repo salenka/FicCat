@@ -518,6 +518,7 @@ document.querySelectorAll('input[name="paginacao"]').forEach(radio => {
 
             document.getElementById('paginacao-nao-numerada').style.display = 'block';
             document.getElementById('pag-nao-num-qtd').setAttribute('required', 'required');
+            setRequiredOption('pag-certeza');
 
             document.getElementById('paginacao-numerada').style.display = 'none';
             document.getElementById('pag-num-qtd').removeAttribute('required', 'required');
