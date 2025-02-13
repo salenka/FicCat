@@ -272,12 +272,8 @@ const paginacao = `${pagRomana}${pagNum}${pagLamina}${folhaLamina}${pagNaoNum}`;
 
 //Material gráfico (Imagens)
 
-const imagem = document.querySelectorAll('input[name="imagem-tipo"]:checked');
-//const tipoImagem = document.querySelector('input[name="imagem-tipo"]:checked')?.value;
 const coloracaoIl = document.querySelector('input[name="il-coloracao"]:checked')?.value;
 const coloracaoFotos = document.querySelector('input[name="fotos-coloracao"]:checked')?.value;
-//const coloracaoMapas = document.querySelector('input[name="mapas-coloracao"]:checked')?.value;
-//const coloracaoMapas = document.querySelector('input[name="mapas-coloracao"]:checked')?.value;
 const mapasChecked = document.querySelector('#img-mapas:checked');
 const formulasChecked = document.querySelector('#img-formulas:checked');
 
@@ -300,7 +296,7 @@ if (coloracaoFotos === "foto-cores") {
     fotos = "fotos color."
 } else if (coloracaoFotos === "foto-pb") {
     fotos = "fotos p&b"
-} else if (coloracaoFotos === "fotos") {
+} else if (coloracaoFotos === "foto") {
     fotos = "fotos"
 } else {
     fotos = "";
@@ -315,7 +311,7 @@ if (formulasChecked) {
 } 
 
 // Cria uma lista com as imagens possíveis:
-const listaImagens = [ilustracoes, fotos, formulas, mapas];
+const listaImagens = [ilustracoes, fotos, mapas, formulas];
 
 // Filtra lista de imagens para remover as que não estão presentes no livro:
 const imagensPresentes = listaImagens.filter(imagem => imagem);
@@ -323,7 +319,7 @@ const imagensPresentes = listaImagens.filter(imagem => imagem);
 // Cria uma string formatada para o resultado final:
 let imagens = "";
 
-if (imagem) {
+if (imagensPresentes.length > 0) {
     imagens = " : " + imagensPresentes[0];
 }
 
@@ -333,6 +329,8 @@ if (imagensPresentes.length > 1) {
         imagens += ", " + imagensPresentes[i];
     }
 }
+
+imagens = imagens? imagens : '';
 
 // Dimensões
 
