@@ -24,7 +24,7 @@ export function uncheckOption(inputName) {
 
 // APAGA CONTEÚDO DOS CAMPOS
 
-export function eraseChildText(motherDivId) {
+export function eraseAllChildTextOf(motherDivId) {
     const divMae = document.getElementById(`${motherDivId}`);
     const inputsText = divMae.querySelectorAll('input[type="text"]');
 
@@ -47,7 +47,7 @@ export function updateTipoPessoa() {
 
 // TORNA RADIO OU CHECKBOX OBRIGATÓRIO
 
-export function setRequiredOption(inputName) {
+export function setRequiredRadioFor(inputName) {
     const target = document.querySelectorAll(`input[type="radio"][name="${inputName}"]`);
     target.forEach(option => {
         option.setAttribute('required', 'required');
@@ -56,7 +56,7 @@ export function setRequiredOption(inputName) {
 
 // REMOVER OBRIGATORIEDADE DE CHECKBOX
 
-export function removeRequiredOption(inputName) {
+export function removeRequiredRadioFrom(inputName) {
     const target = document.querySelectorAll(`input[type="radio"][name="${inputName}"]`);
     target.forEach(option => {
         option.removeAttribute('required', 'required');
@@ -65,7 +65,7 @@ export function removeRequiredOption(inputName) {
 
 // REMOVE OBRIGATORIEDADE DOS INPUTS
 
-export function removeRequiredTextInput(motherDivId) {
+export function removeRequiredFromAllChildTextOf(motherDivId) {
     motherDivId = document.getElementById(`${motherDivId}`);
     const inputs = motherDivId.querySelectorAll('input[type="text"]');
     inputs.forEach(input => {

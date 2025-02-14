@@ -19,17 +19,17 @@
 
         <h2>Gerador de Ficha Catalográfica para Livros</h2>
 
-        <fieldset id="materialidade" class="form-group form-group-bordered">
+        <fieldset id="suporte" class="form-group form-group-bordered">
 
             <p>Especifique o suporte do livro *</p>
-            <input type="radio" id="fisico" name="materia" value="fisico" required>
+            <input type="radio" id="fisico" name="suporte" value="fisico" required>
             <label for="fisico">O livro é físico</label>
             <br>
-            <input type="radio" id="digital" name="materia" value="digital" required>
+            <input type="radio" id="digital" name="suporte" value="digital" required>
             <label for="digital">O livro é digital</label>
 
 
-            <div id="formato-digital">
+            <div id="suporte-digital">
                 <label for="extensao">Informe a extensão do arquivo digital *</label><br>
                 <input type="text" class="form-control" id="extensao" name="extensao">
             </div>
@@ -537,7 +537,7 @@
 
         <fieldset id="formato-fisico-section" class="form-group form-group-bordered">
 
-            <p>Quanto ao formato</p>
+            <p>Quanto ao formato *</p>
             <input type="radio" id="formato-trad" name="formato" value="tradicional">
             <label for="formato-trad">O livro tem o formato tradicional</label><br>
             <input type="radio" id="formato-nao-trad" name="formato" value="nao-tradicional">
@@ -561,7 +561,7 @@
 
         <fieldset id="material-adicional-section" class="form-group form-group-bordered">
 
-            <p>O livro é acompanhado de material adicional?</p>
+            <p>O livro é acompanhado de material adicional? *</p>
             <input type="radio" id="material-adicional-sim" name="material-adicional-sn" value="sim">
             <label for="material-adicional-sim">Sim</label>
 
@@ -585,11 +585,11 @@
         <!-- Existe série? -->
         <fieldset id="serie-section" class="form-group form-group-bordered">
             <div id="serie-sn">
-                <p>O livro pertence a uma série ou coleção?</p>
-                <input type="radio" id="serie-sim" name="serie-sn" value="sim">
+                <p>O livro pertence a uma série ou coleção? *</p>
+                <input type="radio" id="serie-sim" name="serie-sn" value="sim" required>
                 <label for="sim">Sim</label>
 
-                <input type="radio" id="serie-nao" name="serie-sn" value="nao">
+                <input type="radio" id="serie-nao" name="serie-sn" value="nao" required>
                 <label for="nao">Não</label>
             </div>
 

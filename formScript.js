@@ -1,4 +1,4 @@
-import { uncheckOption, updateTipoPessoa, eraseChildText, saveData, geraFicha, geraPDF, removeRequiredTextInput, setRequiredOption, removeRequiredOption } from './functions.js';
+import { uncheckOption, updateTipoPessoa, eraseAllChildTextOf, saveData, geraFicha, geraPDF, removeRequiredFromAllChildTextOf, setRequiredRadioFor, removeRequiredRadioFrom } from './functions.js';
 
 alert("Funcionando");
 
@@ -18,36 +18,51 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 })
 
-// materialidade
+// suporte
 
-document.querySelectorAll('input[name="materia"]').forEach(radio => {
+document.querySelectorAll('input[name="suporte"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
         if (document.getElementById('fisico').checked) {
-            eraseChildText('materialidade');
-
+            
             document.getElementById('formato-fisico-section').style.display = 'block';
-
-            document.getElementById('formato-digital').style.display = 'none';
-            document.getElementById('extensao').removeAttribute('required', 'required');
+            setRequiredRadioFor('formato');
 
             document.getElementById('material-adicional-section').style.display = 'block';
+            setRequiredRadioFor('material-adicional-sn');
+            
+            document.getElementById('suporte-digital').style.display = 'none';
+            eraseAllChildTextOf('suporte-digital');
+            removeRequiredFromAllChildTextOf('suporte-digital');
+           
 
         } else if (document.getElementById('digital').checked) {
-            uncheckOption('formato');
-            uncheckOption('material-adicional-sn');
-            eraseChildText('material-adicional-section');
-
-            document.getElementById('formato-digital').style.display = 'block';
+    
+            document.getElementById('suporte-digital').style.display = 'block';
             document.getElementById('extensao').setAttribute('required', 'required');
 
+            uncheckOption('formato');
+            removeRequiredRadioFrom('formato');
+
             document.getElementById('formato-fisico-section').style.display = 'none';
+            eraseAllChildTextOf('formato-fisico-section');
+            removeRequiredFromAllChildTextOf('formato-tradicional');
+            removeRequiredFromAllChildTextOf('formato-nao-tradicional');
+
+            uncheckOption('material-adicional-sn');
+            removeRequiredRadioFrom('material-adicional-sn');
+
             document.getElementById('material-adicional-section').style.display = 'none';
+            eraseAllChildTextOf('material-adicional-section');
+            removeRequiredRadioFrom('material-adicional-section');
+            
+            //eraseAllChildTextOf('material-adicional');
+            
 
         } else {
             document.getElementById('formato-fisico-section').style.display = 'none';
 
-            document.getElementById('formato-digital').style.display = 'none';
+            document.getElementById('suporte-digital').style.display = 'none';
             document.getElementById('extensao').removeAttribute('required', 'required');
 
         }
@@ -129,17 +144,17 @@ document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
 
         uncheckOption('pessoa-tipo');
         uncheckOption('pessoa-qtd');
-        eraseChildText('pessoa-section');
-        eraseChildText('entidade-section');
-        eraseChildText('evento-section');
-        removeRequiredTextInput('resp-int-section');
+        eraseAllChildTextOf('pessoa-section');
+        eraseAllChildTextOf('entidade-section');
+        eraseAllChildTextOf('evento-section');
+        removeRequiredFromAllChildTextOf('resp-int-section');
 
         if (document.getElementById('pessoa').checked) {
             document.getElementById('pessoa-section').style.display = 'block';
             document.getElementById('entidade-section').style.display = 'none';
             document.getElementById('evento-section').style.display = 'none';
 
-            setRequiredOption('pessoa-tipo');
+            setRequiredRadioFor('pessoa-tipo');
 
         } else if (document.getElementById('entidade').checked) {
             document.getElementById('pessoa-section').style.display = 'none';
@@ -177,8 +192,8 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
 
         uncheckOption('pessoa-qtd');
         uncheckOption('pessoa-sn');
-        eraseChildText('pessoa-section');
-        removeRequiredTextInput('pessoa-section'); //motherDivId
+        eraseAllChildTextOf('pessoa-section');
+        removeRequiredFromAllChildTextOf('pessoa-section'); //motherDivId
 
         if (document.getElementById('autor').checked) {
             document.getElementById('autor-section').style.display = 'block';
@@ -254,7 +269,7 @@ document.querySelectorAll('input[name="pessoa-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
         uncheckOption('pessoa-qtd');
-        eraseChildText('pessoa-outro');
+        eraseAllChildTextOf('pessoa-outro');
 
         if (document.getElementById('sim').checked) {
             document.getElementById('pessoa-qtd').style.display = 'block';
@@ -269,8 +284,8 @@ document.querySelectorAll('input[name="pessoa-sn"]').forEach(radio => {
 document.querySelectorAll('input[name="pessoa-qtd"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        eraseChildText('pessoa-outro');
-        removeRequiredTextInput('pessoa-outro');
+        eraseAllChildTextOf('pessoa-outro');
+        removeRequiredFromAllChildTextOf('pessoa-outro');
         document.getElementById('pessoa-outro').style.display = 'none';
 
 
@@ -312,7 +327,7 @@ document.querySelectorAll('input[name="pessoa-qtd"]').forEach(radio => {
 
 document.getElementById('ilustrador').addEventListener('change', function () {
 
-    eraseChildText('ilustrador-section');
+    eraseAllChildTextOf('ilustrador-section');
 
     if (document.getElementById('ilustrador').checked) {
         document.getElementById('ilustrador-section').style.display = 'block';
@@ -336,7 +351,7 @@ document.querySelectorAll('input[name="ilustrador-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
         uncheckOption('ilustrador-qtd');
-        eraseChildText('ilustrador-outro');
+        eraseAllChildTextOf('ilustrador-outro');
 
         if (document.getElementById('ilustrador-sim').checked) {
             document.getElementById('ilustrador-qtd').style.display = 'block';
@@ -351,8 +366,8 @@ document.querySelectorAll('input[name="ilustrador-sn"]').forEach(radio => {
 document.querySelectorAll('input[name="ilustrador-qtd"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        eraseChildText('ilustrador-outro');
-        removeRequiredTextInput('ilustrador-outro');
+        eraseAllChildTextOf('ilustrador-outro');
+        removeRequiredFromAllChildTextOf('ilustrador-outro');
         document.getElementById('ilustrador-outro').style.display = 'none'
 
         if (document.getElementById('ilustrador-qtd-2').checked) {
@@ -394,7 +409,7 @@ document.querySelectorAll('input[name="ilustrador-qtd"]').forEach(radio => {
 document.getElementById('tradutor').addEventListener('change', function () {
 
 
-    eraseChildText('tradutor-section');
+    eraseAllChildTextOf('tradutor-section');
 
     if (document.getElementById('tradutor').checked) {
         document.getElementById('tradutor-section').style.display = 'block';
@@ -418,7 +433,7 @@ document.querySelectorAll('input[name="tradutor-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
         uncheckOption('tradutor-qtd');
-        eraseChildText('tradutor-outro');
+        eraseAllChildTextOf('tradutor-outro');
 
         if (document.getElementById('tradutor-sim').checked) {
             document.getElementById('tradutor-qtd').style.display = 'block';
@@ -433,8 +448,8 @@ document.querySelectorAll('input[name="tradutor-sn"]').forEach(radio => {
 document.querySelectorAll('input[name="tradutor-qtd"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        eraseChildText('tradutor-outro');
-        removeRequiredTextInput('tradutor-outro');
+        eraseAllChildTextOf('tradutor-outro');
+        removeRequiredFromAllChildTextOf('tradutor-outro');
         document.getElementById('tradutor-outro').style.display = 'none';
 
         if (document.getElementById('tradutor-qtd-2').checked) {
@@ -476,7 +491,7 @@ document.querySelectorAll('input[name="tradutor-qtd"]').forEach(radio => {
 document.querySelectorAll('input[name="publicador-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        eraseChildText('publicador-segundo');
+        eraseAllChildTextOf('publicador-segundo');
 
         if (document.getElementById('publicador-sim').checked) {
 
@@ -499,8 +514,9 @@ document.querySelectorAll('input[name="paginacao"]').forEach(radio => {
 
         if (document.getElementById('pag-num').checked) {
 
-            eraseChildText('paginacao-nao-numerada-section');
+            eraseAllChildTextOf('paginacao-nao-numerada-section');
             uncheckOption('pag-certeza');
+            removeRequiredRadioFrom('pag-certeza');
 
             document.getElementById('paginacao-numerada').style.display = 'block';
             document.getElementById('pag-num-qtd').setAttribute('required', 'required');
@@ -510,17 +526,17 @@ document.querySelectorAll('input[name="paginacao"]').forEach(radio => {
 
         } else if (document.getElementById('pag-sem-num').checked) {
 
-            eraseChildText('paginacao-numerada-section');
-            removeRequiredTextInput('paginacao-numerada-section');
+            eraseAllChildTextOf('paginacao-numerada-section');
+            removeRequiredFromAllChildTextOf('paginacao-numerada-section');
 
-            uncheckOption('pag-outra');
-
+            uncheckOption('pag-outra'); //pag-romana e pag-lamina
+            
+            removeRequiredRadioFrom('pag-ou-folha'); 
             uncheckOption('pag-ou-folha');
-            removeRequiredOption('pag-ou-folha');     
 
             document.getElementById('paginacao-nao-numerada').style.display = 'block';
             document.getElementById('pag-nao-num-qtd').setAttribute('required', 'required');
-            setRequiredOption('pag-certeza');
+            setRequiredRadioFor('pag-certeza');
 
             document.getElementById('paginacao-numerada').style.display = 'none';
             document.getElementById('pag-num-qtd').removeAttribute('required', 'required');
@@ -551,20 +567,20 @@ document.querySelectorAll('input[name="pag-outra"]').forEach(checkbox => {
         } else {
             document.getElementById('paginacao-romana').style.display = 'none';
             document.getElementById('pag-romana-qtd').removeAttribute('required', 'required');
-            eraseChildText('paginacao-romana');
+            eraseAllChildTextOf('paginacao-romana');
         }
 
         // Checkbox laminas
         if (document.getElementById('pag-lamina').checked) {
             
             document.getElementById('paginacao-lamina').style.display = 'block';
-            setRequiredOption('pag-ou-folha');
+            setRequiredRadioFor('pag-ou-folha');
 
         } else {
             document.getElementById('paginacao-lamina').style.display = 'none';
-            eraseChildText('paginacao-lamina');
+            eraseAllChildTextOf('paginacao-lamina');
             uncheckOption('pag-ou-folha');
-            removeRequiredOption('pag-ou-folha');
+            removeRequiredRadioFrom('pag-ou-folha');
             
         }
     });
@@ -574,7 +590,7 @@ document.querySelectorAll('input[name="pag-ou-folha"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
         if (document.getElementById('pagina').checked) {
-            eraseChildText('folha-lamina');
+            eraseAllChildTextOf('folha-lamina');
 
             document.getElementById('pagina-lamina').style.display = 'block';
             document.getElementById('pag-lamina-qtd').setAttribute('required', 'required');
@@ -584,7 +600,7 @@ document.querySelectorAll('input[name="pag-ou-folha"]').forEach(radio => {
 
 
         } else if (document.getElementById('folha').checked) {
-            eraseChildText('pagina-lamina');
+            eraseAllChildTextOf('pagina-lamina');
 
             document.getElementById('folha-lamina').style.display = 'block';
             document.getElementById('folha-lamina-qtd').setAttribute('required', 'required');
@@ -627,12 +643,12 @@ document.getElementById('img-ilustracoes').addEventListener('change', function (
     if (document.getElementById('img-ilustracoes').checked) {
 
         document.getElementById('il-coloracao').style.display = 'block';
-        setRequiredOption('il-coloracao');
+        setRequiredRadioFor('il-coloracao');
 
 
     } else {
         document.getElementById('il-coloracao').style.display = 'none';
-        removeRequiredOption('il-coloracao');
+        removeRequiredRadioFrom('il-coloracao');
         uncheckOption('il-coloracao');            
         }
     
@@ -644,11 +660,11 @@ document.getElementById('img-fotos').addEventListener('change', function () {
 
     if (document.getElementById('img-fotos').checked) {
         document.getElementById('fotos-coloracao').style.display = 'block';
-        setRequiredOption('fotos-coloracao')
+        setRequiredRadioFor('fotos-coloracao')
 
     } else {
         document.getElementById('fotos-coloracao').style.display = 'none';
-        removeRequiredOption('fotos-coloracao')
+        removeRequiredRadioFrom('fotos-coloracao')
         uncheckOption('fotos-coloracao');  
     }
 })
@@ -671,7 +687,7 @@ document.getElementById('img-mapas').addEventListener('change', function () {
 document.querySelectorAll('input[name="formato"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        eraseChildText('formato-fisico-section');
+        eraseAllChildTextOf('formato-fisico-section');
 
         if (document.getElementById('formato-trad').checked) {
 
@@ -703,7 +719,7 @@ document.querySelectorAll('input[name="formato"]').forEach(radio => {
 document.querySelectorAll('input[name="material-adicional-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        eraseChildText('material-adicional');
+        eraseAllChildTextOf('material-adicional');
 
         if (document.getElementById('material-adicional-sim').checked) {
             document.getElementById('material-adicional').style.display = 'block';
@@ -724,7 +740,8 @@ document.querySelectorAll('input[name="serie-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
         uncheckOption('subserie-sn');
-        eraseChildText('serie-section');
+        removeRequiredRadioFrom('subserie-sn');
+        eraseAllChildTextOf('serie-section'); // inclui inputs de subserie
 
         if (document.getElementById('serie-sim').checked) {
 
@@ -732,6 +749,7 @@ document.querySelectorAll('input[name="serie-sn"]').forEach(radio => {
             document.getElementById('serie-nome').setAttribute('required', 'required');
 
             document.getElementById('subserie-sn').style.display = 'block';
+            setRequiredRadioFor('subserie-sn');
 
         } else {
 
@@ -739,6 +757,7 @@ document.querySelectorAll('input[name="serie-sn"]').forEach(radio => {
             document.getElementById('serie-nome').removeAttribute('required', 'required');
 
             document.getElementById('subserie-sn').style.display = 'none';
+
         }
     });
 });
@@ -748,7 +767,7 @@ document.querySelectorAll('input[name="serie-sn"]').forEach(radio => {
 document.querySelectorAll('input[name="subserie-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        eraseChildText('subserie');
+        eraseAllChildTextOf('subserie');
 
         if (document.getElementById('subserie-sim').checked) {
 
@@ -771,7 +790,7 @@ document.querySelectorAll('input[name="isbn-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
         uncheckOption('isbn-2-sn');
-        eraseChildText('isbn-section');
+        eraseAllChildTextOf('isbn-section');
 
         if (document.getElementById('isbn-sim').checked) {
 
@@ -796,7 +815,7 @@ document.querySelectorAll('input[name="isbn-sn"]').forEach(radio => {
 document.querySelectorAll('input[name="isbn-2-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        eraseChildText('isbn-outro');
+        eraseAllChildTextOf('isbn-outro');
 
         if (document.getElementById('isbn-2-sim').checked) {
 
@@ -823,7 +842,7 @@ document.querySelectorAll('input[name="isbn-2-sn"]').forEach(radio => {
 document.querySelectorAll('input[name="nota-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        eraseChildText('nota');
+        eraseAllChildTextOf('nota');
 
         if (document.getElementById('nota-sim').checked) {
 
@@ -846,7 +865,7 @@ document.querySelectorAll('input[name="nota-sn"]').forEach(radio => {
 document.querySelectorAll('input[name="nota-2-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        eraseChildText('nota-outro');
+        eraseAllChildTextOf('nota-outro');
 
         if (document.getElementById('nota-2-sim').checked) {
 
