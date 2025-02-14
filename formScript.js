@@ -1,4 +1,4 @@
-import { uncheckOption, updateTipoPessoa, eraseChildText, saveData, geraFicha, geraPDF, removeRequiredInput, setRequiredOption, removeRequiredOption } from './functions.js';
+import { uncheckOption, updateTipoPessoa, eraseChildText, saveData, geraFicha, geraPDF, removeRequiredTextInput, setRequiredOption, removeRequiredOption } from './functions.js';
 
 alert("Funcionando");
 
@@ -132,7 +132,7 @@ document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
         eraseChildText('pessoa-section');
         eraseChildText('entidade-section');
         eraseChildText('evento-section');
-        removeRequiredInput('resp-int-section');
+        removeRequiredTextInput('resp-int-section');
 
         if (document.getElementById('pessoa').checked) {
             document.getElementById('pessoa-section').style.display = 'block';
@@ -178,7 +178,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
         uncheckOption('pessoa-qtd');
         uncheckOption('pessoa-sn');
         eraseChildText('pessoa-section');
-        removeRequiredInput('pessoa-section'); //motherDivId
+        removeRequiredTextInput('pessoa-section'); //motherDivId
 
         if (document.getElementById('autor').checked) {
             document.getElementById('autor-section').style.display = 'block';
@@ -270,7 +270,7 @@ document.querySelectorAll('input[name="pessoa-qtd"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
         eraseChildText('pessoa-outro');
-        removeRequiredInput('pessoa-outro');
+        removeRequiredTextInput('pessoa-outro');
         document.getElementById('pessoa-outro').style.display = 'none';
 
 
@@ -352,7 +352,7 @@ document.querySelectorAll('input[name="ilustrador-qtd"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
         eraseChildText('ilustrador-outro');
-        removeRequiredInput('ilustrador-outro');
+        removeRequiredTextInput('ilustrador-outro');
         document.getElementById('ilustrador-outro').style.display = 'none'
 
         if (document.getElementById('ilustrador-qtd-2').checked) {
@@ -434,7 +434,7 @@ document.querySelectorAll('input[name="tradutor-qtd"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
         eraseChildText('tradutor-outro');
-        removeRequiredInput('tradutor-outro');
+        removeRequiredTextInput('tradutor-outro');
         document.getElementById('tradutor-outro').style.display = 'none';
 
         if (document.getElementById('tradutor-qtd-2').checked) {
@@ -511,10 +511,12 @@ document.querySelectorAll('input[name="paginacao"]').forEach(radio => {
         } else if (document.getElementById('pag-sem-num').checked) {
 
             eraseChildText('paginacao-numerada-section');
-            removeRequiredInput('paginacao-numerada-section');
+            removeRequiredTextInput('paginacao-numerada-section');
+
+            uncheckOption('pag-outra');
 
             uncheckOption('pag-ou-folha');
-            removeRequiredOption('pag-ou-folha');
+            removeRequiredOption('pag-ou-folha');     
 
             document.getElementById('paginacao-nao-numerada').style.display = 'block';
             document.getElementById('pag-nao-num-qtd').setAttribute('required', 'required');
@@ -625,16 +627,15 @@ document.getElementById('img-ilustracoes').addEventListener('change', function (
     if (document.getElementById('img-ilustracoes').checked) {
 
         document.getElementById('il-coloracao').style.display = 'block';
-        ilColoracaoRadios.forEach(radio => {
-            radio.setAttribute('required', 'required');
-        });
+        setRequiredOption('il-coloracao');
+
 
     } else {
         document.getElementById('il-coloracao').style.display = 'none';
-        ilColoracaoRadios.forEach(radio => {
-            radio.removeAttribute('required');
-        });
-    }
+        removeRequiredOption('il-coloracao');
+        uncheckOption('il-coloracao');            
+        }
+    
 })
 
 //Checkbox FOTOS
@@ -643,14 +644,12 @@ document.getElementById('img-fotos').addEventListener('change', function () {
 
     if (document.getElementById('img-fotos').checked) {
         document.getElementById('fotos-coloracao').style.display = 'block';
-        fotosColoracaoRadios.forEach(radio => {
-            radio.setAttribute('required', 'required');
-        });
+        setRequiredOption('fotos-coloracao')
+
     } else {
         document.getElementById('fotos-coloracao').style.display = 'none';
-        ilColoracaoRadios.forEach(radio => {
-            radio.removeAttribute('required');
-        });
+        removeRequiredOption('fotos-coloracao')
+        uncheckOption('fotos-coloracao');  
     }
 })
 

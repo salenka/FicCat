@@ -65,7 +65,7 @@ export function removeRequiredOption(inputName) {
 
 // REMOVE OBRIGATORIEDADE DOS INPUTS
 
-export function removeRequiredInput(motherDivId) {
+export function removeRequiredTextInput(motherDivId) {
     motherDivId = document.getElementById(`${motherDivId}`);
     const inputs = motherDivId.querySelectorAll('input[type="text"]');
     inputs.forEach(input => {
