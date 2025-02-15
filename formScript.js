@@ -849,7 +849,10 @@ document.querySelectorAll('input[name="isbn-2-sn"]').forEach(radio => {
 document.querySelectorAll('input[name="nota-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        eraseAllChildTextOf('nota');
+        removeRequiredFromAllChildTextOf,('notas-section');
+        eraseAllChildTextOf('notas-section');
+        uncheckOption('nota-2-sn');
+        
 
         if (document.getElementById('nota-sim').checked) {
 
@@ -863,6 +866,9 @@ document.querySelectorAll('input[name="nota-sn"]').forEach(radio => {
             document.getElementById('nota').style.display = 'none';
             document.getElementById('nota-1').removeAttribute('required', 'required')
             document.getElementById('nota-2-sn').style.display = 'none';
+            document.getElementById('nota-outro').style.display = 'none';
+            
+
         }
     });
 });
