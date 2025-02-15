@@ -595,7 +595,7 @@
 
             <div id="serie">
 
-                <label for="serie-nome">Nome da série</label><br>
+                <label for="serie-nome">Nome da série *</label><br>
                 <input type="text" class="form-control" id="serie-nome" name="serie-nome"><br>
                 <label for="serie-volume">Número do volume</label><br>
                 <input type="text" class="form-control" id="serie-volume" name="serie-volume">
@@ -604,7 +604,7 @@
             <!-- Existe subsérie? -->
 
             <div id="subserie-sn">
-                <p>A série tem uma subsérie?</p>
+                <p>A série tem uma subsérie? *</p>
                 <input type="radio" id="subserie-sim" name="subserie-sn" value="sim">
                 <label for="sim">Sim</label>
 
@@ -614,7 +614,7 @@
 
             <!-- Subsérie -->
             <div id="subserie">
-                <label for="subserie-nome">Nome da subsérie</label><br>
+                <label for="subserie-nome">Nome da subsérie *</label><br>
                 <input type="text" class="form-control" id="subserie-nome" name="subserie-nome"><br>
                 <label for="subserie-volume">Número do volume</label><br>
                 <input type="text" class="form-control" id="subserie-volume" name="subserie-volume">
@@ -625,23 +625,23 @@
         <!-- Existe ISBN? -->
         <fieldset id="isbn-section" class="form-group form-group-bordered">
             <div id="isbn-sn">
-                <p>O livro possui ISBN?</p>
-                <input type="radio" id="isbn-sim" name="isbn-sn" value="sim">
+                <p>O livro possui ISBN? *</p>
+                <input type="radio" id="isbn-sim" name="isbn-sn" value="sim" required>
                 <label for="sim">Sim</label>
 
-                <input type="radio" id="isbn-nao" name="isbn-sn" value="nao">
+                <input type="radio" id="isbn-nao" name="isbn-sn" value="nao" required>
                 <label for="nao">Não</label>
             </div>
 
             <div id="isbn">
 
-                <label for="isbn-1">ISBN</label><br>
+                <label for="isbn-1">ISBN *</label><br>
                 <input type="text" class="form-control" id="isbn-1" name="isbn-1">
             </div>
 
             <!-- Existe outro ISBN -->
             <div id="isbn-2-sn">
-                <p>Existe outro ISBN?</p>
+                <p>Existe outro ISBN? *</p>
                 <input type="radio" id="isbn-2-sim" name="isbn-2-sn" value="sim">
                 <label for="sim">Sim</label>
 
@@ -652,12 +652,12 @@
             <!-- Outro ISBN -->
             <div id="isbn-outro">
 
-                <label for="qualificador-1">Qualificador do primeiro ISBN</label><br>
+                <label for="qualificador-1 *">Qualificador do primeiro ISBN</label><br>
                 <input type="text" class="form-control" id="qualificador-1" name="qualificador-1"><br>
                 <br>
-                <label for="isbn-2">Segundo ISBN</label><br>
+                <label for="isbn-2">Segundo ISBN *</label><br>
                 <input type="text" class="form-control" id="isbn-2" name="isbn-2"><br>
-                <label for="qualificador-2">Qualificador do segundo ISBN</label><br>
+                <label for="qualificador-2">Qualificador do segundo ISBN *</label><br>
                 <input type="text" class="form-control" id="qualificador-2" name="qualificador-2"><br>
             </div>
         </fieldset> <!-- fim de isbn-section-->

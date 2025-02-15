@@ -789,7 +789,7 @@ document.querySelectorAll('input[name="subserie-sn"]').forEach(radio => {
 document.querySelectorAll('input[name="isbn-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        uncheckOption('isbn-2-sn');
+
         eraseAllChildTextOf('isbn-section');
 
         if (document.getElementById('isbn-sim').checked) {
@@ -798,6 +798,7 @@ document.querySelectorAll('input[name="isbn-sn"]').forEach(radio => {
             document.getElementById('isbn-1').setAttribute('required', 'required');
 
             document.getElementById('isbn-2-sn').style.display = 'block';
+            setRequiredRadioFor('isbn-2-sn');
 
         } else {
 
@@ -806,7 +807,13 @@ document.querySelectorAll('input[name="isbn-sn"]').forEach(radio => {
 
             document.getElementById('isbn-2-sn').style.display = 'none';
             document.getElementById('isbn-outro').style.display = 'none';
+
+
+            uncheckOption('isbn-2-sn');
+            removeRequiredRadioFrom('isbn-2-sn');
         }
+
+
     });
 });
 
