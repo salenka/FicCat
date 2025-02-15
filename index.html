@@ -408,7 +408,8 @@
                 <input type="text" class="form-control" id="publicador-2" name="publicador-2"><br>
                 <label for="local-2">Local do publicador</label><br>
                 <input type="text" class="form-control" id="local-2" name="local-2"><br>
-                <small id="local-2-hint" class="form-text text-muted">Se diferente do local do primeiro publicador</small>
+                <small id="local-2-hint" class="form-text text-muted">Se diferente do local do primeiro
+                    publicador</small>
             </div>
 
         </fieldset> <!-- fim de publicacao-section -->
@@ -423,8 +424,8 @@
 
             <div id="paginacao-numerada-section" class="form-group form-group-bordered">
 
-                <input type="radio" id="pag-num" name="paginacao" value="pag-num"
-                    class="form-group form-group-bordered" required>
+                <input type="radio" id="pag-num" name="paginacao" value="pag-num" class="form-group form-group-bordered"
+                    required>
                 <label for="pag-num">As páginas possuem numeração impressa</label><br>
 
                 <div id="paginacao-numerada">
@@ -445,10 +446,10 @@
 
                     <div id="paginacao-lamina">
                         <div id="paginacao-lamina-section" class="form-group form-group-bordered">
-                            
+
                             <input type="radio" id="pagina" name="pag-ou-folha" value="pagina">
                             <label for="pagina">Há imagens nos dois lados das folhas</label>
-                            
+
                             <div id="pagina-lamina">
                                 <label for="pag-lamina-qtd">Quantidade de páginas ilustradas sem numeração *</label><br>
                                 <input type="text" class="form-control" id="pag-lamina-qtd" name="pag-lamina-qtd">
@@ -456,10 +457,10 @@
                         </div>
 
                         <div id="paginacao-folha-section" class="form-group form-group-bordered">
-                            
+
                             <input type="radio" id="folha" name="pag-ou-folha" value="folha">
                             <label for="folha">Há imagens apenas em um lado das folhas</label>
-                            
+
                             <div id="folha-lamina">
                                 <label for="folha-lamina-qtd">Quantidade de folhas ilustradas sem numeração</label><br>
                                 <input type="text" class="form-control" id="folha-lamina-qtd" name="folha-lamina-qtd">
@@ -530,7 +531,7 @@
                 <label for="img-formulas">Fórmulas</label>
 
 
-                </div>
+            </div>
             </div>
         </fieldset> <!-- fim de imagem-section -->
         <!-- Formato -->
@@ -716,16 +717,6 @@
 
         </fieldset> <!-- fim de assuntos-section -->
 
-        <!-- Bibliotecário e CRB -->
-        <p>Sou bibliotecário(a) e quero informar meu registro profissional (CRB)</p>
-        <div id="identificacao">
-            <label for="bibliotecario-nome">Nome completo</label><br>
-            <input type="text" class="form-control" id="bibliotecario-nome" name="identificacao">
-
-            <label for="crb">CRB</label><br>
-            <input type="text" class="form-control" id="crb" name="identificacao">
-        </div>
-
         <!-- BOTÃO GERAR FICHA-->
 
         <button type="button" id="btn-card" class="button">Get ficha</button>
@@ -804,6 +795,16 @@
             <textarea id="creditos" name="creditos" wrap="hard"></textarea>
         </div>
 
+        <!-- Bibliotecário e CRB -->
+        <br>
+        <p>Sou bibliotecário(a) e quero informar meu registro profissional (CRB)</p>
+        <div id="identificacao">
+            <label for="bibliotecario-nome">Nome completo</label><br>
+            <input type="text" class="form-control" id="bibliotecario-nome" name="identificacao">
+
+            <label for="crb">CRB</label><br>
+            <input type="text" class="form-control" id="crb" name="identificacao">
+        </div>
 
         <button type="button" id="btn-pdf" class="button"
             style="margin: auto; margin-top: 30px; margin-bottom: 30px">Gerar

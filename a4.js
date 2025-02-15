@@ -7,9 +7,6 @@ window.onload = function () {
 
     const ficha = JSON.parse(localStorage.getItem('ficha'));
     const codigos = JSON.parse(localStorage.getItem('codigos'));
-    console.log("codigos salvo em localStorage")
-    console.log(codigos)
-
     const bibliotecario = JSON.parse(localStorage.getItem('bibliotecario'));
     const fontSelect = localStorage.getItem("fontSelect");
     const fontSizeInput = localStorage.getItem("fontSizeInput");
