@@ -121,13 +121,11 @@ document.querySelectorAll('input[name="codigos-ckbox"]').forEach(checkbox => {
 
 
 // LICENCA - Salva em localStorage
-
-document.querySelectorAll('input[name="cc-radio"]').forEach(radio => {
-    radio.addEventListener('change', function () {
-        localStorage.setItem("licenca", document.querySelector('input[name="cc-radio"]:checked')?.value);
-        console.log(`licenca salva em localStorage: ${localStorage.getItem("licenca")}`);
-    })
-})
+const ccSelect = document.getElementById('cc-select');
+ccSelect.addEventListener('change', function () {
+    localStorage.setItem("licenca", ccSelect.value);
+    console.log(`Licença salva em localStorage: ${localStorage.getItem("licenca")}`);
+});
 
 // CREDITOS - Salva em localStorage
 

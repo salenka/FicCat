@@ -97,8 +97,6 @@ export function geraFicha() {
     // Captura das variáveis de cardScript.js
     const ficha = JSON.parse(cs.getFicha().ficha);
     const codigos = JSON.parse(cs.getCodigos().codigos);
-    const servico = cs.getServico().servico;
-    const bibliotecario = cs.getBibliotecario().bibliotecario;
 
     // Renderização da ficha
     document.getElementById("ficha-aqui").textContent = ficha;
@@ -133,8 +131,7 @@ export function geraPDF() {
 
     // Renderização da licença
 
-    const licenca = localStorage.getItem("licenca"); //mudar para cs.get
-    //const licenca = cs.getLicenca().licenca;
+    const licenca = localStorage.getItem("licenca"); 
 
     // Oculta todas as divs de licença
     document.querySelectorAll('#licenca-section-pdf > div').forEach(div => {

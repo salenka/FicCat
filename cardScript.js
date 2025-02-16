@@ -580,7 +580,7 @@ export function getBibliotecario() {
     return { bibliotecario }
 }
 
-// LICENÇA
+// LICENÇA 
 
 export function getLicenca() {
 
