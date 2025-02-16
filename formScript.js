@@ -136,6 +136,14 @@ document.addEventListener("change", function () {
     localStorage.setItem('creditos', JSON.stringify(creditos));
 })
 
+
+
+
+
+
+
+
+
 // RESPONSABILIDADE INTELECTUAL
 
 document.querySelectorAll('input[name="resp-int"]').forEach(radio => {

@@ -549,6 +549,19 @@ export function getCodigos() {
 
 // IDENTIFICAÇÃO
 
+export function getServico() {
+
+    let servicoNome = document.getElementById("servico-nome").value.trim();
+    let servico = servicoNome ? `${servicoNome}` : "";
+
+    //servico = JSON.stringify(servico);
+    
+    localStorage.setItem("servico", servico);
+
+    return { servico }
+}
+
+
 export function getBibliotecario() {
 
     let bibliotecarioNome = document.getElementById("bibliotecario-nome").value.trim();
@@ -557,11 +570,11 @@ export function getBibliotecario() {
     let crb = document.getElementById("crb").value.trim();
     crb = crb ? ` - CRB ${crb}` : "";
 
-    let bibliotecario = `${bibliotecarioNome}${crb}` // 1) var = template string
+    let bibliotecario = `${bibliotecarioNome}${crb}` 
 
-    bibliotecario = JSON.stringify(bibliotecario); // 2) stringify var
+    //bibliotecario = JSON.stringify(bibliotecario); 
     
-    localStorage.setItem("bibliotecario", bibliotecario); // 3) storage var
+    localStorage.setItem("bibliotecario", bibliotecario); 
 
 
     return { bibliotecario }

@@ -97,14 +97,12 @@ export function geraFicha() {
     // Captura das variáveis de cardScript.js
     const ficha = JSON.parse(cs.getFicha().ficha);
     const codigos = JSON.parse(cs.getCodigos().codigos);
-    const bibliotecario = JSON.parse(cs.getBibliotecario().bibliotecario);
+    const servico = cs.getServico().servico;
+    const bibliotecario = cs.getBibliotecario().bibliotecario;
 
     // Renderização da ficha
     document.getElementById("ficha-aqui").textContent = ficha;
-    document.getElementById("codigos-aqui").textContent = codigos;
-
-    // Identificação do bibliotecário
-    document.getElementById("bibliotecario-aqui").textContent = bibliotecario;
+    document.getElementById("codigos-aqui").textContent = codigos;  
 
     // Renderização dos elementos HTML
     document.getElementById("ficha-catalografica").style.display = "block";
@@ -112,8 +110,14 @@ export function geraFicha() {
     document.getElementById("opcionais-pdf").style.display = "block";
     document.getElementById("btn-pdf").style.display = "block";
 
+    //a remoção dos itens abaixo é para que os últimos salvos não apareçam caso o usuário não acrescente nenhum elemento opcional do pdf
+
     localStorage.removeItem('licenca');
     localStorage.removeItem('creditos');
+    localStorage.removeItem('fontSelect');
+    localStorage.removeItem('fontSizeInput');
+    localStorage.removeItem('bibliotecario');
+    localStorage.removeItem('servico');
 }
 
 
@@ -145,7 +149,6 @@ export function geraPDF() {
         selectedDiv.style.alignItems = 'center'; // Centraliza os itens
     }
 
-
     // Rnderização dos créditos
 
     const creditos = JSON.parse(cs.getCreditos().creditos);
@@ -157,13 +160,15 @@ export function geraPDF() {
     const codigos = JSON.parse(cs.getCodigos().codigos);
     const fontSelect = localStorage.getItem("fontSelect");
     const fontSizeInput = localStorage.getItem("fontSizeInput");
-    const bibliotecario = JSON.parse(cs.getBibliotecario().bibliotecario);
+    const servico = cs.getServico().servico;
+    const bibliotecario = cs.getBibliotecario().bibliotecario;
 
     document.getElementById("ficha-aqui-pdf").textContent = ficha;
     document.getElementById("ficha-aqui-pdf").style.fontFamily = fontSelect;
     document.getElementById("ficha-aqui-pdf").style.fontSize = fontSizeInput + 'px';
     document.getElementById("codigos-aqui-pdf").textContent = codigos;
     document.getElementById("codigos-aqui-pdf").style.fontSize = (fontSizeInput - 1) + 'px';
+    document.getElementById("servico-aqui-pdf").textContent = servico;
     document.getElementById("bibliotecario-aqui-pdf").textContent = bibliotecario;
 
 

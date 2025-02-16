@@ -7,7 +7,8 @@ window.onload = function () {
 
     const ficha = JSON.parse(localStorage.getItem('ficha'));
     const codigos = JSON.parse(localStorage.getItem('codigos'));
-    const bibliotecario = JSON.parse(localStorage.getItem('bibliotecario'));
+    const servico = localStorage.getItem('servico');
+    const bibliotecario = localStorage.getItem('bibliotecario');
     const fontSelect = localStorage.getItem("fontSelect");
     const fontSizeInput = localStorage.getItem("fontSizeInput");
 
@@ -41,6 +42,7 @@ const licenca = localStorage.getItem("licenca");
     document.getElementById("ficha-aqui-pdf").style.fontSize = fontSizeInput + 'px';
     document.getElementById("codigos-aqui-pdf").textContent = codigos;
     document.getElementById("codigos-aqui-pdf").style.fontSize = (fontSizeInput - 1) + 'px';
+    document.getElementById("servico-aqui-pdf").textContent = servico
     document.getElementById("bibliotecario-aqui-pdf").textContent = bibliotecario;
 
 };

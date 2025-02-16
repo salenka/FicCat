@@ -306,7 +306,7 @@
                     </div>
 
                     <div id="ilustrador-terceiro">
-                        <label for="ilustrador-3">Terceiro ilustrador *</span></label><br>
+                        <label for="ilustrador-3">Terceiro ilustrador *</label><br>
                         <input type="text" class="form-control" id="ilustrador-3" name="ilustrador-3">
                     </div>
 
@@ -359,12 +359,12 @@
                 <div id="tradutor-outro" class="form-group form-group-bordered">
 
                     <div id="tradutor-segundo">
-                        <label for="tradutor-2">Segundo tradutor *</span></label><br>
+                        <label for="tradutor-2">Segundo tradutor *</label><br>
                         <input type="text" class="form-control" id="tradutor-2" name="tradutor-2">
                     </div>
 
                     <div id="tradutor-terceiro">
-                        <label for="tradutor-3">Terceiro tradutor *</span></label><br>
+                        <label for="tradutor-3">Terceiro tradutor *</label><br>
                         <input type="text" class="form-control" id="tradutor-3" name="tradutor-3">
                     </div>
 
@@ -436,7 +436,7 @@
                     <label for="pag-romana">O livro possui páginas prefaciais em algarismos romanos</label><br>
 
                     <div id="paginacao-romana">
-                        <label for="pag-romana-qtd">Quantidade de páginas com numeração romana</label><br>
+                        <label for="pag-romana-qtd">Quantidade de páginas com numeração romana *</label><br>
                         <input type="text" class="form-control" id="pag-romana-qtd" name="pag-romana-qtd">
                         <legend>Insira apenas numerais romanos</legend>
                     </div>
@@ -462,7 +462,7 @@
                             <label for="folha">Há imagens apenas em um lado das folhas</label>
 
                             <div id="folha-lamina">
-                                <label for="folha-lamina-qtd">Quantidade de folhas ilustradas sem numeração</label><br>
+                                <label for="folha-lamina-qtd">Quantidade de folhas ilustradas sem numeração *</label><br>
                                 <input type="text" class="form-control" id="folha-lamina-qtd" name="folha-lamina-qtd">
                             </div>
                         </div>
@@ -732,8 +732,6 @@
             <p id="ficha-aqui"></p>
             <p id="codigos-aqui"></p>
         </div>
-        <p id="bibliotecario-aqui"></p>
-
         <BR>
 
         <!-- Controles de fonte -->
@@ -795,15 +793,23 @@
             <textarea id="creditos" name="creditos" wrap="hard"></textarea>
         </div>
 
+        <!-- Serviço de Catalogação -->
+        <br>
+        <p>Identificação do serviço de catalogação</p>
+        <div id="servico">
+            <label for="servico-nome">Nome do serviço de catalogação</label><br>
+            <input type="text" class="form-control" id="servico-nome" name="servico-nome">
+        </div>
+
         <!-- Bibliotecário e CRB -->
         <br>
-        <p>Sou bibliotecário(a) e quero informar meu registro profissional (CRB)</p>
-        <div id="identificacao">
+        <p>Identificação do profisional de biblioteconomia</p>
+        <div id="bibliotecario">
             <label for="bibliotecario-nome">Nome completo</label><br>
-            <input type="text" class="form-control" id="bibliotecario-nome" name="identificacao">
+            <input type="text" class="form-control" id="bibliotecario-nome" name="bibliotecario-nome">
 
             <label for="crb">CRB</label><br>
-            <input type="text" class="form-control" id="crb" name="identificacao">
+            <input type="text" class="form-control" id="crb" name="crb">
         </div>
 
         <button type="button" id="btn-pdf" class="button"
@@ -891,6 +897,11 @@
         <div id="creditos-section-pdf">
             <p id="creditos-pdf"></p>
         </div> <!-- fim de creditos-section-pdf -->
+
+        <div class="cardTop">
+            <p>Dados Internacionais de Catalogação na Publicação (CIP)</p>
+            <p id="servico-aqui-pdf"></p>
+        </div>
 
         <div id="card-pdf" class="card-box">
             <p id="ficha-aqui-pdf"></p>
