@@ -153,7 +153,7 @@ export function geraPDF() {
 
     //Renderização da ficha
 
-    const ficha = JSON.parse(localStorage.getItem('ficha')); //mudar para cs.get
+    const ficha = JSON.parse(cs.getFicha().ficha);
     const codigos = JSON.parse(cs.getCodigos().codigos);
     const fontSelect = localStorage.getItem("fontSelect");
     const fontSizeInput = localStorage.getItem("fontSizeInput");
@@ -188,24 +188,14 @@ export function geraPDF() {
             }
         },
         margin: [5, 0, 0, 0], // [topo, direita, base, esquerda]
-        //padding: 10,
-        //height: 297, 
-        //width: 210, 
     }
 
     //setTimeout(function () {
     html2pdf().set(options).from(content).outputPdf('blob').then((blob) => {
         const url = URL.createObjectURL(blob);
         window.open(url);
-
-        //versão do código que faz downloado do pdf ao invés de abrir:
-        //const link = document.createElement('a');
-        //link.href = URL.createObjectURL(blob);
-        //link.download = 'documento.pdf';
-        //link.click();
     })
-    //}, 3000);
-
+    
     setTimeout(function () {
         //document.getElementById("pagina-pdf").style.display = "none";
         document.getElementById("card-form").style.display = "block";

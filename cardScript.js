@@ -39,8 +39,7 @@ evento = evento ? evento : "";
 const respInt = document.querySelector('input[name="resp-int"]:checked')?.value;
 
 if (respInt === "pessoa") {
-    console.log("radio pessoa selecionado");
-
+    
 } else if (respInt === "entidade") {
     console.log("radio entidade selecionado");
     //entidade = document.getElementById("entidade-nome").value.trim() || "";
@@ -551,10 +550,8 @@ export function getCodigos() {
 
 export function getServico() {
 
-    let servicoNome = document.getElementById("servico-nome").value.trim();
-    let servico = servicoNome ? `${servicoNome}` : "";
-
-    //servico = JSON.stringify(servico);
+    const servicoNome = document.getElementById("servico-nome").value.trim();
+    const servico = servicoNome ? `${servicoNome}` : "";
     
     localStorage.setItem("servico", servico);
 
@@ -564,33 +561,28 @@ export function getServico() {
 
 export function getBibliotecario() {
 
+    const genero = document.querySelector('input[name="bibliotecario-genero"]:checked')?.value;
+    let bibGenero = "";
+
+    if (genero === "feminino") {
+        bibGenero = "bibliotecária";
+    } else if (genero === "masculino") {        
+        bibGenero = "bibliotecário";
+    } else {        
+        console.log("Gênero do bibliotecário não selecionado");
+    }
+
     let bibliotecarioNome = document.getElementById("bibliotecario-nome").value.trim();
-    bibliotecarioNome = bibliotecarioNome ? `${bibliotecarioNome} (bibliotecário responsável)` : "";
+    bibliotecarioNome = bibliotecarioNome ? `${bibliotecarioNome} (${bibGenero} responsável)` : "";
 
     let crb = document.getElementById("crb").value.trim();
     crb = crb ? ` - CRB ${crb}` : "";
 
     let bibliotecario = `${bibliotecarioNome}${crb}` 
-
-    //bibliotecario = JSON.stringify(bibliotecario); 
-    
+  
     localStorage.setItem("bibliotecario", bibliotecario); 
 
-
     return { bibliotecario }
-}
-
-// LICENÇA 
-
-export function getLicenca() {
-
-    let licenca = document.querySelector('input[name="cc-radio"]:checked')?.value;
-    licenca = licenca ? licenca : '';
-
-    localStorage.setItem("licenca", licenca);
-   
-    return { licenca }
-
 }
 
 // CRÉDITOS

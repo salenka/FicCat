@@ -2,42 +2,26 @@ import { uncheckOption, updateTipoPessoa, eraseAllChildTextOf, saveData, geraFic
 
 alert("Funcionando");
 
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Seleciona todos os campos de input que possuem o atributo required
-    const requiredFields = document.querySelectorAll('input[required], select[required], textarea[required]');
-    // Adiciona um manipulador de eventos "blur" a cada campo obrigatório
-    requiredFields.forEach(field => {
-        field.addEventListener('blur', function () {
-            if (!field.checkValidity()) {
-                field.classList.add('invalid-field')
-            } else {
-                field.classList.remove('invalid-field');
-            }
-        })
-    })
-})
-
 // suporte
 
 document.querySelectorAll('input[name="suporte"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
         if (document.getElementById('fisico').checked) {
-            
+
             document.getElementById('formato-fisico-section').style.display = 'block';
             setRequiredRadioFor('formato');
 
             document.getElementById('material-adicional-section').style.display = 'block';
             setRequiredRadioFor('material-adicional-sn');
-            
+
             document.getElementById('suporte-digital').style.display = 'none';
             eraseAllChildTextOf('suporte-digital');
             removeRequiredFromAllChildTextOf('suporte-digital');
-           
+
 
         } else if (document.getElementById('digital').checked) {
-    
+
             document.getElementById('suporte-digital').style.display = 'block';
             document.getElementById('extensao').setAttribute('required', 'required');
 
@@ -55,9 +39,9 @@ document.querySelectorAll('input[name="suporte"]').forEach(radio => {
             document.getElementById('material-adicional-section').style.display = 'none';
             eraseAllChildTextOf('material-adicional-section');
             removeRequiredRadioFrom('material-adicional-section');
-            
+
             //eraseAllChildTextOf('material-adicional');
-            
+
 
         } else {
             document.getElementById('formato-fisico-section').style.display = 'none';
@@ -134,14 +118,6 @@ document.addEventListener("change", function () {
     localStorage.setItem('creditos', JSON.stringify(creditos));
 })
 
-
-
-
-
-
-
-
-
 // RESPONSABILIDADE INTELECTUAL
 
 document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
@@ -183,9 +159,6 @@ document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
             document.getElementById('entidade-section').style.display = 'none';
             document.getElementById('evento-section').style.display = 'none';
         }
-
-
-
     });
 });
 
@@ -535,8 +508,8 @@ document.querySelectorAll('input[name="paginacao"]').forEach(radio => {
             removeRequiredFromAllChildTextOf('paginacao-numerada-section');
 
             uncheckOption('pag-outra'); //pag-romana e pag-lamina
-            
-            removeRequiredRadioFrom('pag-ou-folha'); 
+
+            removeRequiredRadioFrom('pag-ou-folha');
             uncheckOption('pag-ou-folha');
 
             document.getElementById('paginacao-nao-numerada').style.display = 'block';
@@ -561,7 +534,7 @@ document.querySelectorAll('input[name="paginacao"]').forEach(radio => {
 // Paginação romana ou laminas 
 document.querySelectorAll('input[name="pag-outra"]').forEach(checkbox => {
     checkbox.addEventListener('change', function () {
-    
+
         // Checkbox paginacao romana
 
         if (document.getElementById('pag-romana').checked) {
@@ -577,7 +550,7 @@ document.querySelectorAll('input[name="pag-outra"]').forEach(checkbox => {
 
         // Checkbox laminas
         if (document.getElementById('pag-lamina').checked) {
-            
+
             document.getElementById('paginacao-lamina').style.display = 'block';
             setRequiredRadioFor('pag-ou-folha');
 
@@ -586,7 +559,7 @@ document.querySelectorAll('input[name="pag-outra"]').forEach(checkbox => {
             eraseAllChildTextOf('paginacao-lamina');
             uncheckOption('pag-ou-folha');
             removeRequiredRadioFrom('pag-ou-folha');
-            
+
         }
     });
 });
@@ -654,9 +627,9 @@ document.getElementById('img-ilustracoes').addEventListener('change', function (
     } else {
         document.getElementById('il-coloracao').style.display = 'none';
         removeRequiredRadioFrom('il-coloracao');
-        uncheckOption('il-coloracao');            
-        }
-    
+        uncheckOption('il-coloracao');
+    }
+
 })
 
 //Checkbox FOTOS
@@ -670,7 +643,7 @@ document.getElementById('img-fotos').addEventListener('change', function () {
     } else {
         document.getElementById('fotos-coloracao').style.display = 'none';
         removeRequiredRadioFrom('fotos-coloracao')
-        uncheckOption('fotos-coloracao');  
+        uncheckOption('fotos-coloracao');
     }
 })
 
@@ -854,10 +827,10 @@ document.querySelectorAll('input[name="isbn-2-sn"]').forEach(radio => {
 document.querySelectorAll('input[name="nota-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        removeRequiredFromAllChildTextOf,('notas-section');
+        removeRequiredFromAllChildTextOf, ('notas-section');
         eraseAllChildTextOf('notas-section');
         uncheckOption('nota-2-sn');
-        
+
 
         if (document.getElementById('nota-sim').checked) {
 
@@ -872,7 +845,7 @@ document.querySelectorAll('input[name="nota-sn"]').forEach(radio => {
             document.getElementById('nota-1').removeAttribute('required', 'required')
             document.getElementById('nota-2-sn').style.display = 'none';
             document.getElementById('nota-outro').style.display = 'none';
-            
+
 
         }
     });
@@ -896,6 +869,23 @@ document.querySelectorAll('input[name="nota-2-sn"]').forEach(radio => {
             document.getElementById('nota-2').removeAttribute('required', 'required');
         }
     });
+});
+
+//bibliotecario-genero
+document.getElementById('bibliotecario-nome').addEventListener("change", function () {
+
+    const bibNome = document.getElementById('bibliotecario-nome').value.trim();
+    const bibGenero = document.querySelectorAll('input[name="bib-genero"]');
+
+    if (bibNome !== "") {
+        bibGenero.forEach(radio => {
+            radio.setAttribute('required', 'required');
+        })
+    } else {
+        bibGenero.forEach(radio => {
+            radio.removeAttribute('required', 'required');
+        })
+    };
 });
 
 // JavaScript para limitar a quantidade máxima de linhas
@@ -925,6 +915,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.getElementById("btn-card").addEventListener("click", function (event) {
 
     let formIsValid = true;
+    
     const requiredFields = document.querySelectorAll('input[required]:not([type="radio"]), select[required], textarea[required]');
     requiredFields.forEach(field => {
         if (!field.checkValidity()) {
@@ -969,21 +960,58 @@ document.getElementById("btn-card").addEventListener("click", function (event) {
 })
 
 // Botão Abrir PDF
-document.getElementById("btn-pdf").addEventListener("click", function () {
+document.getElementById("btn-pdf").addEventListener("click", function (event) {
 
-    geraPDF();
+    let formIsValid = true;
 
+    // Validação específica para os rádios bibliotecario-genero
+    const bibGenero = document.querySelectorAll('input[name="bibliotecario-genero"]');
 
+    if (bibGenero.length > 0 && !Array.from(bibGenero).some(radio => radio.checked)) {
+        formIsValid = false;
+        bibGenero.forEach(radio => radio.classList.add('invalid-radio'));
+
+    } else {
+
+        bibGenero.forEach(radio => radio.classList.remove('invalid-radio'));
+    }
+
+    if (!formIsValid) {  //só executa se TRUE
+        event.preventDefault(); // Impede o envio do formulário se houver campos inválidos
+        alert('Por favor, preencha todos os campos obrigatórios.');
+
+    } else {
+
+        geraPDF();
+    }
 });
+
 
 // Botão Abrir HTML A4
 
-document.getElementById("btn-A4").addEventListener("click", function () {
+document.getElementById("btn-A4").addEventListener("click", function (event) {
 
-    console.log("Botão Abrir Página acionado");
-    window.open("a4.html", "_blank");
-    console.log("janela aberta");
+    let formIsValid = true;
 
+        // Validação específica para os rádios bibliotecario-genero
+        const bibGenero = document.querySelectorAll('input[name="bibliotecario-genero"]');
+        if (bibGenero.length > 0 && !Array.from(bibGenero).some(radio => radio.checked)) {
+            formIsValid = false;
+            bibGenero.forEach(radio => radio.classList.add('invalid-radio'));
+        } else {
+            bibGenero.forEach(radio => radio.classList.remove('invalid-radio'));
+        }
+    
+        if (!formIsValid) {  //só executa se TRUE
+            event.preventDefault(); // Impede o envio do formulário se houver campos inválidos
+            alert('Por favor, preencha todos os campos obrigatórios.');
+        } else {
+            
+            console.log("Botão Abrir Página acionado");
+            window.open("a4.html", "_blank");
+            console.log("janela aberta");
+
+        }
 
 });
 
