@@ -12,22 +12,25 @@ window.onload = function () {
     const fontSelect = localStorage.getItem("fontSelect");
     const fontSizeInput = localStorage.getItem("fontSizeInput");
 
-//Renderização da licença
+    // Renderização da licença
 
-const licenca = localStorage.getItem("licenca");
+        // Oculta todas as divs de licença
+        document.querySelectorAll('#licenca-section-pdf > div').forEach(div => {
+            div.style.display = 'none';
+        });
 
-    // Oculta todas as divs de licença
-    document.querySelectorAll('#licenca-section-pdf > div').forEach(div => {
-        div.style.display = 'none';
-    });
-
-        // Mostra apenas a div correspondente à licença selecionada
-        if (licenca) {
-            const selectedDiv = document.getElementById(licenca);
-            selectedDiv.style.display = 'flex'; // Altera o display para flex
-            selectedDiv.style.flexDirection = 'column'; // Define a direção do flex
-            selectedDiv.style.alignItems = 'center'; // Centraliza os itens
-        }
+   let licenca = localStorage.getItem("licenca");
+   licenca = licenca? licenca : '';
+    if (licenca == 'remove-license') {
+        localStorage.removeItem("licenca");
+    } else if (licenca) {
+        const selectedDiv = document.getElementById(licenca);
+        selectedDiv.style.display = 'flex'; // Altera o display para flex
+        selectedDiv.style.flexDirection = 'column'; // Define a direção do flex
+        selectedDiv.style.alignItems = 'center'; // Centraliza os itens
+    } else {
+        console.log("Licença não selecionada")
+    }
     
     // Rnderização dos créditos
 

@@ -60,7 +60,7 @@ export function removeRequiredRadioFrom(inputName) {
     const target = document.querySelectorAll(`input[type="radio"][name="${inputName}"]`);
     target.forEach(option => {
         option.removeAttribute('required', 'required');
-    })    
+    })
 }
 
 // REMOVE OBRIGATORIEDADE DOS INPUTS
@@ -100,7 +100,7 @@ export function geraFicha() {
 
     // Renderização da ficha
     document.getElementById("ficha-aqui").textContent = ficha;
-    document.getElementById("codigos-aqui").textContent = codigos;  
+    document.getElementById("codigos-aqui").textContent = codigos;
 
     // Renderização dos elementos HTML
     document.getElementById("ficha-catalografica").style.display = "block";
@@ -131,19 +131,22 @@ export function geraPDF() {
 
     // Renderização da licença
 
-    const licenca = localStorage.getItem("licenca"); 
+        // Oculta todas as divs de licença
+        document.querySelectorAll('#licenca-section-pdf > div').forEach(div => {
+            div.style.display = 'none';
+        });
 
-    // Oculta todas as divs de licença
-    document.querySelectorAll('#licenca-section-pdf > div').forEach(div => {
-        div.style.display = 'none';
-    });
-
-    // Mostra apenas a div correspondente à licença selecionada
-    if (licenca) {
+   let licenca = localStorage.getItem("licenca");
+   licenca = licenca? licenca : '';
+    if (licenca == 'remove-license') {
+        localStorage.removeItem("licenca");
+    } else if (licenca) {
         const selectedDiv = document.getElementById(licenca);
         selectedDiv.style.display = 'flex'; // Altera o display para flex
         selectedDiv.style.flexDirection = 'column'; // Define a direção do flex
         selectedDiv.style.alignItems = 'center'; // Centraliza os itens
+    } else {
+        console.log("Licença não selecionada")
     }
 
     // Renderização dos créditos
@@ -195,7 +198,7 @@ export function geraPDF() {
         const url = URL.createObjectURL(blob);
         window.open(url);
     })
-    
+
     setTimeout(function () {
         //document.getElementById("pagina-pdf").style.display = "none";
         document.getElementById("card-form").style.display = "block";
