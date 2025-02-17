@@ -198,7 +198,12 @@ legend {
     50% posiciona o lado esquerdo do elemento no meio do contêiner pai, 
     e translateX(-50%) ajusta o elemento para que ele fique centralizado horizontalmente. */
     top: calc(297mm - 40mm);
+    white-space: nowrap; /* Garante que o texto dentro de cada parágrafo não quebre em várias linhas */
+
+
 }
+
+
 
 #creditos-section-pdf {
     width: 100%;
