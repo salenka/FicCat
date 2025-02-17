@@ -18,6 +18,7 @@
     <form id="card-form">
 
         <h2>Gerador de Ficha Catalográfica para Livros</h2>
+        <small>Os campos com asterisco (*) são de preenchimento obrigatório</small>
 
         <fieldset id="suporte" class="form-group form-group-bordered">
 
@@ -462,7 +463,8 @@
                             <label for="folha">Há imagens apenas em um lado das folhas</label>
 
                             <div id="folha-lamina">
-                                <label for="folha-lamina-qtd">Quantidade de folhas ilustradas sem numeração *</label><br>
+                                <label for="folha-lamina-qtd">Quantidade de folhas ilustradas sem numeração
+                                    *</label><br>
                                 <input type="text" class="form-control" id="folha-lamina-qtd" name="folha-lamina-qtd">
                             </div>
                         </div>
@@ -719,7 +721,7 @@
 
         <!-- BOTÃO GERAR FICHA-->
 
-        <button type="button" id="btn-card" class="button">Get ficha</button>
+        <button type="button" id="btn-card" class="button">Gerar Ficha Catalográfica</button>
 
 
     </form> <!-- fim de card-form -->
@@ -727,6 +729,7 @@
     <!-- FICHA CATALOGRÁFICA -->
 
     <div id="ficha-catalografica">
+        <h4>Ficha Catalográfica</h4>
         <br>
         <div id="card" class="card-box">
             <p id="ficha-aqui"></p>
@@ -735,7 +738,8 @@
         <BR>
 
         <!-- Controles de fonte -->
-
+        <br>
+        <small>Ajuste o conteúdo da ficha catalográfica ao tamanho do quadro:</small>
         <div id="font-controls">
             <label for="font-select">Fonte:</label>
             <select id="font-select">
@@ -756,11 +760,11 @@
         <h4>Campos opcionais para PDF</h4>
 
         <!-- Licença -->
-        <fieldset id="licenca-section" class="form-group form-group-bordered">
+        <fieldset id="licenca-section">
 
             <div id="licenca-select">
 
-                <p><em>Licença Creative Commons</em></p>
+                <p>Licença Creative Commons</p>
 
                 <!--<label for="cc-select"></label>-->
                 <select id="cc-select" name="cc-select" class="form-control">
@@ -771,7 +775,7 @@
                     <option value="by-nc">Atribuição-NãoComercial (CC BY-NC)</option>
                     <option value="by-nc-sa">Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA)</option>
                     <option value="by-nc-nd">Atribuição-NãoComercial-SemDerivações (CC BY-NC-ND)</option>
-                    <option value="cc-0">Domínio Público (CC0)</option>        
+                    <option value="cc-0">Domínio Público (CC0)</option>
                 </select>
             </div>
 
@@ -779,8 +783,10 @@
 
 
         <!-- Créditos -->
+        <br>
+        <p>Créditos da publicação</p>
         <div id="creditos-section">
-            <label for="creditos">Créditos da publicação</label><br>
+            <!--<label for="creditos">Créditos da publicação</label><br>-->
             <textarea id="creditos" name="creditos" wrap="hard"></textarea>
         </div>
 
@@ -795,6 +801,15 @@
         <!-- Bibliotecário e CRB -->
         <br>
         <p>Identificação do profisional de biblioteconomia</p>
+
+        <div id="bibliotecario-genero">
+            <input type="radio" id="bib-genero-feminimo" name="bibliotecario-genero" value="feminino">
+            <label for="bib-genero-feminimo">Bibliotecária</label>
+
+            <input type="radio" id="bib-genero-masculino" name="bibliotecario-genero" value="masculino">
+            <label for="bib-genero-masculino">Bibliotecário</label><br><br />
+        </div>
+
         <div id="bibliotecario">
             <label for="bibliotecario-nome">Nome completo</label><br>
             <input type="text" class="form-control" id="bibliotecario-nome" name="bibliotecario-nome">
@@ -802,20 +817,10 @@
             <label for="crb">CRB</label><br>
             <input type="text" class="form-control" id="crb" name="crb">
 
-            <div id="bibliotecario-genero">
-                <input type="radio" id="bib-genero-feminimo" name="bibliotecario-genero" value="feminino">
-                <label for="bib-genero-feminimo">Bibliotecária</label><br>
-
-                <input type="radio" id="bib-genero-masculino" name="bibliotecario-genero" value="masculino">
-                <label for="bib-genero-masculino">Bibliotecário</label><br><br />
-            </div>
         </div>
 
-        <button type="button" id="btn-pdf" class="button"
-            style="margin: auto; margin-top: 30px; margin-bottom: 30px">Gerar
-            PDF</button>
-        <button type="button" id="btn-A4" style="margin: auto; margin-top: 30px; margin-bottom: 30px">Abrir
-            HTML A4</button>
+        <button type="button" id="btn-pdf" class="button">Gerar PDF</button>
+        <button type="button" id="btn-A4" class="button">Abrir HTML A4</button>
 
 
     </div> <!-- fim de opcionais-pdf -->
@@ -886,7 +891,8 @@
             <div id="cc-0">
                 <img src="IMG/cc-0.jpg" alt="CC BY" width="150" height="55">
                 <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Domínio Público
-                        (CC-0)</b>. Esta licença renuncia a todos os direitos colocando o trabalho em domínio público. Os
+                        (CC-0)</b>. Esta licença renuncia a todos os direitos colocando o trabalho em domínio público.
+                    Os
                     termos da licença são detalhados em <a
                         href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
             </div>
@@ -916,7 +922,9 @@
     <script type="module" src="functions.js" charset="utf-8"></script>
     <script type="module" src="cardScript.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
-
+<footer><a href="mailto:salenka@gmail.com">
+    <img src="IMG/mailto.png" alt="mailto" width="80" height="80" style="padding:10px">
+</a></mailto></footer>
 </body>
 
 </html>

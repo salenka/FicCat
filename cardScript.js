@@ -504,6 +504,7 @@ export function getFicha() {
     ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
     ${paginacao}${imagens}${dimensoes}${materialAdicional}${areaSerie}
     ${nota1}${nota2}${isbn}
+    
     ${assuntos}
     `
     // Ajustes finais da ficha
