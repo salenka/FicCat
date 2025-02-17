@@ -54,8 +54,7 @@ document.querySelectorAll('input[name="suporte"]').forEach(radio => {
     })
 })
 
-// CODIGOS OPCIONAIS
-
+// Códigos de catalogação
 document.querySelectorAll('input[name="codigos-ckbox"]').forEach(checkbox => {
     checkbox.addEventListener('change', function () {
 
@@ -102,21 +101,6 @@ document.querySelectorAll('input[name="codigos-ckbox"]').forEach(checkbox => {
             document.getElementById('pha').removeAttribute('required', 'required');
         }
     })
-})
-
-
-// LICENCA - Salva em localStorage
-const ccSelect = document.getElementById('cc-select');
-ccSelect.addEventListener('change', function () {
-    localStorage.setItem("licenca", ccSelect.value);
-    console.log(`Licença salva em localStorage: ${localStorage.getItem("licenca")}`);
-});
-
-// CREDITOS - Salva em localStorage (não salvar em form pois é apagado no Gerar Ficha)
-
-let creditos = document.getElementById("creditos").value;
-document.addEventListener("change", function () {
-    localStorage.setItem('creditos', JSON.stringify(creditos));
 })
 
 // RESPONSABILIDADE INTELECTUAL
@@ -872,6 +856,21 @@ document.querySelectorAll('input[name="nota-2-sn"]').forEach(radio => {
     });
 });
 
+// OPCIONAIS DO PDF
+
+// LICENCA - Salva em localStorage
+const ccSelect = document.getElementById('cc-select');
+ccSelect.addEventListener('change', function () {
+    localStorage.setItem("licenca", ccSelect.value);
+    console.log(`Licença salva em localStorage: ${localStorage.getItem("licenca")}`);
+});
+
+// CREDITOS - Salva em localStorage (não salvar em form pois é apagado no Gerar Ficha)
+let creditos = document.getElementById("creditos").value;
+document.addEventListener("change", function () {
+    localStorage.setItem('creditos', JSON.stringify(creditos));
+})
+
 //bibliotecario-genero
 document.getElementById('bibliotecario-nome').addEventListener("change", function () {
 
@@ -909,12 +908,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // BOTÕES
+
 // Botão Gera Ficha
-// validação de inputs de texto
+
+// valida inputs de texto
 document.getElementById("btn-card").addEventListener("click", function (event) {
 
     let formIsValid = true;
-    
+
     const requiredFields = document.querySelectorAll('input[required]:not([type="radio"]), select[required], textarea[required]');
     requiredFields.forEach(field => {
         if (!field.checkValidity()) {
@@ -925,11 +926,11 @@ document.getElementById("btn-card").addEventListener("click", function (event) {
         }
     });
 
-    // Validação de grupos de rádio
+    // valida grupos de rádio
     const radioGroups = document.querySelectorAll('input[type="radio"][required]');
     let radiosPorGrupo = {};
 
-    // Agrupa rádios pelo atributo "name"
+    // agrupa rádios pelo atributo "name"
     radioGroups.forEach(radio => {
 
         if (!radiosPorGrupo[radio.name]) {
@@ -960,11 +961,6 @@ document.getElementById("btn-card").addEventListener("click", function (event) {
 
 // Botão Abrir PDF
 document.getElementById("btn-pdf").addEventListener("click", function (event) {
-
-    const creditos = document.getElementById("creditos").value;
-    document.addEventListener("change", function () {
-        localStorage.setItem('creditos', JSON.stringify(creditos));
-    })
 
     localStorage.setItem('bibliotecario', getBibliotecario().bibliotecario);
     localStorage.setItem('servico', getServico().servico);
@@ -1000,35 +996,30 @@ document.getElementById("btn-A4").addEventListener("click", function (event) {
 
     // Salva variáveis de Opcionais do PDF (apagadas no Gera Ficha)
 
-    const creditos = document.getElementById("creditos").value;
-    document.addEventListener("change", function () {
-        localStorage.setItem('creditos', JSON.stringify(creditos));
-    })
-
     localStorage.setItem('bibliotecario', getBibliotecario().bibliotecario);
     localStorage.setItem('servico', getServico().servico);
 
     let formIsValid = true;
 
-        // Validação específica para os rádios bibliotecario-genero
-        const bibGenero = document.querySelectorAll('input[name="bibliotecario-genero"][required]');
-        if (bibGenero.length > 0 && !Array.from(bibGenero).some(radio => radio.checked)) {
-            formIsValid = false;
-            bibGenero.forEach(radio => radio.classList.add('invalid-radio'));
-        } else {
-            bibGenero.forEach(radio => radio.classList.remove('invalid-radio'));
-        }
-    
-        if (!formIsValid) {  //só executa se TRUE
-            event.preventDefault(); // Impede o envio do formulário se houver campos inválidos
-            alert('Por favor, preencha todos os campos obrigatórios.');
-        } else {
-            
-            console.log("Botão Abrir Página acionado");
-            window.open("a4.html", "_blank");
-            console.log("janela aberta");
+    // Validação específica para os rádios bibliotecario-genero
+    const bibGenero = document.querySelectorAll('input[name="bibliotecario-genero"][required]');
+    if (bibGenero.length > 0 && !Array.from(bibGenero).some(radio => radio.checked)) {
+        formIsValid = false;
+        bibGenero.forEach(radio => radio.classList.add('invalid-radio'));
+    } else {
+        bibGenero.forEach(radio => radio.classList.remove('invalid-radio'));
+    }
 
-        }
+    if (!formIsValid) {  //só executa se TRUE
+        event.preventDefault(); // Impede o envio do formulário se houver campos inválidos
+        alert('Por favor, preencha todos os campos obrigatórios.');
+    } else {
+
+        console.log("Botão Abrir Página acionado");
+        window.open("a4.html", "_blank");
+        console.log("janela aberta");
+
+    }
 
 });
 
