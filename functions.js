@@ -146,7 +146,7 @@ export function geraPDF() {
         selectedDiv.style.alignItems = 'center'; // Centraliza os itens
     }
 
-    // Rnderização dos créditos
+    // Renderização dos créditos
 
     const creditos = JSON.parse(cs.getCreditos().creditos);
     document.getElementById("creditos-pdf").innerHTML = creditos;
