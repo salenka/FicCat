@@ -858,6 +858,7 @@ document.querySelectorAll('input[name="nota-2-sn"]').forEach(radio => {
 
 // OPCIONAIS DO PDF
 
+
 // LICENCA - Salva em localStorage
 const ccSelect = document.getElementById('cc-select');
 ccSelect.addEventListener('change', function () {
@@ -901,7 +902,7 @@ document.getElementById('creditos').addEventListener('input', function () {
 
 // SALVA DADOS - adicionando o evento 'input' para todos os campos do formulário
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('#card-form input[type="text"]').forEach(campo => {
+    document.querySelectorAll('input[type="text"]').forEach(campo => {
         campo.addEventListener("input", saveData);
     });
 })
