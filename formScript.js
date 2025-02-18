@@ -114,6 +114,7 @@ document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
         eraseAllChildTextOf('entidade-section');
         eraseAllChildTextOf('evento-section');
         removeRequiredFromAllChildTextOf('resp-int-section');
+        removeRequiredRadioFrom('pessoa-tipo')
 
         if (document.getElementById('pessoa').checked) {
             document.getElementById('pessoa-section').style.display = 'block';
@@ -866,17 +867,19 @@ ccSelect.addEventListener('change', function () {
     console.log(`Licença salva em localStorage: ${localStorage.getItem("licenca")}`);
 });
 
-// CREDITOS - Salva em localStorage
-const creditos = document.getElementById("creditos");
-if (creditos) {
-    creditos.addEventListener("change", function () {
-        localStorage.setItem('creditos', creditos.value); // Store the *value* of the element, not the whole element
-        console.log(`Créditos salvos em localStorage: ${localStorage.getItem("creditos")}`);
-    });
-}else{
-  console.error("Créditos não encontrados")
-}
+// CREDITOS - Salva em localStorage (diferente de input[type="text"])
+document.getElementById("creditos").addEventListener("change", function () {
+    let creditos = document.getElementById("creditos").value.trim();
 
+    if (creditos) {
+        creditos = JSON.stringify(creditos);
+        localStorage.setItem('creditos', creditos); // Store the *value* of the element, not the whole element
+        console.log(`Créditos salvos em localStorage: ${localStorage.getItem("creditos")}`);
+    } else {
+        console.error("Créditos não encontrados")
+    }
+
+})
 // Bibliotecario-genero - seleção
 document.getElementById('bibliotecario-nome').addEventListener("change", function () {
 
@@ -894,10 +897,6 @@ document.getElementById('bibliotecario-nome').addEventListener("change", functio
     };
 });
 
-// Salva as variáveis processadas em cardScript
-
-localStorage.setItem('bibliotecario', getBibliotecario().bibliotecario);
-localStorage.setItem('servico', getServico().servico);
 
 // JavaScript para limitar a quantidade máxima de linhas em #creditos
 document.getElementById('creditos').addEventListener('input', function () {
@@ -1003,6 +1002,10 @@ document.getElementById("btn-pdf").addEventListener("click", function (event) {
 
 document.getElementById("btn-A4").addEventListener("click", function (event) {
 
+    // Salva as variáveis processadas em cardScript
+
+    localStorage.setItem('bibliotecario', getBibliotecario().bibliotecario);
+    localStorage.setItem('servico', getServico().servico);
 
     let formIsValid = true;
 
@@ -1020,7 +1023,7 @@ document.getElementById("btn-A4").addEventListener("click", function (event) {
         alert('Por favor, preencha todos os campos obrigatórios.');
     } else {
 
-        console.log("Botão Abrir Página acionado");
+        console.log("Botão Abrir Página HTML A4 acionado");
         window.open("a4.html", "_blank");
         console.log("janela aberta");
 

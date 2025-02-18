@@ -24,18 +24,21 @@ window.onload = function () {
     if (licenca == 'remove-license') {
         localStorage.removeItem("licenca");
     } else if (licenca) {
+        console.log(`licença escolhida: ${licenca}`)
+        
         const selectedDiv = document.getElementById(licenca);
         selectedDiv.style.display = 'flex'; // Altera o display para flex
         selectedDiv.style.flexDirection = 'column'; // Define a direção do flex
         selectedDiv.style.alignItems = 'center'; // Centraliza os itens
+        
     } else {
         console.log("Licença não selecionada")
     }
     
     // Rnderização dos créditos
 
-    const creditos = JSON.parse(localStorage.getItem('creditos'));
-    
+    let creditos = localStorage.getItem('creditos');
+    creditos = JSON.parse(creditos);
     document.getElementById("creditos-pdf").innerHTML = creditos;
 
     //Renderização da ficha

@@ -19,7 +19,7 @@ return { areaTitulo }
 function getEdicao() {
 
 let edicao = document.getElementById("edicao").value.trim();
-let areaEdicao = edicao ? '. -- ' + edicao + ' ed' : "";
+let areaEdicao = edicao ? '. — ' + edicao + ' ed' : "";
 
 return { areaEdicao }
 }
@@ -192,7 +192,7 @@ let publicador = document.getElementById("publicador").value.trim();
 publicador = publicador ? ' : ' + publicador : ' : [s.n.]';
 
 let loc = document.getElementById("local").value.trim();
-const local = loc ? '. -- ' + loc : ". -- [S.l.]";
+const local = loc ? '. — ' + loc : ". — [S.l.]";
 
 let ano = document.getElementById("ano").value.trim();
 ano = ano ? ', ' + ano + '.' : ', [s.d.].';
@@ -399,7 +399,7 @@ subserieVolume = subserieVolume ? " ; " + subserieVolume : "";
 
 // Construção da área da série
 if (serieSN === "sim") {
-    areaSerie = `. -- (${serieNome}${serieVolume}`;
+    areaSerie = `. — (${serieNome}${serieVolume}`;
     if (subserieNome) {
         areaSerie += ` : ${subserieNome}${subserieVolume})`;
     } else {
@@ -444,7 +444,7 @@ qualificador1 = qualificador1 ? ` (${qualificador1})` : "";
 isbn1 = `${isbn1}${qualificador1}`;
 
 let isbn2 = document.getElementById("isbn-2").value.trim();
-isbn2 = isbn2 ? `. -- ISBN ${isbn2}` : "";
+isbn2 = isbn2 ? `. — ISBN ${isbn2}` : "";
 let qualificador2 = document.getElementById("qualificador-2").value.trim();
 qualificador2 = qualificador2 ? ` (${qualificador2})` : "";
 
@@ -508,7 +508,7 @@ export function getFicha() {
     ${assuntos}
     `
     // Ajustes finais da ficha
-    ficha = ficha.replace('.. -- ', ' . -- ') // Elimina ponto final que é seguido de marcador de nova seção
+    ficha = ficha.replace('.. — ', ' . — ') // Elimina ponto final que é seguido de marcador de nova seção
     ficha = ficha.replace('il..', 'il.') // Elimina ponto final da área de série após abreviação il.
     ficha = ficha.replace('p..', 'p.') // Elimina ponto final da área de série após abreviação p.
     ficha = ficha.replace('color..', 'color.') // Elimina de ponto final da área de série após abreviação color.
@@ -537,8 +537,7 @@ export function getCodigos() {
     let pha = document.getElementById('pha').value.trim();
     pha = pha ? `PHA ${pha}` : "";
 
-    let codigos = `${cdd} ${cdu} 
-    ${cutter} ${pha}`
+    let codigos = `${cdd} ${cdu} ${cutter} ${pha}`
 
     codigos = JSON.stringify(codigos);
 
