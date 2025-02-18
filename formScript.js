@@ -866,13 +866,18 @@ ccSelect.addEventListener('change', function () {
     console.log(`Licença salva em localStorage: ${localStorage.getItem("licenca")}`);
 });
 
-// CREDITOS - Salva em localStorage (não salvar em form pois é apagado no Gerar Ficha)
-let creditos = document.getElementById("creditos").value;
-document.addEventListener("change", function () {
-    localStorage.setItem('creditos', JSON.stringify(creditos));
-})
+// CREDITOS - Salva em localStorage
+const creditos = document.getElementById("creditos");
+if (creditos) {
+    creditos.addEventListener("change", function () {
+        localStorage.setItem('creditos', creditos.value); // Store the *value* of the element, not the whole element
+        console.log(`Créditos salvos em localStorage: ${localStorage.getItem("creditos")}`);
+    });
+}else{
+  console.error("Créditos não encontrados")
+}
 
-//bibliotecario-genero
+// Bibliotecario-genero - seleção
 document.getElementById('bibliotecario-nome').addEventListener("change", function () {
 
     const bibNome = document.getElementById('bibliotecario-nome').value.trim();
@@ -889,7 +894,12 @@ document.getElementById('bibliotecario-nome').addEventListener("change", functio
     };
 });
 
-// JavaScript para limitar a quantidade máxima de linhas
+// Salva as variáveis processadas em cardScript
+
+localStorage.setItem('bibliotecario', getBibliotecario().bibliotecario);
+localStorage.setItem('servico', getServico().servico);
+
+// JavaScript para limitar a quantidade máxima de linhas em #creditos
 document.getElementById('creditos').addEventListener('input', function () {
     const maxLines = 20;
     const textarea = this;
@@ -900,7 +910,8 @@ document.getElementById('creditos').addEventListener('input', function () {
     }
 });
 
-// SALVA DADOS - adicionando o evento 'input' para todos os campos do formulário
+
+// SALVA EM LOCAL STORAGE 'input[type="text"]' de todos os campos do formulário
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('input[type="text"]').forEach(campo => {
         campo.addEventListener("input", saveData);
@@ -963,9 +974,6 @@ document.getElementById("btn-card").addEventListener("click", function (event) {
 // Botão Abrir PDF
 document.getElementById("btn-pdf").addEventListener("click", function (event) {
 
-    localStorage.setItem('bibliotecario', getBibliotecario().bibliotecario);
-    localStorage.setItem('servico', getServico().servico);
-
     let formIsValid = true;
 
     // Validação específica para os rádios bibliotecario-genero
@@ -995,10 +1003,6 @@ document.getElementById("btn-pdf").addEventListener("click", function (event) {
 
 document.getElementById("btn-A4").addEventListener("click", function (event) {
 
-    // Salva variáveis de Opcionais do PDF (apagadas no Gera Ficha)
-
-    localStorage.setItem('bibliotecario', getBibliotecario().bibliotecario);
-    localStorage.setItem('servico', getServico().servico);
 
     let formIsValid = true;
 
