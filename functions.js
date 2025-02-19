@@ -97,12 +97,17 @@ export function geraFicha() {
     // Captura das variáveis de cardScript.js
     const ficha = JSON.parse(cs.getFicha().ficha);
     const codigos = JSON.parse(cs.getCodigos().codigos);
+    const servico = cs.getServico().servico;
+    const bibliotecario = cs.getBibliotecario().bibliotecario;
 
     // Renderização da ficha
     document.getElementById("ficha-aqui").textContent = ficha;
     document.getElementById("codigos-aqui").textContent = codigos;
+    document.getElementById("servico-aqui").textContent = servico;
+    document.getElementById("bibliotecario-aqui").textContent = bibliotecario;
 
     // Renderização dos elementos HTML
+    
     document.getElementById("ficha-catalografica").style.display = "block";
     document.getElementById("font-controls").style.display = "block";
     document.getElementById("opcionais-pdf").style.display = "block";
@@ -131,13 +136,13 @@ export function geraPDF() {
 
     // Renderização da licença
 
-        // Oculta todas as divs de licença
-        document.querySelectorAll('#licenca-section-pdf > div').forEach(div => {
-            div.style.display = 'none';
-        });
+    // Oculta todas as divs de licença
+    document.querySelectorAll('#licenca-section-pdf > div').forEach(div => {
+        div.style.display = 'none';
+    });
 
-   let licenca = localStorage.getItem("licenca");
-   licenca = licenca? licenca : '';
+    let licenca = localStorage.getItem("licenca");
+    licenca = licenca ? licenca : '';
     if (licenca == 'remove-license') {
         localStorage.removeItem("licenca");
     } else if (licenca) {
@@ -206,3 +211,44 @@ export function geraPDF() {
         document.getElementById("opcionais-pdf").style.display = "block";
     }, 2500);
 }
+
+// GERA PNG
+
+export function geraPNG() {
+
+    // Renderização da ficha
+    const ficha = JSON.parse(cs.getFicha().ficha);
+    const codigos = JSON.parse(cs.getCodigos().codigos);
+    const fontSelect = localStorage.getItem("fontSelect");
+    const fontSizeInput = localStorage.getItem("fontSizeInput");
+    const servico = cs.getServico().servico;
+    const bibliotecario = cs.getBibliotecario().bibliotecario;
+
+    document.getElementById("ficha-aqui-pdf").textContent = ficha;
+    document.getElementById("ficha-aqui-pdf").style.fontFamily = fontSelect;
+    document.getElementById("ficha-aqui-pdf").style.fontSize = fontSizeInput + 'px';
+    document.getElementById("codigos-aqui-pdf").textContent = codigos;
+    document.getElementById("codigos-aqui-pdf").style.fontSize = (fontSizeInput - 1) + 'px';
+    document.getElementById("servico-aqui-pdf").textContent = servico;
+    document.getElementById("bibliotecario-aqui-pdf").textContent = bibliotecario;
+   
+        // Seleciona a div que você quer capturar
+        const content = document.getElementById('ficha-completa');
+    
+        // Usa html2canvas para capturar a div como um canvas
+        html2canvas(content).then(canvas => {
+            // Converte o canvas para uma imagem PNG
+            const imgData = canvas.toDataURL('image/png');
+    
+            // Cria um link para download da imagem
+            const link = document.createElement('a');
+            link.href = imgData;
+            link.download = 'ficha-completa.png';
+    
+            // Simula o clique no link para iniciar o download
+            link.click();
+        });
+    }
+
+
+

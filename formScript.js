@@ -1,4 +1,4 @@
-import { uncheckOption, updateTipoPessoa, eraseAllChildTextOf, saveData, geraFicha, geraPDF, removeRequiredFromAllChildTextOf, setRequiredRadioFor, removeRequiredRadioFrom } from './functions.js';
+import { uncheckOption, updateTipoPessoa, eraseAllChildTextOf, saveData, geraFicha, geraPDF, removeRequiredFromAllChildTextOf, setRequiredRadioFor, removeRequiredRadioFrom, geraPNG } from './functions.js';
 import { getBibliotecario, getServico } from './cardScript.js'
 
 alert("Funcionando");
@@ -994,6 +994,33 @@ document.getElementById("btn-pdf").addEventListener("click", function (event) {
     } else {
 
         geraPDF();
+    }
+});
+
+// Botão Baixar PNG
+document.getElementById("btn-png").addEventListener("click", function (event) {
+
+    let formIsValid = true;
+
+    // Validação específica para os rádios bibliotecario-genero
+    const bibGenero = document.querySelectorAll('input[name="bibliotecario-genero"][required]');
+
+    if (bibGenero.length > 0 && !Array.from(bibGenero).some(radio => radio.checked)) {
+        formIsValid = false;
+        bibGenero.forEach(radio => radio.classList.add('invalid-radio'));
+
+    } else {
+
+        bibGenero.forEach(radio => radio.classList.remove('invalid-radio'));
+    }
+
+    if (!formIsValid) {  //só executa se TRUE
+        event.preventDefault(); // Impede o envio do formulário se houver campos inválidos
+        alert('Por favor, preencha todos os campos obrigatórios.');
+
+    } else {
+
+        geraPNG();
     }
 });
 

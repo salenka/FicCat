@@ -119,7 +119,13 @@ legend {
     padding: 0;
 }
 
-.cardTop {
+#ficha-completa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-top-pdf {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -131,12 +137,14 @@ legend {
     50% posiciona o lado esquerdo do elemento no meio do contêiner pai, e translateX(-50%) ajusta o elemento para que ele fique centralizado horizontalmente. */
     bottom: calc(115mm);
 }
-
-.cardTop p {
+.card-top p,
+.card-top-pdf p {
+    text-align: center;
     margin: 0;
     padding: 0;
     white-space: nowrap; /* Garante que o texto dentro de cada parágrafo não quebre em várias linhas */
 }
+
 
 #card-pdf {
     position: absolute;
@@ -193,7 +201,12 @@ legend {
     font-family: 'Courier New', Courier, monospace;
 }
 
-#bib {
+#card-bottom p {
+text-align: center;
+    white-space: nowrap;
+}
+
+#card-bottom-pdf {
     position: absolute;
     bottom: 0;
     /* distância entre a parte inferior de #bib e a parte inferior do contêiner pai */
@@ -206,8 +219,6 @@ legend {
     e translateX(-50%) ajusta o elemento para que ele fique centralizado horizontalmente. */
     top: calc(297mm - 40mm);
     white-space: nowrap; /* Garante que o texto dentro de cada parágrafo não quebre em várias linhas */
-
-
 }
 
 
