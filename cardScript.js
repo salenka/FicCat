@@ -162,6 +162,58 @@ if (maisTradutor === "sim") {
     }
 }
 
+//Contribuidores - Apresentador  
+let apresentador = "";
+if (document.getElementById("apresentador").checked) {
+    const nApresentador = document.getElementById("apresentador-nome").value.trim();
+    apresentador = ' ; apresentado por ' + nApresentador;
+}
+
+const maisapresentador = document.querySelector('input[name="apresentador-sn"]:checked')?.value;
+const qtdapresentador = document.querySelector('input[name="apresentador-qtd"]:checked')?.value;
+let apresentador2 = "";
+let apresentador3 = "";
+
+if (maisapresentador === "sim") {
+    if (qtdapresentador === "2") {
+        apresentador2 = document.getElementById("apresentador-2").value.trim();
+        apresentador2 = ' e ' + apresentador2;
+    } else if (qtdapresentador === "3") {
+        apresentador2 = document.getElementById("apresentador-2").value.trim();
+        apresentador3 = document.getElementById("apresentador-3").value.trim();
+        apresentador2 = ', ' + apresentador2;
+        apresentador3 = ' e ' + apresentador3;
+    } else {
+        apresentador2 = " ... [et al.]";
+    }
+}
+
+//Contribuidores - Prefaciador  
+let prefaciador = "";
+if (document.getElementById("prefaciador").checked) {
+    const nPrefaciador = document.getElementById("prefaciador-nome").value.trim();
+    prefaciador = ' ; prefaciado por ' + nPrefaciador;
+}
+
+const maisprefaciador = document.querySelector('input[name="prefaciador-sn"]:checked')?.value;
+const qtdprefaciador = document.querySelector('input[name="prefaciador-qtd"]:checked')?.value;
+let prefaciador2 = "";
+let prefaciador3 = "";
+
+if (maisprefaciador === "sim") {
+    if (qtdprefaciador === "2") {
+        prefaciador2 = document.getElementById("prefaciador-2").value.trim();
+        prefaciador2 = ' e ' + prefaciador2;
+    } else if (qtdprefaciador === "3") {
+        prefaciador2 = document.getElementById("prefaciador-2").value.trim();
+        prefaciador3 = document.getElementById("prefaciador-3").value.trim();
+        prefaciador2 = ', ' + prefaciador2;
+        prefaciador3 = ' e ' + prefaciador3;
+    } else {
+        prefaciador2 = " ... [et al.]";
+    }
+}
+
 //Saída da função getRespInt
 
 let entradaPrincipal = `\n${autorEntrada}${entidade}${evento}`;
@@ -179,7 +231,7 @@ if (edicaoPresente && respInt === "pessoa" || edicaoPresente && respInt === "ent
     areaResponsabilidade = " / ";
 }
 
-areaResponsabilidade += `${entidade}${autor}${organizador}${coordenador}${compilador}${editor}${pessoa2}${pessoa3}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3}`;
+areaResponsabilidade += `${entidade}${autor}${organizador}${coordenador}${compilador}${editor}${pessoa2}${pessoa3}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3}${apresentador}${apresentador2}${apresentador3}${prefaciador}${prefaciador2}${prefaciador3}`;
 
 return { entradaPrincipal, areaResponsabilidade }
 }

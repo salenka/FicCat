@@ -87,6 +87,17 @@ legend {
     padding: 0;
 }
 
+.cardBorder {
+    border: 1px solid #070210;
+    /* Adiciona uma borda para visualização */
+    box-sizing: border-box;
+    /* Inclui a borda e o preenchimento no tamanho total da caixa */
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
 #licenca-section-pdf {
     display: flex;
     width: 100%;
@@ -124,7 +135,7 @@ legend {
     padding: 0;
 }
 
-#ficha-completa {
+#ficha-catalografica {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -341,11 +352,19 @@ text-align: center;
     display: none
 }
 
-#tradutor-section {
+#ilustrador-primeiro {
     display: none;
 }
 
-#ilustrador-section {
+#tradutor-primeiro {
+    display: none;
+}
+
+#apresentador-primeiro {
+    display: none;
+}
+
+#prefaciador-primeiro {
     display: none;
 }
 
@@ -382,6 +401,30 @@ text-align: center;
 }
 
 #tradutor-outro {
+    display: none;
+}
+
+#apresentador-sn {
+    display: none;
+}
+
+#apresentador-qtd {
+    display: none;
+}
+
+#apresentador-outro {
+    display: none;
+}
+
+#prefaciador-sn {
+    display: none;
+}
+
+#prefaciador-qtd {
+    display: none;
+}
+
+#prefaciador-outro {
     display: none;
 }
 
@@ -494,7 +537,7 @@ text-align: center;
     display: none;
 }
 
-#ficha-catalografica {
+#ficha-catalografica-section {
     display: none;
 }
 

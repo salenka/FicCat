@@ -266,7 +266,7 @@
                 <label for="ilustrador">ilustrador</label><br>
 
 
-                <div id="ilustrador-section">
+                <div id="ilustrador-primeiro">
                     <label for="ilustrador-nome">Nome do ilustrador *</label><br>
                     <input type="text" class="form-control" id="ilustrador-nome" name="ilustrador-nome">
                 </div>
@@ -324,7 +324,7 @@
                 <label for="tradutor">tradutor</label><br>
 
 
-                <div id="tradutor-section">
+                <div id="tradutor-primeiro">
                     <label for="tradutor-nome">Nome do tradutor *</label><br>
                     <input type="text" class="form-control" id="tradutor-nome" name="tradutor-nome">
                 </div>
@@ -341,7 +341,6 @@
                     <input type="radio" id="tradutor-nao" name="tradutor-sn" value="nao">
                     <label for="nao">Não</label><br><br />
                 </div>
-
 
                 <!-- tradutor-qtd-->
 
@@ -375,7 +374,127 @@
 
                 </div>
 
-            </div>
+            </div> <!-- fim de contribuidor-tradutor -->
+
+            <!-- APRESENTADOR -->
+
+            <div id="contribuidor-apresentador" class="form-group form-group-bordered">
+                <input type="checkbox" id="apresentador" name="contribuidor-tipo" value="apresentador">
+                <label for="apresentador">apresentador</label><br>
+
+
+                <div id="apresentador-primeiro">
+                    <label for="apresentador-nome">Nome do apresentador *</label><br>
+                    <input type="text" class="form-control" id="apresentador-nome" name="apresentador-nome">
+                </div>
+
+                <!-- apresentador-sn -->
+
+                <div id="apresentador-sn">
+
+                    <p>Existe mais de um apresentador?</p>
+
+                    <input type="radio" id="apresentador-sim" name="apresentador-sn" value="sim">
+                    <label for="sim">Sim</label>
+
+                    <input type="radio" id="apresentador-nao" name="apresentador-sn" value="nao">
+                    <label for="nao">Não</label><br><br />
+                </div>
+
+                <!-- apresentador-qtd-->
+
+                <div id="apresentador-qtd">
+                    <p>Quantos são no total?</p>
+                    <input type="radio" id="apresentador-qtd-2" name="apresentador-qtd" value="2">
+                    <label for="apresentador-qtd-2">2</label><br>
+                    <input type="radio" id="apresentador-qtd-3" name="apresentador-qtd" value="3">
+                    <label for="apresentador-qtd-3">3</label><br>
+                    <input type="radio" id="apresentador-qtd-4" name="apresentador-qtd" value="4">
+                    <label for="apresentador-qtd-4">4 ou mais</label>
+                </div>
+
+                <!-- apresentador-outro -->
+
+                <div id="apresentador-outro" class="form-group form-group-bordered">
+
+                    <div id="apresentador-segundo">
+                        <label for="apresentador-2">Segundo apresentador *</label><br>
+                        <input type="text" class="form-control" id="apresentador-2" name="apresentador-2">
+                    </div>
+
+                    <div id="apresentador-terceiro">
+                        <label for="apresentador-3">Terceiro apresentador *</label><br>
+                        <input type="text" class="form-control" id="apresentador-3" name="apresentador-3">
+                    </div>
+
+                    <div id="apresentador-quarto">
+                        <p>Não é preciso informar os outros nomes. Prossiga.</p>
+                    </div>
+
+                </div>
+
+            </div> <!-- fim de contribuidor-apresentador -->
+
+            <!-- PREFACIADOR -->
+
+            <div id="contribuidor-prefaciador" class="form-group form-group-bordered">
+                <input type="checkbox" id="prefaciador" name="contribuidor-tipo" value="prefaciador">
+                <label for="prefaciador">prefaciador</label><br>
+
+
+                <div id="prefaciador-primeiro">
+                    <label for="prefaciador-nome">Nome do prefaciador *</label><br>
+                    <input type="text" class="form-control" id="prefaciador-nome" name="prefaciador-nome">
+                </div>
+
+                <!-- prefaciador-sn -->
+
+                <div id="prefaciador-sn">
+
+                    <p>Existe mais de um prefaciador?</p>
+
+                    <input type="radio" id="prefaciador-sim" name="prefaciador-sn" value="sim">
+                    <label for="sim">Sim</label>
+
+                    <input type="radio" id="prefaciador-nao" name="prefaciador-sn" value="nao">
+                    <label for="nao">Não</label><br><br />
+                </div>
+
+                <!-- prefaciador-qtd-->
+
+                <div id="prefaciador-qtd">
+                    <p>Quantos são no total?</p>
+                    <input type="radio" id="prefaciador-qtd-2" name="prefaciador-qtd" value="2">
+                    <label for="prefaciador-qtd-2">2</label><br>
+                    <input type="radio" id="prefaciador-qtd-3" name="prefaciador-qtd" value="3">
+                    <label for="prefaciador-qtd-3">3</label><br>
+                    <input type="radio" id="prefaciador-qtd-4" name="prefaciador-qtd" value="4">
+                    <label for="prefaciador-qtd-4">4 ou mais</label>
+                </div>
+
+                <!-- prefaciador-outro -->
+
+                <div id="prefaciador-outro" class="form-group form-group-bordered">
+
+                    <div id="prefaciador-segundo">
+                        <label for="prefaciador-2">Segundo prefaciador *</label><br>
+                        <input type="text" class="form-control" id="prefaciador-2" name="prefaciador-2">
+                    </div>
+
+                    <div id="prefaciador-terceiro">
+                        <label for="prefaciador-3">Terceiro prefaciador *</label><br>
+                        <input type="text" class="form-control" id="prefaciador-3" name="prefaciador-3">
+                    </div>
+
+                    <div id="prefaciador-quarto">
+                        <p>Não é preciso informar os outros nomes. Prossiga.</p>
+                    </div>
+
+                </div>
+
+            </div> <!-- fim de contribuidor-prefaciador -->
+
+
         </fieldset> <!-- fim de contribuidores-section -->
 
         <!-- ÁREA DE PUBLICAÇÃO -->
@@ -761,29 +880,33 @@
 
 
     <!-- FICHA CATALOGRÁFICA -->
-    <div id="ficha-catalografica">
+    <div id="ficha-catalografica-section">
         <h2>Ficha Catalográfica</h2>
 
-        <div id="ficha-completa">
+        <div class="bordaFicha">
 
-            <div class="card-top">
-                <p>Dados Internacionais de Catalogação na Publicação (CIP)</p>
-                <p id="servico-aqui"></p>
+            <div id="ficha-catalografica">
+
+                <div class="card-top">
+                    <p>Dados Internacionais de Catalogação na Publicação (CIP)</p>
+                    <p id="servico-aqui"></p>
+                </div>
+
+                <div id="card" class="card-box">
+                    <p id="ficha-aqui"></p>
+                    <p id="codigos-aqui"></p>
+                </div>
+
+                <div id="card-bottom">
+                    <p id="bibliotecario-aqui"></p>
+                </div>
             </div>
 
-            <div id="card" class="card-box">
-                <p id="ficha-aqui"></p>
-                <p id="codigos-aqui"></p>
-            </div>
-
-            <div id="card-bottom">
-                <p id="bibliotecario-aqui"></p>
-            </div>
         </div>
 
         <!-- Controles de fonte -->
         <br>
-        <small>Ajuste o conteúdo da ficha catalográfica ao tamanho do quadro:</small>
+        <small>Ajuste o conteúdo da ficha para que esteja totalmente visível no espaço entre as linhas:</small>
         <div id="font-controls">
             <label for="font-select">Fonte:</label>
             <select id="font-select">
@@ -799,49 +922,51 @@
 
         <button type="button" id="btn-png" class="button">Baixar PNG</button>
 
-    
 
-    <!-- OPCIONAIS DO PDF -->
 
-    <div id="opcionais-pdf">
-        <h5>Campos opcionais para PDF</h5>
+        <!-- OPCIONAIS DO PDF -->
 
-        <!-- Licença -->
-        <fieldset id="licenca-section">
+        <div id="opcionais-pdf">
+            <h5>Campos opcionais para PDF</h5>
 
-            <div id="licenca-select">
+            <!-- Licença -->
+            <fieldset id="licenca-section">
 
-                <p>Licença Creative Commons</p>
+                <div id="licenca-select">
 
-                <!--<label for="cc-select"></label>-->
-                <select id="cc-select" name="cc-select" class="form-control">
-                    <option value="remove-license">Selecione uma licença</option>
-                    <option value="by">Atribuição (CC BY)</option>
-                    <option value="by-sa">Atribuição-CompartilhaIgual (CC BY-SA)</option>
-                    <option value="by-nd">Atribuição-SemDerivações (CC BY-ND)</option>
-                    <option value="by-nc">Atribuição-NãoComercial (CC BY-NC)</option>
-                    <option value="by-nc-sa">Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA)</option>
-                    <option value="by-nc-nd">Atribuição-NãoComercial-SemDerivações (CC BY-NC-ND)</option>
-                    <option value="cc-0">Domínio Público (CC0)</option>
-                </select>
+                    <p>Licença Creative Commons</p>
+
+                    <!--<label for="cc-select"></label>-->
+                    <select id="cc-select" name="cc-select" class="form-control">
+                        <option value="remove-license">Selecione uma licença</option>
+                        <option value="by">Atribuição (CC BY)</option>
+                        <option value="by-sa">Atribuição-CompartilhaIgual (CC BY-SA)</option>
+                        <option value="by-nd">Atribuição-SemDerivações (CC BY-ND)</option>
+                        <option value="by-nc">Atribuição-NãoComercial (CC BY-NC)</option>
+                        <option value="by-nc-sa">Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA)</option>
+                        <option value="by-nc-nd">Atribuição-NãoComercial-SemDerivações (CC BY-NC-ND)</option>
+                        <option value="cc-0">Domínio Público (CC0)</option>
+                    </select>
+                </div>
+
+            </fieldset> <!-- Fim de licenca-section-->
+
+            <!-- Créditos -->
+            <br>
+            <p>Créditos da publicação</p>
+            <div id="creditos-section">
+                <!--<label for="creditos">Créditos da publicação</label><br>-->
+                <textarea id="creditos" name="creditos" wrap="hard"></textarea>
             </div>
 
-        </fieldset> <!-- Fim de licenca-section-->
+        </div> <!-- fim de opcionais-pdf -->
 
-        <!-- Créditos -->
-        <br>
-        <p>Créditos da publicação</p>
-        <div id="creditos-section">
-            <!--<label for="creditos">Créditos da publicação</label><br>-->
-            <textarea id="creditos" name="creditos" wrap="hard"></textarea>
-        </div>
+        <!--<button type="button" id="btn-pdf" class="button">Gerar PDF</button>-->
+        <button type="button" id="btn-A4" class="button">Abrir HTML A4</button>
 
-    </div> <!-- fim de opcionais-pdf -->
 
-    <!--<button type="button" id="btn-pdf" class="button">Gerar PDF</button>-->
-    <button type="button" id="btn-A4" class="button">Abrir HTML A4</button>
 
-</div> <!-- fim de ficha-catalografica -->
+    </div> <!-- fim de ficha-catalografica-section -->
 
     <!-- PÁGINA PDF -->
 
@@ -937,7 +1062,7 @@
         </div> <!-- fim de creditos-section-pdf -->
 
 
-        <div id="ficha-completa-pdf">
+        <div id="ficha-catalografica-pdf">
 
             <div class="card-top-pdf">
                 <p>Dados Internacionais de Catalogação na Publicação (CIP)</p>

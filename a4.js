@@ -61,7 +61,7 @@ btnGerarPDF.addEventListener("click", function () {
     const content = document.getElementById("pagina-pdf");
 
     const options = {
-        filename: "ficha-catalografica",
+        filename: "ficha-catalografica-section",
         jsPDF: {
             unit: "mm",
             orientation: "portrait",

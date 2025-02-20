@@ -291,16 +291,16 @@ document.querySelectorAll('input[name="pessoa-qtd"]').forEach(radio => {
 
 document.getElementById('ilustrador').addEventListener('change', function () {
 
-    eraseAllChildTextOf('ilustrador-section');
+    eraseAllChildTextOf('ilustrador-primeiro');
 
     if (document.getElementById('ilustrador').checked) {
-        document.getElementById('ilustrador-section').style.display = 'block';
+        document.getElementById('ilustrador-primeiro').style.display = 'block';
         document.getElementById('ilustrador-sn').style.display = 'block';
 
         document.getElementById('ilustrador-nome').setAttribute('required', 'required');
 
     } else {
-        document.getElementById('ilustrador-section').style.display = 'none';
+        document.getElementById('ilustrador-primeiro').style.display = 'none';
         document.getElementById('ilustrador-sn').style.display = 'none';
         document.getElementById('ilustrador-qtd').style.display = 'none';
         document.getElementById('ilustrador-outro').style.display = 'none';
@@ -373,16 +373,16 @@ document.querySelectorAll('input[name="ilustrador-qtd"]').forEach(radio => {
 document.getElementById('tradutor').addEventListener('change', function () {
 
 
-    eraseAllChildTextOf('tradutor-section');
+    eraseAllChildTextOf('tradutor-primeiro');
 
     if (document.getElementById('tradutor').checked) {
-        document.getElementById('tradutor-section').style.display = 'block';
+        document.getElementById('tradutor-primeiro').style.display = 'block';
         document.getElementById('tradutor-sn').style.display = 'block';
 
         document.getElementById('tradutor-nome').setAttribute('required', 'required');
 
     } else {
-        document.getElementById('tradutor-section').style.display = 'none';
+        document.getElementById('tradutor-primeiro').style.display = 'none';
         document.getElementById('tradutor-sn').style.display = 'none';
         document.getElementById('tradutor-qtd').style.display = 'none';
         document.getElementById('tradutor-outro').style.display = 'none';
@@ -444,6 +444,166 @@ document.querySelectorAll('input[name="tradutor-qtd"]').forEach(radio => {
 
         } else {
             document.getElementById('tradutor-outro').style.display = 'none';
+        }
+    });
+});
+
+// CONTRIBUIDORES - APRESENTADOR
+
+document.getElementById('apresentador').addEventListener('change', function () {
+
+
+    eraseAllChildTextOf('apresentador-primeiro');
+
+    if (document.getElementById('apresentador').checked) {
+        document.getElementById('apresentador-primeiro').style.display = 'block';
+        document.getElementById('apresentador-sn').style.display = 'block';
+
+        document.getElementById('apresentador-nome').setAttribute('required', 'required');
+
+    } else {
+        document.getElementById('apresentador-primeiro').style.display = 'none';
+        document.getElementById('apresentador-sn').style.display = 'none';
+        document.getElementById('apresentador-qtd').style.display = 'none';
+        document.getElementById('apresentador-outro').style.display = 'none';
+
+        document.getElementById('apresentador-nome').removeAttribute('required', 'required');
+    }
+})
+
+//apresentador-sn
+
+document.querySelectorAll('input[name="apresentador-sn"]').forEach(radio => {
+    radio.addEventListener('change', function () {
+
+        uncheckOption('apresentador-qtd');
+        eraseAllChildTextOf('apresentador-outro');
+
+        if (document.getElementById('apresentador-sim').checked) {
+            document.getElementById('apresentador-qtd').style.display = 'block';
+        } else {
+            document.getElementById('apresentador-qtd').style.display = 'none';
+        }
+    });
+});
+
+//outro-apresentador
+
+document.querySelectorAll('input[name="apresentador-qtd"]').forEach(radio => {
+    radio.addEventListener('change', function () {
+
+        eraseAllChildTextOf('apresentador-outro');
+        removeRequiredFromAllChildTextOf('apresentador-outro');
+        document.getElementById('apresentador-outro').style.display = 'none';
+
+        if (document.getElementById('apresentador-qtd-2').checked) {
+            document.getElementById('apresentador-outro').style.display = 'block';
+
+            document.getElementById('apresentador-segundo').style.display = 'block';
+            document.getElementById('apresentador-2').setAttribute('required', 'required');
+
+            document.getElementById('apresentador-terceiro').style.display = 'none';
+            document.getElementById('apresentador-quarto').style.display = 'none';
+
+        } else if (document.getElementById('apresentador-qtd-3').checked) {
+            document.getElementById('apresentador-outro').style.display = 'block';
+
+            document.getElementById('apresentador-segundo').style.display = 'block';
+            document.getElementById('apresentador-2').setAttribute('required', 'required');
+
+            document.getElementById('apresentador-terceiro').style.display = 'block';
+            document.getElementById('apresentador-3').setAttribute('required', 'required');
+
+            document.getElementById('apresentador-quarto').style.display = 'none';
+
+        } else if (document.getElementById('apresentador-qtd-4').checked) {
+            document.getElementById('apresentador-outro').style.display = 'block';
+            document.getElementById('apresentador-segundo').style.display = 'none';
+            document.getElementById('apresentador-terceiro').style.display = 'none';
+            document.getElementById('apresentador-quarto').style.display = 'block';
+
+        } else {
+            document.getElementById('apresentador-outro').style.display = 'none';
+        }
+    });
+});
+
+// CONTRIBUIDORES - prefaciador
+
+document.getElementById('prefaciador').addEventListener('change', function () {
+
+
+    eraseAllChildTextOf('prefaciador-primeiro');
+
+    if (document.getElementById('prefaciador').checked) {
+        document.getElementById('prefaciador-primeiro').style.display = 'block';
+        document.getElementById('prefaciador-sn').style.display = 'block';
+
+        document.getElementById('prefaciador-nome').setAttribute('required', 'required');
+
+    } else {
+        document.getElementById('prefaciador-primeiro').style.display = 'none';
+        document.getElementById('prefaciador-sn').style.display = 'none';
+        document.getElementById('prefaciador-qtd').style.display = 'none';
+        document.getElementById('prefaciador-outro').style.display = 'none';
+
+        document.getElementById('prefaciador-nome').removeAttribute('required', 'required');
+    }
+})
+
+//prefaciador-sn
+
+document.querySelectorAll('input[name="prefaciador-sn"]').forEach(radio => {
+    radio.addEventListener('change', function () {
+
+        uncheckOption('prefaciador-qtd');
+        eraseAllChildTextOf('prefaciador-outro');
+
+        if (document.getElementById('prefaciador-sim').checked) {
+            document.getElementById('prefaciador-qtd').style.display = 'block';
+        } else {
+            document.getElementById('prefaciador-qtd').style.display = 'none';
+        }
+    });
+});
+
+//outro-prefaciador
+
+document.querySelectorAll('input[name="prefaciador-qtd"]').forEach(radio => {
+    radio.addEventListener('change', function () {
+
+        eraseAllChildTextOf('prefaciador-outro');
+        removeRequiredFromAllChildTextOf('prefaciador-outro');
+        document.getElementById('prefaciador-outro').style.display = 'none';
+
+        if (document.getElementById('prefaciador-qtd-2').checked) {
+            document.getElementById('prefaciador-outro').style.display = 'block';
+
+            document.getElementById('prefaciador-segundo').style.display = 'block';
+            document.getElementById('prefaciador-2').setAttribute('required', 'required');
+
+            document.getElementById('prefaciador-terceiro').style.display = 'none';
+            document.getElementById('prefaciador-quarto').style.display = 'none';
+
+        } else if (document.getElementById('prefaciador-qtd-3').checked) {
+            document.getElementById('prefaciador-outro').style.display = 'block';
+
+            document.getElementById('prefaciador-segundo').style.display = 'block';
+            document.getElementById('prefaciador-2').setAttribute('required', 'required');
+
+            document.getElementById('prefaciador-terceiro').style.display = 'block';
+            document.getElementById('prefaciador-3').setAttribute('required', 'required');
+
+            document.getElementById('prefaciador-quarto').style.display = 'none';
+
+        } else if (document.getElementById('prefaciador-qtd-4').checked) {
+            document.getElementById('prefaciador-outro').style.display = 'block';
+            document.getElementById('prefaciador-segundo').style.display = 'none';
+            document.getElementById('prefaciador-terceiro').style.display = 'none';
+            document.getElementById('prefaciador-quarto').style.display = 'block';
+
+        } else {
+            document.getElementById('prefaciador-outro').style.display = 'none';
         }
     });
 });

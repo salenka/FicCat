@@ -108,7 +108,7 @@ export function geraFicha() {
 
     // Renderização dos elementos HTML
 
-    document.getElementById("ficha-catalografica").style.display = "block";
+    document.getElementById("ficha-catalografica-section").style.display = "block";
     document.getElementById("font-controls").style.display = "block";
     document.getElementById("opcionais-pdf").style.display = "block";
    /*document.getElementById("btn-pdf").style.display = "block";*/
@@ -130,7 +130,7 @@ export function geraPDF() {
 // GERA PDF
     // Ocultação de divs
     document.getElementById('card-form').style.display = "none";
-    document.getElementById('ficha-catalografica').style.display = "none";
+    document.getElementById('ficha-catalografica-section').style.display = "none";
     document.getElementById('opcionais-pdf').style.display = "none";
     document.getElementById('pagina-pdf').style.display = "block";
 
@@ -181,7 +181,7 @@ export function geraPDF() {
     const content = document.getElementById("pagina-pdf");
 
     const options = {
-        filename: "ficha-catalografica",
+        filename: "ficha-catalografica-section",
         scrollX: 0, //sem no A4.html
         scrollY: 0, //sem no A4.html
         scale: 1,  // sem no A4.html
@@ -207,7 +207,7 @@ export function geraPDF() {
     setTimeout(function () {
         //document.getElementById("pagina-pdf").style.display = "none";
         document.getElementById("card-form").style.display = "block";
-        document.getElementById('ficha-catalografica').style.display = "block";
+        document.getElementById('ficha-catalografica-section').style.display = "block";
         document.getElementById("opcionais-pdf").style.display = "block";
     }, 2500);
 }
@@ -234,7 +234,7 @@ export function geraPNG() {
     document.getElementById("bibliotecario-aqui").textContent = bibliotecario;
 
     // Seleciona a div que você quer capturar
-    const content = document.getElementById('ficha-completa');
+    const content = document.getElementById('ficha-catalografica');
 
     // Usa html2canvas para capturar a div como um canvas
     html2canvas(content).then(canvas => {
@@ -244,7 +244,7 @@ export function geraPNG() {
         // Cria um link para download da imagem
         const link = document.createElement('a');
         link.href = imgData;
-        link.download = 'ficha-completa.png';
+        link.download = 'ficha-catalografica.png';
 
         // Simula o clique no link para iniciar o download
         link.click();
