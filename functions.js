@@ -107,11 +107,11 @@ export function geraFicha() {
     document.getElementById("bibliotecario-aqui").textContent = bibliotecario;
 
     // Renderização dos elementos HTML
-    
+
     document.getElementById("ficha-catalografica").style.display = "block";
     document.getElementById("font-controls").style.display = "block";
     document.getElementById("opcionais-pdf").style.display = "block";
-    document.getElementById("btn-pdf").style.display = "block";
+   /*document.getElementById("btn-pdf").style.display = "block";*/
 
     //a remoção dos itens abaixo é para que os últimos salvos não apareçam caso o usuário não acrescente nenhum elemento opcional do pdf
 
@@ -123,11 +123,11 @@ export function geraFicha() {
     localStorage.removeItem('servico');
 }
 
-
-// GERA PDF
+/* ************************************************************************************
+Esta função está indisponível enquanto não resolver o blob de html2pdf em index.html
 
 export function geraPDF() {
-
+// GERA PDF
     // Ocultação de divs
     document.getElementById('card-form').style.display = "none";
     document.getElementById('ficha-catalografica').style.display = "none";
@@ -211,6 +211,7 @@ export function geraPDF() {
         document.getElementById("opcionais-pdf").style.display = "block";
     }, 2500);
 }
+ ************************************************************************************* */
 
 // GERA PNG
 
@@ -229,26 +230,26 @@ export function geraPNG() {
     document.getElementById("ficha-aqui-pdf").style.fontSize = fontSizeInput + 'px';
     document.getElementById("codigos-aqui-pdf").textContent = codigos;
     document.getElementById("codigos-aqui-pdf").style.fontSize = (fontSizeInput - 1) + 'px';
-    document.getElementById("servico-aqui-pdf").textContent = servico;
-    document.getElementById("bibliotecario-aqui-pdf").textContent = bibliotecario;
-   
-        // Seleciona a div que você quer capturar
-        const content = document.getElementById('ficha-completa');
-    
-        // Usa html2canvas para capturar a div como um canvas
-        html2canvas(content).then(canvas => {
-            // Converte o canvas para uma imagem PNG
-            const imgData = canvas.toDataURL('image/png');
-    
-            // Cria um link para download da imagem
-            const link = document.createElement('a');
-            link.href = imgData;
-            link.download = 'ficha-completa.png';
-    
-            // Simula o clique no link para iniciar o download
-            link.click();
-        });
-    }
+    document.getElementById("servico-aqui").textContent = servico;
+    document.getElementById("bibliotecario-aqui").textContent = bibliotecario;
+
+    // Seleciona a div que você quer capturar
+    const content = document.getElementById('ficha-completa');
+
+    // Usa html2canvas para capturar a div como um canvas
+    html2canvas(content).then(canvas => {
+        // Converte o canvas para uma imagem PNG
+        const imgData = canvas.toDataURL('image/png');
+
+        // Cria um link para download da imagem
+        const link = document.createElement('a');
+        link.href = imgData;
+        link.download = 'ficha-completa.png';
+
+        // Simula o clique no link para iniciar o download
+        link.click();
+    });
+}
 
 
 

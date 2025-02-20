@@ -1,4 +1,4 @@
-import { uncheckOption, updateTipoPessoa, eraseAllChildTextOf, saveData, geraFicha, geraPDF, removeRequiredFromAllChildTextOf, setRequiredRadioFor, removeRequiredRadioFrom, geraPNG } from './functions.js';
+import { uncheckOption, updateTipoPessoa, eraseAllChildTextOf, saveData, geraFicha, removeRequiredFromAllChildTextOf, setRequiredRadioFor, removeRequiredRadioFrom, geraPNG } from './functions.js';
 import { getBibliotecario, getServico } from './cardScript.js'
 
 alert("Funcionando");
@@ -970,8 +970,10 @@ document.getElementById("btn-card").addEventListener("click", function (event) {
     }
 })
 
-// Botão Abrir PDF
+/* *********************************************************************************
+Este código está indisponível enquanto não se resolver o blob de html2pdf
 document.getElementById("btn-pdf").addEventListener("click", function (event) {
+    // Botão Abrir PDF
 
     let formIsValid = true;
 
@@ -996,6 +998,8 @@ document.getElementById("btn-pdf").addEventListener("click", function (event) {
         geraPDF();
     }
 });
+
+**************************************************************************************** */
 
 // Botão Baixar PNG
 document.getElementById("btn-png").addEventListener("click", function (event) {

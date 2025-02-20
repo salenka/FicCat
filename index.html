@@ -719,92 +719,11 @@
 
         </fieldset> <!-- fim de assuntos-section -->
 
-        <!-- BOTÃO GERAR FICHA-->
-
-        <button type="button" id="btn-card" class="button">Gerar Ficha Catalográfica</button>
-
-
     </form> <!-- fim de card-form -->
 
-    <!-- FICHA CATALOGRÁFICA -->
-
-    <div id="ficha-catalografica">
-        <h4>Ficha Catalográfica</h4>
-        <br>
-        <div id="ficha-completa">
-
-            <div class="card-top">
-                <p>Dados Internacionais de Catalogação na Publicação (CIP)</p>
-                <p id="servico-aqui"></p>
-            </div>
-
-            <div id="card" class="card-box">
-                <p id="ficha-aqui"></p>
-                <p id="codigos-aqui"></p>
-            </div>
-
-            <div id="card-bottom">
-                <p id="bibliotecario-aqui"></p>
-            </div>
-        </div>
-
-        <BR>
-
-        <!-- Controles de fonte -->
-        <br>
-        <small>Ajuste o conteúdo da ficha catalográfica ao tamanho do quadro:</small>
-        <div id="font-controls">
-            <label for="font-select">Fonte:</label>
-            <select id="font-select">
-                <option value="Arial">Arial</option>
-                <option value="Times New Roman">Times New Roman</option>
-                <option value="Courier New">Courier New</option>
-                <!-- Adicione mais opções de fonte conforme necessário -->
-            </select>
-
-            <label for="font-size">Tamanho da Fonte:</label>
-            <input type="number" id="font-size" value="14">
-        </div>
-    </div> <!-- fim de ficha-catalografica -->
-
-    <button type="button" id="btn-png" class="button">Baixar PNG</button>
-
-    <!-- OPCIONAIS DO PDF -->
-
-    <div id="opcionais-pdf">
-        <h4>Campos opcionais para PDF</h4>
-
-        <!-- Licença -->
-        <fieldset id="licenca-section">
-
-            <div id="licenca-select">
-
-                <p>Licença Creative Commons</p>
-
-                <!--<label for="cc-select"></label>-->
-                <select id="cc-select" name="cc-select" class="form-control">
-                    <option value="remove-license">Selecione uma licença</option>
-                    <option value="by">Atribuição (CC BY)</option>
-                    <option value="by-sa">Atribuição-CompartilhaIgual (CC BY-SA)</option>
-                    <option value="by-nd">Atribuição-SemDerivações (CC BY-ND)</option>
-                    <option value="by-nc">Atribuição-NãoComercial (CC BY-NC)</option>
-                    <option value="by-nc-sa">Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA)</option>
-                    <option value="by-nc-nd">Atribuição-NãoComercial-SemDerivações (CC BY-NC-ND)</option>
-                    <option value="cc-0">Domínio Público (CC0)</option>
-                </select>
-            </div>
-
-        </fieldset> <!-- Fim de licenca-section-->
-
-
-        <!-- Créditos -->
-        <br>
-        <p>Créditos da publicação</p>
-        <div id="creditos-section">
-            <!--<label for="creditos">Créditos da publicação</label><br>-->
-            <textarea id="creditos" name="creditos" wrap="hard"></textarea>
-        </div>
-
+    <!-- OPCIONAIS DA FICHA CATALOGRÁFICA -->
+    <div id="opcionais-ficha">
+        <h5>Campos opcionais para Ficha Catalográfica</h5>
         <!-- Serviço de Catalogação -->
         <br>
         <p>Identificação do serviço de catalogação</p>
@@ -834,15 +753,99 @@
 
         </div>
 
-        <button type="button" id="btn-pdf" class="button">Gerar PDF</button>
-        <button type="button" id="btn-A4" class="button">Abrir HTML A4</button>
+        <!-- BOTÃO GERAR FICHA-->
 
+        <button type="button" id="btn-card" class="button">Gerar Ficha Catalográfica</button>
+
+    </div>
+
+
+    <!-- FICHA CATALOGRÁFICA -->
+    <div id="ficha-catalografica">
+        <h2>Ficha Catalográfica</h2>
+
+        <div id="ficha-completa">
+
+            <div class="card-top">
+                <p>Dados Internacionais de Catalogação na Publicação (CIP)</p>
+                <p id="servico-aqui"></p>
+            </div>
+
+            <div id="card" class="card-box">
+                <p id="ficha-aqui"></p>
+                <p id="codigos-aqui"></p>
+            </div>
+
+            <div id="card-bottom">
+                <p id="bibliotecario-aqui"></p>
+            </div>
+        </div>
+
+        <!-- Controles de fonte -->
+        <br>
+        <small>Ajuste o conteúdo da ficha catalográfica ao tamanho do quadro:</small>
+        <div id="font-controls">
+            <label for="font-select">Fonte:</label>
+            <select id="font-select">
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+                <!-- Adicione mais opções de fonte conforme necessário -->
+            </select>
+
+            <label for="font-size">Tamanho da Fonte:</label>
+            <input type="number" id="font-size" value="14">
+        </div>
+
+        <button type="button" id="btn-png" class="button">Baixar PNG</button>
+
+    
+
+    <!-- OPCIONAIS DO PDF -->
+
+    <div id="opcionais-pdf">
+        <h5>Campos opcionais para PDF</h5>
+
+        <!-- Licença -->
+        <fieldset id="licenca-section">
+
+            <div id="licenca-select">
+
+                <p>Licença Creative Commons</p>
+
+                <!--<label for="cc-select"></label>-->
+                <select id="cc-select" name="cc-select" class="form-control">
+                    <option value="remove-license">Selecione uma licença</option>
+                    <option value="by">Atribuição (CC BY)</option>
+                    <option value="by-sa">Atribuição-CompartilhaIgual (CC BY-SA)</option>
+                    <option value="by-nd">Atribuição-SemDerivações (CC BY-ND)</option>
+                    <option value="by-nc">Atribuição-NãoComercial (CC BY-NC)</option>
+                    <option value="by-nc-sa">Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA)</option>
+                    <option value="by-nc-nd">Atribuição-NãoComercial-SemDerivações (CC BY-NC-ND)</option>
+                    <option value="cc-0">Domínio Público (CC0)</option>
+                </select>
+            </div>
+
+        </fieldset> <!-- Fim de licenca-section-->
+
+        <!-- Créditos -->
+        <br>
+        <p>Créditos da publicação</p>
+        <div id="creditos-section">
+            <!--<label for="creditos">Créditos da publicação</label><br>-->
+            <textarea id="creditos" name="creditos" wrap="hard"></textarea>
+        </div>
 
     </div> <!-- fim de opcionais-pdf -->
 
+    <!--<button type="button" id="btn-pdf" class="button">Gerar PDF</button>-->
+    <button type="button" id="btn-A4" class="button">Abrir HTML A4</button>
+
+</div> <!-- fim de ficha-catalografica -->
+
     <!-- PÁGINA PDF -->
 
-    <div id="pagina-pdf">
+    <div id="pagina-pdf" style="display: none">
 
         <div id="licenca-section-pdf">
             <!-- Inputs das licenças-->
