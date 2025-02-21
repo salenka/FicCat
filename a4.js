@@ -14,32 +14,52 @@ window.onload = function () {
 
     // Renderização da licença
 
-        // Oculta todas as divs de licença
-        document.querySelectorAll('#licenca-section-pdf > div').forEach(div => {
-            div.style.display = 'none';
-        });
+    // Oculta todas as divs de licença
+    document.querySelectorAll('#licenca-section-pdf > div').forEach(div => {
+        div.style.display = 'none';
+    });
 
-   let licenca = localStorage.getItem("licenca");
-   licenca = licenca? licenca : '';
+    let licenca = localStorage.getItem("licenca");
+    licenca = licenca ? licenca : '';
     if (licenca == 'remove-license') {
         localStorage.removeItem("licenca");
     } else if (licenca) {
         console.log(`licença escolhida: ${licenca}`)
-        
+
         const selectedDiv = document.getElementById(licenca);
         selectedDiv.style.display = 'flex'; // Altera o display para flex
         selectedDiv.style.flexDirection = 'column'; // Define a direção do flex
         selectedDiv.style.alignItems = 'center'; // Centraliza os itens
-        
+
     } else {
         console.log("Licença não selecionada")
     }
-    
+
     // Rnderização dos créditos
 
-    let creditos = localStorage.getItem('creditos');
-    creditos = JSON.parse(creditos);
-    document.getElementById("creditos-pdf").innerHTML = creditos;
+            // Inicialize o Quill
+            const quill = new Quill('#creditos-pdf', {
+                theme: 'snow',
+                modules: {
+                    toolbar: []
+                }
+            });
+
+            document.querySelector('.ql-toolbar').remove();
+            document.querySelector('.ql-tooltip').remove();
+            
+
+    // Carregar o conteúdo salvo no localStorage
+    const deltaString = localStorage.getItem('quillContent');
+    if (deltaString) {
+        // Converta a string JSON de volta para Delta
+        const delta = JSON.parse(deltaString);
+        // Defina o conteúdo no Quill
+        quill.setContents(delta);
+        alert('Conteúdo carregado!');
+    } else {
+        alert('Nenhum conteúdo salvo encontrado.');
+    }
 
     //Renderização da ficha
 

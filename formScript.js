@@ -1196,10 +1196,19 @@ document.getElementById("btn-A4").addEventListener("click", function (event) {
     localStorage.setItem('bibliotecario', getBibliotecario().bibliotecario);
     localStorage.setItem('servico', getServico().servico);
 
-    let formIsValid = true;
+    // Salva conteúdo formatado do campo Créditos
 
-    // Validação específica para os rádios bibliotecario-genero
+    const delta = quill.getContents();
+    const deltaString = JSON.stringify(delta);
+   
+    localStorage.setItem('quillContent', deltaString);
+    alert('Conteúdo dos créditos salvo!');
+
+        // Validação específica para os rádios bibliotecario-genero
+
+    let formIsValid = true;
     const bibGenero = document.querySelectorAll('input[name="bibliotecario-genero"][required]');
+
     if (bibGenero.length > 0 && !Array.from(bibGenero).some(radio => radio.checked)) {
         formIsValid = false;
         bibGenero.forEach(radio => radio.classList.add('invalid-radio'));
@@ -1243,3 +1252,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
 });
+
+// Inicialize o Quill
+const quill = new Quill('#creditos', {
+    theme: 'snow', // Tema do editor
+    modules: {
+        toolbar: [
+            ['bold', 'italic', 'underline', 'strike'], // Ferramentas de formatação
+            [{ 'align': [] }],
+            [{ 'size': [] }],
+            [{ 'list': 'ordered'}], // Listas { 'list': 'bullet' } não está funcionando
+            ['link', 'image'] // Links e imagens
+        ]
+    }
+});
+

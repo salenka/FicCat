@@ -10,6 +10,8 @@
 
     <!-- Adicione o link para o CSS do Bootstrap -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -259,6 +261,7 @@
 
         <fieldset id="contribuidores-section" class="form-group form-group-bordered">
             <p>Outros contribuidores?</p>
+            <small>Para contribuidores mencionados na página de rosto ou em destaque na publicação.</small>
 
             <!-- ILUSTRADOR -->
             <div id="contribuidor-ilustrador" class="form-group form-group-bordered">
@@ -432,8 +435,6 @@
                     </div>
 
                 </div>
-
-                <small>Para contribuidores mencionados na página de rosto ou em destaque na publicação.</small>
 
             </div> <!-- fim de contribuidor-apresentador -->
 
@@ -958,7 +959,8 @@
             <p>Créditos da publicação</p>
             <div id="creditos-section">
                 <!--<label for="creditos">Créditos da publicação</label><br>-->
-                <textarea id="creditos" name="creditos" wrap="hard"></textarea>
+                <!--<textarea id="creditos" name="creditos" wrap="hard"></textarea>-->
+                <div id="creditos" style="height: 300px;"></div>
             </div>
 
         </div> <!-- fim de opcionais-pdf -->
@@ -1088,6 +1090,7 @@
     <script type="module" src="cardScript.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/2.0.2/quill.min.js"></script>
     <footer><a href="mailto:salenka@gmail.com">
             <img src="IMG/mailto.png" alt="mailto" width="80" height="80" style="padding:10px">
         </a></mailto>
