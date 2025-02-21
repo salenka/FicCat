@@ -952,7 +952,6 @@ document.querySelectorAll('input[name="isbn-2-sn"]').forEach(radio => {
 
             document.getElementById('isbn-outro').style.display = 'block';
 
-            document.getElementById('qualificador-1').setAttribute('required', 'required');
             document.getElementById('isbn-2').setAttribute('required', 'required');
             document.getElementById('qualificador-2').setAttribute('required', 'required');
 
@@ -961,7 +960,6 @@ document.querySelectorAll('input[name="isbn-2-sn"]').forEach(radio => {
 
             document.getElementById('isbn-outro').style.display = 'none';
 
-            document.getElementById('qualificador-1').removeAttribute('required', 'required');
             document.getElementById('isbn-2').removeAttribute('required', 'required');
             document.getElementById('qualificador-2').removeAttribute('required', 'required');
         }
