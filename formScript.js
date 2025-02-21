@@ -1,8 +1,6 @@
 import { uncheckOption, updateTipoPessoa, eraseAllChildTextOf, saveData, geraFicha, removeRequiredFromAllChildTextOf, setRequiredRadioFor, removeRequiredRadioFrom, geraPNG } from './functions.js';
 import { getBibliotecario, getServico } from './cardScript.js'
 
-alert("Funcionando");
-
 // suporte
 
 document.querySelectorAll('input[name="suporte"]').forEach(radio => {
@@ -1202,7 +1200,6 @@ document.getElementById("btn-A4").addEventListener("click", function (event) {
     const deltaString = JSON.stringify(delta);
    
     localStorage.setItem('quillContent', deltaString);
-    alert('Conteúdo dos créditos salvo!');
 
         // Validação específica para os rádios bibliotecario-genero
 
@@ -1260,7 +1257,6 @@ const quill = new Quill('#creditos', {
         toolbar: [
             ['bold', 'italic', 'underline', 'strike'], // Ferramentas de formatação
             [{ 'align': [] }],
-            [{ 'size': [] }],
             [{ 'list': 'ordered'}], // Listas { 'list': 'bullet' } não está funcionando
             ['link', 'image'] // Links e imagens
         ]

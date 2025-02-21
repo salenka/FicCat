@@ -58,7 +58,7 @@ window.onload = function () {
         quill.setContents(delta);
         alert('Conteúdo carregado!');
     } else {
-        alert('Nenhum conteúdo salvo encontrado.');
+        console.log('Nenhum conteúdo para créditos encontrado.');
     }
 
     //Renderização da ficha
