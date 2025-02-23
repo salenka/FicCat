@@ -56,7 +56,7 @@ window.onload = function () {
         const delta = JSON.parse(deltaString);
         // Defina o conteúdo no Quill
         quill.setContents(delta);
-        alert('Conteúdo carregado!');
+        console.log('Conteúdo carregado!');
     } else {
         console.log('Nenhum conteúdo para créditos encontrado.');
     }

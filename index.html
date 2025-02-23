@@ -239,21 +239,19 @@
             <div id="evento-section" class="form-group form-group-bordered">
                 <label for="evento-nome">Nome do Evento *</label><br>
                 <input type="text" class="form-control" id="evento-nome" name="evento-nome">
-                <small id="evento-nome-hint" class="form-text text-muted">Informe o nome do evento sem o número da
-                    edição do evento</small><br>
+                <legend>Informe o nome do evento sem o número da edição do evento</legend><br>
 
                 <label for="evento-numero">Número da edição do evento (se houver)</label><br>
                 <input type="text" class="form-control" id="evento-numero" name="evento-numero">
-                <small id="evento-numero-hint" class="form-text text-muted">Utilize algarismos arábicos</small><br>
+                <legend>Utilize algarismos arábicos</legend><br>
 
                 <label for="evento-ano">Ano de realização do evento *</label><br>
                 <input type="text" class="form-control" id="evento-ano" name="evento-ano">
-                <small id="evento-ano-hint" class="form-text text-muted"></small><br>
+                <legend>Informe o ano usando o formato de 4 dígitos</legend><br>
 
                 <label for="evento-local">Cidade de realização do evento *</label><br>
                 <input type="text" class="form-control" id="evento-local" name="evento-local">
-                <small id="evento-local-hint" class="form-text text-muted">Se não for uma capital, informe também a
-                    sigla do estado, separada por vírgula </small>
+                <legend>Se não for uma capital, informe também a sigla do estado, separada por vírgula </legend>
             </div>
         </fieldset> <!-- Fim de resp-int-section -->
 
@@ -261,7 +259,7 @@
 
         <fieldset id="contribuidores-section" class="form-group form-group-bordered">
             <p>Outros contribuidores?</p>
-            <small>Para contribuidores mencionados na página de rosto ou em destaque na publicação.</small>
+            <legend>Para contribuidores mencionados na página de rosto ou em destaque na publicação</legend>
 
             <!-- ILUSTRADOR -->
             <div id="contribuidor-ilustrador" class="form-group form-group-bordered">
@@ -531,8 +529,7 @@
                 <input type="text" class="form-control" id="publicador-2" name="publicador-2"><br>
                 <label for="local-2">Local do publicador</label><br>
                 <input type="text" class="form-control" id="local-2" name="local-2"><br>
-                <small id="local-2-hint" class="form-text text-muted">Se diferente do local do primeiro
-                    publicador</small>
+                <legend>Se diferente do local do primeiro publicador</legend>
             </div>
 
         </fieldset> <!-- fim de publicacao-section -->
@@ -561,7 +558,7 @@
                     <div id="paginacao-romana">
                         <label for="pag-romana-qtd">Número do último numeral romano impresso *</label><br>
                         <input type="text" class="form-control" id="pag-romana-qtd" name="pag-romana-qtd">
-                        <legend>Insira apenas numerais romanos. Use letras minúsculas</legend>
+                        <legend>Insira apenas numerais romanos. Use letras minúsculas.</legend>
                     </div>
 
                     <input type="checkbox" id="pag-lamina" name="pag-outra">
@@ -848,7 +845,7 @@
         <h5>Campos opcionais para Ficha Catalográfica</h5>
         <!-- Serviço de Catalogação -->
         <br>
-        <p>Identificação do serviço de catalogação</p>
+        <p><b>Identificação do serviço de catalogação</b></p>
         <div id="servico">
             <label for="servico-nome">Nome do serviço de catalogação</label><br>
             <input type="text" class="form-control" id="servico-nome" name="servico-nome">
@@ -856,7 +853,7 @@
 
         <!-- Bibliotecário e CRB -->
         <br>
-        <p>Identificação do profisional de biblioteconomia</p>
+        <p><b>Identificação do profisional de biblioteconomia</b></p>
 
         <div id="bibliotecario-genero">
             <input type="radio" id="bib-genero-feminimo" name="bibliotecario-genero" value="feminino">
@@ -875,102 +872,107 @@
 
         </div>
 
+    </div> <!-- fim de opcionais da ficha -->
+
+    <div id="btn-card-wrapper" class="button-wrapper">
         <!-- BOTÃO GERAR FICHA-->
-
         <button type="button" id="btn-card" class="button">Gerar Ficha Catalográfica</button>
-
     </div>
-
-
+    
     <!-- FICHA CATALOGRÁFICA -->
-    <div id="ficha-catalografica-section">
-        <h2>Ficha Catalográfica</h2>
+    <div id="ficha-catalografica-section-wrapper" class="button-wrapper">
+        <div id="ficha-catalografica-section">
+            <h2>Ficha Catalográfica</h2>
 
-        <div class="bordaFicha">
+            <div class="bordaFicha">
 
-            <div id="ficha-catalografica">
+                <div id="ficha-catalografica">
 
-                <div class="card-top">
-                    <p>Dados Internacionais de Catalogação na Publicação (CIP)</p>
-                    <p id="servico-aqui"></p>
+                    <div class="card-top">
+                        <p>Dados Internacionais de Catalogação na Publicação (CIP)</p>
+                        <p id="servico-aqui"></p>
+                    </div>
+
+                    <div id="card" class="card-box">
+                        <p id="ficha-aqui"></p>
+                        <p id="codigos-aqui"></p>
+                    </div>
+
+                    <div id="card-bottom">
+                        <p id="bibliotecario-aqui"></p>
+                    </div>
                 </div>
 
-                <div id="card" class="card-box">
-                    <p id="ficha-aqui"></p>
-                    <p id="codigos-aqui"></p>
-                </div>
-
-                <div id="card-bottom">
-                    <p id="bibliotecario-aqui"></p>
-                </div>
             </div>
 
-        </div>
-
-        <!-- Controles de fonte -->
-        <br>
-        <small>Ajuste o conteúdo da ficha para que esteja totalmente visível no espaço entre as linhas:</small>
-        <div id="font-controls">
-            <label for="font-select">Fonte:</label>
-            <select id="font-select">
-                <option value="Arial">Arial</option>
-                <option value="Times New Roman">Times New Roman</option>
-                <option value="Courier New">Courier New</option>
-                <!-- Adicione mais opções de fonte conforme necessário -->
-            </select>
-
-            <label for="font-size">Tamanho da Fonte:</label>
-            <input type="number" id="font-size" value="14">
-        </div>
-
-        <button type="button" id="btn-png" class="button">Baixar PNG</button>
-
-
-
-        <!-- OPCIONAIS DO PDF -->
-
-        <div id="opcionais-pdf">
-            <h5>Campos opcionais para PDF</h5>
-
-            <!-- Licença -->
-            <fieldset id="licenca-section">
-
-                <div id="licenca-select">
-
-                    <p>Licença Creative Commons</p>
-
-                    <!--<label for="cc-select"></label>-->
-                    <select id="cc-select" name="cc-select" class="form-control">
-                        <option value="remove-license">Selecione uma licença</option>
-                        <option value="by">Atribuição (CC BY)</option>
-                        <option value="by-sa">Atribuição-CompartilhaIgual (CC BY-SA)</option>
-                        <option value="by-nd">Atribuição-SemDerivações (CC BY-ND)</option>
-                        <option value="by-nc">Atribuição-NãoComercial (CC BY-NC)</option>
-                        <option value="by-nc-sa">Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA)</option>
-                        <option value="by-nc-nd">Atribuição-NãoComercial-SemDerivações (CC BY-NC-ND)</option>
-                        <option value="cc-0">Domínio Público (CC0)</option>
-                    </select>
-                </div>
-
-            </fieldset> <!-- Fim de licenca-section-->
-
-            <!-- Créditos -->
+            <!-- Controles de fonte -->
             <br>
-            <p>Créditos da publicação</p>
-            <div id="creditos-section">
-                <!--<label for="creditos">Créditos da publicação</label><br>-->
-                <!--<textarea id="creditos" name="creditos" wrap="hard"></textarea>-->
-                <div id="creditos" style="height: 300px;"></div>
+            <legend>Ajuste o conteúdo da ficha para que esteja totalmente visível no espaço entre as linhas:</legend>
+            <div id="font-controls">
+                <label for="font-select">Fonte:</label>
+                <select id="font-select">
+                    <option value="Arial">Arial</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Courier New">Courier New</option>
+                    <!-- Adicione mais opções de fonte conforme necessário -->
+                </select>
+
+                <label for="font-size">Tamanho da Fonte:</label>
+                <input type="number" id="font-size" value="14">
             </div>
 
-        </div> <!-- fim de opcionais-pdf -->
+        </div> <!-- fim de ficha-catalografica-section -->
+    </div> <!-- fim de ficha-catalografica-section-none -->
 
+    <legend id="btn-card-legend-top">Obtenha uma imagem da ficha catalográfica</legend>
+    <div id="btn-png-wrapper" class="button-wrapper" style="margin-top: 20px; margin-bottom: 20px">
+        <!-- BOTÃO GERAR PNG-->     
+        <button type=" button" id="btn-png" class="button">Baixar imagem</button>
+    </div>
+    <legend id="btn-card-legend-bottom">ou prossiga para gerar uma página PDF</legend>
+
+    <!-- OPCIONAIS DO PDF -->
+
+    <div id="opcionais-pdf">
+        <h5>Campos opcionais para PDF</h5>
+
+        <!-- Licença -->
+        <fieldset id="licenca-section">
+
+            <div id="licenca-select">
+
+                <p>Licença Creative Commons</p>
+
+                <!--<label for="cc-select"></label>-->
+                <select id="cc-select" name="cc-select" class="form-control">
+                    <option value="remove-license">Selecione uma licença</option>
+                    <option value="by">Atribuição (CC BY)</option>
+                    <option value="by-sa">Atribuição-CompartilhaIgual (CC BY-SA)</option>
+                    <option value="by-nd">Atribuição-SemDerivações (CC BY-ND)</option>
+                    <option value="by-nc">Atribuição-NãoComercial (CC BY-NC)</option>
+                    <option value="by-nc-sa">Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA)</option>
+                    <option value="by-nc-nd">Atribuição-NãoComercial-SemDerivações (CC BY-NC-ND)</option>
+                    <option value="cc-0">Domínio Público (CC0)</option>
+                </select>
+            </div>
+
+        </fieldset> <!-- Fim de licenca-section-->
+
+        <!-- Créditos -->
+        <br>
+        <p>Créditos da publicação</p>
+        <div id="creditos-section">
+            <!--<label for="creditos">Créditos da publicação</label><br>-->
+            <!--<textarea id="creditos" name="creditos" wrap="hard"></textarea>-->
+            <div id="creditos" style="height: 300px;"></div>
+        </div>
+
+    </div> <!-- fim de opcionais-pdf -->
+
+    <div id="btn-pdf-wrapper" class="button-wrapper">
         <!--<button type="button" id="btn-pdf" class="button">Gerar PDF</button>-->
-        <button type="button" id="btn-A4" class="button">Abrir HTML A4</button>
-
-
-
-    </div> <!-- fim de ficha-catalografica-section -->
+        <button type="button" id="btn-A4" class="button">Mostrar página</button>
+    </div>
 
     <!-- PÁGINA PDF -->
 

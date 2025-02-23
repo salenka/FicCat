@@ -1054,7 +1054,7 @@ document.getElementById('bibliotecario-nome').addEventListener("change", functio
 });
 
 
-// JavaScript para limitar a quantidade máxima de linhas em #creditos
+// JavaScript para limitar a quantidade máxima de linhas em #creditos (acho que não funciona mais com Quilljs
 document.getElementById('creditos').addEventListener('input', function () {
     const maxLines = 20;
     const textarea = this;

@@ -108,10 +108,12 @@ export function geraFicha() {
 
     // Renderização dos elementos HTML
 
-    document.getElementById("ficha-catalografica-section").style.display = "block";
-    document.getElementById("font-controls").style.display = "block";
+    document.getElementById("ficha-catalografica-section-wrapper").style.display = "block";
+    document.getElementById("btn-png-wrapper").style.display = "block";
     document.getElementById("opcionais-pdf").style.display = "block";
-   /*document.getElementById("btn-pdf").style.display = "block";*/
+    document.getElementById("btn-pdf-wrapper").style.display = "block";
+    document.getElementById("btn-card-legend-top").style.display = "block";
+    document.getElementById("btn-card-legend-bottom").style.display = "block";
 
     //a remoção dos itens abaixo é para que os últimos salvos não apareçam caso o usuário não acrescente nenhum elemento opcional do pdf
 
