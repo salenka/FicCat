@@ -878,55 +878,55 @@
         <!-- BOTÃO GERAR FICHA-->
         <button type="button" id="btn-card" class="button">Gerar Ficha Catalográfica</button>
     </div>
-    
+
     <!-- FICHA CATALOGRÁFICA -->
-    <div id="ficha-catalografica-section-wrapper" class="button-wrapper">
-        <div id="ficha-catalografica-section">
-            <h2>Ficha Catalográfica</h2>
+    
+    <div id="ficha-catalografica-section">
+        <h2>Ficha Catalográfica</h2>
 
-            <div class="bordaFicha">
+        <div class="bordaFicha">
 
-                <div id="ficha-catalografica">
+            <div id="ficha-catalografica">
 
-                    <div class="card-top">
-                        <p>Dados Internacionais de Catalogação na Publicação (CIP)</p>
-                        <p id="servico-aqui"></p>
-                    </div>
-
-                    <div id="card" class="card-box">
-                        <p id="ficha-aqui"></p>
-                        <p id="codigos-aqui"></p>
-                    </div>
-
-                    <div id="card-bottom">
-                        <p id="bibliotecario-aqui"></p>
-                    </div>
+                <div class="card-top">
+                    <p>Dados Internacionais de Catalogação na Publicação (CIP)</p>
+                    <p id="servico-aqui"></p>
                 </div>
 
+                <div id="card" class="card-box">
+                    <p id="ficha-aqui"></p>
+                    <p id="codigos-aqui"></p>
+                </div>
+
+                <div id="card-bottom">
+                    <p id="bibliotecario-aqui"></p>
+                </div>
             </div>
 
-            <!-- Controles de fonte -->
-            <br>
-            <legend>Ajuste o conteúdo da ficha para que esteja totalmente visível no espaço entre as linhas:</legend>
-            <div id="font-controls">
-                <label for="font-select">Fonte:</label>
-                <select id="font-select">
-                    <option value="Arial">Arial</option>
-                    <option value="Times New Roman">Times New Roman</option>
-                    <option value="Courier New">Courier New</option>
-                    <!-- Adicione mais opções de fonte conforme necessário -->
-                </select>
+        </div>
 
-                <label for="font-size">Tamanho da Fonte:</label>
-                <input type="number" id="font-size" value="14">
-            </div>
+        <!-- Controles de fonte -->
+        <br>
+        <legend>Ajuste o conteúdo da ficha para encaixá-lo entre as linhas:</legend>
+        <div id="font-controls">
+            <label for="font-select">Fonte:</label>
+            <select id="font-select">
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+                <!-- Adicione mais opções de fonte conforme necessário -->
+            </select>
 
-        </div> <!-- fim de ficha-catalografica-section -->
-    </div> <!-- fim de ficha-catalografica-section-none -->
+            <label for="font-size">Tamanho da Fonte:</label>
+            <input type="number" id="font-size" value="14">
+        </div>
 
+    </div> <!-- fim de ficha-catalografica-section -->
+<br>
+<br>
     <legend id="btn-card-legend-top">Obtenha uma imagem da ficha catalográfica</legend>
     <div id="btn-png-wrapper" class="button-wrapper" style="margin-top: 20px; margin-bottom: 20px">
-        <!-- BOTÃO GERAR PNG-->     
+        <!-- BOTÃO GERAR PNG-->
         <button type=" button" id="btn-png" class="button">Baixar imagem</button>
     </div>
     <legend id="btn-card-legend-bottom">ou prossiga para gerar uma página PDF</legend>

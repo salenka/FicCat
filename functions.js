@@ -108,7 +108,7 @@ export function geraFicha() {
 
     // Renderização dos elementos HTML
 
-    document.getElementById("ficha-catalografica-section-wrapper").style.display = "block";
+    document.getElementById("ficha-catalografica-section").style.display = "block";
     document.getElementById("btn-png-wrapper").style.display = "block";
     document.getElementById("opcionais-pdf").style.display = "block";
     document.getElementById("btn-pdf-wrapper").style.display = "block";
