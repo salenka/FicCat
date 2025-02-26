@@ -38,49 +38,6 @@
             </div>
         </fieldset>
 
-        <!--Códigos opcionais-->
-        <fieldset id="codigos-section" class="form-group form-group-bordered">
-
-            <p>Dados para o número de chamada (opcional)</p>
-
-            <div id="codigos-ckbox">
-                <input type="checkbox" id="cdd-ckbox" name="codigos-ckbox" value="cdd">
-                <label for="cdd-ckbox">CDD</label>
-
-                <input type="checkbox" id="cdu-ckbox" name="codigos-ckbox" value="cdu">
-                <label for="cdu-ckbox">CDU</label>
-
-                <input type="checkbox" id="cutter-ckbox" name="codigos-ckbox" value="cutter">
-                <label for="cutter-ckbox">Cutter</label>
-
-                <input type="checkbox" id="pha-ckbox" name="codigos-ckbox" value="pha">
-                <label for="pha-ckbox">PHA</label>
-            </div>
-
-
-            <!--Inputs dos códigos-->
-
-            <div id="codigo-cdd">
-                <label for="cdd">CDD *</label><br>
-                <input type="text" class="form-control" id="cdd" name="cdd">
-            </div>
-
-            <div id="codigo-cdu">
-                <label for="cdu">CDU *</label><br>
-                <input type="text" class="form-control" id="cdu" name="cdu">
-            </div>
-
-            <div id="codigo-cutter">
-                <label for="cutter">Cutter *</label><br>
-                <input type="text" class="form-control" id="cutter" name="cutter">
-            </div>
-
-            <div id="codigo-pha">
-                <label for="pha">PHA *</label><br>
-                <input type="text" class="form-control" id="pha" name="pha">
-            </div>
-        </fieldset>
-
         <!-- TÍTULO E SUBTÍTULO -->
 
         <fieldset id="titulo-section" class="form-group form-group-bordered">
@@ -258,7 +215,7 @@
         <!-- CONTRIBUIDORES-->
 
         <fieldset id="contribuidores-section" class="form-group form-group-bordered">
-            <p>Outros contribuidores?</p>
+            <p>Outros contribuidores</p>
             <legend>Para contribuidores mencionados na página de rosto ou em destaque na publicação</legend>
 
             <!-- ILUSTRADOR -->
@@ -843,10 +800,56 @@
     <!-- OPCIONAIS DA FICHA CATALOGRÁFICA -->
     <div id="opcionais-ficha">
         <h5>Campos opcionais para Ficha Catalográfica</h5>
+
+        <!-- Códigos para número de chamada -->
+        <fieldset id="codigos-section">
+
+            <p><b>Dados para o número de chamada</b></p>
+            <div class="form-group form-group-bordered">
+                <div id="codigos-ckbox">
+                    <input type="checkbox" id="cdd-ckbox" name="codigos-ckbox" value="cdd">
+                    <label for="cdd-ckbox">CDD</label>
+
+                    <input type="checkbox" id="cdu-ckbox" name="codigos-ckbox" value="cdu">
+                    <label for="cdu-ckbox">CDU</label>
+
+                    <input type="checkbox" id="cutter-ckbox" name="codigos-ckbox" value="cutter">
+                    <label for="cutter-ckbox">Cutter</label>
+
+                    <input type="checkbox" id="pha-ckbox" name="codigos-ckbox" value="pha">
+                    <label for="pha-ckbox">PHA</label>
+                </div>
+
+
+                <!--Inputs dos códigos-->
+
+                <div id="codigo-cdd">
+                    <label for="cdd">CDD *</label><br>
+                    <input type="text" class="form-control" id="cdd" name="cdd">
+                </div>
+
+                <div id="codigo-cdu">
+                    <label for="cdu">CDU *</label><br>
+                    <input type="text" class="form-control" id="cdu" name="cdu">
+                </div>
+
+                <div id="codigo-cutter">
+                    <label for="cutter">Cutter *</label><br>
+                    <input type="text" class="form-control" id="cutter" name="cutter">
+                </div>
+
+                <div id="codigo-pha">
+                    <label for="pha">PHA *</label><br>
+                    <input type="text" class="form-control" id="pha" name="pha">
+                </div>
+
+            </div>
+        </fieldset>
+
         <!-- Serviço de Catalogação -->
         <br>
         <p><b>Identificação do serviço de catalogação</b></p>
-        <div id="servico">
+        <div id="servico" class="form-group form-group-bordered">
             <label for="servico-nome">Nome do serviço de catalogação</label><br>
             <input type="text" class="form-control" id="servico-nome" name="servico-nome">
         </div>
@@ -854,22 +857,23 @@
         <!-- Bibliotecário e CRB -->
         <br>
         <p><b>Identificação do profisional de biblioteconomia</b></p>
+        <div class="form-group form-group-bordered">
+            <div id="bibliotecario-genero">
+                <input type="radio" id="bib-genero-feminimo" name="bibliotecario-genero" value="feminino">
+                <label for="bib-genero-feminimo">Bibliotecária</label>
 
-        <div id="bibliotecario-genero">
-            <input type="radio" id="bib-genero-feminimo" name="bibliotecario-genero" value="feminino">
-            <label for="bib-genero-feminimo">Bibliotecária</label>
+                <input type="radio" id="bib-genero-masculino" name="bibliotecario-genero" value="masculino">
+                <label for="bib-genero-masculino">Bibliotecário</label><br><br />
+            </div>
 
-            <input type="radio" id="bib-genero-masculino" name="bibliotecario-genero" value="masculino">
-            <label for="bib-genero-masculino">Bibliotecário</label><br><br />
-        </div>
+            <div id="bibliotecario">
+                <label for="bibliotecario-nome">Nome completo</label><br>
+                <input type="text" class="form-control" id="bibliotecario-nome" name="bibliotecario-nome">
 
-        <div id="bibliotecario">
-            <label for="bibliotecario-nome">Nome completo</label><br>
-            <input type="text" class="form-control" id="bibliotecario-nome" name="bibliotecario-nome">
+                <label for="crb">CRB</label><br>
+                <input type="text" class="form-control" id="crb" name="crb">
 
-            <label for="crb">CRB</label><br>
-            <input type="text" class="form-control" id="crb" name="crb">
-
+            </div>
         </div>
 
     </div> <!-- fim de opcionais da ficha -->
@@ -880,7 +884,7 @@
     </div>
 
     <!-- FICHA CATALOGRÁFICA -->
-    
+
     <div id="ficha-catalografica-section">
         <h2>Ficha Catalográfica</h2>
 
@@ -922,8 +926,8 @@
         </div>
 
     </div> <!-- fim de ficha-catalografica-section -->
-<br>
-<br>
+    <br>
+    <br>
     <legend id="btn-card-legend-top">Obtenha uma imagem da ficha catalográfica</legend>
     <div id="btn-png-wrapper" class="button-wrapper" style="margin-top: 20px; margin-bottom: 20px">
         <!-- BOTÃO GERAR PNG-->
