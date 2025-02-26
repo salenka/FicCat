@@ -9,7 +9,11 @@ let titulo = document.getElementById("titulo").value.trim();
 let subtitulo = document.getElementById("subtitulo").value.trim();
 subtitulo = subtitulo ? ': ' + subtitulo : "";
 
-const areaTitulo = `${titulo}${subtitulo}`;
+let areaTitulo = `${titulo}${subtitulo}`;
+
+if (document.getElementById("digital").checked) {
+    areaTitulo = areaTitulo + " [recurso eletrônico]"
+} 
 
 return { areaTitulo }
 }
