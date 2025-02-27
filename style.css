@@ -336,10 +336,6 @@ body > legend {
     display: none;
 }
 
-#organizador-section {
-    display: none;
-}
-
 #compilador-section {
     display: none;
 }
@@ -369,6 +365,10 @@ body > legend {
 }
 
 #apresentador-primeiro {
+    display: none;
+}
+
+#organizador-primeiro {
     display: none;
 }
 
@@ -421,6 +421,18 @@ body > legend {
 }
 
 #apresentador-outro {
+    display: none;
+}
+
+#organizador-sn {
+    display: none;
+}
+
+#organizador-qtd {
+    display: none;
+}
+
+#organizador-outro {
     display: none;
 }
 
