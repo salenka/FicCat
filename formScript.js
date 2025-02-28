@@ -243,8 +243,10 @@ document.querySelectorAll('input[name="pessoa-sn"]').forEach(radio => {
 
         if (document.getElementById('sim').checked) {
             document.getElementById('pessoa-qtd').style.display = 'block';
+            setRequiredRadioFor('pessoa-qtd')
         } else {
             document.getElementById('pessoa-qtd').style.display = 'none';
+            removeRequiredRadioFrom('pessoa-qtd')
         }
     });
 });
@@ -256,7 +258,7 @@ document.querySelectorAll('input[name="pessoa-qtd"]').forEach(radio => {
 
         eraseAllChildTextOf('pessoa-outro');
         removeRequiredFromAllChildTextOf('pessoa-outro');
-        document.getElementById('pessoa-outro').style.display = 'none';
+        
 
 
         if (document.getElementById('pessoa-qtd-2').checked) {
