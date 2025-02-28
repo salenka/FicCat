@@ -1434,7 +1434,7 @@ const quill = new Quill('#creditos', {
     modules: {
         toolbar: [
             ['bold', 'italic', 'underline', 'strike'], // Ferramentas de formatação
-            [{ 'align': [] }],
+            //[{ 'align': [] }], alinhamento não está funcionando
             [{ 'list': 'ordered' }], // Listas { 'list': 'bullet' } não está funcionando
             ['link', 'image'] // Links e imagens
         ]
