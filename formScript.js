@@ -153,11 +153,16 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
         uncheckOption('pessoa-qtd');
+        removeRequiredRadioFrom('pessoa-qtd');
         uncheckOption('pessoa-sn');
+        removeRequiredRadioFrom('pessoa-sn');
         eraseAllChildTextOf('pessoa-section');
         removeRequiredFromAllChildTextOf('pessoa-section');
+        eraseAllChildTextOf('pessoa-outro');
+        removeRequiredFromAllChildTextOf('pessoa-outro');
 
         document.getElementById('contribuidor-organizador').style.display = 'block';
+        
 
         if (document.getElementById('autor').checked) {
             document.getElementById('autor-section').style.display = 'block';
@@ -231,9 +236,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'none';
             document.getElementById('pessoa-sn').style.display = 'none';
-
-            removeRequiredRadioFrom('pessoa-sn')
-
+            document.getElementById('pessoa-outro').style.display = 'none';
         }
     });
 

@@ -85,9 +85,6 @@ export function saveData(event) {
     localStorage.setItem(nome, valor);
 }
 
-
-
-
 // GERA FICHA -----------------------------------------------------------------
 
 export function geraFicha() {
@@ -123,6 +120,44 @@ export function geraFicha() {
     localStorage.removeItem('fontSizeInput');
     localStorage.removeItem('bibliotecario');
     localStorage.removeItem('servico');
+}
+
+// GERA PNG
+
+export function geraPNG() {
+
+    // Renderização da ficha
+    const ficha = JSON.parse(cs.getFicha().ficha);
+    const codigos = JSON.parse(cs.getCodigos().codigos);
+    const fontSelect = localStorage.getItem("fontSelect");
+    const fontSizeInput = localStorage.getItem("fontSizeInput");
+    const servico = cs.getServico().servico;
+    const bibliotecario = cs.getBibliotecario().bibliotecario;
+
+    document.getElementById("ficha-aqui-pdf").textContent = ficha;
+    document.getElementById("ficha-aqui-pdf").style.fontFamily = fontSelect;
+    document.getElementById("ficha-aqui-pdf").style.fontSize = fontSizeInput + 'px';
+    document.getElementById("codigos-aqui-pdf").textContent = codigos;
+    document.getElementById("codigos-aqui-pdf").style.fontSize = (fontSizeInput - 1) + 'px';
+    document.getElementById("servico-aqui").textContent = servico;
+    document.getElementById("bibliotecario-aqui").textContent = bibliotecario;
+
+    // Seleciona a div que você quer capturar
+    const content = document.getElementById('ficha-catalografica');
+
+    // Usa html2canvas para capturar a div como um canvas
+    html2canvas(content).then(canvas => {
+        // Converte o canvas para uma imagem PNG
+        const imgData = canvas.toDataURL('image/png');
+
+        // Cria um link para download da imagem
+        const link = document.createElement('a');
+        link.href = imgData;
+        link.download = 'ficha-catalografica.png';
+
+        // Simula o clique no link para iniciar o download
+        link.click();
+    });
 }
 
 /* ************************************************************************************
@@ -214,44 +249,4 @@ export function geraPDF() {
     }, 2500);
 }
  ************************************************************************************* */
-
-// GERA PNG
-
-export function geraPNG() {
-
-    // Renderização da ficha
-    const ficha = JSON.parse(cs.getFicha().ficha);
-    const codigos = JSON.parse(cs.getCodigos().codigos);
-    const fontSelect = localStorage.getItem("fontSelect");
-    const fontSizeInput = localStorage.getItem("fontSizeInput");
-    const servico = cs.getServico().servico;
-    const bibliotecario = cs.getBibliotecario().bibliotecario;
-
-    document.getElementById("ficha-aqui-pdf").textContent = ficha;
-    document.getElementById("ficha-aqui-pdf").style.fontFamily = fontSelect;
-    document.getElementById("ficha-aqui-pdf").style.fontSize = fontSizeInput + 'px';
-    document.getElementById("codigos-aqui-pdf").textContent = codigos;
-    document.getElementById("codigos-aqui-pdf").style.fontSize = (fontSizeInput - 1) + 'px';
-    document.getElementById("servico-aqui").textContent = servico;
-    document.getElementById("bibliotecario-aqui").textContent = bibliotecario;
-
-    // Seleciona a div que você quer capturar
-    const content = document.getElementById('ficha-catalografica');
-
-    // Usa html2canvas para capturar a div como um canvas
-    html2canvas(content).then(canvas => {
-        // Converte o canvas para uma imagem PNG
-        const imgData = canvas.toDataURL('image/png');
-
-        // Cria um link para download da imagem
-        const link = document.createElement('a');
-        link.href = imgData;
-        link.download = 'ficha-catalografica.png';
-
-        // Simula o clique no link para iniciar o download
-        link.click();
-    });
-}
-
-
 
