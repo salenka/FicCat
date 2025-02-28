@@ -38,49 +38,6 @@
             </div>
         </fieldset>
 
-        <!--Códigos opcionais-->
-        <fieldset id="codigos-section" class="form-group form-group-bordered">
-
-            <p>Dados para o número de chamada (opcional)</p>
-
-            <div id="codigos-ckbox">
-                <input type="checkbox" id="cdd-ckbox" name="codigos-ckbox" value="cdd">
-                <label for="cdd-ckbox">CDD</label>
-
-                <input type="checkbox" id="cdu-ckbox" name="codigos-ckbox" value="cdu">
-                <label for="cdu-ckbox">CDU</label>
-
-                <input type="checkbox" id="cutter-ckbox" name="codigos-ckbox" value="cutter">
-                <label for="cutter-ckbox">Cutter</label>
-
-                <input type="checkbox" id="pha-ckbox" name="codigos-ckbox" value="pha">
-                <label for="pha-ckbox">PHA</label>
-            </div>
-
-
-            <!--Inputs dos códigos-->
-
-            <div id="codigo-cdd">
-                <label for="cdd">CDD *</label><br>
-                <input type="text" class="form-control" id="cdd" name="cdd">
-            </div>
-
-            <div id="codigo-cdu">
-                <label for="cdu">CDU *</label><br>
-                <input type="text" class="form-control" id="cdu" name="cdu">
-            </div>
-
-            <div id="codigo-cutter">
-                <label for="cutter">Cutter *</label><br>
-                <input type="text" class="form-control" id="cutter" name="cutter">
-            </div>
-
-            <div id="codigo-pha">
-                <label for="pha">PHA *</label><br>
-                <input type="text" class="form-control" id="pha" name="pha">
-            </div>
-        </fieldset>
-
         <!-- TÍTULO E SUBTÍTULO -->
 
         <fieldset id="titulo-section" class="form-group form-group-bordered">
@@ -258,13 +215,72 @@
         <!-- CONTRIBUIDORES-->
 
         <fieldset id="contribuidores-section" class="form-group form-group-bordered">
-            <p>Outros contribuidores?</p>
+            <p>Contribuidores</p>
             <legend>Para contribuidores mencionados na página de rosto ou em destaque na publicação</legend>
+
+            <!-- APRESENTADOR -->
+
+            <div id="contribuidor-apresentador" class="form-group form-group-bordered">
+                <input type="checkbox" id="apresentador-checkbox" name="contribuidor-tipo" value="apresentador">
+                <label for="apresentador-checkbox">apresentador</label><br>
+
+
+                <div id="apresentador-primeiro">
+                    <label for="apresentador-1">Nome do apresentador *</label><br>
+                    <input type="text" class="form-control" id="apresentador-1" name="apresentador-1">
+                </div>
+
+                <!-- apresentador-sn -->
+
+                <div id="apresentador-sn">
+
+                    <p>Existe mais de um apresentador?</p>
+
+                    <input type="radio" id="apresentador-sim" name="apresentador-sn" value="sim">
+                    <label for="sim">Sim</label>
+
+                    <input type="radio" id="apresentador-nao" name="apresentador-sn" value="nao">
+                    <label for="nao">Não</label><br><br />
+                </div>
+
+                <!-- apresentador-qtd-->
+
+                <div id="apresentador-qtd">
+                    <p>Quantos são no total?</p>
+                    <input type="radio" id="apresentador-qtd-2" name="apresentador-qtd" value="2">
+                    <label for="apresentador-qtd-2">2</label><br>
+                    <input type="radio" id="apresentador-qtd-3" name="apresentador-qtd" value="3">
+                    <label for="apresentador-qtd-3">3</label><br>
+                    <input type="radio" id="apresentador-qtd-4" name="apresentador-qtd" value="4">
+                    <label for="apresentador-qtd-4">4 ou mais</label>
+                </div>
+
+                <!-- apresentador-outro -->
+
+                <div id="apresentador-outro" class="form-group form-group-bordered">
+
+                    <div id="apresentador-segundo">
+                        <label for="apresentador-2">Segundo apresentador *</label><br>
+                        <input type="text" class="form-control" id="apresentador-2" name="apresentador-2">
+                    </div>
+
+                    <div id="apresentador-terceiro">
+                        <label for="apresentador-3">Terceiro apresentador *</label><br>
+                        <input type="text" class="form-control" id="apresentador-3" name="apresentador-3">
+                    </div>
+
+                    <div id="apresentador-quarto">
+                        <p>Não é preciso informar os outros nomes. Prossiga.</p>
+                    </div>
+
+                </div>
+
+            </div> <!-- fim de contribuidor-apresentador -->
 
             <!-- ILUSTRADOR -->
             <div id="contribuidor-ilustrador" class="form-group form-group-bordered">
-                <input type="checkbox" id="ilustrador" name="contribuidor-tipo" value="ilustrador">
-                <label for="ilustrador">ilustrador</label><br>
+                <input type="checkbox" id="ilustrador-checkbox" name="contribuidor-tipo" value="ilustrador">
+                <label for="ilustrador-checkbox">ilustrador</label><br>
 
 
                 <div id="ilustrador-primeiro">
@@ -318,134 +334,76 @@
                 </div>
             </div>
 
-            <!-- TRADUTOR -->
+            <!-- ORGANIZADOR -->
 
-            <div id="contribuidor-tradutor" class="form-group form-group-bordered">
-                <input type="checkbox" id="tradutor" name="contribuidor-tipo" value="tradutor">
-                <label for="tradutor">tradutor</label><br>
+            <div id="contribuidor-organizador" class="form-group form-group-bordered">
+                <input type="checkbox" id="organizador-checkbox" name="contribuidor-tipo" value="organizador">
+                <label for="organizador-checkbox">organizador</label><br>
 
+                <div id="organizador-primeiro">
+                    <label for="organizador-1">Nome do organizador *</label><br>
+                    <input type="text" class="form-control" id="organizador-1" name="organizador-1">
+                </div> <!-- fim de organizador-primeiro-->
 
-                <div id="tradutor-primeiro">
-                    <label for="tradutor-nome">Nome do tradutor *</label><br>
-                    <input type="text" class="form-control" id="tradutor-nome" name="tradutor-nome">
-                </div>
+                <!-- organizador-sn -->
 
-                <!-- tradutor-sn -->
+                <div id="organizador-sn">
 
-                <div id="tradutor-sn">
+                    <p>Existe mais de um organizador?</p>
 
-                    <p>Existe mais de um tradutor?</p>
-
-                    <input type="radio" id="tradutor-sim" name="tradutor-sn" value="sim">
+                    <input type="radio" id="organizador-sim" name="organizador-sn" value="sim">
                     <label for="sim">Sim</label>
 
-                    <input type="radio" id="tradutor-nao" name="tradutor-sn" value="nao">
+                    <input type="radio" id="organizador-nao" name="organizador-sn" value="nao">
                     <label for="nao">Não</label><br><br />
-                </div>
+                </div> <!-- fim de organizador-sn -->
 
-                <!-- tradutor-qtd-->
+                <!-- organizador-qtd-->
 
-                <div id="tradutor-qtd">
+                <div id="organizador-qtd">
                     <p>Quantos são no total?</p>
-                    <input type="radio" id="tradutor-qtd-2" name="tradutor-qtd" value="2">
-                    <label for="tradutor-qtd-2">2</label><br>
-                    <input type="radio" id="tradutor-qtd-3" name="tradutor-qtd" value="3">
-                    <label for="tradutor-qtd-3">3</label><br>
-                    <input type="radio" id="tradutor-qtd-4" name="tradutor-qtd" value="4">
-                    <label for="tradutor-qtd-4">4 ou mais</label>
-                </div>
+                    <input type="radio" id="organizador-qtd-2" name="organizador-qtd" value="2">
+                    <label for="organizador-qtd-2">2</label><br>
+                    <input type="radio" id="organizador-qtd-3" name="organizador-qtd" value="3">
+                    <label for="organizador-qtd-3">3</label><br>
+                    <input type="radio" id="organizador-qtd-4" name="organizador-qtd" value="4">
+                    <label for="organizador-qtd-4">4 ou mais</label>
+                </div> <!-- fim de organizador-qtd -->
 
-                <!-- tradutor-outro -->
+                <!-- organizador-outro -->
 
-                <div id="tradutor-outro" class="form-group form-group-bordered">
+                <div id="organizador-outro" class="form-group form-group-bordered">
 
-                    <div id="tradutor-segundo">
-                        <label for="tradutor-2">Segundo tradutor *</label><br>
-                        <input type="text" class="form-control" id="tradutor-2" name="tradutor-2">
+                    <div id="organizador-segundo">
+                        <label for="organizador-2">Segundo organizador *</label><br>
+                        <input type="text" class="form-control" id="organizador-2" name="organizador-2">
                     </div>
 
-                    <div id="tradutor-terceiro">
-                        <label for="tradutor-3">Terceiro tradutor *</label><br>
-                        <input type="text" class="form-control" id="tradutor-3" name="tradutor-3">
+                    <div id="organizador-terceiro">
+                        <label for="organizador-3">Terceiro organizador *</label><br>
+                        <input type="text" class="form-control" id="organizador-3" name="organizador-3">
                     </div>
 
-                    <div id="tradutor-quarto">
+                    <div id="organizador-quarto">
                         <p>Não é preciso informar os outros nomes. Prossiga.</p>
                     </div>
 
-                </div>
-
-            </div> <!-- fim de contribuidor-tradutor -->
-
-            <!-- APRESENTADOR -->
-
-            <div id="contribuidor-apresentador" class="form-group form-group-bordered">
-                <input type="checkbox" id="apresentador" name="contribuidor-tipo" value="apresentador">
-                <label for="apresentador">apresentador</label><br>
+                </div> <!-- fim de organizador-outro -->
 
 
-                <div id="apresentador-primeiro">
-                    <label for="apresentador-nome">Nome do apresentador *</label><br>
-                    <input type="text" class="form-control" id="apresentador-nome" name="apresentador-nome">
-                </div>
+            </div> <!-- fim de contribuidor-organizador -->
 
-                <!-- apresentador-sn -->
-
-                <div id="apresentador-sn">
-
-                    <p>Existe mais de um apresentador?</p>
-
-                    <input type="radio" id="apresentador-sim" name="apresentador-sn" value="sim">
-                    <label for="sim">Sim</label>
-
-                    <input type="radio" id="apresentador-nao" name="apresentador-sn" value="nao">
-                    <label for="nao">Não</label><br><br />
-                </div>
-
-                <!-- apresentador-qtd-->
-
-                <div id="apresentador-qtd">
-                    <p>Quantos são no total?</p>
-                    <input type="radio" id="apresentador-qtd-2" name="apresentador-qtd" value="2">
-                    <label for="apresentador-qtd-2">2</label><br>
-                    <input type="radio" id="apresentador-qtd-3" name="apresentador-qtd" value="3">
-                    <label for="apresentador-qtd-3">3</label><br>
-                    <input type="radio" id="apresentador-qtd-4" name="apresentador-qtd" value="4">
-                    <label for="apresentador-qtd-4">4 ou mais</label>
-                </div>
-
-                <!-- apresentador-outro -->
-
-                <div id="apresentador-outro" class="form-group form-group-bordered">
-
-                    <div id="apresentador-segundo">
-                        <label for="apresentador-2">Segundo apresentador *</label><br>
-                        <input type="text" class="form-control" id="apresentador-2" name="apresentador-2">
-                    </div>
-
-                    <div id="apresentador-terceiro">
-                        <label for="apresentador-3">Terceiro apresentador *</label><br>
-                        <input type="text" class="form-control" id="apresentador-3" name="apresentador-3">
-                    </div>
-
-                    <div id="apresentador-quarto">
-                        <p>Não é preciso informar os outros nomes. Prossiga.</p>
-                    </div>
-
-                </div>
-
-            </div> <!-- fim de contribuidor-apresentador -->
 
             <!-- PREFACIADOR -->
 
             <div id="contribuidor-prefaciador" class="form-group form-group-bordered">
-                <input type="checkbox" id="prefaciador" name="contribuidor-tipo" value="prefaciador">
-                <label for="prefaciador">prefaciador</label><br>
+                <input type="checkbox" id="prefaciador-checkbox" name="contribuidor-tipo" value="prefaciador">
+                <label for="prefaciador-checkbox">prefaciador</label><br>
 
 
                 <div id="prefaciador-primeiro">
-                    <label for="prefaciador-nome">Nome do prefaciador *</label><br>
-                    <input type="text" class="form-control" id="prefaciador-nome" name="prefaciador-nome">
+                    <label for="prefaciador-1">Nome do prefaciador *</label><br>
+                    <input type="text" class="form-control" id="prefaciador-1" name="prefaciador-1">
                 </div>
 
                 <!-- prefaciador-sn -->
@@ -494,6 +452,65 @@
                 </div>
 
             </div> <!-- fim de contribuidor-prefaciador -->
+
+            <!-- TRADUTOR -->
+
+            <div id="contribuidor-tradutor" class="form-group form-group-bordered">
+                <input type="checkbox" id="tradutor-checkbox" name="contribuidor-tipo" value="tradutor">
+                <label for="tradutor-checkbox">tradutor</label><br>
+
+
+                <div id="tradutor-primeiro">
+                    <label for="tradutor-1">Nome do tradutor *</label><br>
+                    <input type="text" class="form-control" id="tradutor-1" name="tradutor-1">
+                </div>
+
+                <!-- tradutor-sn -->
+
+                <div id="tradutor-sn">
+
+                    <p>Existe mais de um tradutor?</p>
+
+                    <input type="radio" id="tradutor-sim" name="tradutor-sn" value="sim">
+                    <label for="sim">Sim</label>
+
+                    <input type="radio" id="tradutor-nao" name="tradutor-sn" value="nao">
+                    <label for="nao">Não</label><br><br />
+                </div>
+
+                <!-- tradutor-qtd-->
+
+                <div id="tradutor-qtd">
+                    <p>Quantos são no total?</p>
+                    <input type="radio" id="tradutor-qtd-2" name="tradutor-qtd" value="2">
+                    <label for="tradutor-qtd-2">2</label><br>
+                    <input type="radio" id="tradutor-qtd-3" name="tradutor-qtd" value="3">
+                    <label for="tradutor-qtd-3">3</label><br>
+                    <input type="radio" id="tradutor-qtd-4" name="tradutor-qtd" value="4">
+                    <label for="tradutor-qtd-4">4 ou mais</label>
+                </div>
+
+                <!-- tradutor-outro -->
+
+                <div id="tradutor-outro" class="form-group form-group-bordered">
+
+                    <div id="tradutor-segundo">
+                        <label for="tradutor-2">Segundo tradutor *</label><br>
+                        <input type="text" class="form-control" id="tradutor-2" name="tradutor-2">
+                    </div>
+
+                    <div id="tradutor-terceiro">
+                        <label for="tradutor-3">Terceiro tradutor *</label><br>
+                        <input type="text" class="form-control" id="tradutor-3" name="tradutor-3">
+                    </div>
+
+                    <div id="tradutor-quarto">
+                        <p>Não é preciso informar os outros nomes. Prossiga.</p>
+                    </div>
+
+                </div>
+
+            </div> <!-- fim de contribuidor-tradutor -->
 
 
         </fieldset> <!-- fim de contribuidores-section -->
@@ -843,10 +860,56 @@
     <!-- OPCIONAIS DA FICHA CATALOGRÁFICA -->
     <div id="opcionais-ficha">
         <h5>Campos opcionais para Ficha Catalográfica</h5>
+
+        <!-- Códigos para número de chamada -->
+        <fieldset id="codigos-section">
+
+            <p><b>Dados para o número de chamada</b></p>
+            <div class="form-group form-group-bordered">
+                <div id="codigos-ckbox">
+                    <input type="checkbox" id="cdd-ckbox" name="codigos-ckbox" value="cdd">
+                    <label for="cdd-ckbox">CDD</label>
+
+                    <input type="checkbox" id="cdu-ckbox" name="codigos-ckbox" value="cdu">
+                    <label for="cdu-ckbox">CDU</label>
+
+                    <input type="checkbox" id="cutter-ckbox" name="codigos-ckbox" value="cutter">
+                    <label for="cutter-ckbox">Cutter</label>
+
+                    <input type="checkbox" id="pha-ckbox" name="codigos-ckbox" value="pha">
+                    <label for="pha-ckbox">PHA</label>
+                </div>
+
+
+                <!--Inputs dos códigos-->
+
+                <div id="codigo-cdd">
+                    <label for="cdd">CDD *</label><br>
+                    <input type="text" class="form-control" id="cdd" name="cdd">
+                </div>
+
+                <div id="codigo-cdu">
+                    <label for="cdu">CDU *</label><br>
+                    <input type="text" class="form-control" id="cdu" name="cdu">
+                </div>
+
+                <div id="codigo-cutter">
+                    <label for="cutter">Cutter *</label><br>
+                    <input type="text" class="form-control" id="cutter" name="cutter">
+                </div>
+
+                <div id="codigo-pha">
+                    <label for="pha">PHA *</label><br>
+                    <input type="text" class="form-control" id="pha" name="pha">
+                </div>
+
+            </div>
+        </fieldset>
+
         <!-- Serviço de Catalogação -->
         <br>
         <p><b>Identificação do serviço de catalogação</b></p>
-        <div id="servico">
+        <div id="servico" class="form-group form-group-bordered">
             <label for="servico-nome">Nome do serviço de catalogação</label><br>
             <input type="text" class="form-control" id="servico-nome" name="servico-nome">
         </div>
@@ -854,22 +917,23 @@
         <!-- Bibliotecário e CRB -->
         <br>
         <p><b>Identificação do profisional de biblioteconomia</b></p>
+        <div class="form-group form-group-bordered">
+            <div id="bibliotecario-genero">
+                <input type="radio" id="bib-genero-feminimo" name="bibliotecario-genero" value="feminino">
+                <label for="bib-genero-feminimo">Bibliotecária</label>
 
-        <div id="bibliotecario-genero">
-            <input type="radio" id="bib-genero-feminimo" name="bibliotecario-genero" value="feminino">
-            <label for="bib-genero-feminimo">Bibliotecária</label>
+                <input type="radio" id="bib-genero-masculino" name="bibliotecario-genero" value="masculino">
+                <label for="bib-genero-masculino">Bibliotecário</label><br><br />
+            </div>
 
-            <input type="radio" id="bib-genero-masculino" name="bibliotecario-genero" value="masculino">
-            <label for="bib-genero-masculino">Bibliotecário</label><br><br />
-        </div>
+            <div id="bibliotecario">
+                <label for="bibliotecario-nome">Nome completo</label><br>
+                <input type="text" class="form-control" id="bibliotecario-nome" name="bibliotecario-nome">
 
-        <div id="bibliotecario">
-            <label for="bibliotecario-nome">Nome completo</label><br>
-            <input type="text" class="form-control" id="bibliotecario-nome" name="bibliotecario-nome">
+                <label for="crb">CRB</label><br>
+                <input type="text" class="form-control" id="crb" name="crb">
 
-            <label for="crb">CRB</label><br>
-            <input type="text" class="form-control" id="crb" name="crb">
-
+            </div>
         </div>
 
     </div> <!-- fim de opcionais da ficha -->
@@ -878,55 +942,55 @@
         <!-- BOTÃO GERAR FICHA-->
         <button type="button" id="btn-card" class="button">Gerar Ficha Catalográfica</button>
     </div>
-    
+
     <!-- FICHA CATALOGRÁFICA -->
-    <div id="ficha-catalografica-section-wrapper" class="button-wrapper">
-        <div id="ficha-catalografica-section">
-            <h2>Ficha Catalográfica</h2>
 
-            <div class="bordaFicha">
+    <div id="ficha-catalografica-section">
+        <h2>Ficha Catalográfica</h2>
 
-                <div id="ficha-catalografica">
+        <div class="bordaFicha">
 
-                    <div class="card-top">
-                        <p>Dados Internacionais de Catalogação na Publicação (CIP)</p>
-                        <p id="servico-aqui"></p>
-                    </div>
+            <div id="ficha-catalografica">
 
-                    <div id="card" class="card-box">
-                        <p id="ficha-aqui"></p>
-                        <p id="codigos-aqui"></p>
-                    </div>
-
-                    <div id="card-bottom">
-                        <p id="bibliotecario-aqui"></p>
-                    </div>
+                <div class="card-top">
+                    <p>Dados Internacionais de Catalogação na Publicação (CIP)</p>
+                    <p id="servico-aqui"></p>
                 </div>
 
+                <div id="card" class="card-box">
+                    <p id="ficha-aqui"></p>
+                    <p id="codigos-aqui"></p>
+                </div>
+
+                <div id="card-bottom">
+                    <p id="bibliotecario-aqui"></p>
+                </div>
             </div>
 
-            <!-- Controles de fonte -->
-            <br>
-            <legend>Ajuste o conteúdo da ficha para que esteja totalmente visível no espaço entre as linhas:</legend>
-            <div id="font-controls">
-                <label for="font-select">Fonte:</label>
-                <select id="font-select">
-                    <option value="Arial">Arial</option>
-                    <option value="Times New Roman">Times New Roman</option>
-                    <option value="Courier New">Courier New</option>
-                    <!-- Adicione mais opções de fonte conforme necessário -->
-                </select>
+        </div>
 
-                <label for="font-size">Tamanho da Fonte:</label>
-                <input type="number" id="font-size" value="14">
-            </div>
+        <!-- Controles de fonte -->
+        <br>
+        <legend>Ajuste o conteúdo da ficha para encaixá-lo entre as linhas:</legend>
+        <div id="font-controls">
+            <label for="font-select">Fonte:</label>
+            <select id="font-select">
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+                <!-- Adicione mais opções de fonte conforme necessário -->
+            </select>
 
-        </div> <!-- fim de ficha-catalografica-section -->
-    </div> <!-- fim de ficha-catalografica-section-none -->
+            <label for="font-size">Tamanho da Fonte:</label>
+            <input type="number" id="font-size" value="14">
+        </div>
 
+    </div> <!-- fim de ficha-catalografica-section -->
+    <br>
+    <br>
     <legend id="btn-card-legend-top">Obtenha uma imagem da ficha catalográfica</legend>
     <div id="btn-png-wrapper" class="button-wrapper" style="margin-top: 20px; margin-bottom: 20px">
-        <!-- BOTÃO GERAR PNG-->     
+        <!-- BOTÃO GERAR PNG-->
         <button type=" button" id="btn-png" class="button">Baixar imagem</button>
     </div>
     <legend id="btn-card-legend-bottom">ou prossiga para gerar uma página PDF</legend>

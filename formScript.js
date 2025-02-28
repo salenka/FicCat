@@ -285,17 +285,121 @@ document.querySelectorAll('input[name="pessoa-qtd"]').forEach(radio => {
     });
 });
 
+// CONTRIBUIDORES - APRESENTADOR
+
+document.getElementById("apresentador-checkbox").addEventListener('change', function () {
+
+    eraseAllChildTextOf('apresentador-primeiro');
+    removeRequiredFromAllChildTextOf('apresentador-primeiro');
+    eraseAllChildTextOf('apresentador-outro');
+    removeRequiredFromAllChildTextOf('apresentador-outro');
+
+    uncheckOption('apresentador-sn');
+    removeRequiredRadioFrom('apresentador-sn');
+    uncheckOption('apresentador-qtd');
+    removeRequiredRadioFrom('apresentador-qtd');
+
+    if (document.getElementById('apresentador-checkbox').checked) {
+        document.getElementById('apresentador-primeiro').style.display = 'block';
+        document.getElementById('apresentador-sn').style.display = 'block';
+
+        document.getElementById('apresentador-1').setAttribute('required', 'required');
+        setRequiredRadioFor('apresentador-sn')
+
+    } else {
+        document.getElementById('apresentador-primeiro').style.display = 'none';
+        document.getElementById('apresentador-sn').style.display = 'none';
+        document.getElementById('apresentador-qtd').style.display = 'none';
+        document.getElementById('apresentador-outro').style.display = 'none';
+
+        document.getElementById('apresentador-1').removeAttribute('required');
+        removeRequiredRadioFrom('apresentador-sn')
+    }
+})
+
+//apresentador-sn
+
+document.querySelectorAll('input[name="apresentador-sn"]').forEach(radio => {
+    radio.addEventListener('change', function () {
+
+        document.getElementById('apresentador-outro').style.display = 'none';
+        uncheckOption('apresentador-qtd');
+        removeRequiredRadioFrom('apresentador-qtd');
+        eraseAllChildTextOf('apresentador-outro');
+        removeRequiredFromAllChildTextOf('apresentador-outro');
+
+        if (document.getElementById('apresentador-sim').checked) {
+            document.getElementById('apresentador-qtd').style.display = 'block';
+            setRequiredRadioFor('apresentador-qtd');
+        } else {
+            document.getElementById('apresentador-qtd').style.display = 'none';
+            removeRequiredRadioFrom('apresentador-qtd');
+        }
+    });
+});
+
+//outro-apresentador
+
+document.querySelectorAll('input[name="apresentador-qtd"]').forEach(radio => {
+    radio.addEventListener('change', function () {
+
+        eraseAllChildTextOf('apresentador-outro');
+        removeRequiredFromAllChildTextOf('apresentador-outro');
+
+        if (document.getElementById('apresentador-qtd-2').checked) {
+            document.getElementById('apresentador-outro').style.display = 'block';
+
+            document.getElementById('apresentador-segundo').style.display = 'block';
+            document.getElementById('apresentador-2').setAttribute('required', 'required');
+
+            document.getElementById('apresentador-terceiro').style.display = 'none';
+            document.getElementById('apresentador-quarto').style.display = 'none';
+
+
+        } else if (document.getElementById('apresentador-qtd-3').checked) {
+            document.getElementById('apresentador-outro').style.display = 'block';
+
+            document.getElementById('apresentador-segundo').style.display = 'block';
+            document.getElementById('apresentador-2').setAttribute('required', 'required');
+
+            document.getElementById('apresentador-terceiro').style.display = 'block';
+            document.getElementById('apresentador-3').setAttribute('required', 'required');
+
+            document.getElementById('apresentador-quarto').style.display = 'none';
+
+        } else if (document.getElementById('apresentador-qtd-4').checked) {
+            document.getElementById('apresentador-outro').style.display = 'block'
+            document.getElementById('apresentador-segundo').style.display = 'none';
+            document.getElementById('apresentador-terceiro').style.display = 'none';
+            document.getElementById('apresentador-quarto').style.display = 'block';
+
+        } else {
+            document.getElementById('apresentador-outro').style.display = 'none';
+        }
+    });
+});
+
+
 // CONTRIBUIDORES - ILUSTRADOR
 
-document.getElementById('ilustrador').addEventListener('change', function () {
+document.getElementById("ilustrador-checkbox").addEventListener('change', function () {
 
     eraseAllChildTextOf('ilustrador-primeiro');
+    removeRequiredFromAllChildTextOf('ilustrador-primeiro');
+    eraseAllChildTextOf('ilustrador-outro');
+    removeRequiredFromAllChildTextOf('ilustrador-outro');
 
-    if (document.getElementById('ilustrador').checked) {
+    uncheckOption('ilustrador-sn');
+    removeRequiredRadioFrom('ilustrador-sn');
+    uncheckOption('ilustrador-qtd');
+    removeRequiredRadioFrom('ilustrador-qtd');
+
+    if (document.getElementById('ilustrador-checkbox').checked) {
         document.getElementById('ilustrador-primeiro').style.display = 'block';
         document.getElementById('ilustrador-sn').style.display = 'block';
 
         document.getElementById('ilustrador-nome').setAttribute('required', 'required');
+        setRequiredRadioFor('ilustrador-sn')
 
     } else {
         document.getElementById('ilustrador-primeiro').style.display = 'none';
@@ -304,6 +408,7 @@ document.getElementById('ilustrador').addEventListener('change', function () {
         document.getElementById('ilustrador-outro').style.display = 'none';
 
         document.getElementById('ilustrador-nome').removeAttribute('required');
+        removeRequiredRadioFrom('ilustrador-sn')
     }
 })
 
@@ -312,13 +417,18 @@ document.getElementById('ilustrador').addEventListener('change', function () {
 document.querySelectorAll('input[name="ilustrador-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
+        document.getElementById('ilustrador-outro').style.display = 'none';
         uncheckOption('ilustrador-qtd');
+        removeRequiredRadioFrom('ilustrador-qtd');
         eraseAllChildTextOf('ilustrador-outro');
+        removeRequiredFromAllChildTextOf('ilustrador-outro');
 
         if (document.getElementById('ilustrador-sim').checked) {
             document.getElementById('ilustrador-qtd').style.display = 'block';
+            setRequiredRadioFor('ilustrador-qtd')
         } else {
             document.getElementById('ilustrador-qtd').style.display = 'none';
+            removeRequiredRadioFrom('ilustrador-qtd')
         }
     });
 });
@@ -330,7 +440,6 @@ document.querySelectorAll('input[name="ilustrador-qtd"]').forEach(radio => {
 
         eraseAllChildTextOf('ilustrador-outro');
         removeRequiredFromAllChildTextOf('ilustrador-outro');
-        document.getElementById('ilustrador-outro').style.display = 'none'
 
         if (document.getElementById('ilustrador-qtd-2').checked) {
             document.getElementById('ilustrador-outro').style.display = 'block';
@@ -366,178 +475,120 @@ document.querySelectorAll('input[name="ilustrador-qtd"]').forEach(radio => {
     });
 });
 
-// CONTRIBUIDORES - TRADUTOR
+// CONTRIBUIDORES - ORGANIZADOR
 
-document.getElementById('tradutor').addEventListener('change', function () {
+document.getElementById("organizador-checkbox").addEventListener('change', function () {
 
+    eraseAllChildTextOf('organizador-primeiro');
+    removeRequiredFromAllChildTextOf('organizador-primeiro');
+    eraseAllChildTextOf('organizador-outro');
+    removeRequiredFromAllChildTextOf('organizador-outro');
 
-    eraseAllChildTextOf('tradutor-primeiro');
+    uncheckOption('organizador-sn');
+    removeRequiredRadioFrom('organizador-sn');
+    uncheckOption('organizador-qtd');
+    removeRequiredRadioFrom('organizador-qtd');
 
-    if (document.getElementById('tradutor').checked) {
-        document.getElementById('tradutor-primeiro').style.display = 'block';
-        document.getElementById('tradutor-sn').style.display = 'block';
+    if (document.getElementById('organizador-checkbox').checked) {
+        document.getElementById('organizador-primeiro').style.display = 'block';
+        document.getElementById('organizador-sn').style.display = 'block';
 
-        document.getElementById('tradutor-nome').setAttribute('required', 'required');
+        document.getElementById('organizador-1').setAttribute('required', 'required');
+        setRequiredRadioFor('organizador-sn')
 
     } else {
-        document.getElementById('tradutor-primeiro').style.display = 'none';
-        document.getElementById('tradutor-sn').style.display = 'none';
-        document.getElementById('tradutor-qtd').style.display = 'none';
-        document.getElementById('tradutor-outro').style.display = 'none';
+        document.getElementById('organizador-primeiro').style.display = 'none';
+        document.getElementById('organizador-sn').style.display = 'none';
+        document.getElementById('organizador-qtd').style.display = 'none';
+        document.getElementById('organizador-outro').style.display = 'none';
 
-        document.getElementById('tradutor-nome').removeAttribute('required', 'required');
+        document.getElementById('organizador-1').removeAttribute('required');
+        removeRequiredRadioFrom('organizador-sn')
     }
 })
 
-//tradutor-sn
+//organizador-sn
 
-document.querySelectorAll('input[name="tradutor-sn"]').forEach(radio => {
+document.querySelectorAll('input[name="organizador-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        uncheckOption('tradutor-qtd');
-        eraseAllChildTextOf('tradutor-outro');
+        document.getElementById('organizador-outro').style.display = 'none';
+        uncheckOption('organizador-qtd');
+        removeRequiredRadioFrom('organizador-qtd');
+        eraseAllChildTextOf('organizador-outro');
+        removeRequiredFromAllChildTextOf('organizador-outro');
 
-        if (document.getElementById('tradutor-sim').checked) {
-            document.getElementById('tradutor-qtd').style.display = 'block';
+        if (document.getElementById('organizador-sim').checked) {
+            document.getElementById('organizador-qtd').style.display = 'block';
+            setRequiredRadioFor('organizador-qtd');
         } else {
-            document.getElementById('tradutor-qtd').style.display = 'none';
+            document.getElementById('organizador-qtd').style.display = 'none';
+            removeRequiredRadioFrom('organizador-qtd');
         }
     });
 });
 
-//outro-tradutor
+//outro-organizador
 
-document.querySelectorAll('input[name="tradutor-qtd"]').forEach(radio => {
+document.querySelectorAll('input[name="organizador-qtd"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        eraseAllChildTextOf('tradutor-outro');
-        removeRequiredFromAllChildTextOf('tradutor-outro');
-        document.getElementById('tradutor-outro').style.display = 'none';
+        eraseAllChildTextOf('organizador-outro');
+        removeRequiredFromAllChildTextOf('organizador-outro');
 
-        if (document.getElementById('tradutor-qtd-2').checked) {
-            document.getElementById('tradutor-outro').style.display = 'block';
+        if (document.getElementById('organizador-qtd-2').checked) {
+            document.getElementById('organizador-outro').style.display = 'block';
 
-            document.getElementById('tradutor-segundo').style.display = 'block';
-            document.getElementById('tradutor-2').setAttribute('required', 'required');
+            document.getElementById('organizador-segundo').style.display = 'block';
+            document.getElementById('organizador-2').setAttribute('required', 'required');
 
-            document.getElementById('tradutor-terceiro').style.display = 'none';
-            document.getElementById('tradutor-quarto').style.display = 'none';
+            document.getElementById('organizador-terceiro').style.display = 'none';
+            document.getElementById('organizador-quarto').style.display = 'none';
 
-        } else if (document.getElementById('tradutor-qtd-3').checked) {
-            document.getElementById('tradutor-outro').style.display = 'block';
 
-            document.getElementById('tradutor-segundo').style.display = 'block';
-            document.getElementById('tradutor-2').setAttribute('required', 'required');
+        } else if (document.getElementById('organizador-qtd-3').checked) {
+            document.getElementById('organizador-outro').style.display = 'block';
 
-            document.getElementById('tradutor-terceiro').style.display = 'block';
-            document.getElementById('tradutor-3').setAttribute('required', 'required');
+            document.getElementById('organizador-segundo').style.display = 'block';
+            document.getElementById('organizador-2').setAttribute('required', 'required');
 
-            document.getElementById('tradutor-quarto').style.display = 'none';
+            document.getElementById('organizador-terceiro').style.display = 'block';
+            document.getElementById('organizador-3').setAttribute('required', 'required');
 
-        } else if (document.getElementById('tradutor-qtd-4').checked) {
-            document.getElementById('tradutor-outro').style.display = 'block';
-            document.getElementById('tradutor-segundo').style.display = 'none';
-            document.getElementById('tradutor-terceiro').style.display = 'none';
-            document.getElementById('tradutor-quarto').style.display = 'block';
+            document.getElementById('organizador-quarto').style.display = 'none';
+
+        } else if (document.getElementById('organizador-qtd-4').checked) {
+            document.getElementById('organizador-outro').style.display = 'block'
+            document.getElementById('organizador-segundo').style.display = 'none';
+            document.getElementById('organizador-terceiro').style.display = 'none';
+            document.getElementById('organizador-quarto').style.display = 'block';
 
         } else {
-            document.getElementById('tradutor-outro').style.display = 'none';
+            document.getElementById('organizador-outro').style.display = 'none';
         }
     });
 });
 
-// CONTRIBUIDORES - APRESENTADOR
+// CONTRIBUIDORES - PREFACIADOR
 
-document.getElementById('apresentador').addEventListener('change', function () {
-
-
-    eraseAllChildTextOf('apresentador-primeiro');
-
-    if (document.getElementById('apresentador').checked) {
-        document.getElementById('apresentador-primeiro').style.display = 'block';
-        document.getElementById('apresentador-sn').style.display = 'block';
-
-        document.getElementById('apresentador-nome').setAttribute('required', 'required');
-
-    } else {
-        document.getElementById('apresentador-primeiro').style.display = 'none';
-        document.getElementById('apresentador-sn').style.display = 'none';
-        document.getElementById('apresentador-qtd').style.display = 'none';
-        document.getElementById('apresentador-outro').style.display = 'none';
-
-        document.getElementById('apresentador-nome').removeAttribute('required', 'required');
-    }
-})
-
-//apresentador-sn
-
-document.querySelectorAll('input[name="apresentador-sn"]').forEach(radio => {
-    radio.addEventListener('change', function () {
-
-        uncheckOption('apresentador-qtd');
-        eraseAllChildTextOf('apresentador-outro');
-
-        if (document.getElementById('apresentador-sim').checked) {
-            document.getElementById('apresentador-qtd').style.display = 'block';
-        } else {
-            document.getElementById('apresentador-qtd').style.display = 'none';
-        }
-    });
-});
-
-//outro-apresentador
-
-document.querySelectorAll('input[name="apresentador-qtd"]').forEach(radio => {
-    radio.addEventListener('change', function () {
-
-        eraseAllChildTextOf('apresentador-outro');
-        removeRequiredFromAllChildTextOf('apresentador-outro');
-        document.getElementById('apresentador-outro').style.display = 'none';
-
-        if (document.getElementById('apresentador-qtd-2').checked) {
-            document.getElementById('apresentador-outro').style.display = 'block';
-
-            document.getElementById('apresentador-segundo').style.display = 'block';
-            document.getElementById('apresentador-2').setAttribute('required', 'required');
-
-            document.getElementById('apresentador-terceiro').style.display = 'none';
-            document.getElementById('apresentador-quarto').style.display = 'none';
-
-        } else if (document.getElementById('apresentador-qtd-3').checked) {
-            document.getElementById('apresentador-outro').style.display = 'block';
-
-            document.getElementById('apresentador-segundo').style.display = 'block';
-            document.getElementById('apresentador-2').setAttribute('required', 'required');
-
-            document.getElementById('apresentador-terceiro').style.display = 'block';
-            document.getElementById('apresentador-3').setAttribute('required', 'required');
-
-            document.getElementById('apresentador-quarto').style.display = 'none';
-
-        } else if (document.getElementById('apresentador-qtd-4').checked) {
-            document.getElementById('apresentador-outro').style.display = 'block';
-            document.getElementById('apresentador-segundo').style.display = 'none';
-            document.getElementById('apresentador-terceiro').style.display = 'none';
-            document.getElementById('apresentador-quarto').style.display = 'block';
-
-        } else {
-            document.getElementById('apresentador-outro').style.display = 'none';
-        }
-    });
-});
-
-// CONTRIBUIDORES - prefaciador
-
-document.getElementById('prefaciador').addEventListener('change', function () {
-
+document.getElementById("prefaciador-checkbox").addEventListener('change', function () {
 
     eraseAllChildTextOf('prefaciador-primeiro');
+    removeRequiredFromAllChildTextOf('prefaciador-primeiro');
+    eraseAllChildTextOf('prefaciador-outro');
+    removeRequiredFromAllChildTextOf('prefaciador-outro');
 
-    if (document.getElementById('prefaciador').checked) {
+    uncheckOption('prefaciador-sn');
+    removeRequiredRadioFrom('prefaciador-sn');
+    uncheckOption('prefaciador-qtd');
+    removeRequiredRadioFrom('prefaciador-qtd');
+
+    if (document.getElementById('prefaciador-checkbox').checked) {
         document.getElementById('prefaciador-primeiro').style.display = 'block';
         document.getElementById('prefaciador-sn').style.display = 'block';
 
-        document.getElementById('prefaciador-nome').setAttribute('required', 'required');
+        document.getElementById('prefaciador-1').setAttribute('required', 'required');
+        setRequiredRadioFor('prefaciador-sn')
 
     } else {
         document.getElementById('prefaciador-primeiro').style.display = 'none';
@@ -545,7 +596,8 @@ document.getElementById('prefaciador').addEventListener('change', function () {
         document.getElementById('prefaciador-qtd').style.display = 'none';
         document.getElementById('prefaciador-outro').style.display = 'none';
 
-        document.getElementById('prefaciador-nome').removeAttribute('required', 'required');
+        document.getElementById('prefaciador-1').removeAttribute('required');
+        removeRequiredRadioFrom('prefaciador-sn')
     }
 })
 
@@ -554,13 +606,18 @@ document.getElementById('prefaciador').addEventListener('change', function () {
 document.querySelectorAll('input[name="prefaciador-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
+        document.getElementById('prefaciador-outro').style.display = 'none';
         uncheckOption('prefaciador-qtd');
+        removeRequiredRadioFrom('prefaciador-qtd');
         eraseAllChildTextOf('prefaciador-outro');
+        removeRequiredFromAllChildTextOf('prefaciador-outro');
 
         if (document.getElementById('prefaciador-sim').checked) {
             document.getElementById('prefaciador-qtd').style.display = 'block';
+            setRequiredRadioFor('prefaciador-qtd');
         } else {
             document.getElementById('prefaciador-qtd').style.display = 'none';
+            removeRequiredRadioFrom('prefaciador-qtd');
         }
     });
 });
@@ -572,7 +629,6 @@ document.querySelectorAll('input[name="prefaciador-qtd"]').forEach(radio => {
 
         eraseAllChildTextOf('prefaciador-outro');
         removeRequiredFromAllChildTextOf('prefaciador-outro');
-        document.getElementById('prefaciador-outro').style.display = 'none';
 
         if (document.getElementById('prefaciador-qtd-2').checked) {
             document.getElementById('prefaciador-outro').style.display = 'block';
@@ -582,6 +638,7 @@ document.querySelectorAll('input[name="prefaciador-qtd"]').forEach(radio => {
 
             document.getElementById('prefaciador-terceiro').style.display = 'none';
             document.getElementById('prefaciador-quarto').style.display = 'none';
+
 
         } else if (document.getElementById('prefaciador-qtd-3').checked) {
             document.getElementById('prefaciador-outro').style.display = 'block';
@@ -595,13 +652,107 @@ document.querySelectorAll('input[name="prefaciador-qtd"]').forEach(radio => {
             document.getElementById('prefaciador-quarto').style.display = 'none';
 
         } else if (document.getElementById('prefaciador-qtd-4').checked) {
-            document.getElementById('prefaciador-outro').style.display = 'block';
+            document.getElementById('prefaciador-outro').style.display = 'block'
             document.getElementById('prefaciador-segundo').style.display = 'none';
             document.getElementById('prefaciador-terceiro').style.display = 'none';
             document.getElementById('prefaciador-quarto').style.display = 'block';
 
         } else {
             document.getElementById('prefaciador-outro').style.display = 'none';
+        }
+    });
+});
+
+// CONTRIBUIDORES - TRADUTOR
+
+document.getElementById("tradutor-checkbox").addEventListener('change', function () {
+
+    eraseAllChildTextOf('tradutor-primeiro');
+    removeRequiredFromAllChildTextOf('tradutor-primeiro');
+    eraseAllChildTextOf('tradutor-outro');
+    removeRequiredFromAllChildTextOf('tradutor-outro');
+
+    uncheckOption('tradutor-sn');
+    removeRequiredRadioFrom('tradutor-sn');
+    uncheckOption('tradutor-qtd');
+    removeRequiredRadioFrom('tradutor-qtd');
+
+    if (document.getElementById('tradutor-checkbox').checked) {
+        document.getElementById('tradutor-primeiro').style.display = 'block';
+        document.getElementById('tradutor-sn').style.display = 'block';
+
+        document.getElementById('tradutor-1').setAttribute('required', 'required');
+        setRequiredRadioFor('tradutor-sn')
+
+    } else {
+        document.getElementById('tradutor-primeiro').style.display = 'none';
+        document.getElementById('tradutor-sn').style.display = 'none';
+        document.getElementById('tradutor-qtd').style.display = 'none';
+        document.getElementById('tradutor-outro').style.display = 'none';
+
+        document.getElementById('tradutor-1').removeAttribute('required');
+        removeRequiredRadioFrom('tradutor-sn')
+    }
+})
+
+//tradutor-sn
+
+document.querySelectorAll('input[name="tradutor-sn"]').forEach(radio => {
+    radio.addEventListener('change', function () {
+
+        document.getElementById('tradutor-outro').style.display = 'none';
+        uncheckOption('tradutor-qtd');
+        removeRequiredRadioFrom('tradutor-qtd');
+        eraseAllChildTextOf('tradutor-outro');
+        removeRequiredFromAllChildTextOf('tradutor-outro');
+
+        if (document.getElementById('tradutor-sim').checked) {
+            document.getElementById('tradutor-qtd').style.display = 'block';
+            setRequiredRadioFor('tradutor-qtd');
+        } else {
+            document.getElementById('tradutor-qtd').style.display = 'none';
+            removeRequiredRadioFrom('tradutor-qtd');
+        }
+    });
+});
+
+//outro-tradutor
+
+document.querySelectorAll('input[name="tradutor-qtd"]').forEach(radio => {
+    radio.addEventListener('change', function () {
+
+        eraseAllChildTextOf('tradutor-outro');
+        removeRequiredFromAllChildTextOf('tradutor-outro');
+
+        if (document.getElementById('tradutor-qtd-2').checked) {
+            document.getElementById('tradutor-outro').style.display = 'block';
+
+            document.getElementById('tradutor-segundo').style.display = 'block';
+            document.getElementById('tradutor-2').setAttribute('required', 'required');
+
+            document.getElementById('tradutor-terceiro').style.display = 'none';
+            document.getElementById('tradutor-quarto').style.display = 'none';
+
+
+        } else if (document.getElementById('tradutor-qtd-3').checked) {
+            document.getElementById('tradutor-outro').style.display = 'block';
+
+            document.getElementById('tradutor-segundo').style.display = 'block';
+            document.getElementById('tradutor-2').setAttribute('required', 'required');
+
+            document.getElementById('tradutor-terceiro').style.display = 'block';
+            document.getElementById('tradutor-3').setAttribute('required', 'required');
+
+            document.getElementById('tradutor-quarto').style.display = 'none';
+
+        } else if (document.getElementById('tradutor-qtd-4').checked) {
+            document.getElementById('tradutor-outro').style.display = 'block'
+            document.getElementById('tradutor-segundo').style.display = 'none';
+            document.getElementById('tradutor-terceiro').style.display = 'none';
+            document.getElementById('tradutor-quarto').style.display = 'block';
+
+        } else {
+            document.getElementById('tradutor-outro').style.display = 'none';
         }
     });
 });
@@ -1198,10 +1349,10 @@ document.getElementById("btn-A4").addEventListener("click", function (event) {
 
     const delta = quill.getContents();
     const deltaString = JSON.stringify(delta);
-   
+
     localStorage.setItem('quillContent', deltaString);
 
-        // Validação específica para os rádios bibliotecario-genero
+    // Validação específica para os rádios bibliotecario-genero
 
     let formIsValid = true;
     const bibGenero = document.querySelectorAll('input[name="bibliotecario-genero"][required]');
@@ -1257,7 +1408,7 @@ const quill = new Quill('#creditos', {
         toolbar: [
             ['bold', 'italic', 'underline', 'strike'], // Ferramentas de formatação
             [{ 'align': [] }],
-            [{ 'list': 'ordered'}], // Listas { 'list': 'bullet' } não está funcionando
+            [{ 'list': 'ordered' }], // Listas { 'list': 'bullet' } não está funcionando
             ['link', 'image'] // Links e imagens
         ]
     }

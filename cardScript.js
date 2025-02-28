@@ -9,7 +9,11 @@ let titulo = document.getElementById("titulo").value.trim();
 let subtitulo = document.getElementById("subtitulo").value.trim();
 subtitulo = subtitulo ? ': ' + subtitulo : "";
 
-const areaTitulo = `${titulo}${subtitulo}`;
+let areaTitulo = `${titulo}${subtitulo}`;
+
+if (document.getElementById("digital").checked) {
+    areaTitulo = areaTitulo + " [recurso eletrônico]"
+} 
 
 return { areaTitulo }
 }
@@ -20,6 +24,10 @@ function getEdicao() {
 
 let edicao = document.getElementById("edicao").value.trim();
 let areaEdicao = edicao ? '. — ' + edicao + ' ed' : "";
+
+if (edicao) {
+    areaEdicao = areaEdicao + "."
+}
 
 return { areaEdicao }
 }
@@ -39,19 +47,15 @@ evento = evento ? evento : "";
 const respInt = document.querySelector('input[name="resp-int"]:checked')?.value;
 
 if (respInt === "pessoa") {
-    
+    console.log("radio pessoa selecionado");
 } else if (respInt === "entidade") {
     console.log("radio entidade selecionado");
-    //entidade = document.getElementById("entidade-nome").value.trim() || "";
-
 } else if (respInt === "evento") {
     console.log("radio evento selecionado");
-    //evento = document.getElementById("evento-nome").value.trim();
     const num = document.getElementById("evento-numero").value.trim() || "";
     const ano = document.getElementById("evento-ano").value.trim() || "";
     const local = document.getElementById("evento-local").value.trim() || "";
     evento = evento ? evento + " (" + num + ". : " + ano + " : " + local + ")" : "";
-
 }
 
 
@@ -110,9 +114,35 @@ if (maisPessoa === "sim") {
     }
 }
 
+//Contribuidores - Apresentador  
+let apresentador = "";
+if (document.getElementById("apresentador-checkbox").checked) {
+    const nApresentador = document.getElementById("apresentador-1").value.trim();
+    apresentador = ' ; apresentado por ' + nApresentador;
+}
+
+const maisApresentador = document.querySelector('input[name="apresentador-sn"]:checked')?.value;
+const qtdApresentador = document.querySelector('input[name="apresentador-qtd"]:checked')?.value;
+let apresentador2 = "";
+let apresentador3 = "";
+
+if (maisApresentador === "sim") {
+    if (qtdApresentador === "2") {
+        apresentador2 = document.getElementById("apresentador-2").value.trim();
+        apresentador2 = ' e ' + apresentador2;
+    } else if (qtdApresentador === "3") {
+        apresentador2 = document.getElementById("apresentador-2").value.trim();
+        apresentador3 = document.getElementById("apresentador-3").value.trim();
+        apresentador2 = ', ' + apresentador2;
+        apresentador3 = ' e ' + apresentador3;
+    } else {
+        apresentador2 = " ... [et al.]";
+    }
+}
+
 //Contribuidores - Ilustrador
 let ilustrador = "";
-if (document.getElementById("ilustrador").checked) {
+if (document.getElementById("ilustrador-checkbox").checked) {
     const nIlustrador = document.getElementById("ilustrador-nome").value.trim();
     ilustrador = ' ; ilustrado por ' + nIlustrador;
 }
@@ -136,10 +166,62 @@ if (maisIlustrador === "sim") {
     }
 }
 
+//Contribuidores - Organizador
+let organizador1 = "";
+if (document.getElementById("organizador-checkbox").checked) {
+    const nOrganizador = document.getElementById("organizador-1").value.trim();
+    organizador1 = ' ; organizado por ' + nOrganizador;
+}
+
+const maisOrganizador = document.querySelector('input[name="organizador-sn"]:checked')?.value;
+const qtdOrganizador = document.querySelector('input[name="organizador-qtd"]:checked')?.value;
+let organizador2 = "";
+let organizador3 = "";
+
+if (maisOrganizador === "sim") {
+    if (qtdOrganizador === "2") {
+        organizador2 = document.getElementById("organizador-2").value.trim();
+        organizador2 = ' e ' + organizador2;
+    } else if (qtdOrganizador === "3") {
+        organizador2 = document.getElementById("organizador-2").value.trim();
+        organizador3 = document.getElementById("organizador-3").value.trim();
+        organizador2 = ', ' + organizador2;
+        organizador3 = ' e ' + organizador3;
+    } else {
+        organizador2 = " ... [et al.]";
+    }
+}
+
+//Contribuidores - Prefaciador  
+let prefaciador = "";
+if (document.getElementById("prefaciador-checkbox").checked) {
+    const nPrefaciador = document.getElementById("prefaciador-1").value.trim();
+    prefaciador = ' ; prefaciado por ' + nPrefaciador;
+}
+
+const maisPrefaciador = document.querySelector('input[name="prefaciador-sn"]:checked')?.value;
+const qtdPrefaciador = document.querySelector('input[name="prefaciador-qtd"]:checked')?.value;
+let prefaciador2 = "";
+let prefaciador3 = "";
+
+if (maisPrefaciador === "sim") {
+    if (qtdPrefaciador === "2") {
+        prefaciador2 = document.getElementById("prefaciador-2").value.trim();
+        prefaciador2 = ' e ' + prefaciador2;
+    } else if (qtdPrefaciador === "3") {
+        prefaciador2 = document.getElementById("prefaciador-2").value.trim();
+        prefaciador3 = document.getElementById("prefaciador-3").value.trim();
+        prefaciador2 = ', ' + prefaciador2;
+        prefaciador3 = ' e ' + prefaciador3;
+    } else {
+        prefaciador2 = " ... [et al.]";
+    }
+}
+
 //Contribuidores - Tradutor  
 let tradutor = "";
-if (document.getElementById("tradutor").checked) {
-    const nTradutor = document.getElementById("tradutor-nome").value.trim();
+if (document.getElementById("tradutor-checkbox").checked) {
+    const nTradutor = document.getElementById("tradutor-1").value.trim();
     tradutor = ' ; traduzido por ' + nTradutor;
 }
 
@@ -162,76 +244,28 @@ if (maisTradutor === "sim") {
     }
 }
 
-//Contribuidores - Apresentador  
-let apresentador = "";
-if (document.getElementById("apresentador").checked) {
-    const nApresentador = document.getElementById("apresentador-nome").value.trim();
-    apresentador = ' ; apresentado por ' + nApresentador;
-}
-
-const maisapresentador = document.querySelector('input[name="apresentador-sn"]:checked')?.value;
-const qtdapresentador = document.querySelector('input[name="apresentador-qtd"]:checked')?.value;
-let apresentador2 = "";
-let apresentador3 = "";
-
-if (maisapresentador === "sim") {
-    if (qtdapresentador === "2") {
-        apresentador2 = document.getElementById("apresentador-2").value.trim();
-        apresentador2 = ' e ' + apresentador2;
-    } else if (qtdapresentador === "3") {
-        apresentador2 = document.getElementById("apresentador-2").value.trim();
-        apresentador3 = document.getElementById("apresentador-3").value.trim();
-        apresentador2 = ', ' + apresentador2;
-        apresentador3 = ' e ' + apresentador3;
-    } else {
-        apresentador2 = " ... [et al.]";
-    }
-}
-
-//Contribuidores - Prefaciador  
-let prefaciador = "";
-if (document.getElementById("prefaciador").checked) {
-    const nPrefaciador = document.getElementById("prefaciador-nome").value.trim();
-    prefaciador = ' ; prefaciado por ' + nPrefaciador;
-}
-
-const maisprefaciador = document.querySelector('input[name="prefaciador-sn"]:checked')?.value;
-const qtdprefaciador = document.querySelector('input[name="prefaciador-qtd"]:checked')?.value;
-let prefaciador2 = "";
-let prefaciador3 = "";
-
-if (maisprefaciador === "sim") {
-    if (qtdprefaciador === "2") {
-        prefaciador2 = document.getElementById("prefaciador-2").value.trim();
-        prefaciador2 = ' e ' + prefaciador2;
-    } else if (qtdprefaciador === "3") {
-        prefaciador2 = document.getElementById("prefaciador-2").value.trim();
-        prefaciador3 = document.getElementById("prefaciador-3").value.trim();
-        prefaciador2 = ', ' + prefaciador2;
-        prefaciador3 = ' e ' + prefaciador3;
-    } else {
-        prefaciador2 = " ... [et al.]";
-    }
-}
-
 //Saída da função getRespInt
 
-let entradaPrincipal = `\n${autorEntrada}${entidade}${evento}`;
-entradaPrincipal = entradaPrincipal ? entradaPrincipal : "s.n.";
+let entradaPrincipal = `\n${autorEntrada}${entidade}${evento}`; 
+entradaPrincipal = entradaPrincipal ? entradaPrincipal : ""; //vazio se pessoa != autor 
 
+/*
+let areaResponsabilidade = " / ";
 
-let areaResponsabilidade = "";
+const pessoaTipo = document.querySelector('input[name="pessoa-tipo"]:checked')?.value;
+const responsavel = document.querySelector('input[name="resp-int"]:checked')?.value;
 
-// Verifica se a edição está presente para adicionar o ponto após "ed" além de "/"
-const edicaoPresente = document.getElementById("edicao").value.trim();
-if (edicaoPresente && respInt === "pessoa" || edicaoPresente && respInt === "entidade") {
-    areaResponsabilidade = ". / ";
-
-} else if (!edicaoPresente && respInt === "pessoa" || !edicaoPresente && respInt === "entidade") {
-    areaResponsabilidade = " / ";
+const contribuidores = document.querySelectorAll('input[name="contribuidor-tipo"]');
+function isAnyContribuidorChecked() {
+    return Array.from(contribuidores).some(checkbox => checkbox.checked);
 }
 
-areaResponsabilidade += `${entidade}${autor}${organizador}${coordenador}${compilador}${editor}${pessoa2}${pessoa3}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3}${apresentador}${apresentador2}${apresentador3}${prefaciador}${prefaciador2}${prefaciador3}`;
+if (pessoaTipo === "anonima" &&  isAnyContribuidorChecked() || responsavel === "evento" && isAnyContribuidorChecked()) {
+    areaResponsabilidade = ""
+}
+    */
+
+let areaResponsabilidade = ` / ${entidade}${autor}${organizador}${coordenador}${compilador}${editor}${pessoa2}${pessoa3}${organizador1}${organizador2}${organizador3}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3}${apresentador}${apresentador2}${apresentador3}${prefaciador}${prefaciador2}${prefaciador3}`;
 
 return { entradaPrincipal, areaResponsabilidade }
 }
@@ -565,6 +599,7 @@ export function getFicha() {
     ficha = ficha.replace('p..', 'p.') // Elimina ponto final da área de série após abreviação p.
     ficha = ficha.replace('color..', 'color.') // Elimina de ponto final da área de série após abreviação color.
     ficha = ficha.replace('/  ; ', '/ ');
+    ficha = ficha.replace('/ .', '.');
  
     ficha = JSON.stringify(ficha);
 

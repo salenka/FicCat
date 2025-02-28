@@ -46,7 +46,6 @@ body > legend {
     width: fit-content; /* Define a largura do elemento para se ajustar ao conteúdo */
     margin-top:20px;
     margin: 0 auto; /* Centraliza o elemento horizontalmente */
-    text-align: center; /* Centraliza o texto dentro do elemento */
     display: none;
 }
 
@@ -138,7 +137,7 @@ body > legend {
     padding: 0;
 }
 
-#ficha-catalografica-section {
+#ficha-catalografica {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -337,10 +336,6 @@ body > legend {
     display: none;
 }
 
-#organizador-section {
-    display: none;
-}
-
 #compilador-section {
     display: none;
 }
@@ -370,6 +365,10 @@ body > legend {
 }
 
 #apresentador-primeiro {
+    display: none;
+}
+
+#organizador-primeiro {
     display: none;
 }
 
@@ -422,6 +421,18 @@ body > legend {
 }
 
 #apresentador-outro {
+    display: none;
+}
+
+#organizador-sn {
+    display: none;
+}
+
+#organizador-qtd {
+    display: none;
+}
+
+#organizador-outro {
     display: none;
 }
 
@@ -542,7 +553,7 @@ body > legend {
     display: none;
 }
 
-#ficha-catalografica-section-wrapper {
+#ficha-catalografica-section {
     display: none;
 }
 
