@@ -155,7 +155,9 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
         uncheckOption('pessoa-qtd');
         uncheckOption('pessoa-sn');
         eraseAllChildTextOf('pessoa-section');
-        removeRequiredFromAllChildTextOf('pessoa-section'); //motherDivId
+        removeRequiredFromAllChildTextOf('pessoa-section');
+
+        document.getElementById('contribuidor-organizador').style.display = 'block';
 
         if (document.getElementById('autor').checked) {
             document.getElementById('autor-section').style.display = 'block';
@@ -172,14 +174,22 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
 
         } else if (document.getElementById('organizador').checked) {
             document.getElementById('autor-section').style.display = 'none';
-            document.getElementById('organizador-section').style.display = 'block';//não está mostrando
+            document.getElementById('organizador-section').style.display = 'block';
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'none';
             document.getElementById('pessoa-sn').style.display = 'block';
 
             document.getElementById('organizador-nome').setAttribute('required', 'required');
-            setRequiredRadioFor('pessoa-sn')
+            setRequiredRadioFor('pessoa-sn');
+
+            document.getElementById('contribuidor-organizador').style.display = 'none';
+            eraseAllChildTextOf('contribuidor-organizador');
+            removeRequiredFromAllChildTextOf('contribuidor-organizador');
+            uncheckOption('organizador-sn');
+            uncheckOption('organizador-qtd');
+            removeRequiredRadioFrom('organizador-sn');
+            removeRequiredRadioFrom('organizador-qtd');
 
         } else if (document.getElementById('coordenador').checked) {
             document.getElementById('autor-section').style.display = 'none';
@@ -506,6 +516,8 @@ document.getElementById("organizador-checkbox").addEventListener('change', funct
         document.getElementById('organizador-1').setAttribute('required', 'required');
         setRequiredRadioFor('organizador-sn')
 
+        document.getElementById('org').style.display = 'none'; //organizador pessoa radio
+
     } else {
         document.getElementById('organizador-primeiro').style.display = 'none';
         document.getElementById('organizador-sn').style.display = 'none';
@@ -514,6 +526,8 @@ document.getElementById("organizador-checkbox").addEventListener('change', funct
 
         document.getElementById('organizador-1').removeAttribute('required');
         removeRequiredRadioFrom('organizador-sn')
+
+        document.getElementById('org').style.display = 'block'; //organizador pessoa radio
     }
 })
 
