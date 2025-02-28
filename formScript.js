@@ -165,8 +165,10 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             document.getElementById('editor-section').style.display = 'none';
             document.getElementById('pessoa-sn').style.display = 'block';
 
+
             document.getElementById('nome').setAttribute('required', 'required');
             document.getElementById('sobrenome').setAttribute('required', 'required')
+            setRequiredRadioFor('pessoa-sn')
 
         } else if (document.getElementById('organizador').checked) {
             document.getElementById('autor-section').style.display = 'none';
@@ -177,6 +179,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             document.getElementById('pessoa-sn').style.display = 'block';
 
             document.getElementById('organizador-nome').setAttribute('required', 'required');
+            setRequiredRadioFor('pessoa-sn')
 
         } else if (document.getElementById('coordenador').checked) {
             document.getElementById('autor-section').style.display = 'none';
@@ -187,6 +190,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             document.getElementById('pessoa-sn').style.display = 'block';
 
             document.getElementById('coordenador-nome').setAttribute('required', 'required');
+            setRequiredRadioFor('pessoa-sn')
 
         } else if (document.getElementById('compilador').checked) {
             document.getElementById('autor-section').style.display = 'none';
@@ -197,6 +201,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             document.getElementById('pessoa-sn').style.display = 'block';
 
             document.getElementById('compilador-nome').setAttribute('required', 'required');
+            setRequiredRadioFor('pessoa-sn')
 
         } else if (document.getElementById('editor').checked) {
             document.getElementById('autor-section').style.display = 'none';
@@ -207,6 +212,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             document.getElementById('pessoa-sn').style.display = 'block';
 
             document.getElementById('editor-nome').setAttribute('required', 'required');
+            setRequiredRadioFor('pessoa-sn')
 
         } else {
             document.getElementById('autor-section').style.display = 'none';
@@ -215,6 +221,8 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             document.getElementById('compilador-section').style.display = 'none';
             document.getElementById('editor-section').style.display = 'none';
             document.getElementById('pessoa-sn').style.display = 'none';
+
+            removeRequiredRadioFrom('pessoa-sn')
 
         }
     });
