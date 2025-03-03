@@ -49,17 +49,18 @@
             <input type="text" class="form-control" id="subtitulo" name="subtitulo">
         </fieldset>
 
-        <div id="edicao-section" class="form-group form-group-bordered">
+        <fieldset id="edicao-section" class="form-group form-group-bordered">
+            <legend>Informe a partir da segunda edição, normalmente presente na capa ou folha de rosto</legend>
 
             <label for="edicao">Número de edição</label><br>
             <input type="text" class="form-control" id="edicao" name="edicao">
             <small id="edicaoHelp" class="form-text text-muted"></small>
-        </div>
+        </fieldset>
 
         <!-- TIPO DE RESPONSÁVEL -->
 
         <fieldset id="resp-int-section" class="form-group form-group-bordered">
-
+            <legend>O responsável é normalmente o autor do livro, mas pode ser uma instituição ou evento</legend>
             <p>O principal responsável intelectual pela obra é *</p>
 
             <input type="radio" id="pessoa" name="resp-int" value="pessoa" required>
@@ -522,6 +523,7 @@
         <!-- ÁREA DE PUBLICAÇÃO -->
 
         <fieldset id="publicacao-section" class="form-group form-group-bordered">
+            <legend>Informe dados da editora ou outra instituição responsável pela publicação da obra</legend>
 
             <label for="publicador">Publicador</label><br>
             <input type="text" class="form-control" id="publicador" name="publicador"><br>
@@ -862,7 +864,7 @@
     </form> <!-- fim de card-form -->
 
     <!-- OPCIONAIS DA FICHA CATALOGRÁFICA -->
-    <div id="opcionais-ficha">
+    <fieldset id="opcionais-ficha">
         <h5>Campos opcionais para Ficha Catalográfica</h5>
 
         <!-- Códigos para número de chamada -->
@@ -940,7 +942,7 @@
             </div>
         </div>
 
-    </div> <!-- fim de opcionais da ficha -->
+    </fieldset> <!-- fim de opcionais da ficha -->
 
     <div id="btn-card-wrapper" class="button-wrapper">
         <!-- BOTÃO GERAR FICHA-->
@@ -1001,7 +1003,7 @@
 
     <!-- OPCIONAIS DO PDF -->
 
-    <div id="opcionais-pdf">
+    <fieldset id="opcionais-pdf">
         <h5>Campos opcionais para PDF</h5>
 
         <!-- Licença -->
@@ -1035,7 +1037,7 @@
             <div id="creditos" style="height: 300px;"></div>
         </div>
 
-    </div> <!-- fim de opcionais-pdf -->
+    </fieldset> <!-- fim de opcionais-pdf -->
 
     <div id="btn-pdf-wrapper" class="button-wrapper">
         <!--<button type="button" id="btn-pdf" class="button">Gerar PDF</button>-->
