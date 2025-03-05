@@ -325,12 +325,12 @@ let folhaLamina = document.getElementById("folha-lamina-qtd")?.value;
 
 
 if (paginacao_radio === "pag-num") {
-    pagNum = pagNum ? ` ${pagNum}` : ''; //essa construção só acontece quando houver um valor
+    pagNum = pagNum ? `${pagNum} p.` : '';
 } else if (paginacao_radio === "pag-sem-num") {
     if (radioCerteza === "presumida") {
-        pagNaoNum = pagNaoNum ? `[${pagNaoNum}] p.` : ''; // idem
+        pagNaoNum = pagNaoNum ? `[${pagNaoNum}] p.` : ''; 
     } else {
-        pagNaoNum = pagNaoNum ? `${pagNaoNum} p.` : ''; // idem
+        pagNaoNum = pagNaoNum ? `${pagNaoNum} p.` : ''; 
     }
 }
 
@@ -340,15 +340,12 @@ if (pagRomana_cbox) {
 
 if (pagLamina_cbox) {
     if (paginaOuFolha_radio === "pagina") {
-        pagLamina = pagLamina ? `, [${pagLamina}] p. de lâminas` : ' p.';
-        //inclui o "p." das páginas num. qdo não há input de lâminas apesar do checkbox estar marcado
+        pagLamina = pagLamina ? `, [${pagLamina}] p. de lâminas` : '';
+        
         //não vai precisar quando o preenchimento for obrigatório
     } else if (paginaOuFolha_radio === "folha") {
-        folhaLamina = folhaLamina ? ` p., [${folhaLamina}] f. de lâminas` : ''; // idem
+        folhaLamina = folhaLamina ? `, [${folhaLamina}] f. de lâminas` : ''; 
     }
-
-} else if (!pagLamina_cbox && pagNum) {
-    pagLamina = " p."; // inclui o "p.' das páginas numeradas qdo não há lâminas
 }
 
 
