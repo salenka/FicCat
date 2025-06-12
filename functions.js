@@ -6,20 +6,18 @@ import * as cs from './cardScript.js';
 export function uncheckOption(inputName) {
     const target = document.querySelector(`input[name="${inputName}"]:checked`);
 
-    // desmarca a seleção (rádio ou checkbox) que estiver marcada
-    if (target) {
+    // Desmarca todos os radios ou checkboxes marcados com esse name
+    document.querySelectorAll(`input[name="${inputName}"]:checked`).forEach(target => {
         target.checked = false;
-    }
+    });
+
     // dispara o evento 'change' nas opções com inputName
     const changeEvent = new Event('change');
-
     document.querySelectorAll(`input[name="${inputName}"]`).forEach(option => {
-        if (option) {
-            option.dispatchEvent(changeEvent);
-        } else {
-            console.error(`Elemento ${inputName} não foi encontrado.`);
-        }
-    })
+        option.dispatchEvent(changeEvent);
+    });
+
+
 }
 
 // APAGA CONTEÚDO DOS CAMPOS
