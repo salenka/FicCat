@@ -269,8 +269,10 @@ document.querySelectorAll('input[name="pessoa-sn"]').forEach(radio => {
 document.querySelectorAll('input[name="pessoa-qtd"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
+        
         eraseAllChildTextOf('pessoa-outro');
         removeRequiredFromAllChildTextOf('pessoa-outro');
+        document.getElementById('pessoa-outro').style.display = 'none';
         
 
 
