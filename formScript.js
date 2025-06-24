@@ -1254,6 +1254,52 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 
+
+// VALIDAÇÃO PARA IMPEDIR CAIXA ALTA EM TITULO E SUBTITULO
+function isAllUpper(str) {
+    const letters = str.replace(/[^a-zA-ZÀ-ÿ]/g, ''); //remove tudo o que não for letra
+    return letters.length > 0 && letters === letters.toUpperCase();
+}
+
+function validarMaiusculas() {
+    const titulo = document.getElementById('titulo');
+    const subtitulo = document.getElementById('subtitulo');
+    let tituloValido = !isAllUpper(titulo.value.trim());
+    let subtituloValido = !isAllUpper(subtitulo.value.trim());
+    const legend = document.querySelector('#titulo-section legend');
+
+    // Adiciona ou remove classe de erro individualmente
+    if (!tituloValido) {
+        titulo.classList.add('invalid-field');
+        legend.classList.add('legendRed');
+    } else {
+        titulo.classList.remove('invalid-field');
+    }
+
+    if (!subtituloValido) {
+        subtitulo.classList.add('invalid-field');
+        legend.classList.add('legendRed');
+    } else {
+        subtitulo.classList.remove('invalid-field');
+    }
+
+    if (tituloValido && subtituloValido) {
+        legend.classList.remove('legendRed');
+    }
+}
+
+document.getElementById('titulo').addEventListener('input', validarMaiusculas);
+document.getElementById('subtitulo').addEventListener('input', validarMaiusculas);
+
+// fim da validação de caixa alta
+
+
+
+
+
+
+
+
 // BOTÕES
 
 // Botão Gera Ficha

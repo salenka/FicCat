@@ -42,6 +42,12 @@ legend {
     font-size: smaller !important;
 }
 
+.legendRed {
+    font-weight: 600;
+    color:red
+    
+}
+
 body > legend {
     width: fit-content; /* Define a largura do elemento para se ajustar ao conteúdo */
     margin-top:20px;
