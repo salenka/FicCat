@@ -1253,6 +1253,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 })
 
+// PALAVRAS-CHAVE
+
+document.getElementById('tesauro').addEventListener('click', function () {
+    window.open('https://www.biblioteca.unesp.br/tesauro/vocab/index.php', '_blank');
+});
+
 // ALERTA PARA CAIXA ALTA EM TITULO E SUBTITULO
 function isAllUpper(str) {
     const letters = str.replace(/[^a-zA-ZÀ-ÿ]/g, ''); //remove tudo o que não for letra
