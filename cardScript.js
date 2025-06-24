@@ -111,6 +111,7 @@ if (maisPessoa === "sim") {
         pessoa3 = ' e ' + p3;
     } else if (qtdPessoa === "4") {
         pessoa2 = " ... [et al.]";
+        autorEntrada = "";
     }
 }
 
