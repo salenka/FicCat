@@ -1326,21 +1326,30 @@ document.getElementById('subtitulo').addEventListener('input', validarSubtitulo)
 
 // Botão Gera Ficha
 
-// valida inputs de texto
 document.getElementById("btn-card").addEventListener("click", function (event) {
 
     let formIsValid = true;
 
+    // valida inputs de texto   
+
     const requiredFields = document.querySelectorAll('input[required]:not([type="radio"]), select[required], textarea[required]');
     requiredFields.forEach(field => {
-        if (!field.checkValidity()) {
+        // Validação personalizada para Título e Subtítulo
+        if (
+            (field.id === 'titulo' && isAllUpper(field.value.trim())) ||
+            (field.id === 'subtitulo' && isAllUpper(field.value.trim()))
+        ) {
+            field.classList.add('invalid-field');
+            formIsValid = false;
+        } else if (!field.checkValidity()) {
+            // Validação padrão HTML5
             field.classList.add('invalid-field');
             formIsValid = false;
         } else {
+            // Só remove a classe se passar por todas as validações
             field.classList.remove('invalid-field');
         }
     });
-
     // valida grupos de rádio
     const radioGroups = document.querySelectorAll('input[type="radio"][required]');
     let radiosPorGrupo = {};
