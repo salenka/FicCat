@@ -162,7 +162,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
         removeRequiredFromAllChildTextOf('pessoa-outro');
 
         document.getElementById('contribuidor-organizador').style.display = 'block';
-        
+
 
         if (document.getElementById('autor').checked) {
             document.getElementById('autor-section').style.display = 'block';
@@ -269,11 +269,11 @@ document.querySelectorAll('input[name="pessoa-sn"]').forEach(radio => {
 document.querySelectorAll('input[name="pessoa-qtd"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        
+
         eraseAllChildTextOf('pessoa-outro');
         removeRequiredFromAllChildTextOf('pessoa-outro');
         document.getElementById('pessoa-outro').style.display = 'none';
-        
+
 
 
         if (document.getElementById('pessoa-qtd-2').checked) {
@@ -1253,8 +1253,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 })
 
-
-
 // ALERTA PARA CAIXA ALTA EM TITULO E SUBTITULO
 function isAllUpper(str) {
     const letters = str.replace(/[^a-zA-ZÀ-ÿ]/g, ''); //remove tudo o que não for letra
@@ -1318,12 +1316,6 @@ document.getElementById('subtitulo').addEventListener('input', validarSubtitulo)
 
 // Fim de alerta de subtítulo iniciado com maiúscula
 
-
-
-
-
-
-
 // BOTÕES
 
 // Botão Gera Ficha
@@ -1366,7 +1358,16 @@ document.getElementById("btn-card").addEventListener("click", function (event) {
         }
     });
 
-    //daqui pra baixo vale pra inputs de texto e radio tb
+    // Verifica se título ou subtítulo estão em caixa alta
+    const legend = document.querySelector('#titulo-section legend');
+    if (legend.classList.contains('legendRed')) {
+        console.log('legendRed está ativa');
+        formIsValid = false;
+    } else {
+        console.log('legendRed não está ativa');
+    }
+
+    //Se FORM inválidado por qualquer verificação acima, não enviar, do contrário, gerar ficha
 
     if (!formIsValid) {  //só executa se TRUE
         event.preventDefault(); // Impede o envio do formulário se houver campos inválidos
