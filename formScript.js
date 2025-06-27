@@ -1314,7 +1314,7 @@ function validarSubtitulo() {
     const subtitulo = document.getElementById('subtitulo').value.trim();
 
     if (inicialMaiuscula(subtitulo)) {
-        alert('Atenção! Inicie o subtítulo com maiúscula apenas se a primeira palavra for um nome próprio ou sigla. Por favor, verifique isso antes de prosseguir.');
+        alert('Atenção! Inicie o subtítulo com maiúscula apenas se a primeira palavra for um nome próprio. Por favor, verifique isso antes de prosseguir.');
     }
 }
 

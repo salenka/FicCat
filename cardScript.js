@@ -528,13 +528,13 @@ qualificador1 = qualificador1 ? ` (${qualificador1})` : "";
 isbn1 = `${isbn1}${qualificador1}`;
 
 let isbn2 = document.getElementById("isbn-2").value.trim();
-isbn2 = isbn2 ? ` ; ISBN ${isbn2}` : "";
+isbn2 = isbn2 ? `ISBN ${isbn2}` : "";
 let qualificador2 = document.getElementById("qualificador-2").value.trim();
 qualificador2 = qualificador2 ? ` (${qualificador2})` : "";
 
 isbn2 = `${isbn2}${qualificador2}`;
 
-let isbn = isbn1 + isbn2;
+let isbn = isbn1 + '\n    ' + isbn2;
 
 return { isbn };
 }
