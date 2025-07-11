@@ -1309,7 +1309,7 @@ function inicialMaiuscula(str) {
     // [a-zà-ÿ]    => segunda letra minúscula (com acento)
     return /^[A-ZÀ-Ý][a-zà-ÿ]/.test(texto);
 }
-
+/*
 function validarSubtitulo() {
     const subtitulo = document.getElementById('subtitulo').value.trim();
 
@@ -1317,6 +1317,26 @@ function validarSubtitulo() {
         alert('Atenção! Inicie o subtítulo com maiúscula apenas se a primeira palavra for um nome próprio. Por favor, verifique isso antes de prosseguir.');
     }
 }
+    */
+
+let alertaSubtitulo = false;
+
+function validarSubtitulo() {
+    const subtitulo = document.getElementById('subtitulo').value.trim();
+
+    if (inicialMaiuscula(subtitulo) && !alertaSubtitulo) {
+        alert('Atenção! Inicie o subtítulo com maiúscula apenas se a primeira palavra for um nome próprio. Por favor, verifique isso antes de prosseguir.');
+        alertaSubtitulo = true;
+    }
+}
+
+// Reseta o alerta se o campo for limpo ou corrigido
+document.getElementById('subtitulo').addEventListener('input', function() {
+    if (!inicialMaiuscula(this.value.trim())) {
+        alertaSubtitulo = false;
+    }
+});
+
 
 document.getElementById('subtitulo').addEventListener('input', validarSubtitulo);
 
